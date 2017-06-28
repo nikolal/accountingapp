@@ -6,18 +6,21 @@
     "sourceType": "module",
     "ecmaFeatures": {
         "jsx": true
-    },
+    }
   },
 
   "env": {
     "es6": true,
     "jasmine": true,
+    "jest": true,
   },
 
   "plugins": [
     "react",
     "fp"
   ],
+
+  "extends": "plugin:fp/recommended",
 
   // Map from global var to bool specifying if it can be redefined
   "globals": {
@@ -247,27 +250,27 @@
     "react/react-in-jsx-scope": 1,
     "react/self-closing-comp": 1,
     "react/wrap-multilines": 0,
-  },
 
-  // fp Plugin
-  // The following rules are made available via `fp`.
+    // fp Plugin
+    // The following rules are made available via `fp`.
 
-    "fp/no-arguments": "error",
-    "fp/no-class": "error",
-    "fp/no-delete": "error",
-    "fp/no-events": "error",
-    "fp/no-get-set": "error",
-    "fp/no-let": "error",
-    "fp/no-loops": "error",
-    "fp/no-mutating-assign": "error",
-    "fp/no-mutating-methods": "error",
-    "fp/no-mutation": "error",
-    "fp/no-nil": "error",
-    "fp/no-proxy": "error",
-    "fp/no-rest-parameters": "error",
-    "fp/no-this": "error",
-    "fp/no-throw": "error",
-    "fp/no-unused-expression": "error",
-    "fp/no-valueof-field": "error",
-    "no-var": "error"
+    "fp/no-arguments": 2,
+    "fp/no-class": 2,
+    "fp/no-delete": 2,
+    "fp/no-events": 2,
+    "fp/no-get-set": 2,
+    "fp/no-let": 2,
+    "fp/no-loops": 2,
+    "fp/no-mutating-assign": 2,
+    "fp/no-mutating-methods": 2,
+    "fp/no-mutation": 2,
+    "fp/no-nil": 2,
+    "fp/no-proxy": 2,
+    "fp/no-rest-parameters": 2,
+    "fp/no-this": 2,
+    "fp/no-throw": 2,
+    "fp/no-unused-expression": 2,
+    "fp/no-valueof-field": 2,
+    "no-var": 2
+  }
 }

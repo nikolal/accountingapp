@@ -1,11 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Provider } from 'react-redux'
+import store from './src/store/store.js';
+import Home from './src/components/home/Home.js';
 
 const App = () => {
   return (
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
 };
 

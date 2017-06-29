@@ -1,25 +1,19 @@
 // Actions
-const TEST = 'TEST';
+const TEST = 'home/TEST';
+const TEST_2 = 'home/TEST_2';
 
 // Initial State
 const initialState = {
   testData: 'Some data for testing...'
 };
 
-// https://github.com/jfmengels/eslint-plugin-fp/issues/14
 // Reducer
-const homeReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case TEST:
-      return {
-        ...state,
-        testData: action.val,
-      };
-    default: return state;
-  }
-};
+const homeReducer = (state = initialState, action) =>
+  action.type === TEST ? ({ ...state, testData: action.val }) :
+  action.type === TEST_2 ? ({ ...state, testData: action.val }) :
+  state;
 
 // Action Creators
-export const updateTestData = val => ({ type: TEST, val });
+export const updateTestData = val => ({ type: TEST_2, val });
 
 export default homeReducer;

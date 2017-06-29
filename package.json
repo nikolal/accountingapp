@@ -7,19 +7,21 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^18.0.4",
+    "rambda": "^0.7.1",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-18.0.1.tar.gz",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-persist": "^4.8.1",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "sanctuary": "^0.13.2"
   },
   "devDependencies": {
-    "eslint-plugin-better": "^0.1.5",
     "babel-eslint": "^7.2.3",
     "babel-preset-react-native": "1.9.2",
     "eslint": "^4.1.1",
+    "eslint-plugin-better": "^0.1.5",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-react": "^7.0.1",

@@ -14,6 +14,7 @@ const homeReducer = (state = initialState, action) =>
   state;
 
 // Action Creators
-export const updateTestData = val => ({ type: TEST_2, val });
+export const updateTestData = val => ({ type: TEST, val });
+export const updateTest2Data = val => ({ type: TEST_2, val });
 
 export default homeReducer;

@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { testApi, testApiInit } from '../../../config/api.js';
 import { updateTest1Data, updateTest2Data } from './HomeContainer';
 import Future from 'fluture';
+import S from 'sanctuary';
 
 const Home = (props) => {
 
@@ -13,8 +14,9 @@ const Home = (props) => {
   const httpRequest = (url, init) =>
     Future.tryP(() => fetch(url, init)) // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
-      .map(x => x.title)
-      .fork(console.error, x => props.updateTest2Data(x)); // Extract value from Future monad
+      .map(x => x.title.j)
+      .fork(console.error, // Fork extracts value from Future monad ( error or value)
+            x => props.updateTest2Data(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
 
   return (
     <View>

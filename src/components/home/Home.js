@@ -10,6 +10,9 @@ import Task from 'data.task';
 
 const Home = (props) => {
 
+// Maybe we should move httpRequest function to separate folder since it will be reused a lot:
+// example: utility || utilityHelpers.js || helperFunctions.js
+// Todo: Handle null check with data.Maybe or data.Either
 const httpRequest = (url, init) =>
   new Task((rej, res) => // Task monad for handling async requests
     fetch(url, init)

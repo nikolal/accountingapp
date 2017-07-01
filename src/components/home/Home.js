@@ -14,7 +14,7 @@ const Home = (props) => {
   const httpRequest = (url, init) =>
     Future.tryP(() => fetch(url, init)) // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
-      .map(x => x.title.j)
+      .map(x => x.title)
       .fork(console.error, // Fork extracts value from Future monad ( error or value)
             x => props.updateTest2Data(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
 

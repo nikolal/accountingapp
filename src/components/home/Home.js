@@ -9,12 +9,12 @@ import Future from 'fluture';
 
 const Home = (props) => {
 
-  // Todo: Handle null check with data.Maybe or data.Either
+  // Async request example
   const httpRequest = (url, init) =>
     Future.tryP(() => fetch(url, init)) // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
       .map(x => x.title)
-      .fork(console.error, x => props.updateTest2Data(x)); // Unwraps from Future monad
+      .fork(console.error, x => props.updateTest2Data(x)); // Extract value from Future monad
 
   return (
     <View>

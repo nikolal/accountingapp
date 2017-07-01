@@ -6,9 +6,8 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "data.either": "^1.5.1",
-    "data.task": "^3.1.1",
     "expo": "^18.0.4",
+    "fluture": "^6.2.7",
     "folktale": "^2.0.0-rc1",
     "rambda": "^0.7.1",
     "react": "16.0.0-alpha.12",

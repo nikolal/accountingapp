@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 import { increaseValue, updateUsername, githubName } from './HomeContainer';
 import Future from 'fluture';
 import S from 'sanctuary';
+import config from '../../../config/api.js';
 
 const Home = (props) => {
 
   // Async request example
-  const httpRequest = (username) =>
-    Future.encaseP(fetch)(`https://api.github.com/users/${username}`) // Future monad wraps fetch
+  const httpRequest = (url, username) =>
+    Future.tryP(() => fetch(`${url}${username}`)) // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
       .map(x => x.name)
       .fork(console.error, // Fork extracts value from Future monad (error or value)
@@ -22,9 +23,9 @@ const Home = (props) => {
       <TouchableOpacity onPress={() => props.increaseValue()}>
         <Text style={styles.text}>{props.value}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => httpRequest(props.username)}>
+      <TouchableOpacity onPress={() => httpRequest(config.url, props.username)}>
         <TextInput
-          style={{width: 200, height: 40, borderColor: 'green', borderWidth: 1 }}
+          style={styles.textInput}
           onChangeText={text => props.updateUsername(text)}
           value={props.username}
         />
@@ -58,6 +59,12 @@ export default connect(stateToProps, dispatchToProps)(Home);
 const styles = StyleSheet.create({
   text: {
     fontSize: 30
+  },
+  textInput: {
+    width: 200,
+    height: 40,
+    borderColor: 'green',
+    borderWidth: 1
   },
   container: {
     flex: 1,

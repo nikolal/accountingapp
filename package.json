@@ -4,6 +4,9 @@
   "description": "Functional react native starter",
   "author": "Nikola Lukic",
   "private": true,
+  "scripts": {
+    "start": "exp start"
+  },
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^18.0.4",
@@ -26,6 +29,7 @@
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-react": "^7.0.1",
+    "exp": "^42.1.0",
     "redux-logger": "^3.0.6"
   }
 }

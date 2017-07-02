@@ -1,23 +1,25 @@
 // Actions
-const TEST_1 = 'home/TEST_1';
-const TEST_2 = 'home/TEST_2';
+const INCREASE_VALUE = 'home/INCREASE_VALUE';
+const UPDATE_USERNAME = 'home/UPDATE_USERNAME';
+const UPDATE_GITHUB_NAME = 'home/UPDATE_GITHUB_NAME';
 
 // Initial State
 const initialState = {
-  test1Data: 'Test 1 data',
-  test2Data: 'Test 2 data',
+  value: 0,
+  name: '',
+  username: 'dajk'
 };
 
 // Reducer
 const homeReducer = (state = initialState, action) =>
-  action.type === TEST_1 ? ({ ...state, test1Data: action.str }) :
-  action.type === TEST_2 ? ({ ...state, test2Data: action.str }) :
+  action.type === INCREASE_VALUE ? ({ ...state, value: state.value + 1 }) :
+  action.type === UPDATE_USERNAME ? ({ ...state, username: action.username }) :
+  action.type === UPDATE_GITHUB_NAME ? ({ ...state, name: action.name }) :
   state;
 
 // Action Creators
-export const updateTest1Data = str => ({ type: TEST_1, str });
-export const updateTest2Data = str => ({ type: TEST_2, str });
-
-
+export const increaseValue = () => ({ type: INCREASE_VALUE });
+export const updateUsername = username => ({ type: UPDATE_USERNAME, username });
+export const updateGithubName = name => ({ type: UPDATE_GITHUB_NAME, name });
 
 export default homeReducer;

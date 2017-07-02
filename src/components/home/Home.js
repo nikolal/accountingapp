@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { testApi, testApiInit } from '../../../config/api.js';
 import { updateTest1Data, updateTest2Data } from './HomeContainer';
 import Future from 'fluture';
 import S from 'sanctuary';
@@ -11,29 +9,24 @@ import S from 'sanctuary';
 const Home = (props) => {
 
   // Async request example
-  const httpRequest = (url, init) =>
-    Future.tryP(() => fetch(url, init)) // Future monad wraps fetch
+  const httpRequest = () =>
+    Future.encaseP(fetch)('https://api.github.com/users/dajk') // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
-      .map(x => x.title)
-      .fork(console.error, // Fork extracts value from Future monad ( error or value)
-            x => props.updateTest2Data(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
+      .map(x => x.name)
+      .fork(console.error, // Fork extracts value from Future monad (error or value)
+        x => props.updateTest2Data(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
 
   return (
     <View>
       <TouchableOpacity onPress={() => props.updateTest1Data('Updated test 1 data')}>
         <Text style={styles.text}>{props.test1Data}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => httpRequest(testApi, testApiInit)}>
+      <TouchableOpacity onPress={() => httpRequest()}>
         <Text style={styles.text}>{props.test2Data}</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
-// Maybe to use flow instead ???
-// Home.propTypes = {
-//   testData: PropTypes.string
-// };
 
 const stateToProps = state => ({
   test1Data: state.homeReducer.test1Data,

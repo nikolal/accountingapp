@@ -11,18 +11,11 @@ const initialState = {
 };
 
 // Reducer
-const homeReducer = (state = initialState, action) => { // eslint-disable-line
-  switch (action.type) {
-    case INCREASE_VALUE:
-      return { ...state, value: state.value + 1 };
-    case UPDATE_USERNAME:
-      return { ...state, username: action.username };
-    case UPDATE_GITHUB_NAME:
-      return { ...state, name: action.name };
-    default:
-      return state;
-  }
-};
+const homeReducer = (state = initialState, action) =>
+  action.type === INCREASE_VALUE ? ({ ...state, value: state.value + 1 }) :
+  action.type === UPDATE_USERNAME ? ({ ...state, username: action.username }) :
+  action.type === UPDATE_GITHUB_NAME ? ({ ...state, name: action.name }) :
+  state;
 
 // Action Creators
 export const increaseValue = () => ({ type: INCREASE_VALUE });

@@ -7,6 +7,7 @@ import { increaseValue, updateUsername, updateGithubName } from './HomeContainer
 import Future from 'fluture';
 import S from 'sanctuary';
 import { fonts, metrics, colors } from '../../theme/index.js';
+import config from '../../../config/api.js';
 
 const Home = (props) => {
 

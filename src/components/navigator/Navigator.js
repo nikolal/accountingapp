@@ -18,7 +18,7 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
-  Home: { screen: Home },
+  Home: { screen: Home }
 }, navigationConfig);
 
 export default Navigator;

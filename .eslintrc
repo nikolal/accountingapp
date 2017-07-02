@@ -5,14 +5,14 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-        "jsx": true
+      "jsx": true
     }
   },
 
   "env": {
     "es6": true,
     "jasmine": true,
-    "jest": true,
+    "jest": true
   },
 
   "plugins": [

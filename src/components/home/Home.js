@@ -13,7 +13,7 @@ const Home = (props) => {
 
   // Async request example
   const getGithubName = username =>
-    Future.encaseP(fetch)(`https://api.github.com/users/${username}`) // Future monad wraps fetch
+    Future.encaseP(fetch)(`${config.url}${username}`) // Future monad wraps fetch
       .chain(res => Future.tryP(_ => res.json()))
       .map(x => x.name)
       .fork(console.error, // Fork extracts value from Future monad (error or value)

@@ -1,12 +1,10 @@
 import { DrawerNavigator } from 'react-navigation';
 import Tabs from '../tabs/Tabs.js';
-import Home from '../home/Home.js';
-import About from '../about/About.js';
+import Login from '../login/Login.js';
 
 const Drawer = DrawerNavigator({
-  Home: { screen: Home },
-  About: { screen: About },
-  Tabs: { screen: Tabs }
+  Tabs: { screen: Tabs },
+  Login: { screen: Login },
 });
 
 export default Drawer;

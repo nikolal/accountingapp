@@ -3,14 +3,14 @@ import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 
-const About = (props) => (
+const Login = (props) => (
   <View>
-    <Text>About</Text>
+    <Text>Login</Text>
   </View>
 );
 
-About.propTypes = { // eslint-disable-line
+Login.propTypes = { // eslint-disable-line
 
 };
 
-export default About;
+export default Login;

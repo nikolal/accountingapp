@@ -11,20 +11,21 @@ import config from '../../../config/api.js';
 
 const Home = (props) => {
 
-  const getGithubName = (username) =>
-    Future.encaseP(fetch, `${config.url}${username}`)
-    .chain(res => Future.tryP(_ => res.json()))
-    .map(S.get(S.is(String), 'name'))
-    .map(S.fromMaybe('/'))
-    .fork(console.error, x => props.updateGithubName(x));
+  // Async request example
+  const getGithubName = (url, username) =>
+    Future.encaseP(fetch, `${url}${username}`) // Future monad wraps fetch
+      .chain(res => Future.tryP(_ => res.json()))
+      .map(x => x.name)
+      .fork(console.error, // Fork extracts value from Future monad (error or value)
+        x => props.updateGithubName(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
 
-  // // Async request example
-  // const getGithubName = username =>
-  //   Future.encaseP(fetch)(`${config.url}${username}`) // Future monad wraps fetch
-  //     .chain(res => Future.tryP(_ => res.json()))
-  //     .map(x => x.name)
-  //     .fork(console.error, // Fork extracts value from Future monad (error or value)
-  //       x => props.updateGithubName(S.fromMaybe('/', S.toMaybe(x)))); // If x is null/undefined, Maybe will return '/',
+  // // Another example of getGithubName
+  // const getGithubName = (username) =>
+  //   Future.encaseP(fetch, `${config.url}${username}`)
+  //   .chain(res => Future.tryP(_ => res.json()))
+  //   .map(S.get(S.is(String), 'name'))
+  //   .map(S.fromMaybe('/'))
+  //   .fork(console.error, x => props.updateGithubName(x));
 
   return (
     <View style={styles.container}>
@@ -38,7 +39,7 @@ const Home = (props) => {
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <TouchableOpacity style={styles.button} onPress={() => getGithubName(props.username)}>
+      <TouchableOpacity style={styles.button} onPress={() => getGithubName(config.url, props.username)}>
         <Text style={styles.buttonText}>GET NAME</Text>
       </TouchableOpacity>
       <Text style={styles.text}>{props.name}</Text>

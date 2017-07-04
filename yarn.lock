@@ -4103,9 +4103,9 @@ querystring@0.2.0, querystring@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
-rambda@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/rambda/-/rambda-0.7.1.tgz#a2ee90cc18eaa8041f16d0fc67b7f7e148a2ebba"
+ramda@^0.24.1:
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
 
 random-bytes@~1.0.0:
   version "1.0.0"

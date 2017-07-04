@@ -10,7 +10,7 @@ const navigationConfig = {
   initialRouteName: 'Drawer',
   headerMode: 'float',
   navigationOptions: ({ navigation }) => ({
-    headerRight: (
+    headerLeft: (
       <TouchableOpacity>
         <Ionicons name="md-menu" size={30} color={colors.white} onPress={() => navigation.navigate('DrawerOpen')}/>
       </TouchableOpacity>

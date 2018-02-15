@@ -1,24 +1,19 @@
+import React from 'react';
 import { DrawerNavigator } from 'react-navigation';
 import Tabs from '../tabs/Tabs.js';
 import Login from '../login/Login.js';
+import DrawerTemplate from './DrawerTemplate.js';
 
-const Drawer = DrawerNavigator({
+const RouteConfigs = ({
   Tabs: { screen: Tabs },
   Login: { screen: Login },
 });
 
+const DrawerNavigatorConfig = {
+  initialRouteName: 'Tabs',
+  contentComponent: ({ navigation }) => <DrawerTemplate navigation={navigation} routes={RouteConfigs} />
+};
+
+const Drawer = DrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
+
 export default Drawer;
-
-
-// Dynamic example
-// const routesArr = [
-//   'Home',
-//   'About'
-// ];
-//
-// const routes = arr =>
-//   arr.map(x => ({ [x]: { 'screen': Tabs }})); // add Tabs screen for each item of routesArr
-//
-// const Drawer = DrawerNavigator(Object.assign({}, ...routes(routesArr))); // Flatten mapped objects into one object and pass it to DrawerNavigator
-
-// export default Drawer;

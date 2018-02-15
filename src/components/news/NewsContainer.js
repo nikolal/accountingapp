@@ -32,6 +32,9 @@ const initialState = {
     },{
       type: 'text',
       value: 'lorem imsum2'
+    },{
+      type: 'text',
+      value: 'lorem imsum3'
     }]
   }],
   article: {}

@@ -8,7 +8,6 @@ import { metrics, colors, fonts } from '../../theme';
 class News extends Component {
 
   goToNewsDetail = (screenName, article) => {
-    console.log(this.props.navigation);
     this.props.saveArticle(article);
     this.props.navigation.navigate(screenName);
   }

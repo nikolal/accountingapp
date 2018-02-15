@@ -4,8 +4,8 @@ const SAVE_ARTICLE = 'news/SAVE_ARTICLE';
 // Initial State
 const initialState = {
   news: [{
-    title: 'Title',
-    description: 'Description lorem ipsum...',
+    title: 'This is Title number one',
+    description: 'Description lorem ipsum, lorem ipsum, lorem...',
     date: '30.04.2018',
     image: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg',
     paragraphs: [{
@@ -19,10 +19,10 @@ const initialState = {
       value: 'lorem imsum'
     }]
   },{
-    title: 'Title2',
-    description: 'Description lorem ipsum2...',
+    title: 'And here are Title numb 2',
+    description: 'Description lorem mjif mjiugh nbfresfh, ipsum lorem, ipsum lorem...',
     date: '30.05.2018',
-    image: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg',
+    image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
     paragraphs: [{
       type: 'text',
       value: 'lorem imsum2'

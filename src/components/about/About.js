@@ -10,9 +10,10 @@ class About extends Component {
   })
 
   render(){
+    console.log('aahhhha');
     return (
       <View>
-        <Text>About</Text>
+        <Text>About a</Text>
       </View>
     );
   }

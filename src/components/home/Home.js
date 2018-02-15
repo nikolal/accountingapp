@@ -3,12 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { increaseValue } from './HomeContainer';
+import { metrics, colors, fonts } from '../../theme/index.js';
+
 
 const Home = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>{props.value}</Text>
+      <Text style={styles.text}>{props.value}</Text>
     </View>
   );
 };
@@ -26,5 +28,8 @@ export default connect(stateToProps, dispatchToProps)(Home);
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  }
+  },
+  text: {
+    fontSize: fonts.size.medium
+  },
 });

@@ -1,5 +1,5 @@
-# functional-react-native
-Functional react native starter
+# Accounting App
+Accounting app
 
 ## Getting started
 ### Installation

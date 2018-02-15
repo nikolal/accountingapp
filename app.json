@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "functional-react-native-expo-starter",
-    "description": "An empty new project",
-    "slug": "functional-react-native-expo-starter",
+    "name": "accountingapp",
+    "description": "An app for accounting services",
+    "slug": "accountingapp",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "version": "1.0.0",
@@ -17,7 +17,7 @@
       "assetExts": ["ttf", "mp4"]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     }
   }
 }

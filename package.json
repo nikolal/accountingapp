@@ -1,8 +1,8 @@
 {
-  "name": "functional-react-native-expo-starter",
+  "name": "accountingapp",
   "version": "0.0.0",
-  "description": "Functional react native starter",
-  "author": "Nikola Lukic",
+  "description": "An app for accounting services",
+  "author": "Nikola Lukic && Milana Lukic",
   "private": true,
   "scripts": {
     "start": "exp start"

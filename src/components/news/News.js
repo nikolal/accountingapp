@@ -1,47 +1,18 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { saveNews } from './NewsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
 
 class News extends Component {
 
-  state = {
-    news: [{
-      title: 'Title',
-      description: 'Description lorem ipsum...',
-      date: '30.04.2018',
-      image: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg',
-      paragraphs: [{
-        type: 'text',
-        value: 'lorem imsum'
-      },{
-        type: 'image',
-        value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
-      },{
-        type: 'text',
-        value: 'lorem imsum'
-      }]
-    },{
-      title: 'Title2',
-      description: 'Description lorem ipsum2...',
-      date: '30.05.2018',
-      image: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg',
-      paragraphs: [{
-        type: 'text',
-        value: 'lorem imsum2'
-      },{
-        type: 'image',
-        value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
-      },{
-        type: 'text',
-        value: 'lorem imsum2'
-      }]
-    }]
-  };
-
-  goToNewsDetail = key => this.props.navigation.navigate(key);
+  goToNewsDetail = (key, item) => {
+    this.props.navigation.navigate(key);
+  }
 
   renderList = (item, index) =>
-    <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail')} style={styles.item}>
+    <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
       <Image
         style={{width: 50, height: 50}}
         source={{uri: item.image}}
@@ -56,13 +27,21 @@ class News extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {this.state.news.map(this.renderList)}
+        {this.props.news.map(this.renderList)}
       </ScrollView>
     );
   }
 }
 
-export default News;
+const stateToProps = state => ({
+  news: state.newsReducer.news
+});
+
+const dispatchToProps = dispatch => ({
+  saveNews: bindActionCreators(saveNews, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(News);
 
 const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 
@@ -13,4 +15,8 @@ NewsDetail.propTypes = { // eslint-disable-line
 
 };
 
-export default NewsDetail;
+const stateToProps = state => ({
+  article: state.newsReducer.article
+});
+
+export default connect(stateToProps, null)(NewsDetail);

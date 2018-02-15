@@ -1,5 +1,5 @@
 // Actions
-const SAVE_NEWS = 'news/SAVE_NEWS';
+const SAVE_ARTICLE = 'news/SAVE_ARTICLE';
 
 // Initial State
 const initialState = {
@@ -34,14 +34,15 @@ const initialState = {
       value: 'lorem imsum2'
     }]
   }],
+  article: {}
 };
 
 // Reducer
 const newsReducer = (state = initialState, action) =>
-  action.type === SAVE_NEWS ? ({ ...state, value: state.value + 1 }) :
+  action.type === SAVE_ARTICLE ? ({ ...state, article: action.article }) :
   state;
 
 // Action Creators
-export const saveNews = () => ({ type: SAVE_NEWS });
+export const saveArticle = article => ({ type: SAVE_ARTICLE, article });
 
 export default newsReducer;

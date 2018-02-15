@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { saveNews } from './NewsContainer.js';
+import { saveArticle } from './NewsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
 
 class News extends Component {
 
-  goToNewsDetail = (key, item) => {
-    this.props.navigation.navigate(key);
+  goToNewsDetail = (screenName, article) => {
+    console.log(this.props.navigation);
+    this.props.saveArticle(article);
+    this.props.navigation.navigate(screenName);
   }
 
   renderList = (item, index) =>
@@ -38,7 +40,7 @@ const stateToProps = state => ({
 });
 
 const dispatchToProps = dispatch => ({
-  saveNews: bindActionCreators(saveNews, dispatch)
+  saveArticle: bindActionCreators(saveArticle, dispatch)
 });
 
 export default connect(stateToProps, dispatchToProps)(News);

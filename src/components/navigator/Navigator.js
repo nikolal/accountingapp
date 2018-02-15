@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { metrics, colors, fonts } from '../../theme/index.js';
-import Login from '../login/Login.js';
+import NewsDetail from '../news-detail/NewsDetail.js';
 import Tabs from '../tabs/Tabs.js';
 import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
@@ -28,7 +28,7 @@ const navigationConfig = {
 
 const Navigator = StackNavigator({
   Tabs: { screen: Tabs },
-  Login: { screen: Login },
+  NewsDetail: { screen: NewsDetail },
 }, navigationConfig);
 
 export default Navigator;

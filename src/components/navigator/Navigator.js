@@ -4,10 +4,12 @@ import { StackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts } from '../../theme/index.js';
 import Home from '../home/Home.js';
+import Login from '../login/Login.js';
+import Tabs from '../tabs/Tabs.js';
 import Drawer from '../drawer/Drawer.js';
 
 const navigationConfig = {
-  initialRouteName: 'Drawer',
+  initialRouteName: 'Tabs',
   headerMode: 'float',
   navigationOptions: ({ navigation }) => ({
     headerLeft: (
@@ -29,7 +31,8 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
-  Drawer: { screen: Drawer },
+  Tabs: { screen: Tabs },
+  Login: { screen: Login },
 }, navigationConfig);
 
 export default Navigator;

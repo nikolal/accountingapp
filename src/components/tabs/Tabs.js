@@ -34,7 +34,6 @@ const Tabs = TabNavigator({
   },
   About: {
     screen: About,
-    title: 'About',
     navigationOptions: {
       title: 'About',
       tabBarLabel: 'About',

@@ -2,7 +2,7 @@ import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
 import { Ionicons } from '@expo/vector-icons';
-import Home from '../home/Home.js';
+import News from '../news/News.js';
 import About from '../about/About.js';
 
 const styles = {
@@ -23,11 +23,11 @@ const navigationConfig = {
 };
 
 const Tabs = TabNavigator({
-  Home: {
-    screen: Home,
+  News: {
+    screen: News,
     navigationOptions: {
-      title: 'Home',
-      tabBarLabel: 'Home',
+      title: 'News',
+      tabBarLabel: 'News',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
         <Ionicons name="md-home" size={24} color={tintColor} />
     }

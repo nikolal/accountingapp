@@ -28,7 +28,8 @@ const Tabs = TabNavigator({
     navigationOptions: {
       title: 'Home',
       tabBarLabel: 'Home',
-      tabBarIcon: ({ tintColor, activeTintColor }) => <Ionicons name="md-home" size={24} color={tintColor} />
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+        <Ionicons name="md-home" size={24} color={tintColor} />
     }
   },
   About: {
@@ -37,9 +38,8 @@ const Tabs = TabNavigator({
     navigationOptions: {
       title: 'About',
       tabBarLabel: 'About',
-      tabBarIcon: ({ tintColor, activeTintColor }) => (
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
         <Ionicons name="ios-information-circle" size={24} color={tintColor} />
-      )
     }
   }
 }, navigationConfig);

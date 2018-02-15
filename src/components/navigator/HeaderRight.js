@@ -7,7 +7,7 @@ const HeaderRight = props => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconContainer}>
-        <Ionicons name="md-calendar" size={30} color={colors.white} />
+        {/* <Ionicons name="md-calendar" size={30} color={colors.white} /> */}
       </TouchableOpacity>
     </View>
   );

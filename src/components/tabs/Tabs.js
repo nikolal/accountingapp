@@ -1,9 +1,10 @@
 import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
-import { Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 import News from '../news/News.js';
-import About from '../about/About.js';
+import Calculations from '../calculations/Calculations.js';
+import Taxes from '../taxes/Taxes.js';
 
 const styles = {
   inactiveTintColor: colors.white,
@@ -26,19 +27,28 @@ const Tabs = TabNavigator({
   News: {
     screen: News,
     navigationOptions: {
-      title: 'News',
+      title: 'NEWS',
       tabBarLabel: 'News',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <Ionicons name="md-home" size={24} color={tintColor} />
+        <SimpleLineIcons name="book-open" size={20} color={tintColor} />
     }
   },
-  About: {
-    screen: About,
+  Calculations: {
+    screen: Calculations,
     navigationOptions: {
-      title: 'About',
-      tabBarLabel: 'About',
+      title: 'CALCULATIONS',
+      tabBarLabel: 'Calculations',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <Ionicons name="ios-information-circle" size={24} color={tintColor} />
+        <SimpleLineIcons name="calculator" size={20} color={tintColor} />
+    }
+  },
+  Taxes: {
+    screen: Taxes,
+    navigationOptions: {
+      title: 'TAXES',
+      tabBarLabel: 'Taxes',
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+        <SimpleLineIcons name="docs" size={20} color={tintColor} />
     }
   }
 }, navigationConfig);

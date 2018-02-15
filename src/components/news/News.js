@@ -15,8 +15,8 @@ class News extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
       <Image
-        style={{width: 50, height: 50}}
-        source={{uri: item.image}}
+        style={{ width: 50, height: 50 }}
+        source={{ uri: item.image }}
       />
       <View>
         <Text>{item.title}</Text>

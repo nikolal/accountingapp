@@ -7,15 +7,16 @@ class DrawerTemplate extends Component {
 
   state = {
     drawerList: [
-      { key: 'Tabs', icon: 'home', name: 'Home' },
-      { key: 'Login', icon: 'login', name: 'Login' }
+      { screen: 'Tabs', icon: 'book-open', name: 'News' },
+      { screen: 'About', icon: 'people', name: 'About' },
+      { screen: 'Contact', icon: 'call-out', name: 'Contact' },
     ]
   };
 
-  goToScreen = key => this.props.navigation.navigate(key);
+  goToScreen = screen => this.props.navigation.navigate(screen);
 
   renderList = (item, index) =>
-    <TouchableOpacity key={index} onPress={() => this.goToScreen(item.key)} style={styles.item}>
+    <TouchableOpacity key={index} onPress={() => this.goToScreen(item.screen)} style={styles.item}>
       <SimpleLineIcons name={item.icon} size={20} color="black" />
       <Text style={styles.text}>{item.name}</Text>
     </TouchableOpacity>

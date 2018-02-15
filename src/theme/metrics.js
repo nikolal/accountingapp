@@ -1,18 +1,16 @@
 const metrics = {
-  // Margins
-  tinyMargin: 5,
-  smallMargin: 10,
-  mediumMargin: 15,
-  largeMargin: 20,
-  // Padding
-  tinyPadding: 5,
-  smallPadding: 10,
-  mediumPadding: 15,
-  largePadding: 20,
+  // Margins/Paddings
+  tiny: 1.5,
+  small: 5,
+  medium: 10,
+  large: 15,
+  huge: 20,
   // Borders
-  smallBorder: 1,
-  mediumBorder: 2,
-  largeBorder: 3
+  tinyBorder: 0.3,
+  smallBorder: 0.7,
+  mediumBorder: 1,
+  largeBorder: 2,
+  hugeBorder: 3
 };
 
 export default metrics;

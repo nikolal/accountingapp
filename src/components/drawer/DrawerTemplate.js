@@ -23,6 +23,7 @@ class DrawerTemplate extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>Side menu</Text>
         {this.state.drawerList.map(this.renderList)}
       </View>
     );
@@ -33,15 +34,17 @@ export default DrawerTemplate;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    // alignItems: 'center',
+    padding: metrics.medium
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: metrics.smallMargin
+    marginTop: metrics.small
   },
   text: {
     fontSize: fonts.size.medium,
-    marginLeft: metrics.smallMargin
+    marginLeft: metrics.medium
   }
 });

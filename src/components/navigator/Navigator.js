@@ -14,10 +14,10 @@ const navigationConfig = {
     headerLeft: <HeaderLeft navigation={navigation} />,
     headerRight: <HeaderRight navigation={navigation} />,
     // headerBackTitle: 'Back',
-    headerTintColor: 'white',
+    headerTintColor: colors.white,
     headerStyle: {
+      justifyContent: 'center',
       backgroundColor: colors.black,
-      paddingHorizontal: metrics.smallPadding
     },
     headerTitleStyle: {
       fontSize: fonts.size.large,

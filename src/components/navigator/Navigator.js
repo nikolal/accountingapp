@@ -1,22 +1,18 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts } from '../../theme/index.js';
-import Home from '../home/Home.js';
 import Login from '../login/Login.js';
 import Tabs from '../tabs/Tabs.js';
-import Drawer from '../drawer/Drawer.js';
+import HeaderLeft from './HeaderLeft.js';
+import HeaderRight from './HeaderRight.js';
+
 
 const navigationConfig = {
   initialRouteName: 'Tabs',
   headerMode: 'float',
   navigationOptions: ({ navigation }) => ({
-    headerLeft: (
-      <TouchableOpacity>
-        <Ionicons name="md-menu" size={30} color={colors.white} onPress={() => navigation.navigate('DrawerOpen')}/>
-      </TouchableOpacity>
-    ),
+    headerLeft: <HeaderLeft navigation={navigation} />,
+    headerRight: <HeaderRight navigation={navigation} />,
     // headerBackTitle: 'Back',
     headerTintColor: 'white',
     headerStyle: {

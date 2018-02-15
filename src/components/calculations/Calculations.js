@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 
-const Calculations = (props) => (
-  <View>
-    <Text>Calculations</Text>
-  </View>
-);
+class Calculations extends Component {
 
-Calculations.propTypes = { // eslint-disable-line
+  static navigationOptions = ({ navigation }) => ({
+    title: 'CALCULATIONS',
+  })
 
-};
+  render(){
+    return (
+      <View>
+        <Text>Calculations</Text>
+      </View>
+    );
+  }
+}
 
 export default Calculations;

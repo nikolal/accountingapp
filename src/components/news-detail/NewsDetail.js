@@ -1,35 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+class NewsDetail extends Component {
 
-const renderArticle = (item, index) =>
-  item.type === 'text' ?
-    <Text key={index}>{item.value}</Text> :
-  item.type === 'image' ?
-    <Image key={index} style={{width: 50, height: 50}} source={{uri: item.value}} /> :
-  null;
+  static navigationOptions = ({ navigation }) => ({
+    title: 'NEWS DETAIL',
+  })
 
-const NewsDetail = (props) => {
+  renderArticle = (item, index) =>
+    item.type === 'text' ?
+      <Text key={index}>{item.value}</Text> :
+    item.type === 'image' ?
+      <Image key={index} style={{width: 50, height: 50}} source={{uri: item.value}} /> :
+    null;
 
-  console.log(props.article);
-
-  return (
-    <View>
-      <Image
-        style={{width: 50, height: 50}}
-        source={{uri: props.article.image}}
-      />
+  render(){
+    const { article } = this.props;
+    return (
       <View>
-        <Text>{props.article.title}</Text>
-        <Text>{props.article.description}</Text>
-        <Text>{props.article.date}</Text>
+        <Image
+          style={{width: 50, height: 50}}
+          source={{uri: article.image}}
+        />
+        <View>
+          <Text>{article.title}</Text>
+          <Text>{article.description}</Text>
+          <Text>{article.date}</Text>
+        </View>
+        {article.paragraphs.map(this.renderArticle)}
       </View>
-      {props.article.paragraphs.map(renderArticle)}
-    </View>
-  );
-};
+    );
+  }
+}
 
 NewsDetail.propTypes = { // eslint-disable-line
 

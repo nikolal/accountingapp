@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 
-const Contact = (props) => (
-  <View>
-    <Text>Contact</Text>
-  </View>
-);
+class Contact extends Component {
 
-Contact.propTypes = { // eslint-disable-line
+  static navigationOptions = ({ navigation }) => ({
+    title: 'CONTACT',
+  })
 
-};
+  render(){
+    return (
+      <View>
+        <Text>Contact</Text>
+      </View>
+    );
+  }
+}
 
 export default Contact;

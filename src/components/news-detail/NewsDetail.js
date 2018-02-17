@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     marginVertical: metrics.medium
   },
   firstLetter: {
-    fontSize: fonts.size.large,
-    fontWeight: 'bold'
+  fontSize: fonts.size.huge,
+  textShadowColor: colors.grey,
+  fontWeight: 'bold'
   }
 });

@@ -13,14 +13,14 @@ const initialState = {
       value: 'lorem imsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
     },{
       type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      value: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg'
     },{
       type: 'text',
       value: 'lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, imsum'
     }]
   },{
     title: 'Title2 is the ftiksm lorem ipsum',
-    description: 'Description lorem ipsum2...',
+    description: 'An income tax is a tax imposed on individuals or entities that varies with their respective income or profits.',
     date: '30.05.2018',
     image: 'http://www.dmu.ac.uk/webimages/business-and-law-images/course-images/bal/accounting-and-finance.jpg',
     paragraphs: [{
@@ -28,7 +28,7 @@ const initialState = {
       value: 'lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum>'
     },{
       type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      value: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg'
     },{
       type: 'text',
       value: 'lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem '

@@ -15,7 +15,9 @@ class NewsDetail extends Component {
     item.type === 'text' ?
       <Text key={index} style={styles.articleParagraphs}>{item.value}</Text> :
     item.type === 'image' ?
-      <Image key={index} style={styles.image} source={{uri: item.value}} /> :
+      <View key={index} style={styles.imageContainer}>
+        <Image style={styles.coverImage} source={{uri: item.value}} />
+      </View> :
     null;
 
   render(){
@@ -29,12 +31,11 @@ class NewsDetail extends Component {
               style={styles.coverImage}
               source={{uri: article.image}}
             />
-            <View style={styles.dateTimeContainer}>
-              <Text style={styles.titleText}>{article.title}</Text>
-              <Text style={styles.dateText}>{article.date}</Text>
-            </View>
           </View>
-          <Text style={styles.descriptionText}>{article.description}</Text>
+          <View style={styles.descriptionDateContainer}>
+            <Text style={styles.descriptionText}>{article.description}</Text>
+            <Text style={styles.dateText}>{article.date}</Text>
+          </View>
           {article.paragraphs.map(this.renderArticle)}
         </View>
 
@@ -76,39 +77,35 @@ const styles = StyleSheet.create({
   },
   coverImageContainer: {
     flex: 1,
-      // height: Dimensions.get('window').height / 4,
+    marginBottom: metrics.huge
   },
   coverImage: {
     height: Dimensions.get('window').height / 3.5,
   },
-  dateTimeContainer: {
-    position: 'absolute',
-    bottom: metrics.small,
-    left: metrics.small
-  },
-  titleText: {
-    color: colors.white,
-    fontSize: fonts.size.huge,
-    fontWeight: fonts.weight.large,
-    marginBottom: metrics.small,
-  },
-  dateText: {
-    color: colors.white,
-    fontSize: fonts.size.small,
-    marginBottom: metrics.small,
+  descriptionDateContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginBottom: metrics.huge,
+    borderBottomColor: colors.grey,
+    borderBottomWidth: metrics.smallBorder
   },
   descriptionText: {
-    fontSize: fonts.size.small,
+    fontSize: fonts.size.large,
     fontWeight: fonts.weight.large,
-    marginVertical: metrics.small
+    marginBottom: metrics.extraHuge,
+  },
+  dateText: {
+    alignSelf: 'flex-end',
+    marginBottom: metrics.small,
+    marginRight: metrics.medium,
+    color: colors.grey,
+    fontSize: fonts.size.small,
   },
   articleParagraphs: {
-    marginBottom: metrics.small
+    marginVertical: metrics.medium
   },
-  image: {
-    alignSelf: 'center',
-    width: 150,
-    height: 150,
-    marginBottom: metrics.small
+  imageContainer: {
+    marginVertical: metrics.medium
   }
 });

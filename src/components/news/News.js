@@ -16,12 +16,12 @@ class News extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
       <Image
-        style={{ width: 80, height: 80 }}
+        style={{ width: 90, height: 90 }}
         source={{ uri: item.image }}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.titleText}>{item.title}</Text>
-        <Text style={styles.descriptionText}>{item.description}</Text>
+        <Text style={styles.titleText} numberOfLines={3}>{item.title}</Text>
+        {/*<Text style={styles.descriptionText} numberOfLines={3}>{item.description}</Text>*/}
         <Text style={styles.dateText}>{item.date}</Text>
 
       </View>
@@ -84,13 +84,15 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: fonts.size.medium,
     fontWeight: fonts.weight.large,
-    marginBottom: metrics.tiny
+    marginBottom: metrics.tiny,
+    paddingRight: metrics.medium
   },
-  descriptionText: {
-    fontSize: fonts.size.small,
-    marginBottom: metrics.tiny
-  },
+  // descriptionText: {
+  //   fontSize: fonts.size.small,
+  //   marginBottom: metrics.tiny,
+  // },
   dateText: {
+    marginTop: metrics.small,
     color: colors.grey,
     fontSize: fonts.size.tiny
   },

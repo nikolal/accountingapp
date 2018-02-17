@@ -19,8 +19,8 @@ const initialState = {
       value: 'lorem imsum'
     }]
   },{
-    title: 'And here are Title numb 2',
-    description: 'Description lorem mjif mjiugh nbfresfh, ipsum lorem, ipsum lorem...',
+    title: 'he terms "accounting" and "financial reporting" are often used as synonyms. 2',
+    description: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
     date: '30.05.2018',
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
     paragraphs: [{

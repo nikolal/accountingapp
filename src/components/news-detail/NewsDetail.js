@@ -11,9 +11,19 @@ class NewsDetail extends Component {
     title: 'NEWS DETAIL',
   })
 
+  concetStrings = (x, y) => {
+    return (
+      x.concat(y)
+    );
+  }
+
   renderArticle = (item, index) =>
     item.type === 'text' ?
-      <Text key={index} style={styles.articleParagraphs}>{item.value}</Text> :
+      <View key={index} style={styles.articleParagraphsContainer}>
+        <Text style={styles.articleParagraphs}>{this.concetStrings(item.value[0], item.value.slice(1))}</Text>
+        {/*<Text>{item.value[0]}</Text>*/}
+        {/*<Text style={styles.articleParagraphs}>{item.value.slice(1)}</Text>*/}
+      </View> :
     item.type === 'image' ?
       <View key={index} style={styles.imageContainer}>
         <Image style={styles.coverImage} source={{uri: item.value}} />
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     fontSize: fonts.size.large,
-    fontWeight: fonts.weight.large,
+    fontWeight: 'bold',
     marginBottom: metrics.extraHuge,
   },
   dateText: {

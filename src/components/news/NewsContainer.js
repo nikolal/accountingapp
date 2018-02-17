@@ -25,16 +25,16 @@ const initialState = {
     image: 'http://www.dmu.ac.uk/webimages/business-and-law-images/course-images/bal/accounting-and-finance.jpg',
     paragraphs: [{
       type: 'text',
-      value: 'lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum>'
+      value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
     },{
       type: 'image',
       value: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg'
     },{
       type: 'text',
-      value: 'lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem '
+      value: 'Nikola lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem Lukic'
     },{
       type: 'text',
-      value: 'lorem imsum3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
+      value: 'SEka lorem imsum3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, Skana'
     }]
   }],
   article: {}

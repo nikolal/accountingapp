@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 import { metrics, colors, fonts } from '../../theme';
-// import { LinearGradient } from 'expo';
+import { LinearGradient } from 'expo';
 
 
 class DrawerTemplate extends Component {
@@ -30,20 +30,26 @@ class DrawerTemplate extends Component {
   render() {
     return (
       <View style={styles.container}>
-{/*        <View style={{ backgroundColor: 'grey', flex: 1}} />
-        <LinearGradient
-          colors={['rgba(0,0,0,0.8)', 'transparent']}
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            height: Dimensions.get('window').height
-          }}
-        />*/}
+
+        <View style={{ backgroundColor: 'grey'}} />
+          <LinearGradient
+            colors={['rgb(0, 0, 0)', 'rgb(38, 38, 38)', 'rgb(64, 64, 64)']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: Dimensions.get('window').height
+            }}
+          />
+
         <View style={styles.textLogoContainer}>
-          <Text style={styles.logoText}>ACOUNTINGAPP</Text>
-          <Text style={styles.logoText}>Welcome</Text>
+          <Text style={styles.logoText}>HLB T&M Consulting</Text>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Finance,</Text>
+              <Text style={styles.text}>Tax,</Text>
+              <Text style={styles.text}>Advisory</Text>
+            </View>
         </View>
         <Image
           style={styles.image}
@@ -53,7 +59,7 @@ class DrawerTemplate extends Component {
         <View style={styles.socialMediaContainer}>
           <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={15} color="white" />
           <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={15} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="social-twitter" size={15} color="white" />
+          <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={15} color="white" />
           <SimpleLineIcons style={styles.socialMedia} name="envelope-letter" size={15} color="white" />
         </View>
       </View>
@@ -66,7 +72,7 @@ export default DrawerTemplate;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.black,
+    // backgroundColor: colors.black,
   },
   textLogoContainer: {
     padding: metrics.huge,
@@ -74,7 +80,19 @@ const styles = StyleSheet.create({
   },
   logoText: {
     color: colors.white,
-    padding: metrics.small
+    fontSize: fonts.size.medium,
+    // letterSpacing: 1
+  },
+  textContainer: {
+    flexDirection: 'row',
+  },
+  text: {
+    color: colors.white,
+    fontSize: fonts.size.tiny,
+    marginTop: metrics.tiny,
+    marginRight: metrics.small
+    // borderColor: colors.white,
+    // borderWidth: metrics.smallBorder, can not make right border
   },
   image: {
     height: 100,

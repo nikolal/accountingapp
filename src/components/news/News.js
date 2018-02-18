@@ -5,8 +5,15 @@ import { bindActionCreators } from 'redux';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 import { saveArticle } from './NewsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
+import Modal from './Modal.js';
 
 class News extends Component {
+
+// componentDidMount = () => {
+//     <Modal />
+// }
+
+
 
   goToNewsDetail = (screenName, article) => {
     this.props.saveArticle(article);
@@ -37,9 +44,12 @@ class News extends Component {
 
   render() {
     return (
+      <View>
+      <Modal />
       <ScrollView style={styles.container}>
         {this.props.news.map(this.renderList)}
       </ScrollView>
+      </View>
     );
   }
 }

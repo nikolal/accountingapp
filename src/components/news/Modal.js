@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, Modal, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, Image, Button, Modal, StyleSheet, Dimensions, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 import { LinearGradient } from 'expo';
 
@@ -7,7 +7,14 @@ import { LinearGradient } from 'expo';
 export default class MyComponent extends Component {
   state = {
     modalVisible: false,
+    color: 0
   };
+
+  changeColor= () => {
+    this.setState({
+      color: !this.state.color
+    });
+  }
 
   openModal() {
     this.setState({ modalVisible:true });
@@ -41,24 +48,33 @@ export default class MyComponent extends Component {
                 />
 
               <View style={styles.innerContainer}>
+                <Text style={styles.chooseText}>CHOOSE LANGUAGE</Text>
 
-                <Button
-                    onPress={() => this.closeModal()}
-                    title="Close modal"
-                />
+                <View style={styles.languageContainer}>
+                  <View style={styles.languageTextContainer}>
+                    <Text style={styles.languageText}>English</Text>
+                  </View>
+                  <TouchableOpacity onPress={() => this.closeModal()}>
+                    <Image
+                      style={{width: 50, height: 50}}
+                      source={require('../../../assets/icons/checkmarkorange.png')}
+                      />
+                  </TouchableOpacity>
+                </View>
 
-              
-                <Text>CHOOSE LANGUAGE</Text>
+                <View style={styles.languageContainer}>
+                  <View style={styles.languageTextContainer}>
+                    <Text style={styles.languageText}>Serbian</Text>
+                  </View>
+                  <TouchableOpacity onPress={() => this.closeModal()}>
+                    <Image
+                      style={{width: 50, height: 50}}
+                      source={require('../../../assets/icons/checkmarkorange.png')}
+                      />
+                  </TouchableOpacity>
+                </View>
 
-                <TouchableOpacity style={styles.languageTextContainer}>
-                  <Text style={styles.languageText}>English</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.languageTextContainer}>
-                  <Text style={styles.languageText}>Serbian</Text>
-                </TouchableOpacity>
-
-                <Text>You can always change the language</Text>
+                <Text style={styles.textChange}>You can always change your App language.</Text>
 
               </View>
             </View>
@@ -75,25 +91,34 @@ export default class MyComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red'
   },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
   },
   innerContainer: {
     height: Dimensions.get('window').height / 1.3,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: 'purple',
+    alignItems: 'center',
+  },
+  chooseText: {
+    color: colors.white,
+    alignSelf: 'center'
+  },
+  languageContainer: {
+    flexDirection: 'row',
   },
   languageTextContainer: {
-    padding: metrics.medium,
-    borderColor: colors.orange,
-    borderWidth: metrics.tinyBorder
+    // marginRight: metrics.extraHuge,
+    borderBottomColor: colors.green,
+    borderBottomWidth: metrics.tinyBorder
   },
   languageText:{
-    fontSize: fonts.size.medium
+    fontSize: fonts.size.huge,
+    color: colors.white
+  },
+  textChange: {
+    color: colors.grey
   }
 });

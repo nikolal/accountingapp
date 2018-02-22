@@ -1,37 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, Image, Button, Modal, StyleSheet, Dimensions, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 import { LinearGradient } from 'expo';
 
 
-export default class MyComponent extends Component {
-  state = {
-    modalVisible: false,
-    color: 0
-  };
+const MyModal = (props) => {
+  // console.log(props.closeModal);
 
-  changeColor= () => {
-    this.setState({
-      color: !this.state.color
-    });
-  }
-
-  openModal() {
-    this.setState({ modalVisible:true });
-  }
-
-  closeModal() {
-    this.setState({ modalVisible:false });
-  }
-
-  render() {
     return (
         <View style={styles.container}>
           <Modal
-            visible={this.state.modalVisible}
+            visible={props.modalVisible}
             animationType={'fade'}
             transparent
-            onRequestClose={() => this.closeModal()}
+            onRequestClose={props.closeModal}
           >
             <View style={styles.modalContainer}>
 
@@ -54,7 +36,7 @@ export default class MyComponent extends Component {
                   <View style={styles.languageTextContainer}>
                     <Text style={styles.languageText}>English</Text>
                   </View>
-                  <TouchableOpacity onPress={() => this.closeModal()}>
+                  <TouchableOpacity onPress={props.closeModal}>
                     <Image
                       style={{width: 50, height: 50}}
                       source={require('../../../assets/icons/checkmarkorange.png')}
@@ -66,7 +48,7 @@ export default class MyComponent extends Component {
                   <View style={styles.languageTextContainer}>
                     <Text style={styles.languageText}>Serbian</Text>
                   </View>
-                  <TouchableOpacity onPress={() => this.closeModal()}>
+                  <TouchableOpacity onPress={props.closeModal}>
                     <Image
                       style={{width: 50, height: 50}}
                       source={require('../../../assets/icons/checkmarkorange.png')}
@@ -79,14 +61,15 @@ export default class MyComponent extends Component {
               </View>
             </View>
           </Modal>
-          <Button
-              onPress={() => this.openModal()}
+{/*          <Button
+              onPress={() => props.openModal()}
               title="Open modal"
-          />
+          />*/}
         </View>
     );
-  }
-}
+};
+
+export default MyModal;
 
 const styles = StyleSheet.create({
   container: {

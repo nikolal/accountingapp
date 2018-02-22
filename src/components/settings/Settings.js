@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStorage } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 import { saveArticle } from './NewsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
-import Modal from './Modal.js';
 
-class News extends Component {
-
-  state = {
-    modalVisible: false,
-  };
-
-  closeModal = () => {
-    this.setState({ modalVisible: false });
-  }
-
-  // componentDidMount = () => {
-  //   AsyncStorage.getItem('modalVisible').then((value) => value === true ? null : this.setState({ 'modalVisible': true }) && AsyncStorage.setItem('modalVisible', value));
-  // }
-
+class Settings extends Component {
 
   goToNewsDetail = (screenName, article) => {
     this.props.saveArticle(article);
@@ -52,10 +38,6 @@ class News extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-      <Modal
-        modalVisible={this.state.modalVisible}
-        closeModal={this.closeModal}
-      />
         {this.props.news.map(this.renderList)}
       </ScrollView>
     );
@@ -70,7 +52,7 @@ const dispatchToProps = dispatch => ({
   saveArticle: bindActionCreators(saveArticle, dispatch)
 });
 
-export default connect(stateToProps, dispatchToProps)(News);
+export default connect(stateToProps, dispatchToProps)(Settings);
 
 const styles = StyleSheet.create({
   container: {

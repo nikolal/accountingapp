@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { metrics, colors, fonts } from '../../theme/index.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
-import TaxesDetail from '../taxes-detail/TaxesDetail.js';
+import TaxesDetail from '../taxes-detail/TaxesDetail';
 import Settings from '../settings/Settings.js';
 import Tabs from '../tabs/Tabs.js';
 import About from '../about/About.js';

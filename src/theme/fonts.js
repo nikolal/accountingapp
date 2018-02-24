@@ -4,7 +4,8 @@ const fonts = {
     small: 13,
     medium: 15,
     large: 17,
-    huge: 20
+    huge: 20,
+    extraHuge: 30
   },
   weight: {
     small: '200',

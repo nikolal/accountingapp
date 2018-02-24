@@ -6,9 +6,20 @@ import { metrics, colors, fonts } from '../../theme/index.js';
 const HeaderLeft = props => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.iconContainer} onPress={() => props.navigation.navigate('DrawerOpen')}>
-        <SimpleLineIcons name="menu" size={25} color={colors.white} />
-      </TouchableOpacity>
+      {
+        props.navigation.state.routeName === 'Tabs'
+        ?
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => props.navigation.state.routeName === 'Tabs' && props.navigation.navigate('DrawerOpen')}
+          >
+            <SimpleLineIcons name="menu" size={25} color={colors.white} />
+          </TouchableOpacity>
+        :
+          <TouchableOpacity onPress={() => props.navigation.goBack()} style={styles.iconContainer}>
+            <SimpleLineIcons name="arrow-left" size={20} color={colors.white}/>
+          </TouchableOpacity>
+      }
     </View>
   );
 };

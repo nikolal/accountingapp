@@ -31,7 +31,13 @@ class Taxes extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+      <View style={styles.innerContainer}>
+        <Image
+          style={{ height: Dimensions.get('window').height / 3.5, }}
+          source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
+        />
         {this.props.taxes.map(this.renderList)}
+      </View>
       </ScrollView>
     );
   }
@@ -50,13 +56,28 @@ export default connect(stateToProps, dispatchToProps)(Taxes);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey
+    backgroundColor: colors.lightGrey,
+    padding: metrics.small,
+  },
+  innerContainer: {
+    marginTop: metrics.medium,
+    padding: metrics.medium,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
   },
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomColor: 'rgb(0, 87, 127)',
+    borderBottomColor: colors.black,
     borderBottomWidth: metrics.smallBorder,
     marginHorizontal: metrics.large,
     paddingVertical: metrics.huge

@@ -5,18 +5,52 @@ const SAVE_ARTICLE = 'taxes/SAVE_ARTICLE';
 const initialState = {
   taxes: [{
     title: 'Porez na dobit',
-    description: 'is a mandatory financial charge or some other type of levy imposed upon a taxpaye',
     date: '30.04.2018',
-    image: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum'
+      text: '1Porez na dobit pravnih lica',
+      percentage: '11%'
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      text: 'Neki porez',
+      percentage: '20%'
     },{
-      type: 'text',
-      value: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
+      text: '221Porez na dobit pravnih lica',
+      percentage: '15'
+    },{
+      text: '5Porez na dobit pravnih lic',
+      percentage: '20%'
+    },{
+      text: '331Porez na dobit pravnih lica',
+      percentage: '12'
+    },{
+      text: '6rez na dobit pravnih lic',
+      percentage: '20%'
+    },{
+      text: '441Porez na dobit pravnih lica',
+      percentage: '35%'
+    },{
+      text: 'Neki porez',
+      percentage: '20%'
+    },{
+      text: '221Porez na dobit pravnih lica',
+      percentage: '15%'
+    },{
+      text: 'Dobit pravnih lic',
+      percentage: '20%'
+    },{
+      text: '331Porez na dobit pravnih lica',
+      percentage: '20'
+    },{
+      text: '12Dobit pravnih lic',
+      percentage: '20%'
+    },{
+      text: '441Porez na dobit pravnih lica',
+      percentage: '35'
+    },{
+      text: '551Porez na dobit pravnih lica',
+      percentage: '20%'
+    },{
+      text: '551Porez na dobit pravnih lica',
+      percentage: '20%'
     }]
   },{
     title: 'PDV',

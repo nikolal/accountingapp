@@ -15,19 +15,14 @@ class Taxes extends Component {
 
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToTaxesDetails('TaxesDetail', item)} style={styles.item}>
-      <Image
-        resizeMode="cover"
-        style={styles.taxesImages}
-        source={{ uri: item.image }}
-      />
       <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={3}>{item.title}</Text>
+        <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
         <Text style={styles.dateText}>{item.date}</Text>
       </View>
       <SimpleLineIcons
         name="arrow-right"
         size={25}
-        color="white"
+        color="black"
         style={styles.arrowIcon}
       />
       <View style={styles.overlay} />
@@ -36,9 +31,7 @@ class Taxes extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.itemsContainer}>
-          {this.props.taxes.map(this.renderList)}
-        </View>
+        {this.props.taxes.map(this.renderList)}
       </ScrollView>
     );
   }
@@ -57,54 +50,28 @@ export default connect(stateToProps, dispatchToProps)(Taxes);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  itemsContainer: {
-    flex: 1,
+    backgroundColor: colors.lightGrey
   },
   item: {
-    height: 150,
-    margin: metrics.small,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  overlay: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 0
-  },
-  taxesImages: {
-    height: 150,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: 'rgb(0, 87, 127)',
+    borderBottomWidth: metrics.smallBorder,
+    marginHorizontal: metrics.large,
+    paddingVertical: metrics.huge
   },
   textContainer: {
-    position: 'absolute',
-    zIndex: 2,
-    margin: metrics.medium
+    flex: 1,
+    paddingLeft: metrics.small
   },
   titleText: {
     fontSize: fonts.size.huge,
     fontWeight: 'bold',
-    color: colors.white,
+    // color: 'rgb(0, 87, 127)',
+    marginBottom: metrics.small
   },
   dateText: {
-    color: colors.white,
-  },
-  arrowIcon: {
-    position: 'absolute',
-    right: 0,
-    bottom: 75,
-    zIndex: 2
+    color: colors.grey,
   }
 });
-
-

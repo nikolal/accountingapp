@@ -14,13 +14,13 @@ const initialState = {
       percentage: '20%'
     },{
       text: '221Porez na dobit pravnih lica',
-      percentage: '15'
+      percentage: '15%'
     },{
       text: '5Porez na dobit pravnih lic',
       percentage: '20%'
     },{
       text: '331Porez na dobit pravnih lica',
-      percentage: '12'
+      percentage: '12%'
     },{
       text: '6rez na dobit pravnih lic',
       percentage: '20%'
@@ -38,13 +38,13 @@ const initialState = {
       percentage: '20%'
     },{
       text: '331Porez na dobit pravnih lica',
-      percentage: '20'
+      percentage: '20%'
     },{
       text: '12Dobit pravnih lic',
       percentage: '20%'
     },{
       text: '441Porez na dobit pravnih lica',
-      percentage: '35'
+      percentage: '35%'
     },{
       text: '551Porez na dobit pravnih lica',
       percentage: '20%'

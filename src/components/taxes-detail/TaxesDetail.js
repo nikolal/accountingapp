@@ -10,6 +10,8 @@ class TaxesDetail extends Component {
     inputText: ''
   }
 
+  updateSearchText = (x) => this.setState({ searchText: x });
+
   static navigationOptions = ({ navigation }) => ({
     title: 'TAXES DETAIL',
   })
@@ -17,23 +19,26 @@ class TaxesDetail extends Component {
   renderArticle = (item, index) =>
     <View key={index }style={styles.oneParagraph}>
       <Text>{item.text}</Text>
-      <Text>{item.percentage}</Text>
+      <Text style={styles.percentage}>{item.percentage}</Text>
     </View>
 
   render(){
     const { article } = this.props;
+    // const { searchText } = this.state;
+
+    // const searchCompetitions = competitions // eslint-disable-line
+    // .filter(x => x.country.toLowerCase().indexOf(searchText.toLowerCase()) >= 0)
+    // .filter((x, i) => i < 70);
+
     return (
       <ScrollView atyle={styles.container}>
         <View style={styles.innerContainer}>
+          <Text style={styles.titleText}>{article.title}</Text>
           <TextInput
             style={styles.inputText}
-            onChangeText={(inputText) => this.setState({inputText})}
+            onChangeText={this.updateSearchText}
             value={this.state.inputText}
           />
-          <View style={styles.dateTitleContainer}>
-            <Text>{article.title}</Text>
-            <Text>{article.date}</Text>
-          </View>
           <View style={styles.item}>
             {article.paragraphs.map(this.renderArticle)}
           </View>
@@ -71,13 +76,28 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
   },
+  titleText: {
+    marginBottom: metrics.extraHuge,
+    alignSelf: 'center',
+    fontSize: fonts.size.huge,
+    fontWeight: 'bold'
+  },
   inputText: {
     height: 40,
     borderColor: 'gray',
-    borderWidth: metrics.smallBorder
+    borderWidth: metrics.smallBorder,
+    marginHorizontal: metrics.medium
   },
   oneParagraph: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: colors.black,
+    borderBottomWidth: metrics.smallBorder,
+    marginHorizontal: metrics.large,
+    paddingVertical: metrics.huge
+  },
+  percentage: {
+    fontWeight: fonts.weight.large
   }
 });

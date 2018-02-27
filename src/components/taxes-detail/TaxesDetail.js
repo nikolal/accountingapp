@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 // import PropTypes from 'prop-types';
@@ -10,7 +10,7 @@ class TaxesDetail extends Component {
     inputText: ''
   }
 
-  updateSearchText = (x) => this.setState({ searchText: x });
+  updateSearchText = (x) => this.setState({ inputText: x });
 
   static navigationOptions = ({ navigation }) => ({
     title: 'TAXES DETAIL',
@@ -24,11 +24,11 @@ class TaxesDetail extends Component {
 
   render(){
     const { article } = this.props;
-    // const { searchText } = this.state;
+    const { inputText } = this.state;
 
-    // const searchCompetitions = competitions // eslint-disable-line
-    // .filter(x => x.country.toLowerCase().indexOf(searchText.toLowerCase()) >= 0)
-    // .filter((x, i) => i < 70);
+    const searchTaxes =  article.paragraphs
+      .filter(x => x.text.toLowerCase().indexOf(inputText.toLowerCase()) >= 0);
+      // .filter((x, i) => i < 70);
 
     return (
       <ScrollView atyle={styles.container}>
@@ -37,10 +37,25 @@ class TaxesDetail extends Component {
           <TextInput
             style={styles.inputText}
             onChangeText={this.updateSearchText}
-            value={this.state.inputText}
+            value={inputText}
           />
           <View style={styles.item}>
-            {article.paragraphs.map(this.renderArticle)}
+            {
+              searchTaxes.lenght === 0 &&
+                <ActivityIndicator
+                  style={styles.activityIndicator}
+                  size="small"
+                  color={colors.black}
+                  animating={article.paragraphs.length === 0}
+                />
+            }
+            {
+              article.paragraphs.length === 0 || inputText === 0
+              ?
+              <Text>There are no available taxes</Text>
+              :
+              article.paragraphs.map(this.renderArticle)
+            }
           </View>
         </View>
       </ScrollView>

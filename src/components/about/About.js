@@ -34,7 +34,9 @@ class AboutUs extends Component {
             style={styles.image}
             source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
           />
-        {this.props.about.map(this.renderList)}
+          <View style={styles.itemsContainer}>
+            {this.props.about.map(this.renderList)}
+          </View>
         </View>
       </View>
     );
@@ -74,10 +76,15 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3.5,
     marginBottom: metrics.huge
   },
+  itemsContainer: {
+    flex: 1,
+    justifyContent: 'space-around',
+  },
   item: {
     backgroundColor: colors.lightGrey,
     margin: metrics.large,
-    padding: metrics.large,
+    marginBottom: metrics.huge,
+    padding: metrics.huge,
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',

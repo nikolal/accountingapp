@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   image: {
-    height: Dimensions.get('window').height / 3.5,
+    height: Dimensions.get('window').height / 3,
     marginBottom: metrics.huge
   },
   itemsContainer: {
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: colors.lightGrey,
     margin: metrics.large,
-    marginBottom: metrics.huge,
     padding: metrics.huge,
     borderWidth: 1,
     borderRadius: 2,

@@ -2,9 +2,11 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { metrics, colors, fonts } from '../../theme/index.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
+import TaxesDetail from '../taxes-detail/TaxesDetail';
 import Settings from '../settings/Settings.js';
 import Tabs from '../tabs/Tabs.js';
 import About from '../about/About.js';
+import AboutDetail from '../about-detail/AboutDetail';
 import Contact from '../contact/Contact.js';
 import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
@@ -32,9 +34,11 @@ const navigationConfig = {
 const Navigator = StackNavigator({
   Settings: { screen: Settings},
   Tabs: { screen: Tabs },
-  NewsDetail: { screen: NewsDetail },
   About: { screen: About },
   Contact: { screen: Contact },
+  NewsDetail: { screen: NewsDetail },
+  TaxesDetail: { screen: TaxesDetail },
+  AboutDetail: { screen: AboutDetail },
 }, navigationConfig);
 
 export default Navigator;

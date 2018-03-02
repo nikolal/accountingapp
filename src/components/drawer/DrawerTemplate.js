@@ -9,10 +9,11 @@ class DrawerTemplate extends Component {
 
   state = {
     drawerList: [
-      { screen: 'Settings', icon: 'settings', name: 'Settings', arrow: 'arrow-right' },
       { screen: 'Tabs', icon: 'book-open', name: 'News', arrow: 'arrow-right' },
-      { screen: 'About', icon: 'people', name: 'About', arrow: 'arrow-right' },
+      { screen: 'Services', icon: 'docs', name: 'Our Services', arrow: 'arrow-right' },
+      { screen: 'About', icon: 'home', name: 'About Us', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'call-out', name: 'Contact', arrow: 'arrow-right' },
+      { screen: 'Settings', icon: 'settings', name: 'Settings', arrow: 'arrow-right' }
     ]
   };
 
@@ -46,9 +47,7 @@ class DrawerTemplate extends Component {
         <View style={styles.textLogoContainer}>
           <Text style={styles.logoText}>HLB T&M Consulting</Text>
             <View style={styles.textContainer}>
-              <Text style={styles.text}>Finance,</Text>
-              <Text style={styles.text}>Tax,</Text>
-              <Text style={styles.text}>Advisory</Text>
+              <Text style={styles.text}>Finance | Tax | Advisory</Text>
             </View>
         </View>
         <Image

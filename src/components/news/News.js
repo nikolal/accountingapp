@@ -10,17 +10,28 @@ import Modal from './Modal.js';
 class News extends Component {
 
   state = {
-    modalVisible: false,
-  };
-
-  closeModal = () => {
-    this.setState({ modalVisible: false });
+    modalVisible: false
   }
 
-  // componentDidMount = () => {
-  //   AsyncStorage.getItem('modalVisible').then((value) => value === true ? null : this.setState({ 'modalVisible': true }) && AsyncStorage.setItem('modalVisible', value));
-  // }
+  componentDidMount = () => {
+    this.getLanguage();
+  }
 
+  getLanguage = () => {
+    AsyncStorage.getItem('@accountingApp:language')
+      .then(language => this.checkIfLanguageExist(language));
+  }
+
+  checkIfLanguageExist = language =>
+    language ? this.setLanguage(language) : this.toggleModal(true);
+
+  setLanguage = language => {
+    console.log(`Save ${language} language to redux and AsyncStorage`);
+    AsyncStorage.setItem('@accountingApp:language', language)
+      .then(() => this.toggleModal(false));
+  }
+
+  toggleModal = bool => this.setState({ modalVisible: bool });
 
   goToNewsDetail = (screenName, article) => {
     this.props.saveArticle(article);
@@ -54,7 +65,8 @@ class News extends Component {
       <ScrollView style={styles.container}>
       <Modal
         modalVisible={this.state.modalVisible}
-        closeModal={this.closeModal}
+        toggleModal={this.toggleModal}
+        setLanguage={this.setLanguage}
       />
         {this.props.news.map(this.renderList)}
       </ScrollView>
@@ -119,5 +131,3 @@ const styles = StyleSheet.create({
     right: 0
   }
 });
-
-

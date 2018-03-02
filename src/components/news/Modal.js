@@ -1,19 +1,18 @@
 import React from 'react';
-import { Text, View, Image, Button, Modal, StyleSheet, Dimensions, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Text, View, Image, Button, Modal, StyleSheet, Dimensions, AsyncStorage, TouchableOpacity } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 import { LinearGradient } from 'expo';
 
 
-const MyModal = (props) => {
-  // console.log(props.closeModal);
+const MyModal = ({ toggleModal, modalVisible, setLanguage }) => {
 
     return (
         <View style={styles.container}>
           <Modal
-            visible={props.modalVisible}
+            visible={modalVisible}
             animationType={'fade'}
             transparent
-            onRequestClose={props.closeModal}
+            onRequestClose={() => false}
           >
             <View style={styles.modalContainer}>
 
@@ -36,7 +35,7 @@ const MyModal = (props) => {
                   <View style={styles.languageTextContainer}>
                     <Text style={styles.languageText}>English</Text>
                   </View>
-                  <TouchableOpacity onPress={props.closeModal}>
+                  <TouchableOpacity onPress={() => setLanguage('en')}>
                     <Image
                       style={{width: 50, height: 50}}
                       source={require('../../../assets/icons/checkmarkorange.png')}
@@ -48,7 +47,7 @@ const MyModal = (props) => {
                   <View style={styles.languageTextContainer}>
                     <Text style={styles.languageText}>Serbian</Text>
                   </View>
-                  <TouchableOpacity onPress={props.closeModal}>
+                  <TouchableOpacity onPress={() => setLanguage('rs')}>
                     <Image
                       style={{width: 50, height: 50}}
                       source={require('../../../assets/icons/checkmarkorange.png')}

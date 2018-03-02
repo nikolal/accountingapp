@@ -18,7 +18,7 @@ class News extends Component {
   }
 
   getLanguage = () => {
-    AsyncStorage.getItem('@accountingApp:language')
+    AsyncStorage.getItem('@accountingApp:ddddddd')
       .then(language => this.checkIfLanguageExist(language));
   }
 
@@ -27,7 +27,7 @@ class News extends Component {
 
   setLanguage = language => {
     console.log(`Save ${language} language to redux and AsyncStorage`);
-    AsyncStorage.setItem('@accountingApp:language', language)
+    AsyncStorage.setItem('@accountingApp:ddddddd', language)
       .then(() => this.toggleModal(false));
   }
 

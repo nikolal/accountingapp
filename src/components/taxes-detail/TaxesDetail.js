@@ -10,13 +10,15 @@ class TaxesDetail extends Component {
     inputText: ''
   }
 
-  updateSearchText = (x) => this.setState({ inputText: x });
+  updateInputText = text => this.setState({ inputText: text });
 
   static navigationOptions = ({ navigation }) => ({
     title: 'TAXES DETAIL',
   })
 
-  renderArticle = (item, index) =>
+  filterTaxes = item => item.text.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0;
+
+  renderTaxes = (item, index) =>
     <View key={index }style={styles.oneParagraph}>
       <Text>{item.text}</Text>
       <Text style={styles.percentage}>{item.percentage}</Text>
@@ -26,35 +28,21 @@ class TaxesDetail extends Component {
     const { article } = this.props;
     const { inputText } = this.state;
 
-    const searchTaxes =  article.paragraphs
-      .filter(x => x.text.toLowerCase().indexOf(inputText.toLowerCase()) >= 0);
-      // .filter((x, i) => i < 70);
-
     return (
       <ScrollView atyle={styles.container}>
         <View style={styles.innerContainer}>
           <Text style={styles.titleText}>{article.title}</Text>
           <TextInput
             style={styles.inputText}
-            onChangeText={this.updateSearchText}
+            onChangeText={this.updateInputText}
             value={inputText}
           />
+
           <View style={styles.item}>
             {
-              searchTaxes.lenght === 0 &&
-                <ActivityIndicator
-                  style={styles.activityIndicator}
-                  size="small"
-                  color={colors.black}
-                  animating={article.paragraphs.length === 0}
-                />
-            }
-            {
-              article.paragraphs.length === 0 || inputText === 0
-              ?
-              <Text>There are no available taxes</Text>
-              :
-              article.paragraphs.map(this.renderArticle)
+              article.paragraphs
+                .filter(this.filterTaxes)
+                .map(this.renderTaxes)
             }
           </View>
         </View>

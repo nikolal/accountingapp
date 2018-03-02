@@ -26,41 +26,39 @@ const MyModal = ({ toggleModal, modalVisible, setLanguage }) => {
       </TouchableOpacity>
     </View>;
 
-    return (
-        <View style={styles.container}>
-          <Modal
-            visible={modalVisible}
-            animationType={'fade'}
-            transparent
-            onRequestClose={() => false}
-          >
-            <View style={styles.modalContainer}>
+  return (
+    <View style={styles.container}>
+      <Modal
+        visible={modalVisible}
+        animationType={'fade'}
+        transparent
+        onRequestClose={() => false}
+      >
+        <View style={styles.modalContainer}>
 
-              <LinearGradient
-                colors={['rgb(0, 0, 0)', 'rgb(38, 38, 38)', 'rgb(64, 64, 64)']}
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  height: Dimensions.get('window').height
-                }}
-              />
+          <LinearGradient
+            colors={['rgb(0, 0, 0)', 'rgb(38, 38, 38)', 'rgb(64, 64, 64)']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: Dimensions.get('window').height
+            }}
+          />
 
-              <View style={styles.innerContainer}>
-                <Text style={styles.chooseText}>CHOOSE LANGUAGE</Text>
+          <View style={styles.innerContainer}>
+            <Text style={styles.chooseText}>CHOOSE LANGUAGE</Text>
 
-                {
-                  languages.map(item => renderLanguages(item))
-                }
+            {languages.map(renderLanguages)}
 
-                <Text style={styles.textChange}>You can always change your App language.</Text>
+            <Text style={styles.textChange}>You can always change your App language.</Text>
 
-              </View>
-            </View>
-          </Modal>
+          </View>
         </View>
-    );
+      </Modal>
+    </View>
+  );
 };
 
 export default MyModal;

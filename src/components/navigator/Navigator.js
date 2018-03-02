@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { metrics, colors, fonts } from '../../theme/index.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
+import Settings from '../settings/Settings.js';
 import Tabs from '../tabs/Tabs.js';
 import About from '../about/About.js';
 import Contact from '../contact/Contact.js';
@@ -29,6 +30,7 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
+  Settings: { screen: Settings},
   Tabs: { screen: Tabs },
   NewsDetail: { screen: NewsDetail },
   About: { screen: About },

@@ -4,37 +4,37 @@ const SAVE_ARTICLE = 'news/SAVE_ARTICLE';
 // Initial State
 const initialState = {
   news: [{
-    title: 'This is Title number one',
-    description: 'Description lorem ipsum, lorem ipsum, lorem...',
+    title: 'Title titel ltik tuy;le maiu aid lorem ',
+    description: 'Description lorem ipsum...',
     date: '30.04.2018',
-    image: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg',
+    image: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-800x534.jpg',
     paragraphs: [{
       type: 'text',
-      value: 'lorem imsum'
+      value: 'lorem imsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
     },{
       type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      value: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg'
     },{
       type: 'text',
-      value: 'lorem imsum'
+      value: 'lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, imsum'
     }]
   },{
-    title: 'he terms "accounting" and "financial reporting" are often used as synonyms. 2',
-    description: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
+    title: 'Title2 is the ftiksm lorem ipsum',
+    description: 'An income tax is a tax imposed on individuals or entities that varies with their respective income or profits.',
     date: '30.05.2018',
-    image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
+    image: 'http://www.dmu.ac.uk/webimages/business-and-law-images/course-images/bal/accounting-and-finance.jpg',
     paragraphs: [{
       type: 'text',
-      value: 'lorem imsum2'
+      value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
     },{
       type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      value: 'https://www.edx.org/sites/default/files/course/image/promoted/courseimages_0005_fin-account_378x225.jpg'
     },{
       type: 'text',
-      value: 'lorem imsum2'
+      value: 'Nikola lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem Lukic'
     },{
       type: 'text',
-      value: 'lorem imsum3'
+      value: 'SEka lorem imsum3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, Skana'
     }]
   }],
   article: {}

@@ -40,15 +40,15 @@ class News extends Component {
 
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
-      <Image
-        style={{ width: 90, height: 90 }}
-        source={{ uri: item.image }}
-      />
+      <View>
+        <Image
+          style={{ width: 100, height: 100 }}
+          source={{ uri: item.image }}
+        />
+      </View>
       <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={3}>{item.title}</Text>
-        {/*<Text style={styles.descriptionText} numberOfLines={3}>{item.description}</Text>*/}
+        <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
         <Text style={styles.dateText}>{item.date}</Text>
-
       </View>
 
       <SimpleLineIcons
@@ -57,18 +57,19 @@ class News extends Component {
         color="black"
         style={styles.arrowIcon}
       />
-
     </TouchableOpacity>
 
   render() {
     return (
       <ScrollView style={styles.container}>
-      <Modal
-        modalVisible={this.state.modalVisible}
-        toggleModal={this.toggleModal}
-        setLanguage={this.setLanguage}
-      />
-        {this.props.news.map(this.renderList)}
+        <Modal
+          modalVisible={this.state.modalVisible}
+          toggleModal={this.toggleModal}
+          setLanguage={this.setLanguage}
+        />
+        <View style={styles.innerContainer}>
+          {this.props.news.map(this.renderList)}
+        </View>
       </ScrollView>
     );
   }
@@ -90,12 +91,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGrey,
     padding: metrics.small,
   },
+  innerContainer: {
+    flex: 1,
+  },
   item: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: metrics.medium,
+    marginBottom: metrics.small,
     padding: metrics.small,
-    backgroundColor: colors.white,
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',
@@ -109,25 +113,18 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     flexWrap: 'wrap',
-    marginLeft: metrics.medium,
+    margin: metrics.medium,
   },
   titleText: {
     fontSize: fonts.size.medium,
     fontWeight: fonts.weight.large,
-    marginBottom: metrics.tiny,
-    paddingRight: metrics.medium
+    marginBottom: metrics.medium,
   },
-  // descriptionText: {
-  //   fontSize: fonts.size.small,
-  //   marginBottom: metrics.tiny,
-  // },
   dateText: {
-    marginTop: metrics.small,
     color: colors.grey,
-    fontSize: fonts.size.tiny
+    fontSize: fonts.size.small
   },
   arrowIcon: {
-    position: 'absolute',
-    right: 0
+    right: metrics.small
   }
 });

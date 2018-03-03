@@ -11,7 +11,7 @@ class DrawerTemplate extends Component {
     drawerList: [
       { screen: 'Tabs', icon: 'book-open', name: 'News', arrow: 'arrow-right' },
       { screen: 'Services', icon: 'docs', name: 'Our Services', arrow: 'arrow-right' },
-      { screen: 'About', icon: 'home', name: 'About Us', arrow: 'arrow-right' },
+      { screen: 'About', icon: 'info', name: 'About Us', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'call-out', name: 'Contact', arrow: 'arrow-right' },
       { screen: 'Settings', icon: 'settings', name: 'Settings', arrow: 'arrow-right' }
     ]

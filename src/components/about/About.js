@@ -16,27 +16,31 @@ class AboutUs extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goAboutDetail('AboutDetail', item)} style={styles.item}>
       <View style={styles.textIconsContainer}>
-        <Text style={styles.titleText} numberOfLines={3}>{item.title}</Text>
         <SimpleLineIcons
-        name="arrow-right"
-        size={16}
-        color="black"
-        style={styles.arrowIcon}
+          name={item.icon}
+          size={17}
+          color="black"
+          style={styles.icon}
         />
+        <Text style={styles.titleText}>{item.title}</Text>
       </View>
+        <SimpleLineIcons
+          name="arrow-right"
+          size={20}
+          color="black"
+          style={styles.arrowIcon}
+        />
     </TouchableOpacity>
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.innerContainer}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
-          />
-          <View style={styles.itemsContainer}>
-            {this.props.about.map(this.renderList)}
-          </View>
+        <Image
+          style={styles.image}
+          source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
+        />
+        <View style={styles.itemsContainer}>
+          {this.props.about.map(this.renderList)}
         </View>
       </View>
     );
@@ -69,34 +73,34 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
   },
-  innerContainer: {
-    flex: 1
-  },
   image: {
     height: Dimensions.get('window').height / 3,
-    marginBottom: metrics.huge
   },
   itemsContainer: {
     flex: 1,
     justifyContent: 'space-around',
+    margin: metrics.large
   },
   item: {
-    backgroundColor: colors.lightGrey,
-    margin: metrics.large,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: metrics.small,
     padding: metrics.huge,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    backgroundColor: colors.lightGrey,
+    borderRadius: 10,
+    borderBottomWidth: metrics.smallBorder,
+    borderBottomColor: colors.grey
+  },
+  icon: {
+    marginRight: metrics.medium
   },
   textIconsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    alignItems: 'center',
+  },
+  titleText: {
+    fontSize: fonts.size.large
   }
 });
 

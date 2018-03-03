@@ -7,6 +7,7 @@ const initialState = {
     title: 'Our Team',
     description: 'MILKA JANICIC - Managing Director',
     image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
+    icon: 'people',
     paragraphs: [{
         type: 'headline',
         value: 'PARTNER'
@@ -38,6 +39,7 @@ const initialState = {
   },{
     title: 'Our company',
     description: 'WELCOME TO HLB T&M CONSULTING.',
+    icon: 'organization',
     paragraphs: [{
       type: 'text',
       value: 'HLB T&M Consulting is one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.'
@@ -54,8 +56,8 @@ const initialState = {
   },{
     title: 'Our clients',
     description: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
-    // date: '30.05.2018',
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
+    icon: 'people',
     paragraphs: [{
       type: 'text',
       value: 'lorem imsum2'

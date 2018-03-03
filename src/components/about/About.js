@@ -37,8 +37,9 @@ class AboutUs extends Component {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
+          source={{ uri: 'https://creditarmy.org/wp-content/uploads/2017/05/OurTeam.jpg' }}
         />
+        <Text style={styles.descriptionText}>HLB T&M Consulting is one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia.</Text>
         <View style={styles.itemsContainer}>
           {this.props.about.map(this.renderList)}
         </View>
@@ -74,18 +75,27 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 3,
+    height: Dimensions.get('window').height / 5,
+    width: Dimensions.get('window').width / 2,
+    alignSelf: 'center',
+    marginVertical: metrics.huge,
+    borderRadius: 5
+  },
+  descriptionText: {
+    fontSize: fonts.size.medium,
+    color: colors.grey,
+    alignSelf: 'center',
+    marginHorizontal: metrics.medium,
   },
   itemsContainer: {
     flex: 1,
     justifyContent: 'space-around',
-    margin: metrics.large
+    marginHorizontal: metrics.large,
   },
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: metrics.small,
     padding: metrics.huge,
     backgroundColor: colors.lightGrey,
     borderRadius: 10,

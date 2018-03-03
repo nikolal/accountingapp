@@ -12,9 +12,11 @@ class AboutDetail extends Component {
 
   renderArticle = (item, index) =>
     item.type === 'text' ?
-      <Text key={index} style={styles.textParagraph}>{item.value}</Text> :
+      <Text key={index} style={styles.textParagraph}>  {item.value}</Text> :
     item.type === 'headline' ?
-      <Text key={index} style={styles.headline}>{item.value}</Text> :
+      <View key={index} style={styles.headlineContainer}>
+        <Text style={styles.headline}>{item.value}</Text>
+      </View> :
     item.type === 'image' ?
       <Image key={index} source={{uri: item.value}} /> :
     null;
@@ -22,18 +24,26 @@ class AboutDetail extends Component {
   render(){
     const { article } = this.props;
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.innerContainer}>
-          <Image
-            style={styles.image}
-            source={{uri: article.image}}
-          />
-          <Text style={styles.description}>{article.description}</Text>
-          <View style={styles.paragraphsContainer}>
-            {article.paragraphs.map(this.renderArticle)}
+      article.title === 'Our Team' || article.title === 'Our company' ?
+        <ScrollView style={styles.container}>
+          <View style={styles.innerContainer}>
+            <Image
+              style={styles.image}
+              source={{uri: article.image}}
+            />
+            <Text style={styles.description}>{article.description}</Text>
+            <View style={styles.paragraphsContainer}>
+              {article.paragraphs.map(this.renderArticle)}
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView> :
+      article.title === 'Our clients' ?
+        <ScrollView style={styles.container}>
+          <View style={styles.innerContainer}>
+            <Text>iiiiii</Text>
+          </View>
+        </ScrollView> : 
+      null
     );
   }
 }
@@ -51,6 +61,7 @@ export default connect(stateToProps, null)(AboutDetail);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.lightGrey
   },
   innerContainer: {
     margin: metrics.medium,
@@ -71,24 +82,35 @@ const styles = StyleSheet.create({
     width: 150,
     borderRadius: 75,
     alignSelf: 'center',
-    marginTop: metrics.huge,
-    marginBottom: metrics.extraHuge,
+    marginVertical: metrics.huge,
   },
   description: {
     fontSize: fonts.size.huge,
     fontWeight: 'bold',
-    // alignSelf: 'center',
-    margin: metrics.large
+    alignSelf: 'center',
+    marginBottom: metrics.huge,
+    marginHorizontal: metrics.large
   },
   paragraphsContainer: {
+    margin: metrics.medium
+  },  
+  headlineContainer: {
+    backgroundColor: 'rgb(252, 234, 233)',
+    borderBottomWidth: metrics.mediumBorder,
+    borderBottomColor: colors.grey,
+    borderRadius: 5,
+    padding: metrics.small,
+    marginRight: metrics.medium,
+    marginBottom: metrics.medium
   },
   headline: {
     fontSize: fonts.size.medium,
     fontWeight: fonts.weight.large,
-    color: colors.grey
+    color: colors.grey,
   },
   textParagraph: {
-    margin: metrics.medium,
+    marginHorizontal: metrics.medium,
+    marginBottom: metrics.medium,
     fontSize: fonts.size.medium
   }
 });

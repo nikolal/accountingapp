@@ -12,7 +12,7 @@ class AboutDetail extends Component {
 
   renderArticle = (item, index) =>
     item.type === 'text' ?
-      <Text key={index} style={styles.textParagraph}>  {item.value}</Text> :
+      <Text key={index} style={styles.textParagraph}>{item.value}</Text> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>
         <Text style={styles.headline}>{item.value}</Text>

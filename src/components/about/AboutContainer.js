@@ -39,6 +39,7 @@ const initialState = {
   },{
     title: 'Our company',
     description: 'WELCOME TO HLB T&M CONSULTING.',
+    image: 'http://www.tekpar.net/User_Files/kurumsal/kurumsal.jpg',
     icon: 'organization',
     paragraphs: [{
       type: 'text',

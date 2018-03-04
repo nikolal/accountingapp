@@ -10,40 +10,25 @@ class ServicesDetail extends Component {
     title: 'SERVICES DETAIL',
   })
 
-  renderArticle = (item, index) =>
+  renderServices = (item, index) =>
     item.type === 'text' ?
-      <Text key={index} style={styles.textParagraph}>{item.value}</Text> :
+      <View key={index} style={styles.paragraphsContainer}>
+        <Text style={styles.textParagraph}>{item.value}</Text> 
+      </View> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>
         <Text style={styles.headline}>{item.value}</Text>
       </View> :
-    item.type === 'image' ?
-      <Image key={index} source={{uri: item.value}} style={styles.clientsImage}/> :
     null;
 
   render(){
-    const { article } = this.props;
+    const { services } = this.props;
     return (
-      article.title === 'Our Team' || article.title === 'Our company' ?
-        <ScrollView style={styles.container}>
-          <View style={styles.innerContainer}>
-            <Image
-              style={styles.image}
-              source={{uri: article.image}}
-            />
-            <Text style={styles.description}>{article.description}</Text>
-            <View style={styles.paragraphsContainer}>
-              {article.paragraphs.map(this.renderArticle)}
-            </View>
-          </View>
-        </ScrollView> :
-      article.title === 'Our clients' ?
-        <ScrollView style={styles.container}>
-          <View style={styles.innerContainerClients}>
-            {article.paragraphs.map(this.renderArticle)}
-          </View>
-        </ScrollView> : 
-      null
+      <ScrollView style={styles.container}>
+        <View style={styles.innerContainer}>
+          {services.paragraphs.map(this.renderServices)}
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -53,7 +38,7 @@ ServicesDetail.propTypes = { // eslint-disable-line
 };
 
 const stateToProps = state => ({
-  article: state.aboutReducer.article
+  services: state.servicesReducer.services
 });
 
 export default connect(stateToProps, null)(ServicesDetail);
@@ -65,7 +50,8 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     margin: metrics.medium,
-    padding: metrics.medium,
+    paddingHorizontal: metrics.medium,
+    paddingBottom: metrics.medium,
     backgroundColor: colors.white,
     borderWidth: 1,
     borderRadius: 2,
@@ -76,64 +62,24 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
-  },
-  innerContainerClients: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    margin: metrics.medium,
-    padding: metrics.medium,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  image: {
-    height: 150,
-    width: 150,
-    borderRadius: 75,
-    alignSelf: 'center',
-    marginVertical: metrics.huge,
-  },
-  description: {
-    fontSize: fonts.size.huge,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    marginBottom: metrics.huge,
-    marginHorizontal: metrics.large
   },
   paragraphsContainer: {
-    margin: metrics.medium
-  },  
-  headlineContainer: {
-    backgroundColor: 'rgb(252, 234, 233)',
-    borderBottomWidth: metrics.mediumBorder,
+    padding: metrics.large,
+    borderBottomWidth: metrics.smallBorder,
     borderBottomColor: colors.grey,
-    borderRadius: 5,
-    padding: metrics.small,
-    marginRight: metrics.medium,
-    marginBottom: metrics.medium
-  },
-  headline: {
-    fontSize: fonts.size.medium,
-    fontWeight: fonts.weight.large,
-    color: colors.grey,
   },
   textParagraph: {
-    marginHorizontal: metrics.medium,
-    marginBottom: metrics.medium,
     fontSize: fonts.size.medium
   },
-  clientsImage: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    margin: metrics.large
+  headlineContainer: {
+    borderRadius: metrics.medium,
+    padding: metrics.medium,
+    margin: metrics.medium,
+    marginTop: metrics.huge
+  },
+  headline: {
+    fontSize: fonts.size.large,
+    fontWeight: fonts.weight.large,
+    color: 'rgb(231, 76, 60)',
   }
 });

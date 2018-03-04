@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 import PropTypes from 'prop-types';
 
-class AboutDetail extends Component {
+class ServicesDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'ABOUT DETAIL',
+    title: 'SERVICES DETAIL',
   })
 
   renderArticle = (item, index) =>
@@ -48,7 +48,7 @@ class AboutDetail extends Component {
   }
 }
 
-AboutDetail.propTypes = { // eslint-disable-line
+ServicesDetail.propTypes = { // eslint-disable-line
 
 };
 
@@ -56,7 +56,7 @@ const stateToProps = state => ({
   article: state.aboutReducer.article
 });
 
-export default connect(stateToProps, null)(AboutDetail);
+export default connect(stateToProps, null)(ServicesDetail);
 
 const styles = StyleSheet.create({
   container: {

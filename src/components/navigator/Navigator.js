@@ -1,13 +1,15 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
-import NewsDetail from '../news-detail/NewsDetail.js';
-import TaxesDetail from '../taxes-detail/TaxesDetail';
-import Settings from '../settings/Settings.js';
 import Tabs from '../tabs/Tabs.js';
+import NewsDetail from '../news-detail/NewsDetail.js';
+import Services from '../services/Services.js';
+import ServicesDetail from '../services-detail/ServicesDetail';
 import About from '../about/About.js';
 import AboutDetail from '../about-detail/AboutDetail';
 import Contact from '../contact/Contact.js';
+import Settings from '../settings/Settings.js';
+import TaxesDetail from '../taxes-detail/TaxesDetail';
 import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
 
@@ -32,13 +34,15 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
-  Settings: { screen: Settings},
   Tabs: { screen: Tabs },
+  Services: { screen: Services },
+  ServicesDetail: { screen: ServicesDetail },
   About: { screen: About },
+  AboutDetail: { screen: AboutDetail },
   Contact: { screen: Contact },
+  Settings: { screen: Settings},
   NewsDetail: { screen: NewsDetail },
   TaxesDetail: { screen: TaxesDetail },
-  AboutDetail: { screen: AboutDetail },
 }, navigationConfig);
 
 export default Navigator;

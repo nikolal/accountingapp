@@ -60,17 +60,47 @@ const initialState = {
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
     icon: 'people',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum2'
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+    },{
+      type: 'image',
+      value: 'http://news.korcula.net/uploads/2016124342.jpg'
+    },{
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'http://news.korcula.net/uploads/2016124342.jpg'
     },{
       type: 'image',
       value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'lorem imsum, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis tempore, commodi sit labore ad, accusamus aspernatur ullam quam tenetur id ipsum officia porro! Harum, sed facilis laborum, id error accusamus.'
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'lorem imsum3, lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quo nulla cumque reiciendis quod, recusandae nisi, non, distinctio molestias eveniet obcaecati? Tempore, deserunt commodi cupiditate nisi magnam quaerat sapiente iste.'
+      type: 'image',
+      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     }]
   }],
   article: {}

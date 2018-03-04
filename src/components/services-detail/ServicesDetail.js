@@ -72,9 +72,8 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.medium
   },
   headlineContainer: {
-    borderRadius: metrics.medium,
     padding: metrics.medium,
-    margin: metrics.medium,
+    margin: metrics.small,
     marginTop: metrics.huge
   },
   headline: {

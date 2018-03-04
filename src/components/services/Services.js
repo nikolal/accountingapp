@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleText: {
-    fontSize: metrics.large
+    fontSize: fonts.size.medium
   },
   imageIcons: {
     margin: metrics.medium,

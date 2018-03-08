@@ -1,64 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, Dimensions, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
+import { SimpleLineIcons }  from '@expo/vector-icons';
 
 class Contact extends Component {
-
-  state = { 
-    nameText: '',
-    companyText: '',
-    email: ''
-  };
 
   static navigationOptions = ({ navigation }) => ({
     title: 'CONTACT',
   })
 
+  goToContactMessage = screenName => {
+    this.props.navigation.navigate(screenName);
+  }
+
   render(){
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.innerContainer}>
           <Image
             style={styles.googleMapContainer}
             source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Serbia_1913.PNG/270px-Serbia_1913.PNG' }}
           />
+          <View style={styles.body}>
+            <View style={styles.addressContainer}>
+              <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
+              <Text style={styles.addressText}>office@tmconsulting.co.rs</Text>
+              <Text style={styles.addressText}>+381 11 344-81-69</Text>
+              <Text style={styles.addressText}>+381 64 614-29-44</Text>            
+            </View>
 
-          <View style={styles.addressContainer}>
-            <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
-            <Text style={styles.addressText}>office@tmconsulting.co.rs</Text>
-            <Text style={styles.addressText}>+381 11 344-81-69</Text>
-            <Text style={styles.addressText}>+381 64 614-29-44</Text>            
-          </View>
-
-          <Text style={styles.askQuestion}>Ask us a question</Text>
-
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Your name</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(nameText) => this.setState({nameText})}
-              value={this.state.nameText}
-            /> 
-          </View>
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Your company</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(companyText) => this.setState({companyText})}
-              value={this.state.companyText}
-            /> 
-          </View>
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Email</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(email) => this.setState({email})}
-              value={this.state.email}
-            /> 
+            <TouchableOpacity onPress={() => this.goToContactMessage('ContactMessage')} style={styles.buttonContacUs}>
+              <Text style={styles.textContact}>Contact us</Text>
+              <SimpleLineIcons
+                name="arrow-right"
+                size={20}
+                color="black"
+                style={styles.arrowIcon}
+              />
+            </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -71,6 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGrey
   },
   innerContainer: {
+    flex: 1,
     margin: metrics.medium,
     padding: metrics.medium,
     backgroundColor: colors.white,
@@ -85,28 +69,41 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   googleMapContainer: {
-    height: Dimensions.get('window').height / 3.5,
+    height: Dimensions.get('window').height / 2,
+  },
+  body: {
+    flex: 1,
+    justifyContent: 'space-around'
   },
   addressContainer: {
-    margin: metrics.medium
+    alignItems: 'center'
   },
   addressText: {
     fontSize: fonts.size.medium,
     color: colors.grey,
     marginBottom: metrics.small
   },
-  askQuestion: {
-    alignSelf: 'center',
-    backgroundColor: 'rgb(252, 234, 233)',
-    marginHorizontal: metrics.large,
+  buttonContacUs: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: metrics.medium,
     padding: metrics.medium,
-    fontSize: fonts.size.large,
-    borderRadius: metrics.medium
+    backgroundColor: colors.lightGrey,
+    borderWidth: 1,
+    borderRadius: metrics.small,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
   },
-  textInputContainer: {
-    // backgroundColor: 'rgb(255, 255, 128)'
+  textContact: {
+    fontSize: fonts.size.large
   },
-  text: {
+  descriptionText: {
+    alignSelf: 'center',
     fontSize: fonts.size.medium
   }
 });

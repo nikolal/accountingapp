@@ -8,6 +8,7 @@ import ServicesDetail from '../services-detail/ServicesDetail';
 import About from '../about/About.js';
 import AboutDetail from '../about-detail/AboutDetail';
 import Contact from '../contact/Contact.js';
+import ContactMessage from '../contact-message/ContactMessage';
 import Settings from '../settings/Settings.js';
 import TaxesDetail from '../taxes-detail/TaxesDetail';
 import HeaderLeft from './HeaderLeft.js';
@@ -40,6 +41,7 @@ const Navigator = StackNavigator({
   About: { screen: About },
   AboutDetail: { screen: AboutDetail },
   Contact: { screen: Contact },
+  ContactMessage: {screen: ContactMessage},
   Settings: { screen: Settings},
   NewsDetail: { screen: NewsDetail },
   TaxesDetail: { screen: TaxesDetail },

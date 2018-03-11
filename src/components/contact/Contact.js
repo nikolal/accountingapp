@@ -29,10 +29,6 @@ class Contact extends Component {
               <Text style={styles.addressText}>+381 11 344-81-69</Text>
               <Text style={styles.addressText}>+381 64 614-29-44</Text>            
             </View>
-
-            <TouchableOpacity onPress={() => this.goToContactMessage('ContactMessage')} style={styles.envelope}>
-              <SimpleLineIcons name="envelope-open" size={40} color="grey" style={styles.arrowIcon} />
-            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -63,7 +59,7 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   googleMapContainer: {
-    height: Dimensions.get('window').height / 2,
+    height: Dimensions.get('window').height / 1.6,
   },
   body: {
     flex: 1,
@@ -76,8 +72,5 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.medium,
     color: colors.grey,
     marginBottom: metrics.small
-  },
-  envelope: {
-    alignSelf: 'center'
   }
 });

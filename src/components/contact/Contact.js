@@ -30,14 +30,8 @@ class Contact extends Component {
               <Text style={styles.addressText}>+381 64 614-29-44</Text>            
             </View>
 
-            <TouchableOpacity onPress={() => this.goToContactMessage('ContactMessage')} style={styles.buttonContacUs}>
-              <Text style={styles.textContact}>Contact us</Text>
-              <SimpleLineIcons
-                name="arrow-right"
-                size={20}
-                color="black"
-                style={styles.arrowIcon}
-              />
+            <TouchableOpacity onPress={() => this.goToContactMessage('ContactMessage')} style={styles.envelope}>
+              <SimpleLineIcons name="envelope-open" size={40} color="grey" style={styles.arrowIcon} />
             </TouchableOpacity>
           </View>
         </View>
@@ -83,27 +77,7 @@ const styles = StyleSheet.create({
     color: colors.grey,
     marginBottom: metrics.small
   },
-  buttonContacUs: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: metrics.medium,
-    padding: metrics.medium,
-    backgroundColor: colors.lightGrey,
-    borderWidth: 1,
-    borderRadius: metrics.small,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  textContact: {
-    fontSize: fonts.size.large
-  },
-  descriptionText: {
-    alignSelf: 'center',
-    fontSize: fonts.size.medium
+  envelope: {
+    alignSelf: 'center'
   }
 });

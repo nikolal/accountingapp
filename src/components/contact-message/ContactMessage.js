@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Dimensions, TextInput, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
@@ -23,8 +23,13 @@ class ConcatMessage extends Component {
 
   render(){
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.inputsContainer}>
+          <Image
+            style={styles.image}
+            source={{ uri: 'https://creditarmy.org/wp-content/uploads/2017/05/OurTeam.jpg' }}
+          />
+
           <View style={styles.textInputContainer}>
             <Text style={styles.text}>Your name</Text>
             <TextInput
@@ -33,6 +38,7 @@ class ConcatMessage extends Component {
               value={this.state.nameText}
             /> 
           </View>
+
           <View style={styles.textInputContainer}>
             <Text style={styles.text}>Your company</Text>
             <TextInput
@@ -41,6 +47,7 @@ class ConcatMessage extends Component {
               value={this.state.companyText}
             /> 
           </View>
+
           <View style={styles.textInputContainer}>
             <Text style={styles.text}>Email</Text>
             <TextInput
@@ -49,23 +56,22 @@ class ConcatMessage extends Component {
               value={this.state.email}
             /> 
           </View>
+
           <View style={styles.textInputContainer}>
             <Text style={styles.text}>Ask us a question</Text>
             <TextInput
-              style={{height: 100, borderColor: 'gray', borderBottomWidth: 1}}
+              style={{height: 60, borderColor: 'gray', borderBottomWidth: 1}}
               onChangeText={(message) => this.setState({message})}
               value={this.state.message}
             /> 
           </View>
-          <Button
-            onPress={this.submitData}
-            title="SEND US MESSAGE"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-          />
+
+          <TouchableOpacity onPress={this.submitData} style={styles.button}>
+            <Text style={styles.buttonText}>SEND</Text>
+          </TouchableOpacity>
         </View>
 
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -79,13 +85,13 @@ export default ConcatMessage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey
+    backgroundColor: colors.lightGrey,
   },
   inputsContainer: {
     flex: 1,
     margin: metrics.medium,
     padding: metrics.medium,
-    backgroundColor: colors.yelllow,
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',
@@ -96,11 +102,24 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
   },
+  image: {
+    height: Dimensions.get('window').height / 4,
+  },
   textInputContainer: {
     margin: metrics.medium
   },
   text: {
     fontSize: fonts.size.medium
-  }
+  },
+  button: {
+    padding: metrics.large,
+    backgroundColor: 'rgb(230, 230, 230)',
+    alignSelf: 'center',
+    borderRadius: metrics.small,
 
+  },
+  buttonText: {
+    fontSize: fonts.size.large,
+    fontWeight: fonts.weight.large
+  }
 });

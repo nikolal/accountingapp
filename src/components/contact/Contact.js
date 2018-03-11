@@ -25,7 +25,7 @@ class Contact extends Component {
           <View style={styles.body}>
             <View style={styles.addressContainer}>
               <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
-              <Text style={styles.addressText}>office@tmconsulting.co.rs</Text>
+              <Text onPress={() => this.goToContactMessage('ContactMessage')} style={styles.addressTextMail}>office@tmconsulting.co.rs</Text>
               <Text style={styles.addressText}>+381 11 344-81-69</Text>
               <Text style={styles.addressText}>+381 64 614-29-44</Text>            
             </View>
@@ -71,6 +71,11 @@ const styles = StyleSheet.create({
   addressText: {
     fontSize: fonts.size.medium,
     color: colors.grey,
+    marginBottom: metrics.small
+  },
+  addressTextMail: {
+    fontSize: fonts.size.medium,
+    color: colors.blue,
     marginBottom: metrics.small
   }
 });

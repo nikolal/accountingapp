@@ -63,7 +63,7 @@ class DrawerTemplate extends Component {
           <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={20} color="white" />
           <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={20} color="white" />
           <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={20} color="white" />
-          <SimpleLineIcons onPress={() => this.goToContactMessage('ContactMessage')} style={styles.socialMedia} name="envelope-letter" size={20} color="blue" />
+          <SimpleLineIcons onPress={() => this.goToContactMessage('ContactMessage')} style={styles.socialMedia} name="envelope-letter" size={20} color="white" />
         </View>
       </View>
     );

@@ -1,28 +1,62 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 // import { SimpleLineIcons }  from '@expo/vector-icons';
-// import { saveArticle } from './NewsContainer.js';
+import { saveLanguage } from './SettingsContainer.js';
 // import { metrics, colors, fonts } from '../../theme';
 
 class Settings extends Component {
 
+  componentDidMount = () => {
+    this.getLanguage();
+  }
+
+  getLanguage = () => {
+    AsyncStorage.getItem('@accountingApp:ddddddd')
+      .then(language => this.setLanguage(language));
+  }
+
+  setLanguage = language => {
+    // this.props.saveLanguage(language);
+    AsyncStorage.setItem('@accountingApp:ddddddd', language)
+    console.log(language)
+      // .then(() => this.closeSettings());
+  }
+
+  goToNews = screenName => this.props.navigation.navigate(screenName);
+
+  renderLanguages = (item, index) =>
+      <TouchableOpacity key={index} onPress={() => this.setLanguage(item.value)}>
+        <Text>{item.name}</Text>
+      </TouchableOpacity>
+
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text>Settings</Text>
-      </ScrollView>
+      <View>
+        {this.props.language.map(this.renderLanguages)}
+        <TouchableOpacity onPress={() => this.goToNews('News')}>
+          <Text>SAVE</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
 
-export default Settings;
+const stateToProps = state => ({
+  language: state.settingsReducer.language
+});
+
+const dispatchToProps = dispatch => ({
+  saveLanguage: bindActionCreators(saveLanguage, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(Settings);
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
+  // container: {
+  //   flex: 1,
+  // }
 });
 
 

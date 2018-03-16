@@ -14,7 +14,7 @@ class NewsDetail extends Component {
   renderArticle = (item, index) =>
     item.type === 'text' ?
       <Text key={index} style={styles.articleParagraphsContainer}>
-        <Text style={styles.firstLetter}>   {item.value[0]}</Text>
+        <Text style={styles.firstLetter}>{item.value[0]}</Text>
         <Text style={styles.articleParagraphs}>{item.value.slice(1)}</Text>
       </Text> :
     item.type === 'image' ?

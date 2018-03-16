@@ -3,15 +3,7 @@ import { Text, View, Image, Button, Modal, StyleSheet, Dimensions, AsyncStorage,
 import { metrics, colors, fonts } from '../../theme';
 import { LinearGradient } from 'expo';
 
-const languages = [{
-  name: 'English',
-  value: 'en'
-},{
-  name: 'Serbian',
-  value: 'rs'
-}];
-
-const MyModal = ({ toggleModal, modalVisible, setLanguage }) => {
+const MyModal = ({ toggleModal, modalVisible, setLanguage, languages }) => {
 
   const renderLanguages = item =>
     <View style={styles.languageContainer} key={item.value}>

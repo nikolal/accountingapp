@@ -7,6 +7,7 @@ const initialState = {
     title: 'Our Team',
     description: 'MILKA JANICIC - Managing Director',
     image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
+    icon: 'people',
     paragraphs: [{
         type: 'headline',
         value: 'PARTNER'
@@ -38,6 +39,8 @@ const initialState = {
   },{
     title: 'Our company',
     description: 'WELCOME TO HLB T&M CONSULTING.',
+    image: 'http://www.tekpar.net/User_Files/kurumsal/kurumsal.jpg',
+    icon: 'organization',
     paragraphs: [{
       type: 'text',
       value: 'HLB T&M Consulting is one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.'
@@ -54,20 +57,50 @@ const initialState = {
   },{
     title: 'Our clients',
     description: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
-    // date: '30.05.2018',
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
+    icon: 'people',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum2'
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+    },{
+      type: 'image',
+      value: 'http://news.korcula.net/uploads/2016124342.jpg'
+    },{
+      type: 'image',
+      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+    },{
+      type: 'image',
+      value: 'http://news.korcula.net/uploads/2016124342.jpg'
     },{
       type: 'image',
       value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'lorem imsum, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis tempore, commodi sit labore ad, accusamus aspernatur ullam quam tenetur id ipsum officia porro! Harum, sed facilis laborum, id error accusamus.'
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'lorem imsum3, lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quo nulla cumque reiciendis quod, recusandae nisi, non, distinctio molestias eveniet obcaecati? Tempore, deserunt commodi cupiditate nisi magnam quaerat sapiente iste.'
+      type: 'image',
+      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+    },{
+      type: 'image',
+      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     }]
   }],
   article: {}

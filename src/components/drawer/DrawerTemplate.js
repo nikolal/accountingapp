@@ -11,13 +11,17 @@ class DrawerTemplate extends Component {
     drawerList: [
       { screen: 'Tabs', icon: 'book-open', name: 'News', arrow: 'arrow-right' },
       { screen: 'Services', icon: 'docs', name: 'Our Services', arrow: 'arrow-right' },
-      { screen: 'About', icon: 'home', name: 'About Us', arrow: 'arrow-right' },
+      { screen: 'About', icon: 'info', name: 'About Us', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'call-out', name: 'Contact', arrow: 'arrow-right' },
       { screen: 'Settings', icon: 'settings', name: 'Settings', arrow: 'arrow-right' }
     ]
   };
 
   goToScreen = screen => this.props.navigation.navigate(screen);
+
+  goToContactMessage = screenName => {
+    this.props.navigation.navigate(screenName);
+  }
 
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToScreen(item.screen)} style={styles.iconTextScreen}>
@@ -56,10 +60,10 @@ class DrawerTemplate extends Component {
         />
         {this.state.drawerList.map(this.renderList)}
         <View style={styles.socialMediaContainer}>
-          <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={15} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={15} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={15} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="envelope-letter" size={15} color="white" />
+          <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={20} color="white" />
+          <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={20} color="white" />
+          <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={20} color="white" />
+          <SimpleLineIcons onPress={() => this.goToContactMessage('ContactMessage')} style={styles.socialMedia} name="envelope-letter" size={20} color="white" />
         </View>
       </View>
     );
@@ -71,7 +75,6 @@ export default DrawerTemplate;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: colors.black,
   },
   textLogoContainer: {
     padding: metrics.huge,
@@ -80,7 +83,6 @@ const styles = StyleSheet.create({
   logoText: {
     color: colors.white,
     fontSize: fonts.size.medium,
-    // letterSpacing: 1
   },
   textContainer: {
     flexDirection: 'row',
@@ -90,8 +92,6 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.tiny,
     marginTop: metrics.tiny,
     marginRight: metrics.small
-    // borderColor: colors.white,
-    // borderWidth: metrics.smallBorder, can not make right border
   },
   image: {
     height: 100,
@@ -121,9 +121,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   socialMedia: {
-    margin: metrics.medium
+    marginHorizontal: metrics.large,
   }
 });

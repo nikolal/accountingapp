@@ -31,7 +31,6 @@ class Settings extends Component {
       </TouchableOpacity>
 
   render() {
-    console.log(this.props.language)
     return (
       <View>
         {this.props.languages.map(this.renderLanguages)}

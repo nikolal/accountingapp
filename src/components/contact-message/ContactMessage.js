@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
@@ -8,10 +8,27 @@ import { metrics, colors, fonts } from '../../theme';
 class ConcatMessage extends Component {
 
   state = { 
-    nameText: '',
-    companyText: '',
-    email: '',
-    message: ''
+    contactForms: [{
+      id: 'name',
+      title: 'Your name',
+      value: 'asdf',
+      style: 'input'
+    },{
+      id: 'company',
+      title: 'Your company',
+      value: '',
+      style: 'input'
+    },{
+      id: 'email',
+      title: 'Email',
+      value: '',
+      style: 'input'
+    },{
+      id: 'question',
+      title: 'Your question',
+      value: '',
+      style: 'textArea'
+    }]
   };
 
   static navigationOptions = ({ navigation }) => ({
@@ -21,58 +38,36 @@ class ConcatMessage extends Component {
   submitData = () => false
     // console.log('onPressButton')
 
+  renderForms = (item, index) =>
+    <View key={item.id} style={styles.textInputContainer}>
+      <Text style={styles.text}>{item.title}</Text>
+      <TextInput
+        style={styles[item.style]}
+        onChangeText={text => {
+          const array = this.state.contactForms.slice();
+          array[index].value = text;
+          this.setState({ contactForms: array })
+        }}
+        value={this.state.contactForms[index].value}
+      /> 
+    </View>
 
   render(){
+
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.inputsContainer}>
           <Image
             style={styles.image}
             source={{ uri: 'https://creditarmy.org/wp-content/uploads/2017/05/OurTeam.jpg' }}
           />
-
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Your name</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(nameText) => this.setState({nameText})}
-              value={this.state.nameText}
-            /> 
-          </View>
-
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Your company</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(companyText) => this.setState({companyText})}
-              value={this.state.companyText}
-            /> 
-          </View>
-
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Email</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(email) => this.setState({email})}
-              value={this.state.email}
-            /> 
-          </View>
-
-          <View style={styles.textInputContainer}>
-            <Text style={styles.text}>Ask us a question</Text>
-            <TextInput
-              style={{height: 60, borderColor: 'gray', borderBottomWidth: 1}}
-              onChangeText={(message) => this.setState({message})}
-              value={this.state.message}
-            /> 
-          </View>
-
+            {this.state.contactForms.map(this.renderForms)}
           <TouchableOpacity onPress={this.submitData} style={styles.button}>
             <Text style={styles.buttonText}>SEND</Text>
           </TouchableOpacity>
         </View>
 
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -102,6 +97,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
+  },
+  input: {
+    height: 40, 
+    borderColor: 'gray', 
+    borderBottomWidth: 1
+  },
+  textArea: {
+    height: 100, 
+    borderColor: 'gray', 
+    borderBottomWidth: 1
   },
   image: {
     height: Dimensions.get('window').height / 4,

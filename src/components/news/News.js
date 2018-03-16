@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 import { saveArticle } from './NewsContainer.js';
+import { saveLanguage } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
 import Modal from './Modal.js';
 
@@ -26,7 +27,7 @@ class News extends Component {
     language ? this.setLanguage(language) : this.toggleModal(true);
 
   setLanguage = language => {
-    console.log(`Save ${language} language to redux and AsyncStorage`);
+    this.props.saveLanguage(language);
     AsyncStorage.setItem('@accountingApp:ddddddd', language)
       .then(() => this.toggleModal(false));
   }
@@ -66,6 +67,7 @@ class News extends Component {
           modalVisible={this.state.modalVisible}
           toggleModal={this.toggleModal}
           setLanguage={this.setLanguage}
+          languages={this.props.languages}
         />
         <View style={styles.innerContainer}>
           {this.props.news.map(this.renderList)}
@@ -76,11 +78,14 @@ class News extends Component {
 }
 
 const stateToProps = state => ({
-  news: state.newsReducer.news
+  news: state.newsReducer.news,
+  language: state.settingsReducer.language,
+  languages: state.settingsReducer.languages
 });
 
 const dispatchToProps = dispatch => ({
-  saveArticle: bindActionCreators(saveArticle, dispatch)
+  saveArticle: bindActionCreators(saveArticle, dispatch),
+  saveLanguage: bindActionCreators(saveLanguage, dispatch)
 });
 
 export default connect(stateToProps, dispatchToProps)(News);

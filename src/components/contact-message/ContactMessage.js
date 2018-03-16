@@ -18,8 +18,9 @@ class ConcatMessage extends Component {
     title: 'CONTACT US',
   })
 
-  submitData = () => 
-    console.log('onPressButton')
+  submitData = () => false
+    // console.log('onPressButton')
+
 
   render(){
     return (

@@ -1,11 +1,13 @@
 // Actions
-const SAVE_LANGUAGE = 'settings/SAVE_LANGUAGE';
+const SAVE_LANGUAGE = 'language/SAVE_LANGUAGE';
 
 const initialState = {
-  language: [
+  languages: [
     { name: 'English', value: 'en' },
     { name: 'Serbian', value: 'rs' }
-  ]}
+  ],
+  language: 'en'
+}
 
 // Reducer
 const settingsReducer = (state = initialState, action) =>

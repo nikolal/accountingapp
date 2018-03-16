@@ -18,23 +18,23 @@ class Settings extends Component {
   }
 
   setLanguage = language => {
-    // this.props.saveLanguage(language);
+    this.props.saveLanguage(language);
     AsyncStorage.setItem('@accountingApp:ddddddd', language)
-    console.log(language)
       // .then(() => this.closeSettings());
   }
 
   goToNews = screenName => this.props.navigation.navigate(screenName);
 
-  renderLanguages = (item, index) =>
-      <TouchableOpacity key={index} onPress={() => this.setLanguage(item.value)}>
+  renderLanguages = (item, index) => 
+      <TouchableOpacity key={item.name} onPress={() => this.setLanguage(item.value)}>
         <Text>{item.name}</Text>
       </TouchableOpacity>
 
   render() {
+    console.log(this.props.language)
     return (
       <View>
-        {this.props.language.map(this.renderLanguages)}
+        {this.props.languages.map(this.renderLanguages)}
         <TouchableOpacity onPress={() => this.goToNews('News')}>
           <Text>SAVE</Text>
         </TouchableOpacity>
@@ -44,6 +44,7 @@ class Settings extends Component {
 }
 
 const stateToProps = state => ({
+  languages: state.settingsReducer.languages,
   language: state.settingsReducer.language
 });
 

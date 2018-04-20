@@ -42,7 +42,7 @@ class AboutDetail extends Component {
           <View style={styles.innerContainerClients}>
             {article.paragraphs.map(this.renderArticle)}
           </View>
-        </ScrollView> : 
+        </ScrollView> :
       null
     );
   }
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   paragraphsContainer: {
     margin: metrics.medium
-  },  
+  },
   headlineContainer: {
     backgroundColor: 'rgb(252, 234, 233)',
     borderBottomWidth: metrics.mediumBorder,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
+import MainScreen from '../mainScreen/MainScreen.js';
 import Tabs from '../tabs/Tabs.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
 import Services from '../services/Services.js';
@@ -16,7 +17,7 @@ import HeaderRight from './HeaderRight.js';
 
 
 const navigationConfig = {
-  initialRouteName: 'Tabs',
+  initialRouteName: 'MainScreen',
   headerMode: 'float',
   navigationOptions: ({ navigation }) => ({
     headerLeft: <HeaderLeft navigation={navigation} />,
@@ -35,6 +36,7 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
+  MainScreen: { screen: MainScreen },
   Tabs: { screen: Tabs },
   Services: { screen: Services },
   ServicesDetail: { screen: ServicesDetail },

@@ -7,11 +7,11 @@ const HeaderLeft = props => {
   return (
     <View style={styles.container}>
       {
-        props.navigation.state.routeName === 'MainScreen'
+        props.navigation.state.routeName === 'Tabs'
         ?
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => props.navigation.state.routeName === 'MainScreen' && props.navigation.navigate('DrawerOpen')}
+            onPress={() => props.navigation.state.routeName === 'Tabs' && props.navigation.navigate('DrawerOpen')}
           >
             <SimpleLineIcons name="menu" size={25} color={colors.white} />
           </TouchableOpacity>
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   container: {
   },
   iconContainer: {
-    padding: metrics.medium,
-    paddingHorizontal: metrics.huge,
+    paddingHorizontal: metrics.medium,
   }
 });

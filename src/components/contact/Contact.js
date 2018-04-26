@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 
+import { MapView } from 'expo';
+const { Marker } = MapView;
+
+
 class Contact extends Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -18,10 +22,21 @@ class Contact extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.innerContainer}>
-          <Image
+          <MapView
             style={styles.googleMapContainer}
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Serbia_1913.PNG/270px-Serbia_1913.PNG' }}
-          />
+            initialRegion={{
+              latitude: 44.8026777,
+              longitude: 20.4779999,
+              latitudeDelta: 0.00922,
+              longitudeDelta: 0.00421,
+            }}
+          >
+            <Marker
+              coordinate={{ latitude: 44.8026777, longitude: 20.4779999 }}
+              title="aaa"
+              // description={marker.descriptio}
+            />
+          </MapView>
           <View style={styles.body}>
             <View style={styles.addressContainer}>
               <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>

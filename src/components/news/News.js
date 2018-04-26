@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: fonts.size.medium,
+    // fontFamily: 'openSansRegular',
     fontWeight: fonts.weight.large,
     marginBottom: metrics.medium,
   },

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   },
   text: {
     alignSelf: 'center',
+    fontFamily: 'openSansRegular',
     fontSize: fonts.size.huge,
   },
 });

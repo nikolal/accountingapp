@@ -9,7 +9,7 @@ class DrawerTemplate extends Component {
 
   state = {
     drawerList: [
-      { screen: 'Tabs', icon: 'book-open', name: 'News', arrow: 'arrow-right' },
+      { screen: 'MainScreen', icon: 'book-open', name: 'Main Screen', arrow: 'arrow-right' },
       { screen: 'Services', icon: 'docs', name: 'Our Services', arrow: 'arrow-right' },
       { screen: 'About', icon: 'info', name: 'About Us', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'call-out', name: 'Contact', arrow: 'arrow-right' },

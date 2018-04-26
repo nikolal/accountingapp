@@ -4,11 +4,13 @@ import taxesReducer from '../components/taxes/TaxesContainer';
 import aboutReducer from '../components/about/AboutContainer';
 import servicesReducer from '../components/services/ServicesContainer';
 import settingsReducer from '../components/settings/SettingsContainer';
+import calculationsReducer from '../components/calculations/CalculationsContainer';
 
 export default combineReducers({
   newsReducer,
   taxesReducer,
   aboutReducer,
   servicesReducer,
-  settingsReducer
+  settingsReducer,
+  calculationsReducer
 });

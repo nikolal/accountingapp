@@ -7,7 +7,7 @@ import { metrics, colors, fonts } from '../../theme';
 
 class ConcatMessage extends Component {
 
-  state = { 
+  state = {
     contactForms: [{
       id: 'name',
       title: 'Your name',
@@ -45,11 +45,11 @@ class ConcatMessage extends Component {
         style={styles[item.style]}
         onChangeText={text => {
           const array = this.state.contactForms.slice();
-          array[index].value = text;
-          this.setState({ contactForms: array })
+          array[index].value = text; //eslint-disable-line
+          this.setState({ contactForms: array });
         }}
         value={this.state.contactForms[index].value}
-      /> 
+      />
     </View>
 
   render(){
@@ -99,13 +99,13 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   input: {
-    height: 40, 
-    borderColor: 'gray', 
+    height: 40,
+    borderColor: 'gray',
     borderBottomWidth: 1
   },
   textArea: {
-    height: 100, 
-    borderColor: 'gray', 
+    height: 100,
+    borderColor: 'gray',
     borderBottomWidth: 1
   },
   image: {

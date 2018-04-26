@@ -27,7 +27,7 @@ class Contact extends Component {
               <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
               <Text onPress={() => this.goToContactMessage('ContactMessage')} style={styles.addressTextMail}>office@tmconsulting.co.rs</Text>
               <Text style={styles.addressText}>+381 11 344-81-69</Text>
-              <Text style={styles.addressText}>+381 64 614-29-44</Text>            
+              <Text style={styles.addressText}>+381 64 614-29-44</Text>
             </View>
           </View>
         </View>

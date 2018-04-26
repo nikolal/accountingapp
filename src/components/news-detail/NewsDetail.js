@@ -14,7 +14,7 @@ class NewsDetail extends Component {
   renderArticle = (item, index) =>
     item.type === 'text' ?
       <Text key={index} style={styles.articleParagraphsContainer}>
-        <Text style={styles.firstLetter}>{item.value[0]}</Text>
+        <Text style={styles.firstLetter}>   {item.value[0]}</Text>
         <Text style={styles.articleParagraphs}>{item.value.slice(1)}</Text>
       </Text> :
     item.type === 'image' ?
@@ -36,7 +36,7 @@ class NewsDetail extends Component {
             />
           </View>
           <View style={styles.descriptionDateContainer}>
-            <Text style={styles.descriptionText}>{article.description}</Text>
+            <Text style={styles.descriptionText} ellipsizeMode={'tail'}>{article.description}</Text>
             <Text style={styles.dateText}>{article.date}</Text>
           </View>
           {article.paragraphs.map(this.renderArticle)}
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: metrics.smallBorder
   },
   descriptionText: {
-    fontSize: fonts.size.large,
+    fontSize: fonts.size.hugeToExtra,
+    alignSelf: 'center',
     fontWeight: 'bold',
     marginBottom: metrics.extraHuge,
   },

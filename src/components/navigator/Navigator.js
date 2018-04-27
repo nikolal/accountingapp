@@ -27,7 +27,7 @@ const navigationConfig = {
     headerTintColor: colors.white,
     headerStyle: {
       justifyContent: 'center',
-      backgroundColor: colors.black,
+      backgroundColor: colors.darkBlue,
     },
     headerTitleStyle: {
       fontSize: fonts.size.large,

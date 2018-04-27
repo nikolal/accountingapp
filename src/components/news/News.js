@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import firebase from '../../firebase/firebase.js';
 import { SimpleLineIcons }  from '@expo/vector-icons';
-import { saveArticle } from './NewsContainer.js';
+import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
 import Modal from './Modal.js';
@@ -16,6 +17,7 @@ class News extends Component {
 
   componentDidMount = () => {
     this.getLanguage();
+    this.setNewsListener();
   }
 
   getLanguage = () => {
@@ -37,6 +39,13 @@ class News extends Component {
   goToNewsDetail = (screenName, article) => {
     this.props.saveArticle(article);
     this.props.navigation.navigate(screenName);
+  }
+
+  setNewsListener = () => {
+    firebase.database().ref('news/').on('value', (snapshot) => {
+      this.props.saveNewsAction(snapshot.val());
+      // console.log(snapshot.val());
+    });
   }
 
   renderList = (item, index) =>
@@ -85,7 +94,9 @@ const stateToProps = state => ({
 
 const dispatchToProps = dispatch => ({
   saveArticle: bindActionCreators(saveArticle, dispatch),
-  saveLanguage: bindActionCreators(saveLanguage, dispatch)
+  saveLanguage: bindActionCreators(saveLanguage, dispatch),
+  saveNewsAction: bindActionCreators(saveNewsAction, dispatch)
+
 });
 
 export default connect(stateToProps, dispatchToProps)(News);

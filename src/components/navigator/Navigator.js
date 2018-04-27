@@ -18,7 +18,7 @@ import HeaderRight from './HeaderRight.js';
 
 
 const navigationConfig = {
-  initialRouteName: 'MainScreen',
+  initialRouteName: 'Tabs',
   headerMode: 'float',
   navigationOptions: ({ navigation }) => ({
     headerLeft: <HeaderLeft navigation={navigation} />,
@@ -27,7 +27,7 @@ const navigationConfig = {
     headerTintColor: colors.white,
     headerStyle: {
       justifyContent: 'center',
-      backgroundColor: colors.black,
+      backgroundColor: colors.darkBlue,
     },
     headerTitleStyle: {
       fontSize: fonts.size.large,
@@ -37,7 +37,7 @@ const navigationConfig = {
 };
 
 const Navigator = StackNavigator({
-  MainScreen: { screen: MainScreen },
+  // MainScreen: { screen: MainScreen },
   Tabs: { screen: Tabs },
   Services: { screen: Services },
   ServicesDetail: { screen: ServicesDetail },

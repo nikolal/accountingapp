@@ -3,7 +3,7 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStora
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
-import { SimpleLineIcons }  from '@expo/vector-icons';
+import { Ionicons }  from '@expo/vector-icons';
 import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
@@ -52,7 +52,7 @@ class News extends Component {
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
       <View>
         <Image
-          style={{ width: 100, height: 100 }}
+          style={{ width: 80, height: 80 }}
           source={{ uri: item.image }}
         />
       </View>
@@ -61,12 +61,14 @@ class News extends Component {
         <Text style={styles.dateText}>{item.date}</Text>
       </View>
 
-      <SimpleLineIcons
-        name="arrow-right"
-        size={16}
-        color="black"
-        style={styles.arrowIcon}
-      />
+      <View style={styles.iconCircle}>
+        <Ionicons
+          name="md-arrow-dropright"
+          size={30}
+          color={colors.lightBlue1}
+          style={styles.arrowIcon}
+        />
+      </View>
     </TouchableOpacity>
 
   render() {
@@ -104,7 +106,7 @@ export default connect(stateToProps, dispatchToProps)(News);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.white,
     padding: metrics.small,
   },
   innerContainer: {
@@ -114,34 +116,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: metrics.small,
-    padding: metrics.small,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    borderBottomColor: colors.lightGrey,
+    borderBottomWidth: metrics.mediumBorder,
+    padding: metrics.medium,
+    backgroundColor: colors.white,
   },
   textContainer: {
     flex: 1,
     flexWrap: 'wrap',
+    padding: metrics.small,
     margin: metrics.medium,
   },
   titleText: {
+    color: colors.grey,
     fontSize: fonts.size.medium,
-    // fontFamily: 'openSansRegular',
-    fontWeight: fonts.weight.large,
+    fontFamily: 'openSansBold',
     marginBottom: metrics.medium,
   },
   dateText: {
-    color: colors.grey,
-    fontSize: fonts.size.small
+    color: colors.lightBlue1,
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansRegular',
   },
-  arrowIcon: {
-    right: metrics.small
+  iconCircle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: metrics.tiny,
+    width: 34,
+    height: 34,
+    borderColor: colors.lightGrey,
+    borderWidth: metrics.mediumBorder,
+    borderRadius: 17
   }
 });

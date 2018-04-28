@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
+import { FontAwesome }  from '@expo/vector-icons';
 // import PropTypes from 'prop-types';
 
 class TaxesDetail extends Component {
@@ -20,7 +21,7 @@ class TaxesDetail extends Component {
 
   renderTaxes = (item, index) =>
     <View key={index }style={styles.oneParagraph}>
-      <Text>{item.text}</Text>
+      <Text style={styles.text}>{item.text}</Text>
       <Text style={styles.percentage}>{item.percentage}</Text>
     </View>
 
@@ -63,31 +64,26 @@ export default connect(stateToProps, null)(TaxesDetail);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.white,
+    // nece da bude beeeooo
   },
   innerContainer: {
-    margin: metrics.medium,
+    flex: 1,
     padding: metrics.medium,
     backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
   },
   titleText: {
-    marginBottom: metrics.extraHuge,
+    margin: metrics.huge,
     alignSelf: 'center',
+    color: colors.lightBlue1,
     fontSize: fonts.size.huge,
-    fontWeight: 'bold'
+    fontFamily: 'openSansBold',
   },
   inputText: {
     height: 40,
     borderColor: 'gray',
+    borderRadius: 3,
     borderWidth: metrics.smallBorder,
     marginHorizontal: metrics.medium
   },
@@ -95,12 +91,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomColor: colors.black,
-    borderBottomWidth: metrics.smallBorder,
+    borderBottomColor: colors.grey,
+    borderBottomWidth: metrics.tinyBorder,
     marginHorizontal: metrics.large,
     paddingVertical: metrics.huge
   },
+  text: {
+    color: colors.grey,
+    fontFamily: 'openSansBold',
+  },
   percentage: {
-    fontWeight: fonts.weight.large
+    fontFamily: 'openSansBold',
+    color: colors.lightBlue1
   }
 });

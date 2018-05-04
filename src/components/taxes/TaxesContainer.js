@@ -7,49 +7,49 @@ const initialState = {
     title: 'Porez na dobit',
     date: '30.04.2018',
     paragraphs: [{
-      text: '1Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '11%'
     },{
       text: 'Neki porez',
       percentage: '20%'
     },{
-      text: '221Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '15%'
     },{
-      text: '5Porez na dobit pravnih lic',
+      text: 'Porez na dobit pravnih lic',
       percentage: '20%'
     },{
-      text: '331Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '12%'
     },{
-      text: '6rez na dobit pravnih lic',
+      text: 'Poez na dobit pravnih lic',
       percentage: '20%'
     },{
-      text: '441Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '35%'
     },{
       text: 'Neki porez',
       percentage: '20%'
     },{
-      text: '221Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '15%'
     },{
       text: 'Dobit pravnih lic',
       percentage: '20%'
     },{
-      text: '331Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '20%'
     },{
-      text: '12Dobit pravnih lic',
+      text: 'Dobit pravnih lic',
       percentage: '20%'
     },{
-      text: '441Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '35%'
     },{
-      text: '551Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '20%'
     },{
-      text: '551Porez na dobit pravnih lica',
+      text: 'Porez na dobit pravnih lica',
       percentage: '20%'
     }]
   },{

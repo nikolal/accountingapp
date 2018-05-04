@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabNavigator } from 'react-navigation';
-import { colors, fonts } from '../../theme/index.js';
+import { colors, fonts, metrics } from '../../theme/index.js';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import MainScreen from '../mainScreen/MainScreen.js';
 import Something from '../something/Something.js';
@@ -9,13 +9,16 @@ import Calculations from '../calculations/Calculations.js';
 import Taxes from '../taxes/Taxes.js';
 
 const styles = {
-  inactiveTintColor: colors.white,
-  activeTintColor: colors.red,
+  inactiveTintColor: colors.grey,
+  activeTintColor: colors.lightBlue1,
   labelStyle: {
     fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
   },
   style: {
-    backgroundColor: colors.black
+    backgroundColor: colors.black,
+    height: 60,
+    padding: metrics.small,
   },
 };
 
@@ -35,20 +38,21 @@ const Tabs = TabNavigator({
   //       <SimpleLineIcons name="book-open" size={20} color={tintColor} />
   //   }
   // },
-  Something: {
-    screen: Something,
-    navigationOptions: {
-      title: 'SOMETHING',
-      tabBarLabel: 'Something',
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <SimpleLineIcons name="book-open" size={20} color={tintColor} />
-    }
-  },
+
   News: {
     screen: News,
     navigationOptions: {
       title: 'NEWS',
       tabBarLabel: 'News',
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+        <SimpleLineIcons name="book-open" size={20} color={tintColor} />
+    }
+  },
+  Something: {
+    screen: Something,
+    navigationOptions: {
+      title: 'SOMETHING',
+      tabBarLabel: 'Something',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
         <SimpleLineIcons name="book-open" size={20} color={tintColor} />
     }

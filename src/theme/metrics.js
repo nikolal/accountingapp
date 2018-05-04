@@ -5,6 +5,7 @@ const metrics = {
   medium: 10,
   large: 15,
   huge: 20,
+  hugeToExtrahuge: 25,
   extraHuge: 30,
   // Borders
   tinyBorder: 0.3,

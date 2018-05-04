@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
   logoText: {
     color: colors.white,
     fontSize: fonts.size.medium,
+    fontFamily: 'openSansBold',
   },
   textContainer: {
     flexDirection: 'row',
@@ -91,7 +92,9 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: fonts.size.tiny,
     marginTop: metrics.tiny,
-    marginRight: metrics.small
+    marginRight: metrics.small,
+    fontFamily: 'openSansBold',
+
   },
   image: {
     height: 100,
@@ -104,7 +107,8 @@ const styles = StyleSheet.create({
   iconTextScreen: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: metrics.large,
+    marginHorizontal: metrics.large,
+    paddingVertical: metrics.large,
     borderBottomColor: colors.lightGrey,
     borderBottomWidth: metrics.tinyBorder,
   },
@@ -115,7 +119,8 @@ const styles = StyleSheet.create({
   },
   textScreen: {
     color: colors.white,
-    marginLeft: metrics.medium
+    marginLeft: metrics.medium,
+    fontFamily: 'openSansBold'
   },
   socialMediaContainer: {
     flex: 1,

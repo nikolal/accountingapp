@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 class AboutDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'ABOUT DETAIL',
+    title: 'ABOUT US',
   })
 
   renderArticle = (item, index) =>
@@ -61,21 +61,12 @@ export default connect(stateToProps, null)(AboutDetail);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey
+    backgroundColor: colors.white
   },
   innerContainer: {
-    margin: metrics.medium,
+    // margin: metrics.medium,
     padding: metrics.medium,
     backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
   },
   innerContainerClients: {
     flex: 1,
@@ -84,15 +75,6 @@ const styles = StyleSheet.create({
     margin: metrics.medium,
     padding: metrics.medium,
     backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
   },
   image: {
     height: 150,
@@ -103,7 +85,8 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: fonts.size.huge,
-    fontWeight: 'bold',
+    fontFamily: 'openSansBold',
+    color: colors.lightBlue1,
     alignSelf: 'center',
     marginBottom: metrics.huge,
     marginHorizontal: metrics.large
@@ -112,23 +95,25 @@ const styles = StyleSheet.create({
     margin: metrics.medium
   },
   headlineContainer: {
-    backgroundColor: 'rgb(252, 234, 233)',
+    // backgroundColor: '#d1eaf9',
     borderBottomWidth: metrics.mediumBorder,
-    borderBottomColor: colors.grey,
+    borderBottomColor: colors.lightBlue1,
     borderRadius: 5,
     padding: metrics.small,
     marginRight: metrics.medium,
     marginBottom: metrics.medium
   },
   headline: {
-    fontSize: fonts.size.medium,
-    fontWeight: fonts.weight.large,
+    fontSize: fonts.size.large,
+    fontFamily: 'openSansBold',
     color: colors.grey,
   },
   textParagraph: {
     marginHorizontal: metrics.medium,
     marginBottom: metrics.medium,
-    fontSize: fonts.size.medium
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
+    color: colors.grey
   },
   clientsImage: {
     height: 100,

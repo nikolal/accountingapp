@@ -27,10 +27,13 @@ const navigationConfig = {
     headerTintColor: colors.white,
     headerStyle: {
       justifyContent: 'center',
-      backgroundColor: colors.darkBlue,
+      backgroundColor: colors.lightBlue1,
+      height: 60,
+      borderBottomWidth: 0
     },
     headerTitleStyle: {
       fontSize: fonts.size.large,
+      fontFamily: 'openSansBold',
       color: colors.white,
     },
   }),

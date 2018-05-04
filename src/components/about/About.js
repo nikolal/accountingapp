@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SimpleLineIcons }  from '@expo/vector-icons';
+import { SimpleLineIcons, Ionicons }  from '@expo/vector-icons';
 import { metrics, colors, fonts } from '../../theme';
 import { saveArticle } from './AboutContainer.js';
 
@@ -16,34 +16,38 @@ class AboutUs extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goAboutDetail('AboutDetail', item)} style={styles.item}>
       <View style={styles.textIconsContainer}>
-        <SimpleLineIcons
+        <Ionicons
           name={item.icon}
-          size={17}
-          color="black"
+          size={30}
+          color={colors.lightBlue1}
           style={styles.icon}
         />
         <Text style={styles.titleText}>{item.title}</Text>
       </View>
-        <SimpleLineIcons
-          name="arrow-right"
-          size={20}
-          color="black"
-          style={styles.arrowIcon}
+      <View style={styles.iconCircle}>
+        <Ionicons
+          name="md-arrow-dropright"
+          size={30}
+          color={colors.lightBlue1}
+          style={styles.lll}
         />
+      </View>
     </TouchableOpacity>
 
   render() {
     return (
-      <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={{ uri: 'https://creditarmy.org/wp-content/uploads/2017/05/OurTeam.jpg' }}
-        />
-        <Text style={styles.descriptionText}>HLB T&M Consulting is one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia.</Text>
-        <View style={styles.itemsContainer}>
-          {this.props.about.map(this.renderList)}
-        </View>
-      </View>
+      <ScrollView style={styles.container}>
+          <Image
+            style={styles.image}
+            source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Transfer-pricing-Belgrade.jpg' }}
+          />
+          <Text style={styles.headline}>HLB T&M Consulting</Text>
+          <Text style={styles.descriptionText}>We are one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.</Text>
+          <Text style={styles.descriptionText}>In over six years of steady growth, our company continued to provide first-rate tax advisory and accounting services to international companies with operations in Serbia and become one of the leading consulting partners in Belgrade for financial and tax issues.</Text>
+          <View style={styles.itemsContainer}>
+            {this.props.about.map(this.renderList)}
+          </View>
+      </ScrollView>
     );
   }
 }
@@ -61,57 +65,61 @@ export default connect(stateToProps, dispatchToProps)(AboutUs);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: metrics.medium,
     padding: metrics.medium,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    backgroundColor: colors.white
   },
   image: {
-    height: Dimensions.get('window').height / 5,
-    width: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').height / 3.5,
+  },
+  headline: {
     alignSelf: 'center',
-    marginVertical: metrics.huge,
-    borderRadius: 5
+    color: colors.lightBlue1,
+    fontFamily: 'openSansBold',
+    fontSize: fonts.size.huge,
+    marginVertical: metrics.extraHuge,
   },
   descriptionText: {
-    fontSize: fonts.size.medium,
+    fontFamily: 'openSansBold',
+    fontSize: fonts.size.large,
     color: colors.grey,
     alignSelf: 'center',
-    marginHorizontal: metrics.medium,
+    marginHorizontal: metrics.large,
+    marginBottom: metrics.large
   },
   itemsContainer: {
     flex: 1,
     justifyContent: 'space-around',
-    marginHorizontal: metrics.large,
   },
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: metrics.huge,
-    backgroundColor: 'rgb(242, 242, 242)',
-    borderRadius: 10,
-    borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: colors.grey
+    paddingVertical: metrics.huge,
+    marginHorizontal: metrics.large,
+    borderBottomColor: colors.grey,
+    borderBottomWidth: metrics.smallBorder
   },
   icon: {
-    marginRight: metrics.medium
+    marginRight: metrics.large
+  },
+  iconCircle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: metrics.tiny,
+    marginRight: metrics.large,
+    width: 34,
+    height: 34,
+    borderColor: colors.lightGrey,
+    borderWidth: metrics.mediumBorder,
+    borderRadius: 17
   },
   textIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   titleText: {
-    fontSize: fonts.size.large
+    fontSize: fonts.size.huge,
+    fontFamily: 'openSansBold',
+    color: colors.grey
   }
 });
-
-

@@ -5,7 +5,7 @@ const SAVE_SERVICES = 'ourServices/SAVE_SERVICES';
 const initialState = {
   ourServices: [{
     title: 'Financial Services',
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/1449331472-icon1-registry-bg.png',
+    image: 'archive',
     icon: 'arrow-right',
     paragraphs: [{
       type: 'headline',
@@ -27,10 +27,10 @@ const initialState = {
       value: 'Preparation of all statutory reports'
     },{
       type: 'text',
-      value: 'Mounthly/quartely/yearly reporting to the client s group' 
+      value: 'Mounthly/quartely/yearly reporting to the client s group'
     },{
       type: 'text',
-      value: 'Implementation of IFRS for SME' 
+      value: 'Implementation of IFRS for SME'
     },{
       type: 'headline',
       value: 'FINANCIAL & BUSINESS CONSULTING'
@@ -52,8 +52,8 @@ const initialState = {
     }]
   },{
     title: 'Bookkeeping Services',
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/1449331509-icon4-book-bg.png',
-    icon: 'arrow-right',    
+    image: 'book',
+    icon: 'arrow-right',
     paragraphs: [{
       type: 'text',
       value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
@@ -66,8 +66,8 @@ const initialState = {
     }]
   },{
     title: 'Transfer Pricing',
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/1449331452-icon2-peopele-bg.png',
-    icon: 'arrow-right',  
+    image: 'calculator',
+    icon: 'arrow-right',
     paragraphs: [{
       type: 'text',
       value: 'lorem imsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
@@ -77,8 +77,8 @@ const initialState = {
     }]
   },{
     title: 'Tax Services',
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/1449331497-icon3-monitor-bg.png',
-    icon: 'arrow-right',  
+    image: 'laptop',
+    icon: 'arrow-right',
     paragraphs: [{
       type: 'text',
       value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
@@ -91,7 +91,7 @@ const initialState = {
     }]
   },{
     title: 'Legal Services',
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/1449331509-icon4-book-bg.png',
+    image: 'briefcase',
     icon: 'arrow-right',
     paragraphs: [{
       type: 'text',

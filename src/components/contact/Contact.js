@@ -11,7 +11,7 @@ const { Marker } = MapView;
 class Contact extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'CONTACT',
+    title: 'HLB T&M Consulting',
   })
 
   goToContactMessage = screenName => {
@@ -40,9 +40,13 @@ class Contact extends Component {
           <View style={styles.body}>
             <View style={styles.addressContainer}>
               <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
-              <Text onPress={() => this.goToContactMessage('ContactMessage')} style={styles.addressTextMail}>office@tmconsulting.co.rs</Text>
               <Text style={styles.addressText}>+381 11 344-81-69</Text>
               <Text style={styles.addressText}>+381 64 614-29-44</Text>
+              <TouchableOpacity
+                onPress={() => this.goToContactMessage('ContactMessage')}
+                style={styles.addressTextMail}>
+                <Text style={styles.contactText}>CONTACT US</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -56,41 +60,40 @@ export default Contact;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey
   },
   innerContainer: {
     flex: 1,
-    margin: metrics.medium,
     padding: metrics.medium,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    backgroundColor: colors.white
   },
   googleMapContainer: {
-    height: Dimensions.get('window').height / 1.6,
+    height: Dimensions.get('window').height / 1.9,
   },
   body: {
     flex: 1,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   addressContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   addressText: {
     fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
     color: colors.grey,
     marginBottom: metrics.small
   },
   addressTextMail: {
-    fontSize: fonts.size.medium,
-    color: colors.blue,
-    marginBottom: metrics.small
+    backgroundColor: colors.lightBlue2,
+    margin: metrics.medium,
+    padding: metrics.medium,
+    borderRadius: 10,
+    // borderWidth: metrics.largeBorder,
+    // borderColor: colors.lightBlue2
+
+  },
+  contactText: {
+    fontSize: fonts.size.large,
+    fontFamily: 'openSansBold',
+    color: colors.white,
   }
 });

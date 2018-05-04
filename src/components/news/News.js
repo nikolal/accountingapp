@@ -3,7 +3,7 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStora
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
-import { Ionicons }  from '@expo/vector-icons';
+import { MaterialIcons }  from '@expo/vector-icons';
 import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
@@ -60,15 +60,11 @@ class News extends Component {
         <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
         <Text style={styles.dateText}>{item.date}</Text>
       </View>
-
-      <View style={styles.iconCircle}>
-        <Ionicons
-          name="md-arrow-dropright"
-          size={30}
-          color={colors.lightBlue1}
-          style={styles.arrowIcon}
-        />
-      </View>
+      <MaterialIcons
+        name="play-arrow"
+        size={30}
+        color={colors.lightBlue2}
+      />
     </TouchableOpacity>
 
   render() {
@@ -137,15 +133,5 @@ const styles = StyleSheet.create({
     color: colors.lightBlue1,
     fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
-  },
-  iconCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: metrics.tiny,
-    width: 34,
-    height: 34,
-    borderColor: colors.lightGrey,
-    borderWidth: metrics.mediumBorder,
-    borderRadius: 17
   }
 });

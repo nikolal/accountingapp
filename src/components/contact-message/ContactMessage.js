@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
@@ -11,7 +11,7 @@ class ConcatMessage extends Component {
     contactForms: [{
       id: 'name',
       title: 'Your name',
-      value: 'asdf',
+      value: '',
       style: 'input'
     },{
       id: 'company',
@@ -32,7 +32,7 @@ class ConcatMessage extends Component {
   };
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'CONTACT US',
+    title: 'HLB T&M Consulting',
   })
 
   submitData = () => false
@@ -56,16 +56,19 @@ class ConcatMessage extends Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.inputsContainer}>
+        <KeyboardAvoidingView
+          style={styles.inputsContainer}
+          behavior="padding"
+        >
           <Image
             style={styles.image}
-            source={{ uri: 'https://creditarmy.org/wp-content/uploads/2017/05/OurTeam.jpg' }}
+            source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Transfer-pricing-Belgrade.jpg' }}
           />
             {this.state.contactForms.map(this.renderForms)}
           <TouchableOpacity onPress={this.submitData} style={styles.button}>
             <Text style={styles.buttonText}>SEND</Text>
           </TouchableOpacity>
-        </View>
+        </KeyboardAvoidingView>
 
       </ScrollView>
     );
@@ -81,31 +84,21 @@ export default ConcatMessage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.white,
   },
   inputsContainer: {
-    flex: 1,
-    margin: metrics.medium,
+    // flex: 1,
     padding: metrics.medium,
     backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: colors.grey,
     borderBottomWidth: 1
   },
   textArea: {
     height: 100,
-    borderColor: 'gray',
+    borderColor: colors.grey,
     borderBottomWidth: 1
   },
   image: {
@@ -115,17 +108,20 @@ const styles = StyleSheet.create({
     margin: metrics.medium
   },
   text: {
-    fontSize: fonts.size.medium
+    fontSize: fonts.size.medium,
+    color: colors.grey,
+    fontFamily: 'openSansRegular'
   },
   button: {
-    padding: metrics.large,
-    backgroundColor: 'rgb(230, 230, 230)',
-    alignSelf: 'center',
-    borderRadius: metrics.medium,
-
+    backgroundColor: colors.lightBlue2,
+    margin: metrics.large,
+    padding: metrics.medium,
+    borderRadius: 10,
   },
   buttonText: {
+    alignSelf: 'center',
     fontSize: fonts.size.large,
-    fontWeight: fonts.weight.large
+    fontFamily: 'openSansBold',
+    color: colors.white,
   }
 });

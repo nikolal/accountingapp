@@ -55,50 +55,75 @@ const initialState = {
     image: 'book',
     icon: 'arrow-right',
     paragraphs: [{
-      type: 'text',
-      value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
+      type: 'headline',
+      value: 'TRANSFER PRICING '
     },{
       type: 'text',
-      value: 'Nikola lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem Lukic'
+      value: 'NEMAM'
     },{
       type: 'text',
-      value: 'SEka lorem imsum3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, Skana'
+      value: 'Analysis of the functions performed, risks assumed and assets'
+    },{
+      type: 'text',
+      value: 'Selection of appropriate transfer pricing methodology'
+    },{
+      type: 'text',
+      value: 'Assistance in identifying the arm’s length range of prices/profitability levels of the transactions by benchmarking these against adequate market comparable'
     }]
   },{
     title: 'Transfer Pricing',
     image: 'calculator',
     icon: 'arrow-right',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
+      type: 'headline',
+      value: 'TRANSFER PRICING '
     },{
       type: 'text',
-      value: 'lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, imsum'
-    }]
-  },{
-    title: 'Tax Services',
-    image: 'laptop',
-    icon: 'arrow-right',
-    paragraphs: [{
-      type: 'text',
-      value: 'Milana lorem ipsum2 lorem <iosum> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, omnis molestias illo iure iste.</iosum> Lu'
+      value: 'Identification and understanding of transactions with related parties'
     },{
       type: 'text',
-      value: 'Nikola lorem imsum2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, lorem loremm lorem ipsum lorem lorem ipsum lorem  lorem Lukic'
+      value: 'Analysis of the functions performed, risks assumed and assets'
     },{
       type: 'text',
-      value: 'SEka lorem imsum3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, Skana'
+      value: 'Selection of appropriate transfer pricing methodology'
+    },{
+      type: 'text',
+      value: 'Assistance in identifying the arm’s length range of prices/profitability levels of the transactions by benchmarking these against adequate market comparable'
+    },{
+      type: 'headline',
+      value: 'TRANFER PRICING CONSULTING',
+    },{
+      type: 'text',
+      value: 'Advices in pricing policy with related parties'
+    },{
+      type: 'text',
+      value: 'Dealing with tax authorities during tax audits'
     }]
   },{
     title: 'Legal Services',
     image: 'briefcase',
     icon: 'arrow-right',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus,'
+      type: 'headline',
+      value: 'COORPORATIVE & CONTRACT LAW'
     },{
       type: 'text',
-      value: 'lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ab sequi rem quaerat maxime. Repellendus tempore commodi esse a dolore, quibusdam delectus eveniet deserunt necessitatibus, imsum'
+      value: 'Incorporation of all legal forms of companies and other legal entities'
+    },{
+      type: 'text',
+      value: "Counseling, negotiation and drafting ofassociations’ memorandums and articles,shareholders' agreements, rules of internal rocedures and other corporate documents"
+    },{
+      type: 'text',
+      value: 'Drafting all kinds of commercial contracts'
+    },{
+      type: 'headline',
+      value: 'LABOUR LAW',
+    },{
+      type: 'text',
+      value: "Preparing general legal acts for employers or for employers 'associations"
+    },{
+      type: 'text',
+      value: 'Drafting of employment rulebook, employment contracts and mutual termination agreements'
     }]
   }],
   services: {}

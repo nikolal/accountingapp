@@ -4,6 +4,7 @@ const metrics = {
   small: 5,
   medium: 10,
   large: 15,
+  largeToHuge: 17,
   huge: 20,
   hugeToExtrahuge: 25,
   extraHuge: 30,

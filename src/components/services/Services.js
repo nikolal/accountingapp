@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
   innerContainer: {
     flex: 1,
     margin: metrics.medium,
-    // padding: metrics.medium,
   },
   image: {
     height: Dimensions.get('window').height / 3.5,
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // backgroundColor: 'green',
     alignItems: 'center',
     borderRadius: 10,
     borderBottomWidth: metrics.smallBorder,
@@ -92,7 +90,6 @@ const styles = StyleSheet.create({
   imageTitleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red'
   },
   titleText: {
     marginLeft: metrics.medium,

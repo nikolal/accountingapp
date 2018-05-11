@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import {
   saveCalculation, saveGrossValueAction, saveNetValueAction,
   saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction,
-  saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction
+  saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction
   } from './CalculationsContainer';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
@@ -15,7 +15,7 @@ const CalculationDetail = (props) => {
   const {
     calculation, saveGrossValueAction, saveNetValueAction,
     saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction, saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction,
-    saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction
+    saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction
    } = props; //eslint-disable-line
 
   const calculateValue = (val) => {
@@ -62,25 +62,27 @@ const CalculationDetail = (props) => {
   const calculculateSalaryNetToGross = val => {
     saveSalaryNetGrossBaseIndexAction(saveSalaryNetGrossBaseIndex(val));
     saveSalaryNetGrossTaxAction(saveSalaryNetGrossTax(val));
+    saveSalaryNetGrossBaseContributionAction(saveSalaryNetGrossBaseContribution(val));
     saveSalaryNetGrossPensionContributionAction(saveSalaryNetGrossPensionContribution(val));
     saveSalaryNetGrossHealthContributionAction(saveSalaryNetGrossHealthContribution(val));
     saveSalaryNetGrossInsuranceContributionAction(saveSalaryNetGrossInsuranceContribution(val));
-    saveSalaryNetGrossAction(val - (saveSalaryNetGrossTax(val) - (saveSalaryNetGrossPensionContribution(val) + saveSalaryNetGrossHealthContribution(val) + saveSalaryNetGrossInsuranceContribution(val))));
+    saveSalaryNetGrossTotalAction(saveSalaryNetGross(val) + saveSalaryNetGrossPension(val) + saveSalaryNetGrossHealthContribution(val) + saveSalaryNetGrossInsuranceContribution(val));
     saveSalaryNetGrossPensionAction(saveSalaryNetGrossPension(val));
-    saveSalaryNetGrossTotalAction(saveSalaryNetGrossTotal(val));
-
+    saveSalaryNetGrossAction(saveSalaryNetGross(val));
   };
 
-  const saveSalaryNetGrossBaseIndex = val => (val + 15000);
-  const saveSalaryNetGrossTax = val => ((val + 15000) * 0.1);
-  const saveSalaryNetGrossPensionContribution = val => (val * 0.14);
-  const saveSalaryNetGrossHealthContribution = val => (val * 0.0515);
-  const saveSalaryNetGrossInsuranceContribution = val => (val * 0.0075);
-  const saveSalaryNetGrossPension = val => (val * 0.12);
-  const saveSalaryNetGrossTotal = val => {
-    return(
-      val > (323330 - (323320 - 15000) * 0.12 - 323330 * 0.179) ?
-        (((val - (15000 * 0.1)) + (0.199 * 323330))) / 0.9 :
+
+  const saveSalaryNetGrossBaseIndex = val => saveSalaryNetGross(val) - 15000;
+  const saveSalaryNetGrossTax = val => (saveSalaryNetGross(val) - 15000) * 0.1;
+  const saveSalaryNetGrossBaseContribution = val => saveSalaryNetGross(val) < calculation.grossSalary.maxBaseContributionIndex ? saveSalaryNetGross(val) : calculation.grossSalary.maxBaseContributionIndex;
+  const saveSalaryNetGrossPensionContribution = val => (saveSalaryNetGrossBaseContribution(val) * 0.14);
+  const saveSalaryNetGrossHealthContribution = val => (saveSalaryNetGrossBaseContribution(val) * 0.0515);
+  const saveSalaryNetGrossInsuranceContribution = val => (saveSalaryNetGrossBaseContribution(val) * 0.0075);
+  const saveSalaryNetGrossPension = val => (saveSalaryNetGrossBaseContribution(val) * 0.12);
+  const saveSalaryNetGross = val => {
+    return (
+      val > (calculation.grossSalary.maxBaseContributionIndex - (323320 - 15000) * 0.12 - calculation.grossSalary.maxBaseContributionIndex * 0.179) ?
+        (((val - (15000 * 0.1)) + (0.199 * calculation.grossSalary.maxBaseContributionIndex))) / 0.9 :
         (val - 15000 * 0.1) / 0.701
     );
   };
@@ -150,6 +152,7 @@ const dispatchToProps = dispatch => ({
   saveSalaryNetGrossAction: bindActionCreators(saveSalaryNetGrossAction, dispatch),
   saveSalaryNetGrossPensionAction: bindActionCreators(saveSalaryNetGrossPensionAction, dispatch),
   saveSalaryNetGrossTotalAction: bindActionCreators(saveSalaryNetGrossTotalAction, dispatch),
+  saveSalaryNetGrossBaseContributionAction: bindActionCreators(saveSalaryNetGrossBaseContributionAction, dispatch),
 
 
 });

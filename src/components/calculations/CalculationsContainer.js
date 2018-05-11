@@ -22,8 +22,7 @@ const SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION = 'calculations/SAVE_S
 const SAVE_SALARY_NET_GROSS_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_ACTION';
 const SAVE_SALARY_NET_GROSS_PENSION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_PENSION_ACTION';
 const SAVE_SALARY_NET_GROSS_TOTAL_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TOTAL_ACTION';
-
-
+const SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION';
 
 
 // Initial State
@@ -58,7 +57,7 @@ const initialState = {
       value: null,
       baseSalaryIndex: null,
       tax: null,
-      maxBaseContributionIndex: null,
+      maxBaseContributionIndex: 329330,
       baseContributionIndex: null,
       socialContributions: {
         pensionContribution: null,
@@ -211,102 +210,112 @@ const calculationsReducer = (state = initialState, action) =>
       totalSalary: action.value,
     }
   }) :
-  // action.type === SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     grossSalary: {
-  //       ...state.calculation.grossSalary,
-  //       baseSalaryIndex: action.value
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_TAX_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     grossSalary: {
-  //       ...state.calculation.grossSalary,
-  //       tax: action.value
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     grossSalary: {
-  //       ...state.calculation.grossSalary,
-  //       socialContributions: {
-  //         ...state.calculation.grossSalary.socialContributions,
-  //         pensionContribution: action.value
-  //       }
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     grossSalary: {
-  //       ...state.calculation.grossSalary,
-  //       socialContributions: {
-  //         ...state.calculation.grossSalary.socialContributions,
-  //         healthContribution: action.value
-  //       }
-  //     },
-  //     netSalary: {
-  //       ...state.calculation.netSalary,
-  //       socialContributions: {
-  //         ...state.calculation.netSalary.socialContributions,
-  //         healthContribution: action.value
-  //       }
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     grossSalary: {
-  //       ...state.calculation.grossSalary,
-  //       socialContributions: {
-  //         ...state.calculation.grossSalary.socialContributions,
-  //         insuranceContribution: action.value
-  //       }
-  //     },
-  //     netSalary: {
-  //       ...state.calculation.netSalary,
-  //       socialContributions: {
-  //         ...state.calculation.netSalary.socialContributions,
-  //         insuranceContribution: action.value
-  //       }
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     netSalary: {
-  //       ...state.calculation.netSalary,
-  //       value: action.value
-  //     }
-  //   }
-  // }) :
-  // action.type === SAVE_SALARY_GROSS_NET_PENSION_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     netSalary: {
-  //       ...state.calculation.netSalary,
-  //       socialContributions: {
-  //         ...state.calculation.netSalary.socialContributions,
-  //         pensionContribution: action.value
-  //       }
-  //     }
-  //   }
-  // }) :
+  action.type === SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        baseSalaryIndex: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        tax: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        baseContributionIndex: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_PENSION_CONTRIBUTION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        socialContributions: {
+          ...state.calculation.grossSalary.socialContributions,
+          pensionContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_HEALTH_CONTRIBUTION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        socialContributions: {
+          ...state.calculation.grossSalary.socialContributions,
+          healthContribution: action.value
+        }
+      },
+      netSalary: {
+        ...state.calculation.netSalary,
+        socialContributions: {
+          ...state.calculation.netSalary.socialContributions,
+          healthContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        socialContributions: {
+          ...state.calculation.grossSalary.socialContributions,
+          insuranceContribution: action.value
+        }
+      },
+      netSalary: {
+        ...state.calculation.netSalary,
+        socialContributions: {
+          ...state.calculation.netSalary.socialContributions,
+          insuranceContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      netSalary: {
+        ...state.calculation.netSalary,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_SALARY_NET_GROSS_PENSION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      netSalary: {
+        ...state.calculation.netSalary,
+        socialContributions: {
+          ...state.calculation.netSalary.socialContributions,
+          pensionContribution: action.value
+        }
+      }
+    }
+  }) :
   action.type === SAVE_SALARY_NET_GROSS_TOTAL_ACTION ? ({
     ...state,
     calculation: {
@@ -338,5 +347,7 @@ export const saveSalaryNetGrossInsuranceContributionAction = value => ({ type: S
 export const saveSalaryNetGrossAction = value => ({ type: SAVE_SALARY_NET_GROSS_ACTION, value });
 export const saveSalaryNetGrossPensionAction = value => ({ type: SAVE_SALARY_NET_GROSS_PENSION_ACTION, value });
 export const saveSalaryNetGrossTotalAction = value => ({ type: SAVE_SALARY_NET_GROSS_TOTAL_ACTION, value });
+export const saveSalaryNetGrossBaseContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION, value });
+
 
 export default calculationsReducer;

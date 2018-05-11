@@ -4,14 +4,25 @@ const SAVE_CALCULATION = 'calculations/SAVE_CALCULATION';
 const SAVE_INPUT = 'calculations/SAVE_INPUT';
 const SAVE_GROSS_VALUE_ACTION = 'calculations/SAVE_GROSS_VALUE_ACTION';
 const SAVE_NET_VALUE_ACTION = 'calculations/SAVE_NET_VALUE_ACTION';
-const SAVE_BASE_SALARY_INDEX_ACTION = 'calculations/SAVE_BASE_SALARY_INDEX_ACTION';
-const SAVE_SALARY_TAX_ACTION = 'calculations/SAVE_SALARY_TAX_ACTION';
-const SAVE_SALARY_GROSS_PENSION_ACTION = 'calculations/SAVE_SALARY_GROSS_PENSION_ACTION';
-const SAVE_SALARY_HEALTH_ACTION = 'calculations/SAVE_SALARY_HEALTH_ACTION';
-const SAVE_SALARY_INSURANCE_ACTION = 'calculations/SAVE_SALARY_INSURANCE_ACTION';
-const SAVE_GROSS_TO_NET_SALARY_ACTION = 'calculations/SAVE_GROSS_TO_NET_SALARY_ACTION';
-const SAVE_NET_PENSION_ACTION = 'calculations/SAVE_NET_PENSION_ACTION';
-const SAVE_TOTAL_SALARY_ACTION = 'calculations/SAVE_TOTAL_SALARY_ACTION';
+// salary gross to net
+const SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION';
+const SAVE_SALARY_GROSS_NET_TAX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_TAX_ACTION';
+const SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION';
+const SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION';
+const SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION';
+const SAVE_SALARY_GROSS_NET_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_ACTION';
+const SAVE_SALARY_GROSS_NET_PENSION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_PENSION_ACTION';
+const SAVE_SALARY_GROSS_NET_TOTAL_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_TOTAL_ACTION';
+// salary net to gross
+const SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION';
+const SAVE_SALARY_NET_GROSS_TAX_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TAX_ACTION';
+const SAVE_SALARY_NET_GROSS_PENSION_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_PENSION_CONTRIBUTION_ACTION';
+const SAVE_SALARY_NET_GROSS_HEALTH_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_HEALTH_CONTRIBUTION_ACTION';
+const SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION';
+const SAVE_SALARY_NET_GROSS_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_ACTION';
+const SAVE_SALARY_NET_GROSS_PENSION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_PENSION_ACTION';
+const SAVE_SALARY_NET_GROSS_TOTAL_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TOTAL_ACTION';
+
 
 
 
@@ -42,11 +53,13 @@ const initialState = {
     // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
     func: 'salaryCalculator',
-    type: 'grossToNet',
+    type: 'netToGross',
     grossSalary: {
       value: null,
       baseSalaryIndex: null,
       tax: null,
+      maxBaseContributionIndex: null,
+      baseContributionIndex: null,
       socialContributions: {
         pensionContribution: null,
         healthContribution: null,
@@ -95,7 +108,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_BASE_SALARY_INDEX_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -105,7 +118,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_SALARY_TAX_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_TAX_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -115,7 +128,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_SALARY_GROSS_PENSION_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -128,7 +141,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_SALARY_HEALTH_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -148,7 +161,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_SALARY_INSURANCE_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -168,7 +181,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_GROSS_TO_NET_SALARY_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -178,7 +191,7 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_NET_PENSION_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_PENSION_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -191,7 +204,110 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === SAVE_TOTAL_SALARY_ACTION ? ({
+  action.type === SAVE_SALARY_GROSS_NET_TOTAL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalSalary: action.value,
+    }
+  }) :
+  // action.type === SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     grossSalary: {
+  //       ...state.calculation.grossSalary,
+  //       baseSalaryIndex: action.value
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_TAX_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     grossSalary: {
+  //       ...state.calculation.grossSalary,
+  //       tax: action.value
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     grossSalary: {
+  //       ...state.calculation.grossSalary,
+  //       socialContributions: {
+  //         ...state.calculation.grossSalary.socialContributions,
+  //         pensionContribution: action.value
+  //       }
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     grossSalary: {
+  //       ...state.calculation.grossSalary,
+  //       socialContributions: {
+  //         ...state.calculation.grossSalary.socialContributions,
+  //         healthContribution: action.value
+  //       }
+  //     },
+  //     netSalary: {
+  //       ...state.calculation.netSalary,
+  //       socialContributions: {
+  //         ...state.calculation.netSalary.socialContributions,
+  //         healthContribution: action.value
+  //       }
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     grossSalary: {
+  //       ...state.calculation.grossSalary,
+  //       socialContributions: {
+  //         ...state.calculation.grossSalary.socialContributions,
+  //         insuranceContribution: action.value
+  //       }
+  //     },
+  //     netSalary: {
+  //       ...state.calculation.netSalary,
+  //       socialContributions: {
+  //         ...state.calculation.netSalary.socialContributions,
+  //         insuranceContribution: action.value
+  //       }
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     netSalary: {
+  //       ...state.calculation.netSalary,
+  //       value: action.value
+  //     }
+  //   }
+  // }) :
+  // action.type === SAVE_SALARY_GROSS_NET_PENSION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     netSalary: {
+  //       ...state.calculation.netSalary,
+  //       socialContributions: {
+  //         ...state.calculation.netSalary.socialContributions,
+  //         pensionContribution: action.value
+  //       }
+  //     }
+  //   }
+  // }) :
+  action.type === SAVE_SALARY_NET_GROSS_TOTAL_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -204,13 +320,23 @@ const calculationsReducer = (state = initialState, action) =>
 export const saveCalculation = item => ({ type: SAVE_CALCULATION, item });
 export const saveGrossValueAction = value => ({ type: SAVE_GROSS_VALUE_ACTION, value });
 export const saveNetValueAction = value => ({ type: SAVE_NET_VALUE_ACTION, value });
-export const saveBaseSalaryIndexAction = value => ({ type: SAVE_BASE_SALARY_INDEX_ACTION, value });
-export const saveSalaryTaxAction = value => ({ type: SAVE_SALARY_TAX_ACTION, value });
-export const saveSalaryGrossPensionAction = value => ({ type: SAVE_SALARY_GROSS_PENSION_ACTION, value });
-export const saveSalaryHealthAction = value => ({ type: SAVE_SALARY_HEALTH_ACTION, value });
-export const saveSalaryInsuranceAction = value => ({ type: SAVE_SALARY_INSURANCE_ACTION, value });
-export const saveGrossToNetSalary = value => ({ type: SAVE_GROSS_TO_NET_SALARY_ACTION, value });
-export const saveNetPensionAction = value => ({ type: SAVE_NET_PENSION_ACTION, value });
-export const saveTotalSalaryAction = value => ({ type: SAVE_TOTAL_SALARY_ACTION, value });
+// Salary gross to net
+export const saveSalaryGrossNetBaseIndexAction = value => ({ type: SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION, value });
+export const saveSalaryGrossNetTaxAction = value => ({ type: SAVE_SALARY_GROSS_NET_TAX_ACTION, value });
+export const saveSalaryGrossNetPensionContributionAction = value => ({ type: SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION, value });
+export const saveSalaryGrossNetHealthContributionAction = value => ({ type: SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION, value });
+export const saveSalaryGrossNetInsuranceContributionAction = value => ({ type: SAVE_SALARY_GROSS_NET_INSURANCE_CONTRIBUTION_ACTION, value });
+export const saveSalaryGrossNetAction = value => ({ type: SAVE_SALARY_GROSS_NET_ACTION, value });
+export const saveSalaryGrossNetPensionAction = value => ({ type: SAVE_SALARY_GROSS_NET_PENSION_ACTION, value });
+export const saveSalaryGrossNetTotalAction = value => ({ type: SAVE_SALARY_GROSS_NET_TOTAL_ACTION, value });
+// Salary net to gross
+export const saveSalaryNetGrossBaseIndexAction = value => ({ type: SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION, value });
+export const saveSalaryNetGrossTaxAction = value => ({ type: SAVE_SALARY_NET_GROSS_TAX_ACTION, value });
+export const saveSalaryNetGrossPensionContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_PENSION_CONTRIBUTION_ACTION, value });
+export const saveSalaryNetGrossHealthContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_HEALTH_CONTRIBUTION_ACTION, value });
+export const saveSalaryNetGrossInsuranceContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION, value });
+export const saveSalaryNetGrossAction = value => ({ type: SAVE_SALARY_NET_GROSS_ACTION, value });
+export const saveSalaryNetGrossPensionAction = value => ({ type: SAVE_SALARY_NET_GROSS_PENSION_ACTION, value });
+export const saveSalaryNetGrossTotalAction = value => ({ type: SAVE_SALARY_NET_GROSS_TOTAL_ACTION, value });
 
 export default calculationsReducer;

@@ -16,7 +16,7 @@ class Calculations extends Component {
 
   goToCalculation = (item) => {
     this.props.saveCalculation(item);
-    this.props.navigation.navigate('CalculationDetail');
+    this.props.navigation.navigate('CalculationDetail1');
   };
 
   renderList = (item) =>

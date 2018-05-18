@@ -5,6 +5,7 @@ import MainScreen from '../mainScreen/MainScreen.js';
 import Tabs from '../tabs/Tabs.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
 import CalculationDetail from '../calculations/CalculationDetail';
+import CalculationDetail1 from '../calculations/CalculationDetail1';
 import Services from '../services/Services.js';
 import ServicesDetail from '../services-detail/ServicesDetail';
 import About from '../about/About.js';
@@ -51,6 +52,7 @@ const Navigator = StackNavigator({
   Settings: { screen: Settings},
   NewsDetail: { screen: NewsDetail },
   CalculationDetail: { screen: CalculationDetail},
+  CalculationDetail1: { screen: CalculationDetail1},
   TaxesDetail: { screen: TaxesDetail },
 }, navigationConfig);
 

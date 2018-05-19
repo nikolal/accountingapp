@@ -2,17 +2,13 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 
-const SalaryResult = ({ calculation }) => {
+const SalaryResultNet = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Ukupna bruto zarada</Text>
-        <Text style={styles.number}>{calculation.grossSalary.value}</Text>
-      </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto za isplatu</Text>
-        <Text style={styles.number}>{calculation.totalNet}</Text>
+        <Text style={styles.number}>{calculation.netSalary.value}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez na zarade</Text>
@@ -31,7 +27,7 @@ const SalaryResult = ({ calculation }) => {
 };
 
 
-export default SalaryResult;
+export default SalaryResultNet;
 
 const styles = StyleSheet.create({
   container: {

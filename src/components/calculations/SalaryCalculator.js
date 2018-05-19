@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 import SalaryResult from './SalaryResult.js';
+import SalaryResultNet from './SalaryResultNet';
 
 const SalaryCalculator = props => {
 
@@ -47,7 +48,14 @@ const SalaryCalculator = props => {
           </TouchableOpacity>
           {
             props.showResult ?
-              <SalaryResult calculation={props.calculation}/>
+              props.grossToNet ?
+              <SalaryResult
+                calculation={props.calculation}
+              />
+            :
+              <SalaryResultNet
+                calculation={props.calculation}
+              />
             :
               <Text style={styles.description}>{props.calculation.description}</Text>
           }

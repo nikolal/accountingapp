@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, ScrollView, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {saveCalculation} from './CalculationsContainer';
@@ -21,20 +21,25 @@ class Calculations extends Component {
 
   renderList = (item) =>
     <TouchableOpacity style={styles.item} key={item.name} onPress={() => this.goToCalculation(item)}>
-      <Entypo
-        name={item.icon}
-        size={25}
-        color={colors.lightBlue1}
-        style={styles.icons}
-      />
-      <View style={styles.textArrowContainer}>
-        <Text style={styles.textItem}>{item.name}</Text>
-        <Entypo
-          name="chevron-small-right"
-          size={35}
-          color={colors.lightBlue1}
-          style={styles.arrowIcon}
-        />
+      <View>
+        <View style={styles.textArrowContainer}>
+          <View style={styles.iconText}>
+            <Entypo
+              name={item.icon}
+              size={25}
+              color={colors.lightBlue1}
+              style={styles.icons}
+            />
+            <Text style={styles.textItem}>{item.name}</Text>
+          </View>
+          <Entypo
+            name="chevron-small-right"
+            size={35}
+            color={colors.lightBlue1}
+            style={styles.arrowIcon}
+          />
+        </View>
+        <Text style={styles.explanation}>{item.nameExpl}</Text>
       </View>
     </TouchableOpacity>
 
@@ -47,11 +52,11 @@ class Calculations extends Component {
             style={styles.image}
             source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
           />
-          <View style={styles.itemContainer}>
+          <ScrollView style={styles.itemContainer}>
             {
               calculations.map(this.renderList)
             }
-        </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -84,28 +89,33 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     flex: 1,
-    justifyContent: 'center'
   },
   item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: metrics.huge,
+    paddingVertical: metrics.large,
     borderBottomColor: colors.grey,
     borderBottomWidth: metrics.smallBorder,
   },
+  iconText: {
+    flexDirection: 'row'
+  },
   icons: {
-    marginLeft: metrics.medium
+    marginRight: metrics.medium
   },
   textArrowContainer: {
-    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginLeft: metrics.medium,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
   },
   textItem: {
     color: colors.grey,
     fontFamily: 'openSansBold',
     fontSize: metrics.largeToHuge,
+  },
+  explanation: {
+    marginLeft: metrics.huge,
+    color: colors.grey,
+    fontFamily: 'openSansRegular',
+    fontSize: metrics.large,
   }
 });

@@ -17,12 +17,6 @@ class ServicesDetail extends Component {
         <View style={styles.paragraphsCon}>
           <Text style={styles.textParagraph}>{item.value}</Text>
         </View>
-        <Ionicons
-          name="ios-arrow-forward"
-          size={30}
-          color={colors.lightBlue1}
-          style={styles.arrowIcon}
-        />
       </View> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>

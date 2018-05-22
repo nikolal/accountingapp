@@ -1,40 +1,19 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
-import SalaryResult from './SalaryResult.js';
-import SalaryResultNet from './SalaryResultNet';
+import TempPermJobsResult from './TempPermJobsResult.js';
 
-const SalaryCalculator = props => {
 
+const TemporaryPermanentJobsCalculator = props => {
   return (
     <View style={styles.container}>
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={props.switchingGrossToNet}
-        >
-          <Text style={styles.buttonText}>Gross to Net</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={props.switchNetToGross}
-        >
-          <Text style={styles.buttonText}>Net to gross</Text>
-        </TouchableOpacity>
-      </View>
-
       <ScrollView style={styles.scrollViewContainer}>
         <KeyboardAvoidingView
           style={styles.inputsContainer}
           behavior="padding"
         >
-          <Text style={styles.name}>OBRACUN ZARADA - RSD</Text>
-          {
-            props.grossToNet ?
-              <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
-            :
-              <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text>
-          }
+          <Text style={styles.name}>Privremeni i povremeni poslovi</Text>
+          <Text style={styles.text}>Unesite NETO iznos plate</Text>
           <TextInput
             style={styles.inputText}
             onChangeText={props.saveInput}
@@ -48,12 +27,7 @@ const SalaryCalculator = props => {
           </TouchableOpacity>
           {
             props.showResult ?
-              props.grossToNet ?
-              <SalaryResult
-                calculation={props.calculation}
-              />
-            :
-              <SalaryResultNet
+              <TempPermJobsResult
                 calculation={props.calculation}
               />
             :
@@ -66,53 +40,25 @@ const SalaryCalculator = props => {
 };
 
 
-export default SalaryCalculator;
+export default TemporaryPermanentJobsCalculator;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // margin: metrics.medium,
-    // paddingHorizontal: metrics.large
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-  },
-  // buttonsActive: {
-  //   borderColor: colors.darkGrey,
-  //   borderWidth: metrics.smallBorder,
-  //   padding: metrics.medium,
-  //   backgroundColor: colors.grey
-  // },
-  // buttonTextActive: {
-  //   alignSelf: 'center',
-  //   fontSize: fonts.size.large,
-  //   fontFamily: 'openSansBold',
-  //   // color: colors.red,
-  // },
-  buttons: {
-    flex: 1,
-    borderColor: colors.grey,
-    borderWidth: metrics.smallBorder,
-    padding: metrics.large,
-    backgroundColor: colors.lightBlue2
-  },
-  scrollViewContainer: {
-    flex: 1,
-    paddingHorizontal: metrics.large
+    margin: metrics.medium,
   },
   name: {
     fontFamily: 'openSansBold',
     fontSize: fonts.size.huge,
     alignSelf: 'center',
-    color: colors.grey,
+    color: colors.lightBlue1,
     marginVertical: metrics.huge
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    marginVertical: metrics.medium,
-    color: colors.lightBlue1
+    alignSelf: 'center',
+    color: colors.grey
   },
   inputText: {
     height: 40,
@@ -133,9 +79,6 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansBold',
     color: colors.white,
   },
-  // valueResul: {
-  //   color: 'red'
-  // },
   description: {
     alignSelf: 'center',
     marginTop: metrics.large,

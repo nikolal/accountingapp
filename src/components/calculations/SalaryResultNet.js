@@ -16,7 +16,7 @@ const SalaryResultNet = ({ calculation }) => {
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Ukupan trosak zarade</Text>
-        <Text style={styles.number}>{calculation.totalContributions}</Text>
+        <Text style={styles.number}>{calculation.totalContributions.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Ukupan obracun</Text>

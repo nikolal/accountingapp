@@ -1,10 +1,12 @@
 // Actions
+const RESET_ALL_VALUE_ACTION = 'calculation/RESET_ALL_VALUE_ACTION';
+const SWITCH_TYPE_ACTION = 'calculation/SWITCH_TYPE_ACTION';
 const CALCULATE = 'calculations/CALCULATE';
 const SAVE_CALCULATION = 'calculations/SAVE_CALCULATION';
 const SAVE_INPUT = 'calculations/SAVE_INPUT';
 const SAVE_GROSS_VALUE_ACTION = 'calculations/SAVE_GROSS_VALUE_ACTION';
 const SAVE_NET_VALUE_ACTION = 'calculations/SAVE_NET_VALUE_ACTION';
-const SWITCH_GROSS_NET_ACTION = 'calculations/SWITCH_GROSS_NET_ACTION';
+// const SWITCH_GROSS_NET_ACTION = 'calculations/SWITCH_GROSS_NET_ACTION';
 // salary gross to net
 const SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION';
 const SAVE_SALARY_GROSS_NET_TAX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_TAX_ACTION';
@@ -44,6 +46,37 @@ const CONTRACT_PIO_TAX_BASE_ACTION = 'calculations/CONTRACT_PIO_TAX_BASE_ACTION'
 const CONTRACT_PIO_TAX_TAX_ACTION = 'calculations/CONTRACT_PIO_TAX_TAX_ACTION';
 const CONTRACT_PIO_TAX_PENSION_ACTION = 'calculations/CONTRACT_PIO_TAX_PENSION_ACTION';
 
+// Contcract Pio and Tax
+const SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION = 'calculations/SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_NONTAXABLE_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_NONTAXABLE_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_BASE_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_BASE_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_TAX_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_TAX_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION';
+const CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION';
+
+// Contcract Tax
+const SAVE_CONTRACT_TAX_ACTION = 'calculations/SAVE_CONTRACT_TAX_ACTION';
+const CONTRACT_TAX_GROSS_ACTION = 'calculations/CONTRACT_TAX_GROSS_ACTION';
+const CONTRACT_TAX_NONTAXABLE_ACTION = 'calculations/CONTRACT_TAX_NONTAXABLE_ACTION';
+const CONTRACT_TAX_BASE_ACTION = 'calculations/CONTRACT_TAX_BASE_ACTION';
+const CONTRACT_TAX_TAX_ACTION = 'calculations/CONTRACT_TAX_TAX_ACTION';
+
+// Allowance - Home
+const SAVE_ALLOWANCE_HOME_ACTION = 'calculations/SAVE_ALLOWANCE_HOME_ACTION';
+const SAVE_ALLOWANCE_HOME_TAXE_BASE_ACTION = 'calculations/SAVE_ALLOWANCE_HOME_TAXE_BASE_ACTION';
+const SAVE_ALLOWANCE_HOME_GROSS_ACTION = 'calculations/SAVE_ALLOWANCE_HOME_GROSS_ACTION';
+const SAVE_ALLOWANCE_HOME_TAX_ACTION = 'calculations/SAVE_ALLOWANCE_HOME_TAX_ACTION';
+
+// Allowance - Away
+const SAVE_ALLOWANCE_AWAY_ACTION = 'calculations/SAVE_ALLOWANCE_AWAY_ACTION';
+const SAVE_ALLOWANCE_AWAY_TAXE_BASE_ACTION = 'calculations/SAVE_ALLOWANCE_AWAY_TAXE_BASE_ACTION';
+const SAVE_ALLOWANCE_AWAY_GROSS_ACTION = 'calculations/SAVE_ALLOWANCE_AWAY_GROSS_ACTION';
+const SAVE_ALLOWANCE_AWAY_TAX_ACTION = 'calculations/SAVE_ALLOWANCE_AWAY_TAX_ACTION';
+
+// Annual Tax
+const SAVE_ANNUAL_TAX_ACTION = 'calculations/SAVE_ANNUAL_TAX_ACTION';
+
 
 
 
@@ -61,14 +94,14 @@ const initialState = {
       value: null,
       baseSalaryIndex: null,
       tax: null,
-      maxBaseContributionIndex: 329330,
+      // maxBaseContributionIndex: 329330,
       baseContributionIndex: null,
       socialContributions: {
         pensionContribution: null,
         healthContribution: null,
         insuranceContribution: null,
       }
-      },
+    },
       netSalary: {
         value: null,
         socialContributions: {
@@ -111,9 +144,19 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
-    func: x => x + 2,
+    func: 'contractPioTaxHealth',
     type: 'blabla',
     value: '',
+    concractPioTaxHealth: {
+      value: null,
+      // coefficient: 1.58227848,
+      gross: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+      pension: null,
+      contribution: null
+    },
     icon: 'folder'
     },{
     name: 'Ugovor o delu',
@@ -126,7 +169,7 @@ const initialState = {
     value: '',
     concractPioTax: {
       value: null,
-      coefficient: 1.58227848,
+      // coefficient: 1.58227848,
       gross: null,
       nontaxable: null,
       base: null,
@@ -140,9 +183,17 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
-    func: x => x + 2,
+    func: 'concractTax',
     type: 'blabla',
     value: '',
+    concractTax: {
+      value: null,
+      // coefficient: 1.58227848,
+      gross: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+    },
     icon: 'folder'
     },
     {
@@ -150,18 +201,50 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
-    func: x => x + 2,
+    func: 'annualTax',
     type: 'blabla',
     value: '',
+    annualTax: {
+      gross: null,
+      base: null,
+      tax10: null,
+      net: null,
+      value: null,
+      familyNumber: null,
+      socialContributions: {
+        pensionContribution: null,
+        healthContribution: null,
+        insuranceContribution: null,
+      },
+      socialContributionsemployer: {
+        pensionContribution: null,
+        healthContribution: null,
+        insuranceContribution: null,
+      },
+      socialContributionsValue: null
+    },
     icon: 'calendar'
   },{
     name: 'Dnevnice',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
-    func: x => x * 2,
-    type: 'blabla',
+    func: 'allowance',
+    type: 'allowanceHome',
     value: '',
+    allowancesHome: {
+      value: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+      gross: null
+    },
+    allowancesAway: {
+      value: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+      gross: null
+    },
     icon: 'wallet'
   },{
     name: 'Zakup fizickom licu',
@@ -178,16 +261,23 @@ const initialState = {
 
 // Reducer
 const calculationsReducer = (state = initialState, action) =>
-  action.type === SAVE_CALCULATION ? ({
-    ...state,
-    calculation: action.item
-  }) :
-  action.type === SWITCH_GROSS_NET_ACTION ? ({
+  action.type === RESET_ALL_VALUE_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
-      type: action.value
+      type: action.val
     }
+  }) :
+  action.type === SWITCH_TYPE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      type: action.val
+    }
+  }) :
+  action.type === SAVE_CALCULATION ? ({
+    ...state,
+    calculation: action.item
   }) :
   action.type === SAVE_GROSS_VALUE_ACTION ? ({
     ...state,
@@ -597,16 +687,237 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  // Contcract Pio, Tax and Health
+  action.type === SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      concractPioTaxHealth: {
+        ...state.calculation.concractPioTaxHealth,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_NONTAXABLE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        nontaxable: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_BASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        tax: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        pension: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractPioTaxHealth:{
+        ...state.calculation.concractPioTaxHealth,
+        contribution: action.value,
+      }
+    }
+  }) :
+  // Contcract Tax
+  action.type === SAVE_CONTRACT_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      concractTax: {
+        ...state.calculation.concractTax,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === CONTRACT_TAX_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractTax:{
+        ...state.calculation.concractTax,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_TAX_NONTAXABLE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractTax:{
+        ...state.calculation.concractTax,
+        nontaxable: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_TAX_BASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractTax:{
+        ...state.calculation.concractTax,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRACT_TAX_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      concractTax:{
+        ...state.calculation.concractTax,
+        tax: action.value,
+      }
+    }
+  }) :
+  // Allowance - home
+  action.type === SAVE_ALLOWANCE_HOME_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      allowancesHome: {
+        ...state.calculation.allowancesHome,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_HOME_TAXE_BASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesHome:{
+        ...state.calculation.allowancesHome,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_HOME_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesHome:{
+        ...state.calculation.allowancesHome,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_HOME_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesHome:{
+        ...state.calculation.allowancesHome,
+        tax: action.value,
+      }
+    }
+  }) :
+  // Allowance - Away
+  action.type === SAVE_ALLOWANCE_AWAY_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      allowancesAway: {
+        ...state.calculation.allowancesAway,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_AWAY_TAXE_BASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesAway:{
+        ...state.calculation.allowancesAway,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_AWAY_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesAway:{
+        ...state.calculation.allowancesAway,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === SAVE_ALLOWANCE_AWAY_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      allowancesAway:{
+        ...state.calculation.allowancesAway,
+        tax: action.value,
+      }
+    }
+  }) :
+  // Annual Tax
+  action.type === SAVE_ANNUAL_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      annualTax: {
+        ...state.calculation.annualTax,
+        value: action.value
+      }
+    }
+  }) :
   state;
 
 
 
 // ACTION CREATORS
-
+export const resetAllValuesAction = val => ({ type: RESET_ALL_VALUE_ACTION, val });
+export const switchTypeAction = val => ({ type: SWITCH_TYPE_ACTION, val });
 export const saveCalculation = item => ({ type: SAVE_CALCULATION, item });
 export const saveGrossValueAction = value => ({ type: SAVE_GROSS_VALUE_ACTION, value });
 export const saveNetValueAction = value => ({ type: SAVE_NET_VALUE_ACTION, value });
-export const switchGrossNetAction = value => ({ type: SWITCH_GROSS_NET_ACTION, value });
+// export const switchGrossNetAction = value => ({ type: SWITCH_GROSS_NET_ACTION, value });
 // Salary gross to net
 export const saveSalaryGrossNetBaseIndexAction = value => ({ type: SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION, value });
 export const saveSalaryGrossNetTaxAction = value => ({ type: SAVE_SALARY_GROSS_NET_TAX_ACTION, value });
@@ -646,7 +957,36 @@ export const contractPioTaxBaseAction = value => ({ type: CONTRACT_PIO_TAX_BASE_
 export const contractPioTaxTaxAction = value => ({ type: CONTRACT_PIO_TAX_TAX_ACTION, value });
 export const contractPioTaxPensionAction = value => ({ type: CONTRACT_PIO_TAX_PENSION_ACTION, value });
 
+// Contcract Pio, Tax and Health
+export const savePioTaxHealthAction = value => ({ type: SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION, value });
+export const contractPioHealthTaxGrossAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION, value });
+export const contractPioHealthTaxNontaxableAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_NONTAXABLE_ACTION, value });
+export const contractPioHealthTaxBaseAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_BASE_ACTION, value });
+export const contractPioHealthTaxTaxAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_TAX_ACTION, value });
+export const contractPioHealthTaxPensionAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION, value });
+export const contractPioHealthTaxContributionAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION, value });
 
+// Contcract Tax
+export const saveContractTaxAction = value => ({ type: SAVE_CONTRACT_TAX_ACTION, value });
+export const contractTaxGrossAction = value => ({ type: CONTRACT_TAX_GROSS_ACTION, value });
+export const contractTaxNontaxableAction = value => ({ type: CONTRACT_TAX_NONTAXABLE_ACTION, value });
+export const contractTaxBaseAction = value => ({ type: CONTRACT_TAX_BASE_ACTION, value });
+export const contractTaxTaxAction = value => ({ type: CONTRACT_TAX_TAX_ACTION, value });
+
+// Allowance - Home
+export const saveAllowanceHomeAction = value => ({ type: SAVE_ALLOWANCE_HOME_ACTION, value });
+export const allowanceHomeTaxBaseAction = value => ({ type: SAVE_ALLOWANCE_HOME_TAXE_BASE_ACTION, value });
+export const allowanceHomeGrossAction = value => ({ type: SAVE_ALLOWANCE_HOME_GROSS_ACTION, value });
+export const allowanceHomeTaxAction = value => ({ type: SAVE_ALLOWANCE_HOME_TAX_ACTION, value });
+
+// Allowence - Away
+export const allowanceAwayTaxBaseAction = value => ({ type: SAVE_ALLOWANCE_AWAY_TAXE_BASE_ACTION, value });
+export const allowanceAwayGrossAction = value => ({ type: SAVE_ALLOWANCE_AWAY_GROSS_ACTION, value });
+export const allowanceAwayTaxAction = value => ({ type: SAVE_ALLOWANCE_AWAY_TAX_ACTION, value });
+export const saveAllowanceAwayAction = value => ({ type: SAVE_ALLOWANCE_AWAY_ACTION, value });
+
+// Annual Tax
+export const saveAnnualTaxAction = value => ({ type: SAVE_ANNUAL_TAX_ACTION, value });
 
 
 export default calculationsReducer;

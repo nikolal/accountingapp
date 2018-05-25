@@ -48,10 +48,6 @@ class Calculations extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.innerContainer}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
-          />
           <ScrollView style={styles.itemContainer}>
             {
               calculations.map(this.renderList)
@@ -83,9 +79,6 @@ const styles = StyleSheet.create({
   innerContainer: {
     flex: 1,
     margin: metrics.medium,
-  },
-  image: {
-    height: Dimensions.get('window').height / 3.5,
   },
   itemContainer: {
     flex: 1,

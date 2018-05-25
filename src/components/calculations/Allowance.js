@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
-import SalaryResult from './SalaryResult.js';
-import SalaryResultNet from './SalaryResultNet';
+import AllowanceResult from './AllowanceResult.js';
+import AllowanceResultAway from './AllowanceResultAway.js';
 
-const SalaryCalculator = props => {
+
+const Allowance = props => {
 
   return (
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={styles.buttons}
-          onPress={() => props.switchingGrossToNet('grossToNet')}
+          onPress={() => props.switchingAllowanceHomeAway('allowanceHome')}
         >
-          <Text style={styles.buttonText}>Gross to Net</Text>
+          <Text style={styles.buttonText}>Domace</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttons}
-          onPress={() => props.switchNetToGross('netToGross')}
+          onPress={() => props.switchingAllowanceAwayHome('allowanceAway')}
         >
-          <Text style={styles.buttonText}>Net to gross</Text>
+          <Text style={styles.buttonText}>U inostranstvu</Text>
         </TouchableOpacity>
       </View>
-
       <ScrollView style={styles.scrollViewContainer}>
         <KeyboardAvoidingView
           style={styles.inputsContainer}
           behavior="padding"
         >
-          <Text style={styles.name}>OBRACUN ZARADA - RSD</Text>
+          <Text style={styles.name}>Dnevnice</Text>
           {
-            props.grossToNet ?
-              <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
+            props.allowanceHomeAway ?
+              <Text style={styles.text}>Unesite NETO dnevnice u RSD</Text>
             :
-              <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text>
+              <Text style={styles.text}>Unesite NETO dnevnice u EUR</Text>
           }
           <TextInput
             style={styles.inputText}
@@ -48,14 +48,14 @@ const SalaryCalculator = props => {
           </TouchableOpacity>
           {
             props.showResult ?
-              props.grossToNet ?
-              <SalaryResult
+              props.allowanceHomeAway ?
+              <AllowanceResult
                 calculation={props.calculation}
               />
             :
-              <SalaryResultNet
-                calculation={props.calculation}
-              />
+            <AllowanceResultAway
+              calculation={props.calculation}
+            />
             :
               <Text style={styles.description}>{props.calculation.description}</Text>
           }
@@ -66,29 +66,16 @@ const SalaryCalculator = props => {
 };
 
 
-export default SalaryCalculator;
+export default Allowance;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // margin: metrics.medium,
-    // paddingHorizontal: metrics.large
+    margin: metrics.medium,
   },
   buttonsContainer: {
     flexDirection: 'row',
   },
-  // buttonsActive: {
-  //   borderColor: colors.darkGrey,
-  //   borderWidth: metrics.smallBorder,
-  //   padding: metrics.medium,
-  //   backgroundColor: colors.grey
-  // },
-  // buttonTextActive: {
-  //   alignSelf: 'center',
-  //   fontSize: fonts.size.large,
-  //   fontFamily: 'openSansBold',
-  //   // color: colors.red,
-  // },
   buttons: {
     flex: 1,
     borderColor: colors.grey,
@@ -96,23 +83,18 @@ const styles = StyleSheet.create({
     padding: metrics.large,
     backgroundColor: colors.lightBlue2
   },
-  scrollViewContainer: {
-    flex: 1,
-    paddingHorizontal: metrics.large
-  },
   name: {
     fontFamily: 'openSansBold',
     fontSize: fonts.size.huge,
     alignSelf: 'center',
-    color: colors.grey,
+    color: colors.lightBlue1,
     marginVertical: metrics.huge
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    marginVertical: metrics.medium,
-    color: colors.lightBlue1
+    alignSelf: 'center',
+    color: colors.grey
   },
   inputText: {
     height: 40,
@@ -133,9 +115,6 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansBold',
     color: colors.white,
   },
-  // valueResul: {
-  //   color: 'red'
-  // },
   description: {
     alignSelf: 'center',
     marginTop: metrics.large,

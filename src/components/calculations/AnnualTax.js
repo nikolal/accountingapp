@@ -22,13 +22,16 @@ const AnnualTax = props => {
           <Text style={styles.text}>Broj clanova porodice</Text>
           <TextInput
             style={styles.inputText}
-            onChangeText={props.saveInput}
+            onChangeText={props.saveInputFamily}
             keyboardType="numeric"
           />
           <Text>{props.calculation.value}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => props.calculateValue(props.calculation.input)}>
+            onPress={() => {
+              props.calculateValue(props.calculation.input);
+              props.saveInputFamily(props.calculation.input2);
+            }}>
             <Text style={styles.buttonText}>Izracunaj</Text>
           </TouchableOpacity>
           {

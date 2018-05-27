@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon,
+  resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon, saveInputFamilyAction,
   saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, totalSalaryGrossToNetContributionsAction,
   saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction,
   tempPermJobsGrossToNetAction, saveTempPermJobsAction, tempPermJobsNetAction, tempPermJobsTaxAction, tempPermJobsPension14Action, tempPermJobsHealthAction, tempPermJobsNezAction, tempPermJobsPension12Action,
@@ -11,7 +11,8 @@ import {
   savePioTaxHealthAction, contractPioHealthTaxGrossAction, contractPioHealthTaxNontaxableAction, contractPioHealthTaxBaseAction, contractPioHealthTaxTaxAction, contractPioHealthTaxPensionAction, contractPioHealthTaxContributionAction,
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
-  // saveAnnualTaxAction, annualGrossAction
+  saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
+  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction
   } from './CalculationsContainer';
 import SalaryCalculator from './SalaryCalculator';
 import TemporaryPermanentJobsCalculator from './TemporaryPermanentJobsCalculator';
@@ -20,7 +21,6 @@ import ContractTaxPioHealth from './ContractTaxPioHealth';
 import ContractTax from './ContractTax';
 import Allowance from './Allowance';
 import AnnualTax from './AnnualTax';
-
 
 
 class CalculationDetail1 extends Component {
@@ -51,14 +51,23 @@ class CalculationDetail1 extends Component {
       this.contractTax(val) :
     this.props.calculation.func === 'allowance' ?
       this.allowanceCalculator(val) :
-    // this.props.calculation.func === 'annualTax' ?
-    //   this.annualTaxCalculator(val) :
+    this.props.calculation.func === 'annualTax' ?
+      this.annualTaxCalculator(val) :
     null;
   };
 
+  calculateValueInput2 = val => {
+    this.setState({ showResult: true });
+    this.props.calculation.func === 'annualTax' ?
+      this.saveFamilyNumber(val) : null;
+  }
 
+  saveFamilyNumber = val => {
+    this.props.calculateFamilyNumberAction(this.calculateFamilyNumber(val));
+  };
 
-  // switchGrossNet = value => this.props.switchGrossNetAction(value)
+  calculateFamilyNumber = val => (val * 118757);
+
 
   /********
   * SALARY
@@ -78,17 +87,7 @@ class CalculationDetail1 extends Component {
     this.props.calculation.type === 'allowanceAway' ?
       this.calculateAllowancesAway(val) :
       null;
-  }
-
-  // calculateSalary = val => {
-  //   this.props.calculation.type === 'grossToNet' ?
-  //     this.calculateSalaryGrossToNet(val) :
-  //   this.props.calculation.type === 'netToGross' ?
-  //     this.calculculateSalaryNetToGross(val) :
-  //   null;
-  // };
-
-  // Salary gross to net
+  };
 
   calculateSalaryGrossToNet = val => {
     this.props.saveSalaryGrossNetBaseIndexAction(this.saveSalaryGrossNetBaseIndex(val));
@@ -166,9 +165,13 @@ class CalculationDetail1 extends Component {
       this.props.calculation.type === 'allowanceAway' ?
         this.props.saveAllowanceAwayAction(Number(value)) :
         null :
-      // this.props.calculation.func === 'annualTax' ?
-      //   this.props.saveAnnualTaxAction(Number(value)) :
+      this.props.calculation.func === 'annualTax' ?
+        this.props.saveAnnualTaxAction(Number(value)) :
       null;
+  };
+
+  saveInputFamily = value => {
+    this.props.saveInputFamilyAction(Number(value));
   };
 
   /********
@@ -231,9 +234,9 @@ contractPioHealthTaxTax = val => (this.contractPioHealthTaxBase(val) * 0.20)
 contractPioHealthTaxPension = val => (this.contractPioHealthTaxBase(val) * 0.26)
 contractPioHealthTaxContribution = val => (this.contractPioHealthTaxBase(val) * 0.103)
 
-    /********
-    * CONTRACT - TAX
-    ********/
+  /********
+  * CONTRACT - TAX
+  ********/
 
 contractTax = val => {
   this.props.contractTaxGrossAction(this.contractTaxGross(val));
@@ -275,12 +278,47 @@ allowanceAwayGross = val => (this.allowanceAwayTaxBase(val) * 1.111111111)
 allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
 
 // Annual tax
-// annualTaxCalculator = val => {
-//   this.props.annualGrossAction(this.annualGross(val));
-//
-// };
+annualTaxCalculator = val => {
+  this.props.annualGrossAction(this.annualGross(val));
+  this.props.baseForTaxAction(this.baseForTax(val));
+  this.props.taxOnEarningAction(this.taxOnEarning(val));
+  this.props.baseForSocialContributionAction(this.baseForSocialContribution(val));
+  this.props.annualPensionAction(this.annualPension(val));
+  this.props.annualHealthAction(this.annualHealth(val));
+  this.props.annualInsuranceAction(this.annualInsurance(val));
+  this.props.annualEmployerPensionAction(this.annualEmployerPension(val));
+  this.props.annualEmployerHealthAction(this.annualEmployerHealth(val));
+  this.props.annualEmployerInsuranceAction(this.annualEmployerInsurance(val));
+  this.props.annualTotalValueAction(this.annualTotalValue(val));
+  this.props.monthlyNet12ValueAction(this.monthlyNet12Value(val));
+  this.props.contributionsEmployeesAction(this.contributionsEmployees(val));
+  this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
+  this.props.annualAllAction(this.annualAll(val));
+  this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
+};
 
-// annualGross = val => ()
+annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
+baseForTax = val => (this.annualGross(val) - 15000);
+taxOnEarning = val => (this.baseForTax(val) * 0.1);
+baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330)
+annualPension = val => (this.baseForSocialContribution(val) * 0.14);
+annualHealth = val => (this.baseForSocialContribution(val) * 0.0515);
+annualInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
+annualEmployerPension = val => (this.baseForSocialContribution(val) * 0.12);
+annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
+annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
+annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val));
+monthlyNet12Value = val => (val * 12);
+contributionsEmployees = val => ((this.annualGross(val) * 12) - (15000 * 12));
+annualTaxValueTotal = val => ((this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12);
+annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)); // toFixed(2)
+annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
+biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
+
+
+// something = val => ((this.monthlyNet12Value(val) - this.contributionsEmployees(val)) < 2375136 ? 0 : ((this.monthlyNet12Value(val) - this.contributionsEmployees(val)) - 2375136))
+
+
 
 
   render () {
@@ -347,6 +385,8 @@ allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
             saveInput = {this.saveInput}
             showResult={this.state.showResult}
             calculateValue ={this.calculateValue}
+            calculateValueInput2={this.calculateValueInput2}
+            saveInputFamily={this.saveInputFamily}
           />
         : null
     );
@@ -364,6 +404,9 @@ const dispatchToProps = dispatch => ({
   saveCalculation: bindActionCreators(saveCalculation, dispatch),
   saveGrossValueAction: bindActionCreators(saveGrossValueAction, dispatch),
   saveNetValueAction: bindActionCreators(saveNetValueAction, dispatch),
+  saveInputFamilyAction: bindActionCreators(saveInputFamilyAction, dispatch),
+
+
   // switchGrossNetAction: bindActionCreators(switchGrossNetAction, dispatch),
 
   // Salary gross to net
@@ -437,8 +480,25 @@ const dispatchToProps = dispatch => ({
   saveAllowanceAwayAction: bindActionCreators(saveAllowanceAwayAction, dispatch),
 
 // Annual TAX
-  // saveAnnualTaxAction: bindActionCreators(saveAnnualTaxAction, dispatch),
-  // annualGrossAction: bindActionCreators(annualGrossAction, dispatch),
+  saveAnnualTaxAction: bindActionCreators(saveAnnualTaxAction, dispatch),
+  annualGrossAction: bindActionCreators(annualGrossAction, dispatch),
+  baseForTaxAction: bindActionCreators(baseForTaxAction, dispatch),
+  taxOnEarningAction: bindActionCreators(taxOnEarningAction, dispatch),
+  baseForSocialContributionAction: bindActionCreators(baseForSocialContributionAction, dispatch),
+  annualPensionAction: bindActionCreators(annualPensionAction, dispatch),
+  annualHealthAction: bindActionCreators(annualHealthAction, dispatch),
+  annualInsuranceAction: bindActionCreators(annualInsuranceAction, dispatch),
+  annualEmployerPensionAction: bindActionCreators(annualEmployerPensionAction, dispatch),
+  annualEmployerHealthAction: bindActionCreators(annualEmployerHealthAction, dispatch),
+  annualEmployerInsuranceAction: bindActionCreators(annualEmployerInsuranceAction, dispatch),
+  annualTotalValueAction: bindActionCreators(annualTotalValueAction, dispatch),
+  monthlyNet12ValueAction: bindActionCreators(monthlyNet12ValueAction, dispatch),
+  contributionsEmployeesAction: bindActionCreators(contributionsEmployeesAction, dispatch),
+  annualTaxValueTotalAction: bindActionCreators(annualTaxValueTotalAction, dispatch),
+  annualAllAction: bindActionCreators(annualAllAction, dispatch),
+  annualTaxEmployeesAction: bindActionCreators(annualTaxEmployeesAction, dispatch),
+  calculateFamilyNumberAction: bindActionCreators(calculateFamilyNumberAction, dispatch),
+
 
 
 

@@ -5,62 +5,71 @@ import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 
 const SalaryCalculator = props => {
-
+console.log(props.showResult)
   return (
     <View style={styles.container}>
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => props.switchingGrossToNet('grossToNet')}
-        >
-          <Text style={styles.buttonText}>Gross to Net</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => props.switchNetToGross('netToGross')}
-        >
-          <Text style={styles.buttonText}>Net to gross</Text>
-        </TouchableOpacity>
-      </View>
+      {
+        !props.showResult &&
+          <View style={{flex: 1}}>
+            <View style={styles.buttonsContainer}>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchingGrossToNet('grossToNet')}
+              >
+                <Text style={styles.buttonText}>Gross to Net</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchNetToGross('netToGross')}
+              >
+                <Text style={styles.buttonText}>Net to gross</Text>
+              </TouchableOpacity>
+            </View>
 
-      <ScrollView style={styles.scrollViewContainer}>
-        <KeyboardAvoidingView
-          style={styles.inputsContainer}
-          behavior="padding"
-        >
-          <Text style={styles.name}>OBRACUN ZARADA - RSD</Text>
-          {
-            props.grossToNet ?
-              <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
-            :
-              <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text>
-          }
-          <TextInput
-            style={styles.inputText}
-            onChangeText={props.saveInput}
-            keyboardType="numeric"
-          />
-          <Text>{props.calculation.value}</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => props.calculateValue(props.calculation.input)}>
-            <Text style={styles.buttonText}>Izracunaj</Text>
-          </TouchableOpacity>
-          {
-            props.showResult ?
-              props.grossToNet ?
-              <SalaryResult
-                calculation={props.calculation}
-              />
-            :
-              <SalaryResultNet
-                calculation={props.calculation}
-              />
-            :
-              <Text style={styles.description}>{props.calculation.description}</Text>
-          }
-        </KeyboardAvoidingView>
-      </ScrollView>
+            <ScrollView style={styles.scrollViewContainer}>
+              <KeyboardAvoidingView
+                style={styles.inputsContainer}
+                behavior="padding"
+              >
+                <Text style={styles.name}>OBRACUN ZARADA - RSD</Text>
+                {
+                  props.calculation.type === 'grossToNet' ?
+                    <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
+                  :
+                  props.calculation.type === 'netToGross' ?
+                    <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text> :
+                    null
+                }
+                <TextInput
+                  style={styles.inputText}
+                  onChangeText={props.saveInput}
+                  keyboardType="numeric"
+                />
+                <Text>{props.calculation.value}</Text>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => props.calculateValue(props.calculation.input)}>
+                  <Text style={styles.buttonText}>Izracunaj</Text>
+                </TouchableOpacity>
+                <Text style={styles.description}>{props.calculation.description}</Text>
+              </KeyboardAvoidingView>
+            </ScrollView>
+          </View>
+        }
+        {
+          props.showResult &&
+          props.calculation.type === 'grossToNet' ?
+            <SalaryResult
+              calculation={props.calculation}
+            /> :
+          props.showResult &&
+          props.calculation.type === 'netToGross' ?
+            <SalaryResultNet
+              calculation={props.calculation}
+            /> :
+            null
+        }
+
     </View>
   );
 };

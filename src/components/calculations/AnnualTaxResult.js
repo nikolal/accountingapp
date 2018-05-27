@@ -12,17 +12,16 @@ const AnnualTaxResult = ({ calculation }) => {
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.annualTax.gross.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.annualTax.gross && calculation.annualTax.gross.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.annualTax.tax.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.annualTax.tax && calculation.annualTax.tax.toFixed(2)}</Text>
       </View>
 
     </View>
   );
 };
-
 
 export default AnnualTaxResult;
 

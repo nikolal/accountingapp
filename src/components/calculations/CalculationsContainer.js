@@ -96,7 +96,8 @@ const ANNUAL_TAX_VALUE_TOTAL_ACTION = 'calculations/ANNUAL_TAX_VALUE_TOTAL_ACTIO
 const ANNUAL_ALL_ACTION = 'calculations/ANNUAL_ALL_ACTION';
 const ANNUAL_TAX_EMPLOYEES_ACTION = 'calculations/ANNUAL_TAX_EMPLOYEES_ACTION';
 const CALCULATE_FAMILY_NUMBER_ACTION = 'calculations/CALCULATE_FAMILY_NUMBER_ACTION';
-
+const PERSONAL_DEDUCTIONS_ACTION = 'calculations/PERSONAL_DEDUCTIONS_ACTION';
+const BASE_FOR_TAXATION_ACTION = 'calculations/BASE_FOR_TAXATION_ACTION';
 
 
 
@@ -234,12 +235,14 @@ const initialState = {
       net: null,
       value: null,
       totalValue: null,
+      personalDeductions: null,
       familyNumber: null,
       familyNumberCalculate: null,
       monthlyNet12: null,
       annualTaxValue: null,
       annualTaxValueTotal: null,
       contributionsEmployees: null,
+      baseForTaxation: null,
       all: null,
       annualTaxEmployees: null,
       socialContributions: {
@@ -1138,6 +1141,26 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  action.type === PERSONAL_DEDUCTIONS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        personalDeductions: action.value,
+      }
+    }
+  }) :
+  // action.type === BASE_FOR_TAXATION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     annualTax:{
+  //       ...state.calculation.annualTax,
+  //       baseForTaxation: action.value,
+  //     }
+  //   }
+  // }) :
   state;
 
 
@@ -1238,6 +1261,8 @@ export const annualTaxValueTotalAction = value => ({ type: ANNUAL_TAX_VALUE_TOTA
 export const annualAllAction = value => ({ type: ANNUAL_ALL_ACTION, value });
 export const annualTaxEmployeesAction = value => ({ type: ANNUAL_TAX_EMPLOYEES_ACTION, value });
 export const calculateFamilyNumberAction = value => ({ type: CALCULATE_FAMILY_NUMBER_ACTION, value });
+export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_ACTION, value });
+export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
 
 
 

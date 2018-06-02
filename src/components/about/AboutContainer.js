@@ -19,19 +19,22 @@ const initialState = {
         value: 'Proffesional expirience'
     },{
       type: 'text',
-      value: 'lorePrior to establishing HLB T&M Consulting, the longest part of her career Milka spent in the leading international financial and tax consulting companies on a managing positions related onsectetur adipisicing elit. Quis tempore, commodi sit labore ad, accusamus aspernatur ullam quam tenetur id ipsum officia porro! Harum, sed facilis laborum, id error accusamus.'
+      value: 'Prior to establishing HLB T&M Consulting, the longest part of her career Milka spent in the leading international financial and tax consulting companies on a managing positions related to auditing, tax consulting and accounting. '
     },{
       type: 'text',
-      value: 'lorem imsum3, lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quo nulla cumque reiciendis quod, recusandae nisi, non, distinctio molestias eveniet obcaecati? Tempore, deserunt commodi cupiditate nisi magnam quaerat sapiente iste.'
+      value: 'Milka was working In the company Deloitte Ltd Serbia in period 2012 - 2014 as a Manager of accounting department. She was responsible for providing accounting outsourcing and accounting advisory services as well as payroll related services to the clients.'
     },{
       type: 'text',
-      value: 'lorePrior to establishing HLB T&M Consulting, the longest part of her career Milka spent in the leading international financial and tax consulting companies on a managing positions related onsectetur adipisicing elit. Quis tempore, commodi sit labore ad, accusamus aspernatur ullam quam tenetur id ipsum officia porro! Harum, sed facilis laborum, id error accusamus.'
+      value: 'Prior to engagement in Deloitte, from 2008 Milka was employed in the Austrian company Confida Consulting Ltd Serbia as a Managing Director, and most of engagement was related to tax consulting and financial services.'
     },{
       type: 'text',
-      value: 'lorem imsum3, lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quo nulla cumque reiciendis quod, recusandae nisi, non, distinctio molestias eveniet obcaecati? Tempore, deserunt commodi cupiditate nisi magnam quaerat sapiente iste.'
+      value: 'In the period from 2005 - 2008 Milka was Managing director of another Austrian company IB Interbilanz Consulting Ltd Serbia and was responsible for organization and development of the company in Serbia. The most of commitment was related to audit and tax consulting services.'
     },{
         type: 'headline',
         value: 'The most important clients'
+    },{
+      type: 'text',
+      value: 'During career, Milka served a large portfolio of small to large Serbian and international companies from many different business areas.'
     },{
       type: 'text',
       value: 'Some of the major clients that Milka have cooperated with were as follows: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks, etc. '

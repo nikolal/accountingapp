@@ -5,7 +5,6 @@ import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 
 const SalaryCalculator = props => {
-console.log(props.showResult)
   return (
     <View style={styles.container}>
       {
@@ -31,14 +30,18 @@ console.log(props.showResult)
                 style={styles.inputsContainer}
                 behavior="padding"
               >
-                <Text style={styles.name}>OBRACUN ZARADA - RSD</Text>
                 {
                   props.calculation.type === 'grossToNet' ?
-                    <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
-                  :
+                    <View>
+                      <Text style={styles.name}>OBRACUN BRUTO ZARADA - RSD</Text>
+                      <Text style={styles.text}>Unesite BRUTO iznos plate na mesecnom nivou</Text>
+                    </View> :
                   props.calculation.type === 'netToGross' ?
-                    <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text> :
-                    null
+                    <View>
+                      <Text style={styles.name}>OBRACUN NETO ZARADA - RSD</Text>
+                      <Text style={styles.text}>Unesite NETO iznos plate na mesecnom nivou</Text>
+                    </View> :
+                  null
                 }
                 <TextInput
                   style={styles.inputText}

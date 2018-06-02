@@ -30,7 +30,7 @@ const Allowance = props => {
         >
           <Text style={styles.name}>Dnevnice</Text>
           {
-            props.allowanceHomeAway ?
+            props.calculation.type === 'allowanceHome' ?
               <Text style={styles.text}>Unesite NETO dnevnice u RSD</Text>
             :
               <Text style={styles.text}>Unesite NETO dnevnice u EUR</Text>
@@ -48,7 +48,7 @@ const Allowance = props => {
           </TouchableOpacity>
           {
             props.showResult ?
-              props.allowanceHomeAway ?
+              props.calculation.type === 'allowanceHome' ?
               <AllowanceResult
                 calculation={props.calculation}
               />

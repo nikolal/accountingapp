@@ -12,7 +12,7 @@ import {
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
-  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction
+  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, baseForTaxationAction
   } from './CalculationsContainer';
 import SalaryCalculator from './SalaryCalculator';
 import TemporaryPermanentJobsCalculator from './TemporaryPermanentJobsCalculator';
@@ -64,10 +64,11 @@ class CalculationDetail1 extends Component {
 
   saveFamilyNumber = val => {
     this.props.calculateFamilyNumberAction(this.calculateFamilyNumber(val));
+    this.props.personalDeductionsAction(this.personalDeductions(val));
   };
 
   calculateFamilyNumber = val => (val * 118757);
-
+  personalDeductions = val => (this.calculateFamilyNumber(val) + 316685)
 
   /********
   * SALARY
@@ -295,6 +296,8 @@ annualTaxCalculator = val => {
   this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
   this.props.annualAllAction(this.annualAll(val));
   this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
+
+  // this.props.baseForTaxationAction(this.baseForTaxation(val));
 };
 
 annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
@@ -315,8 +318,7 @@ annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(
 annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
 biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
 
-
-// something = val => ((this.monthlyNet12Value(val) - this.contributionsEmployees(val)) < 2375136 ? 0 : ((this.monthlyNet12Value(val) - this.contributionsEmployees(val)) - 2375136))
+// baseForTaxation = val => (this.annualTaxEmployees(val) - this.personalDeductions(val));
 
 
 
@@ -498,6 +500,10 @@ const dispatchToProps = dispatch => ({
   annualAllAction: bindActionCreators(annualAllAction, dispatch),
   annualTaxEmployeesAction: bindActionCreators(annualTaxEmployeesAction, dispatch),
   calculateFamilyNumberAction: bindActionCreators(calculateFamilyNumberAction, dispatch),
+  personalDeductionsAction: bindActionCreators(personalDeductionsAction, dispatch),
+  // baseForTaxationAction: bindActionCreators(baseForTaxationAction, dispatch),
+
+
 
 
 

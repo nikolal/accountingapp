@@ -7,7 +7,8 @@ const initialState = {
     { name: 'Serbian', value: 'rs' }
   ],
   language: 'en'
-}
+};
+// translation[language].title - za pozivanje, a to pozivam u teks komponenti, gde mi je komponenta (moram da imporujem traslation, i redux)
 
 // Reducer
 const settingsReducer = (state = initialState, action) =>

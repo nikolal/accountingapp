@@ -6,6 +6,9 @@ const SAVE_CALCULATION = 'calculations/SAVE_CALCULATION';
 const SAVE_INPUT = 'calculations/SAVE_INPUT';
 const SAVE_GROSS_VALUE_ACTION = 'calculations/SAVE_GROSS_VALUE_ACTION';
 const SAVE_NET_VALUE_ACTION = 'calculations/SAVE_NET_VALUE_ACTION';
+const SAVE_INPUT_FAMILY_ACTION = 'calculations/SAVE_INPUT_FAMILY_ACTION';
+
+
 // const SWITCH_GROSS_NET_ACTION = 'calculations/SWITCH_GROSS_NET_ACTION';
 // salary gross to net
 const SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION';
@@ -76,6 +79,25 @@ const SAVE_ALLOWANCE_AWAY_TAX_ACTION = 'calculations/SAVE_ALLOWANCE_AWAY_TAX_ACT
 
 // Annual Tax
 const SAVE_ANNUAL_TAX_ACTION = 'calculations/SAVE_ANNUAL_TAX_ACTION';
+const SAVE_ANNUAL_GROSS_ACTION = 'calculations/SAVE_ANNUAL_GROSS_ACTION';
+const BASE_FOR_TAX_ACTION = 'calculations/BASE_FOR_TAX_ACTION';
+const TAX_ON_EARNING_ACTION = 'calculations/TAX_ON_EARNING_ACTION';
+const BASE_FOR_SOCIAL_CONTRIBUTION__ACTION = 'calculations/BASE_FOR_SOCIAL_CONTRIBUTION__ACTION';
+const ANNUAL_PENSION__ACTION = 'calculations/ANNUAL_PENSION__ACTION';
+const ANNUAL_HEALTH_ACTION = 'calculations/ANNUAL_HEALTH_ACTION';
+const ANNUAL_INSURANCE_ACTION = 'calculations/ANNUAL_INSURANCE_ACTION';
+const ANNUAL_EMPLOYER_PENSION__ACTION = 'calculations/ANNUAL_EMPLOYER_PENSION__ACTION';
+const ANNUAL_EMPLOYER_HEALTH_ACTION = 'calculations/ANNUAL_EMPLOYER_HEALTH_ACTION';
+const ANNUAL_EMPLOYER_INSURANCE_ACTION = 'calculations/ANNUAL_EMPLOYER_INSURANCE_ACTION';
+const ANNUAL_TOTAL_VALUE_ACTION = 'calculations/ANNUAL_TOTAL_VALUE_ACTION';
+const MONTHLY_NET12_VALUE_ACTION = 'calculations/MONTHLY_NET12_VALUE_ACTION';
+const CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION = 'calculations/CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION';
+const ANNUAL_TAX_VALUE_TOTAL_ACTION = 'calculations/ANNUAL_TAX_VALUE_TOTAL_ACTION';
+const ANNUAL_ALL_ACTION = 'calculations/ANNUAL_ALL_ACTION';
+const ANNUAL_TAX_EMPLOYEES_ACTION = 'calculations/ANNUAL_TAX_EMPLOYEES_ACTION';
+const CALCULATE_FAMILY_NUMBER_ACTION = 'calculations/CALCULATE_FAMILY_NUMBER_ACTION';
+const PERSONAL_DEDUCTIONS_ACTION = 'calculations/PERSONAL_DEDUCTIONS_ACTION';
+const BASE_FOR_TAXATION_ACTION = 'calculations/BASE_FOR_TAXATION_ACTION';
 
 
 
@@ -94,7 +116,7 @@ const initialState = {
       value: null,
       baseSalaryIndex: null,
       tax: null,
-      // maxBaseContributionIndex: 329330,
+      maxBaseContributionIndex: 329330,
       baseContributionIndex: null,
       socialContributions: {
         pensionContribution: null,
@@ -201,6 +223,7 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
     input: '',
+    input2: '',
     func: 'annualTax',
     type: 'blabla',
     value: '',
@@ -208,20 +231,32 @@ const initialState = {
       gross: null,
       base: null,
       tax10: null,
+      baseForSocialContribution: null,
       net: null,
       value: null,
+      totalValue: null,
+      personalDeductions: null,
       familyNumber: null,
+      familyNumberCalculate: null,
+      monthlyNet12: null,
+      annualTaxValue: null,
+      annualTaxValueTotal: null,
+      contributionsEmployees: null,
+      baseForTaxation: null,
+      all: null,
+      annualTaxEmployees: null,
       socialContributions: {
+        value: null,
         pensionContribution: null,
         healthContribution: null,
         insuranceContribution: null,
       },
       socialContributionsemployer: {
+        value: null,
         pensionContribution: null,
         healthContribution: null,
         insuranceContribution: null,
       },
-      socialContributionsValue: null
     },
     icon: 'calendar'
   },{
@@ -265,7 +300,7 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      type: action.val
+
     }
   }) :
   action.type === SWITCH_TYPE_ACTION ? ({
@@ -287,6 +322,17 @@ const calculationsReducer = (state = initialState, action) =>
       grossSalary: {
         ...state.calculation.grossSalary,
         value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_INPUT_FAMILY_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input2: action.value,
+      annualTax: {
+        ...state.calculation.annualTax,
+        familyNumber: action.value
       }
     }
   }) :
@@ -907,7 +953,216 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  action.type === SAVE_ANNUAL_GROSS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === BASE_FOR_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === TAX_ON_EARNING_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        tax10: action.value,
+      }
+    }
+  }) :
+  action.type === BASE_FOR_SOCIAL_CONTRIBUTION__ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        baseForSocialContribution: action.value,
+      }
+    }
+  }) :
+  action.type === ANNUAL_PENSION__ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributions: {
+          ...state.calculation.annualTax.socialContributions,
+          pensionContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_HEALTH_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributions: {
+          ...state.calculation.annualTax.socialContributions,
+          healthContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_INSURANCE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributions: {
+          ...state.calculation.annualTax.socialContributions,
+          insuranceContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_EMPLOYER_PENSION__ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributionsemployer: {
+          ...state.calculation.annualTax.socialContributionsemployer,
+          pensionContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_EMPLOYER_HEALTH_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributionsemployer: {
+          ...state.calculation.annualTax.socialContributionsemployer,
+          healthContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_EMPLOYER_INSURANCE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        socialContributionsemployer: {
+          ...state.calculation.annualTax.socialContributionsemployer,
+          insuranceContribution: action.value
+        }
+      }
+    }
+  }) :
+  action.type === ANNUAL_TOTAL_VALUE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        totalValue: action.value,
+      }
+    }
+  }) :
+  action.type === MONTHLY_NET12_VALUE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        monthlyNet12: action.value,
+      }
+    }
+  }) :
+  action.type === CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        contributionsEmployees: action.value,
+      }
+    }
+  }) :
+  action.type === ANNUAL_TAX_VALUE_TOTAL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        annualTaxValueTotal: action.value,
+      }
+    }
+  }) :
+  action.type === ANNUAL_ALL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        all: action.value,
+      }
+    }
+  }) :
+  action.type === ANNUAL_TAX_EMPLOYEES_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        annualTaxEmployees: action.value,
+      }
+    }
+  }) :
+  action.type === CALCULATE_FAMILY_NUMBER_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        familyNumberCalculate: action.value,
+      }
+    }
+  }) :
+  action.type === PERSONAL_DEDUCTIONS_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        personalDeductions: action.value,
+      }
+    }
+  }) :
+  // action.type === BASE_FOR_TAXATION_ACTION ? ({
+  //   ...state,
+  //   calculation: {
+  //     ...state.calculation,
+  //     annualTax:{
+  //       ...state.calculation.annualTax,
+  //       baseForTaxation: action.value,
+  //     }
+  //   }
+  // }) :
   state;
+
 
 
 
@@ -917,6 +1172,8 @@ export const switchTypeAction = val => ({ type: SWITCH_TYPE_ACTION, val });
 export const saveCalculation = item => ({ type: SAVE_CALCULATION, item });
 export const saveGrossValueAction = value => ({ type: SAVE_GROSS_VALUE_ACTION, value });
 export const saveNetValueAction = value => ({ type: SAVE_NET_VALUE_ACTION, value });
+export const saveInputFamilyAction = value => ({ type: SAVE_INPUT_FAMILY_ACTION, value });
+
 // export const switchGrossNetAction = value => ({ type: SWITCH_GROSS_NET_ACTION, value });
 // Salary gross to net
 export const saveSalaryGrossNetBaseIndexAction = value => ({ type: SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION, value });
@@ -987,6 +1244,26 @@ export const saveAllowanceAwayAction = value => ({ type: SAVE_ALLOWANCE_AWAY_ACT
 
 // Annual Tax
 export const saveAnnualTaxAction = value => ({ type: SAVE_ANNUAL_TAX_ACTION, value });
+export const annualGrossAction = value => ({ type: SAVE_ANNUAL_GROSS_ACTION, value });
+export const baseForTaxAction = value => ({ type: BASE_FOR_TAX_ACTION, value });
+export const taxOnEarningAction = value => ({ type: TAX_ON_EARNING_ACTION, value });
+export const baseForSocialContributionAction = value => ({ type: BASE_FOR_SOCIAL_CONTRIBUTION__ACTION, value });
+export const annualPensionAction = value => ({ type: ANNUAL_PENSION__ACTION, value });
+export const annualHealthAction = value => ({ type: ANNUAL_HEALTH_ACTION, value });
+export const annualInsuranceAction = value => ({ type: ANNUAL_INSURANCE_ACTION, value });
+export const annualEmployerPensionAction = value => ({ type: ANNUAL_EMPLOYER_PENSION__ACTION, value });
+export const annualEmployerHealthAction = value => ({ type: ANNUAL_EMPLOYER_HEALTH_ACTION, value });
+export const annualEmployerInsuranceAction = value => ({ type: ANNUAL_EMPLOYER_INSURANCE_ACTION, value });
+export const annualTotalValueAction = value => ({ type: ANNUAL_TOTAL_VALUE_ACTION, value });
+export const monthlyNet12ValueAction = value => ({ type: MONTHLY_NET12_VALUE_ACTION, value });
+export const contributionsEmployeesAction = value => ({ type: CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION, value });
+export const annualTaxValueTotalAction = value => ({ type: ANNUAL_TAX_VALUE_TOTAL_ACTION, value });
+export const annualAllAction = value => ({ type: ANNUAL_ALL_ACTION, value });
+export const annualTaxEmployeesAction = value => ({ type: ANNUAL_TAX_EMPLOYEES_ACTION, value });
+export const calculateFamilyNumberAction = value => ({ type: CALCULATE_FAMILY_NUMBER_ACTION, value });
+export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_ACTION, value });
+export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
+
 
 
 export default calculationsReducer;

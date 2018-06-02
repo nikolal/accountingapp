@@ -12,11 +12,11 @@ const AllowanceResult = ({ calculation }) => {
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.allowancesHome.gross.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.allowancesHome.tax.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}</Text>
       </View>
 
     </View>

@@ -21,8 +21,12 @@ class TaxesDetail extends Component {
 
   renderTaxes = (item, index) =>
     <View key={index }style={styles.oneParagraph}>
-      <Text style={styles.text}>{item.text}</Text>
-      <Text style={styles.percentage}>{item.percentage}</Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>{item.text}</Text>
+      </View>
+      <View style={styles.percentageContainer}>
+        <Text style={styles.percentage}>{item.percentage}</Text>
+      </View>
     </View>
 
   render(){
@@ -32,7 +36,7 @@ class TaxesDetail extends Component {
     return (
       <ScrollView atyle={styles.container}>
         <View style={styles.innerContainer}>
-          <Text style={styles.titleText}>{article.title}</Text>
+          <Text style={styles.titleText}>{article.title[this.props.language]}</Text>
           <TextInput
             style={styles.inputText}
             onChangeText={this.updateInputText}
@@ -88,20 +92,31 @@ const styles = StyleSheet.create({
     marginHorizontal: metrics.medium
   },
   oneParagraph: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomColor: colors.grey,
-    borderBottomWidth: metrics.tinyBorder,
-    marginHorizontal: metrics.large,
-    paddingVertical: metrics.huge
+    // flexDirection: 'row',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
+    // borderBottomColor: colors.grey,
+    // borderBottomWidth: metrics.tinyBorder,
+    // marginHorizontal: metrics.large,
+    paddingVertical: metrics.large
+  },
+  textContainer: {
+    // backgroundColor: 'red',
+    padding: metrics.medium
   },
   text: {
     color: colors.grey,
     fontFamily: 'openSansBold',
   },
+  percentageContainer:{
+    // backgroundColor: 'yellow',
+    padding: metrics.medium,
+    borderBottomColor: colors.grey,
+    borderBottomWidth: metrics.tinyBorder,
+  },
   percentage: {
     fontFamily: 'openSansBold',
-    color: colors.lightBlue1
+    color: colors.lightBlue1,
+
   }
 });

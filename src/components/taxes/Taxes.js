@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
 import { saveArticle } from './TaxesContainer.js';
 import { metrics, colors, fonts } from '../../theme';
+// import { translations } from '../../translation.js';
+
 
 class Taxes extends Component {
 
@@ -16,7 +18,7 @@ class Taxes extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToTaxesDetails('TaxesDetail', item)} style={index % 2 === 0 ? styles.darkItem : styles.item}>
       <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
+        <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
         <Text style={styles.dateText}>{item.date}</Text>
       </View>
       <View style={styles.iconCircle}>
@@ -46,7 +48,8 @@ class Taxes extends Component {
 }
 
 const stateToProps = state => ({
-  taxes: state.taxesReducer.taxes
+  taxes: state.taxesReducer.taxes,
+  language: state.settingsReducer.language
 });
 
 const dispatchToProps = dispatch => ({

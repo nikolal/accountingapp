@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../theme';
 import AnnualTaxResult from './AnnualTaxResult.js';
-
 
 const AnnualTax = props => {
   return (
@@ -22,13 +21,16 @@ const AnnualTax = props => {
           <Text style={styles.text}>Broj clanova porodice</Text>
           <TextInput
             style={styles.inputText}
-            onChangeText={props.saveInput}
+            onChangeText={props.saveInputFamily}
             keyboardType="numeric"
           />
           <Text>{props.calculation.value}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => props.calculateValue(props.calculation.input)}>
+            onPress={() => {
+              props.calculateValue(props.calculation.input);
+              props.calculateValueInput2(props.calculation.input2);
+            }}>
             <Text style={styles.buttonText}>Izracunaj</Text>
           </TouchableOpacity>
           {

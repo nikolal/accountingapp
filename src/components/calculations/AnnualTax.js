@@ -4,6 +4,7 @@ import { metrics, colors, fonts } from '../../theme';
 import AnnualTaxResult from './AnnualTaxResult.js';
 
 const AnnualTax = props => {
+  console.log(props.baseForTaxation(props.calculation.input, props.calculation.input2));
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollViewContainer}>
@@ -30,6 +31,7 @@ const AnnualTax = props => {
             onPress={() => {
               props.calculateValue(props.calculation.input);
               props.calculateValueInput2(props.calculation.input2);
+              props.baseForTaxation(props.calculation.input, props.calculation.input2);
             }}>
             <Text style={styles.buttonText}>Izracunaj</Text>
           </TouchableOpacity>

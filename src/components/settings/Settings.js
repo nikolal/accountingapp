@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 // import { SimpleLineIcons }  from '@expo/vector-icons';
 import { saveLanguage } from './SettingsContainer.js';
 import { metrics, colors, fonts } from '../../theme';
+import { LinearGradient } from 'expo';
+
 
 class Settings extends Component {
 
@@ -19,7 +21,7 @@ class Settings extends Component {
 
   setLanguage = language => {
     this.props.saveLanguage(language);
-    AsyncStorage.setItem('@accountingApp:ddddddd', language)
+    AsyncStorage.setItem('@accountingApp:ddddddd', language);
       // .then(() => this.closeSettings());
   }
 
@@ -27,30 +29,38 @@ class Settings extends Component {
 
   renderLanguages = (item, index) =>
       <TouchableOpacity key={item.name} onPress={() => this.setLanguage(item.value)}>
-        <View style={styles.textCheckmarkContainer}>
-          <Text style={styles.name}>{item.name}</Text>
+        <View style={styles.nameContainer}>
           <Image
-            style={styles.image}
-            source={require('../../../assets/icons/checkmarkwhite.png')}
+            style={{width: 30, height: 30}}
+            source={require('../../../assets/icons/english.png')}
           />
+          <Text style={styles.name}>{item.name}</Text>
         </View>
       </TouchableOpacity>
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.innerContainer}>
-          <Image
-            style={styles.imageLogo}
-            source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
+        <View style={{ backgroundColor: 'grey'}} />
+          <LinearGradient
+            colors={['rgb(13, 126, 194)', 'rgb(115, 192, 239)', 'rgb(201, 233, 252)']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: Dimensions.get('window').height
+            }}
           />
-          <Text style={styles.text}>Choose language / Izaberite jezik</Text>
-          {this.props.languages.map(this.renderLanguages)}
-          <TouchableOpacity style={styles.button} onPress={() => this.goToNews('News')}>
-            <Text style={styles.buttonText}>SAVE</Text>
-          </TouchableOpacity>
-          <Text style={styles.textChange}>* You can always change your App language.</Text>
-        </View>
+          <Text style={styles.logoText}>HLB T&M Consulting</Text>
+          <Text style={styles.text}>CHOOSE LANGUAGE / IZABERITE JEZIK</Text>
+          <View style={styles.innerContainer}>
+            {this.props.languages.map(this.renderLanguages)}
+            <TouchableOpacity style={styles.button} onPress={() => this.goToNews('News')}>
+              <Text style={styles.buttonText}>SAVE</Text>
+            </TouchableOpacity>
+            <Text style={styles.textChange}>* You can always change your App language.</Text>
+          </View>
       </View>
     );
   }
@@ -70,45 +80,45 @@ export default connect(stateToProps, dispatchToProps)(Settings);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: metrics.large,
   },
   innerContainer: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    margin: metrics.huge
   },
-  imageLogo: {
-    height: Dimensions.get('window').height / 4.5,
+  logoText: {
+    color: colors.white,
+    fontSize: fonts.size.large,
+    fontFamily: 'openSansRegular',
+    alignSelf: 'center',
+    marginBottom: metrics.large
   },
   text: {
-    color: colors.lightBlue1,
-    fontSize: fonts.size.huge,
-    fontFamily: 'openSansBold',
-    alignSelf: 'center'
+    color: colors.white,
+    fontSize: fonts.size.large,
+    fontFamily: 'openSansRegular',
+    alignSelf: 'center',
   },
-  textCheckmarkContainer: {
+  nameContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: metrics.small,
-    borderBottomColor: colors.grey,
-    borderBottomWidth: metrics.mediumBorder
+    borderColor: colors.white,
+    borderWidth: metrics.tinyBorder,
+    padding: metrics.medium,
+    margin: metrics.large,
+    borderRadius: 20,
   },
   name: {
-    color: colors.grey,
+    color: colors.white,
     fontSize: fonts.size.huge,
-    fontFamily: 'openSansBold',
-  },
-  image: {
-    width: 50,
-    height: 50,
+    fontFamily: 'openSansRegular',
     marginLeft: metrics.medium
   },
   button: {
-    backgroundColor: colors.lightBlue2,
-    marginBottom: metrics.large,
+    borderColor: colors.white,
+    borderWidth: metrics.tinyBorder,
     padding: metrics.medium,
-    marginTop: metrics.large,
-    borderRadius: 10,
+    margin: metrics.large,
+    borderRadius: 20,
   },
   buttonText: {
     alignSelf: 'center',
@@ -117,9 +127,10 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   textChange: {
-    color: colors.grey,
-    fontSize: fonts.size.large,
+    color: colors.white,
+    fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: metrics.huge
   }
 });

@@ -37,11 +37,13 @@ class TaxesDetail extends Component {
       <ScrollView atyle={styles.container}>
         <View style={styles.innerContainer}>
           <Text style={styles.titleText}>{article.title[this.props.language]}</Text>
+          {/* // ne radi mi ovo iznad*/}
+          {/* <Text style={styles.textSearch}>Pretraži željenu zaradu</Text>
           <TextInput
             style={styles.inputText}
             onChangeText={this.updateInputText}
             value={inputText}
-          />
+          /> */}
 
           <View style={styles.item}>
             {
@@ -77,17 +79,24 @@ const styles = StyleSheet.create({
     padding: metrics.medium,
     backgroundColor: colors.white,
   },
-  titleText: {
-    margin: metrics.huge,
+  // titleText: {
+  //   margin: metrics.huge,
+  //   alignSelf: 'center',
+  //   color: colors.lightBlue1,
+  //   fontSize: fonts.size.huge,
+  //   fontFamily: 'openSansRegular',
+  // },
+  textSearch: {
     alignSelf: 'center',
     color: colors.lightBlue1,
-    fontSize: fonts.size.huge,
-    fontFamily: 'openSansBold',
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.large,
+    marginBottom: metrics.large
   },
   inputText: {
     height: 40,
     borderColor: 'gray',
-    borderRadius: 3,
+    borderRadius: 10,
     borderWidth: metrics.smallBorder,
     marginHorizontal: metrics.medium
   },
@@ -101,22 +110,23 @@ const styles = StyleSheet.create({
     paddingVertical: metrics.large
   },
   textContainer: {
-    // backgroundColor: 'red',
     padding: metrics.medium
   },
   text: {
     color: colors.grey,
-    fontFamily: 'openSansBold',
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.large,
   },
   percentageContainer:{
-    // backgroundColor: 'yellow',
     padding: metrics.medium,
     borderBottomColor: colors.grey,
     borderBottomWidth: metrics.tinyBorder,
   },
   percentage: {
-    fontFamily: 'openSansBold',
+    fontFamily: 'openSansRegular',
     color: colors.lightBlue1,
+    fontSize: fonts.size.small,
+
 
   }
 });

@@ -10,7 +10,7 @@ const initialState = {
     },
     date: '30.04.2018',
     paragraphs: [{
-      text: 'Prosečna bruto zarada za mart 2018',
+      text: 'Prosečna bruto zarada za mart 2018.',
       percentage: '68.251 RSD'
     },{
       text: 'Minimalna zarada za maj',
@@ -35,7 +35,10 @@ const initialState = {
       percentage: '110%'
     }]
   },{
-    title: 'Neoporezivi iznosi',
+    title: {
+      en: 'prevod',
+      rs: 'Neoporezivi iznosi'
+    },
     date: '30.04.2018',
     paragraphs: [{
       text: 'Neporezivi iznosi dnevnice za sluzbeno putovanje u zemlji',
@@ -127,7 +130,10 @@ const initialState = {
       percentage: '10. u mesecu za prethodni kvartal'
     }]
   },{
-    title: 'Porez na dobit',
+    title: {
+      en: 'Hello you to',
+      rs: 'Porez na dobit'
+    },
     date: '30.04.2018',
     paragraphs: [{
       text: 'Porez na dobit pravna lica',
@@ -230,7 +236,10 @@ const initialState = {
       percentage: '4.16%'
     }]
   },{
-    title: 'PDV',
+    title: {
+      en: 'NO',
+      rs: 'PDV'
+    },
     date: '30.04.2018',
     paragraphs: [{
       text: 'PDV Opšta stopa',
@@ -246,7 +255,10 @@ const initialState = {
       percentage: '8 miliona RSD'
     }]
   },{
-    title: 'Porez na dohodak građana',
+    title: {
+      en: 'Something',
+      rs: 'Porez na dohodak građana',
+    },
     date: '30.04.2018',
     paragraphs: [{
       text: 'Stopa poreza na zarade',
@@ -271,7 +283,10 @@ const initialState = {
       percentage: '20%'
     }]
   },{
-    title: 'Doprinosi',
+    title: {
+      en: 'add',
+      rs: 'Doprinosi'
+    },
     date: '30.04.2018',
     paragraphs: [{
       text: 'Doprinosi za PIO na teret zaposlenog',
@@ -293,52 +308,40 @@ const initialState = {
       percentage: '0.75%'
     }]
   },{
-    title: 'Neoporezivi iznosi',
+    title: {
+      en: 'lalala',
+      rs: 'Neoporezivi iznosi'
+    },
     description: 'is a mandatory financial charge or some other type of levy imposed upon a taxpaye',
     date: '30.04.2018',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvRlZYD8KHSgO1hfd_B27Mi557lBUVp6Lc-yFf8Nc7CCY4pSQbYQ',
     paragraphs: [{
-      type: 'text',
+      text: 'text',
       percentage: 'lorem imsum'
     },{
-      type: 'image',
+      text: 'image',
       percentage: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
+      text: 'text',
+      percentage: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
     }]
   },{
-    title: 'Ekonomija Srbije',
+    title: {
+      en: 'economy',
+      rs: 'Ekonomija Srbije'
+    },
     description: 'is a mandatory financial charge or some other type of levy imposed upon a taxpaye',
     date: '30.04.2018',
     image: 'https://en-coller.tau.ac.il/sites/coller-english.tau.ac.il/files/styles/reaserch_main_image_580_x_330/public/accounting-580_2.jpg?itok=M8dzi0kF',
     paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum'
+      text: 'text',
+      percentage: 'lorem imsum'
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      text: 'image',
+      percentage: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
     },{
-      type: 'text',
-      value: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
-    }]
-  },{
-    title: 'Rokovi za poreze',
-    description: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
-    date: '30.05.2018',
-    image: 'https://onlinestudyaustralia.com/courses/wp-content/uploads/online-accounting-graphics.jpg',
-    paragraphs: [{
-      type: 'text',
-      value: 'lorem imsum2'
-    },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
-    },{
-      type: 'text',
-      value: '2The levying of taxes aims to raise revenue to fund governing and/or to alter prices in order to affect demand. States and their functional equivalents throughout history have used money provided by'
-    },{
-      type: 'text',
-      value: '3cientific research, culture and the arts, public works, distribution, data collection and dissemination, public insurance, and the operation of government itself. A government'
+      text: 'text',
+      percentage: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
     }]
   }],
   article: {}

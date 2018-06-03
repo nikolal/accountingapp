@@ -51,8 +51,8 @@ const Tabs = TabNavigator({
   Something: {
     screen: Something,
     navigationOptions: {
-      title: 'SOMETHING',
-      tabBarLabel: 'Something',
+      title: 'INCENTIVES',
+      tabBarLabel: 'Incentives',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
         <SimpleLineIcons name="book-open" size={20} color={tintColor} />
     }

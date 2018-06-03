@@ -320,7 +320,13 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
 
 // baseForTaxation = val => (this.annualTaxEmployees(val) - this.personalDeductions(val));
 
-
+baseForTaxation = (x, y) => {
+  return (
+    this.annualTaxEmployees(x) * 0.5 > this.personalDeductions(y) ?
+      (this.annualTaxEmployees(x) - this.personalDeductions(y)) * 0.1 :
+     'A sta ako je veci od 50%????'
+  );
+};
 
 
   render () {
@@ -389,6 +395,7 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
             calculateValue ={this.calculateValue}
             calculateValueInput2={this.calculateValueInput2}
             saveInputFamily={this.saveInputFamily}
+            baseForTaxation={this.baseForTaxation}
           />
         : null
     );

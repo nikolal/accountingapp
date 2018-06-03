@@ -160,7 +160,79 @@ const initialState = {
       }
     },
     icon: 'briefcase'
-  },{
+    },{
+    name: 'Godisnji porez',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
+    input: '',
+    input2: '',
+    func: 'annualTax',
+    type: 'blabla',
+    value: '',
+    annualTax: {
+      gross: null,
+      base: null,
+      tax10: null,
+      baseForSocialContribution: null,
+      net: null,
+      value: null,
+      totalValue: null,
+      personalDeductions: null,
+      familyNumber: null,
+      familyNumberCalculate: null,
+      monthlyNet12: null,
+      annualTaxValue: null,
+      annualTaxValueTotal: null,
+      contributionsEmployees: null,
+      baseForTaxation: null,
+      all: null,
+      annualTaxEmployees: null,
+      socialContributions: {
+        value: null,
+        pensionContribution: null,
+        healthContribution: null,
+        insuranceContribution: null,
+      },
+      socialContributionsemployer: {
+        value: null,
+        pensionContribution: null,
+        healthContribution: null,
+        insuranceContribution: null,
+      },
+    },
+    icon: 'calendar'
+    },{
+    name: 'Dnevnice',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    input: '',
+    func: 'allowance',
+    type: 'allowanceHome',
+    value: '',
+    allowancesHome: {
+      value: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+      gross: null
+    },
+    allowancesAway: {
+      value: null,
+      nontaxable: null,
+      base: null,
+      tax: null,
+      gross: null
+    },
+    icon: 'wallet'
+    },{
+    name: 'Zakup fizickom licu',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
+    input: '',
+    func: x => x * 2,
+    type: 'blabla',
+    value: '',
+    icon: 'user'
+    },{
     name: 'Ugovori o delu  ',
     nameExpl: '(kada se placa porez, PIO i zdravstvo)',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -217,80 +289,7 @@ const initialState = {
       tax: null,
     },
     icon: 'folder'
-    },
-    {
-    name: 'Godisnji porez',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
-    input: '',
-    input2: '',
-    func: 'annualTax',
-    type: 'blabla',
-    value: '',
-    annualTax: {
-      gross: null,
-      base: null,
-      tax10: null,
-      baseForSocialContribution: null,
-      net: null,
-      value: null,
-      totalValue: null,
-      personalDeductions: null,
-      familyNumber: null,
-      familyNumberCalculate: null,
-      monthlyNet12: null,
-      annualTaxValue: null,
-      annualTaxValueTotal: null,
-      contributionsEmployees: null,
-      baseForTaxation: null,
-      all: null,
-      annualTaxEmployees: null,
-      socialContributions: {
-        value: null,
-        pensionContribution: null,
-        healthContribution: null,
-        insuranceContribution: null,
-      },
-      socialContributionsemployer: {
-        value: null,
-        pensionContribution: null,
-        healthContribution: null,
-        insuranceContribution: null,
-      },
-    },
-    icon: 'calendar'
-  },{
-    name: 'Dnevnice',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    input: '',
-    func: 'allowance',
-    type: 'allowanceHome',
-    value: '',
-    allowancesHome: {
-      value: null,
-      nontaxable: null,
-      base: null,
-      tax: null,
-      gross: null
-    },
-    allowancesAway: {
-      value: null,
-      nontaxable: null,
-      base: null,
-      tax: null,
-      gross: null
-    },
-    icon: 'wallet'
-  },{
-    name: 'Zakup fizickom licu',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    // image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
-    input: '',
-    func: x => x * 2,
-    type: 'blabla',
-    value: '',
-    icon: 'user'
-  }],
+    }],
   calculation: {}
 };
 
@@ -1262,7 +1261,7 @@ export const annualAllAction = value => ({ type: ANNUAL_ALL_ACTION, value });
 export const annualTaxEmployeesAction = value => ({ type: ANNUAL_TAX_EMPLOYEES_ACTION, value });
 export const calculateFamilyNumberAction = value => ({ type: CALCULATE_FAMILY_NUMBER_ACTION, value });
 export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_ACTION, value });
-export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
+// export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
 
 
 

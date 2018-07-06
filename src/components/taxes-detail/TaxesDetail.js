@@ -17,15 +17,21 @@ class TaxesDetail extends Component {
     title: 'TAXES DETAIL',
   })
 
-  filterTaxes = item => item.text.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0;
+  filterTaxes = item =>
+    this.props.language === 'en' ?
+      item.text.en.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0 :
+      this.props.language === 'rs' ?
+      item.text.rs.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0
+      : 'Nema jezika'
+
 
   renderTaxes = (item, index) =>
     <View key={index }style={styles.oneParagraph}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{item.text}</Text>
+        <Text style={styles.text}>{item.text[this.props.language]}</Text>
       </View>
       <View style={styles.percentageContainer}>
-        <Text style={styles.percentage}>{item.percentage}</Text>
+        <Text style={styles.percentage}>{item.percentage[this.props.language]}</Text>
       </View>
     </View>
 
@@ -36,14 +42,19 @@ class TaxesDetail extends Component {
     return (
       <ScrollView atyle={styles.container}>
         <View style={styles.innerContainer}>
-          <Text style={styles.titleText}>{article.title[this.props.language]}</Text>
+          {/* <Text style={styles.titleText}>{article.title[this.props.language]}</Text> */}
           {/* // ne radi mi ovo iznad*/}
-          {/* <Text style={styles.textSearch}>Pretraži željenu zaradu</Text>
+          {
+            this.props.language === 'en' ?
+              <Text style={styles.textSearch}>Find ....</Text> :
+            this.props.language === 'rs' ?
+              <Text style={styles.textSearch}>Pretraži željenu zaradu</Text> : null
+          }
           <TextInput
             style={styles.inputText}
             onChangeText={this.updateInputText}
             value={inputText}
-          /> */}
+          />
 
           <View style={styles.item}>
             {
@@ -63,7 +74,8 @@ TaxesDetail.propTypes = { // eslint-disable-line
 };
 
 const stateToProps = state => ({
-  article: state.taxesReducer.article
+  article: state.taxesReducer.article,
+  language: state.settingsReducer.language
 });
 
 export default connect(stateToProps, null)(TaxesDetail);

@@ -98,7 +98,7 @@ const ANNUAL_TAX_EMPLOYEES_ACTION = 'calculations/ANNUAL_TAX_EMPLOYEES_ACTION';
 const CALCULATE_FAMILY_NUMBER_ACTION = 'calculations/CALCULATE_FAMILY_NUMBER_ACTION';
 const PERSONAL_DEDUCTIONS_ACTION = 'calculations/PERSONAL_DEDUCTIONS_ACTION';
 const BASE_FOR_TAXATION_ACTION = 'calculations/BASE_FOR_TAXATION_ACTION';
-
+const FINAL_ANNUAL_TAX_ACTION = 'calculations/FINAL_ANNUAL_TAX_ACTION';
 
 
 
@@ -186,6 +186,7 @@ const initialState = {
       contributionsEmployees: null,
       baseForTaxation: null,
       all: null,
+      finnalAnnualTax: null,
       annualTaxEmployees: null,
       socialContributions: {
         value: null,
@@ -1150,19 +1151,17 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  // action.type === BASE_FOR_TAXATION_ACTION ? ({
-  //   ...state,
-  //   calculation: {
-  //     ...state.calculation,
-  //     annualTax:{
-  //       ...state.calculation.annualTax,
-  //       baseForTaxation: action.value,
-  //     }
-  //   }
-  // }) :
+  action.type === FINAL_ANNUAL_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        finnalAnnualTax: action.value,
+      }
+    }
+  }) :
   state;
-
-
 
 
 // ACTION CREATORS
@@ -1261,6 +1260,9 @@ export const annualAllAction = value => ({ type: ANNUAL_ALL_ACTION, value });
 export const annualTaxEmployeesAction = value => ({ type: ANNUAL_TAX_EMPLOYEES_ACTION, value });
 export const calculateFamilyNumberAction = value => ({ type: CALCULATE_FAMILY_NUMBER_ACTION, value });
 export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_ACTION, value });
+export const finalAnnualTaxActioin = value => ({ type: FINAL_ANNUAL_TAX_ACTION, value });
+
+
 // export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
 
 

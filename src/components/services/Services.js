@@ -21,7 +21,7 @@ class Services extends Component {
           size={25}
           color={colors.lightBlue1}
         />
-        <Text style={styles.titleText}>{item.title}</Text>
+        <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
       </View>
       <View style={styles.iconCircle}>
         <Ionicons
@@ -40,7 +40,7 @@ class Services extends Component {
             style={styles.image}
             source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
           />
-          <Text style={styles.textDescription}>Our Services Portfolio</Text>
+          <Text style={styles.textDescription}>{this.props.description[this.props.language]}</Text>
           {this.props.ourServices.map(this.renderList)}
         </View>
       </ScrollView>
@@ -49,7 +49,9 @@ class Services extends Component {
 }
 
 const stateToProps = state => ({
-  ourServices: state.servicesReducer.ourServices
+  ourServices: state.servicesReducer.ourServices,
+  language: state.settingsReducer.language,
+  description: state.servicesReducer.description,
 });
 
 const dispatchToProps = dispatch => ({

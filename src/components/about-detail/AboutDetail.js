@@ -12,10 +12,10 @@ class AboutDetail extends Component {
 
   renderArticle = (item, index) =>
     item.type === 'text' ?
-      <Text key={index} style={styles.textParagraph}>{item.value}</Text> :
+      <Text key={index} style={styles.textParagraph}>{item.value[this.props.language]}</Text> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>
-        <Text style={styles.headline}>{item.value}</Text>
+        <Text style={styles.headline}>{item.value[this.props.language]}</Text>
       </View> :
     item.type === 'image' ?
       <Image key={index} source={{uri: item.value}} style={styles.clientsImage}/> :
@@ -24,20 +24,20 @@ class AboutDetail extends Component {
   render(){
     const { article } = this.props;
     return (
-      article.title === 'Our Team' || article.title === 'Our company' ?
+      article.title === 'Our Team' || 'Naš tim' || article.title === 'Our company' || 'Naša kompanija' ?
         <ScrollView style={styles.container}>
           <View style={styles.innerContainer}>
             <Image
               style={styles.image}
               source={{uri: article.image}}
             />
-            <Text style={styles.description}>{article.description}</Text>
+            <Text style={styles.description}>{article.description[this.props.language]}</Text>
             <View style={styles.paragraphsContainer}>
               {article.paragraphs.map(this.renderArticle)}
             </View>
           </View>
         </ScrollView> :
-      article.title === 'Our clients' ?
+      article.title === 'Our clients' || 'Naši klijenti' ?
         <ScrollView style={styles.container}>
           <View style={styles.innerContainerClients}>
             {article.paragraphs.map(this.renderArticle)}
@@ -53,7 +53,9 @@ AboutDetail.propTypes = { // eslint-disable-line
 };
 
 const stateToProps = state => ({
-  article: state.aboutReducer.article
+  article: state.aboutReducer.article,
+  language: state.settingsReducer.language
+
 });
 
 export default connect(stateToProps, null)(AboutDetail);

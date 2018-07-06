@@ -22,7 +22,7 @@ class AboutUs extends Component {
           color={colors.lightBlue1}
           style={styles.icon}
         />
-        <Text style={styles.titleText}>{item.title}</Text>
+        <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
       </View>
       <View style={styles.iconCircle}>
         <Ionicons
@@ -42,8 +42,14 @@ class AboutUs extends Component {
             source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Transfer-pricing-Belgrade.jpg' }}
           />
           <Text style={styles.headline}>HLB T&M Consulting</Text>
-          <Text style={styles.descriptionText}>We are one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.</Text>
-          <Text style={styles.descriptionText}>In over six years of steady growth, our company continued to provide first-rate tax advisory and accounting services to international companies with operations in Serbia and become one of the leading consulting partners in Belgrade for financial and tax issues.</Text>
+          {
+            this.props.language === 'en' ?
+              <Text style={styles.descriptionText}>We are one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.</Text>
+            :
+            this.props.language === 'rs' ?
+              <Text style={styles.descriptionText}>Sedište kompanije HLB T&M Consulting doo se nalazi se u Beogradu i pružamo usluge računovodstva, poreskog savetovanja, pravnog savetovanja i izrade studija o transfernim cenama. Naš tim okuplja stručnjake koji su poslovno iskustvo sticali u vodećim međunarodnim kompanijama iz oblasti finansijskog i poreskog savetovanja.</Text>
+            : null
+          }
           <View style={styles.itemsContainer}>
             {this.props.about.map(this.renderList)}
           </View>
@@ -53,7 +59,8 @@ class AboutUs extends Component {
 }
 
 const stateToProps = state => ({
-  about: state.aboutReducer.about
+  about: state.aboutReducer.about,
+  language: state.settingsReducer.language
 });
 
 const dispatchToProps = dispatch => ({

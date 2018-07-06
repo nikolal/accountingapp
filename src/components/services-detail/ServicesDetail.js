@@ -15,12 +15,12 @@ class ServicesDetail extends Component {
     item.type === 'text' ?
       <View key={index} style={styles.paragraphsContainer}>
         <View style={styles.paragraphsCon}>
-          <Text style={styles.textParagraph}>{item.value}</Text>
+          <Text style={styles.textParagraph}>{item.value[this.props.language]}</Text>
         </View>
       </View> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>
-        <Text style={styles.headline}>{item.value}</Text>
+        <Text style={styles.headline}>{item.value[this.props.language]}</Text>
       </View> :
     null;
 
@@ -41,7 +41,8 @@ ServicesDetail.propTypes = { // eslint-disable-line
 };
 
 const stateToProps = state => ({
-  services: state.servicesReducer.services
+  services: state.servicesReducer.services,
+  language: state.settingsReducer.language
 });
 
 export default connect(stateToProps, null)(ServicesDetail);

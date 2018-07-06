@@ -12,7 +12,7 @@ import {
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
-  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, baseForTaxationAction
+  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin
   } from './CalculationsContainer';
 import SalaryCalculator from './SalaryCalculator';
 import TemporaryPermanentJobsCalculator from './TemporaryPermanentJobsCalculator';
@@ -296,8 +296,6 @@ annualTaxCalculator = val => {
   this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
   this.props.annualAllAction(this.annualAll(val));
   this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
-
-  // this.props.baseForTaxationAction(this.baseForTaxation(val));
 };
 
 annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
@@ -318,15 +316,13 @@ annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(
 annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
 biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
 
-// baseForTaxation = val => (this.annualTaxEmployees(val) - this.personalDeductions(val));
+calculateFinalAnnualTax = val => {
+  this.props.finalAnnualTaxActioin(this.finalTax(val));
+}
 
-baseForTaxation = (x, y) => {
-  return (
-    this.annualTaxEmployees(x) * 0.5 > this.personalDeductions(y) ?
-      (this.annualTaxEmployees(x) - this.personalDeductions(y)) * 0.1 :
-     'A sta ako je veci od 50%????'
-  );
-};
+finalTax = val =>
+  this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+  : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
 
 
   render () {
@@ -396,6 +392,8 @@ baseForTaxation = (x, y) => {
             calculateValueInput2={this.calculateValueInput2}
             saveInputFamily={this.saveInputFamily}
             baseForTaxation={this.baseForTaxation}
+            finalTax={this.finalTax}
+            calculateFinalAnnualTax={this.calculateFinalAnnualTax}
           />
         : null
     );
@@ -508,13 +506,7 @@ const dispatchToProps = dispatch => ({
   annualTaxEmployeesAction: bindActionCreators(annualTaxEmployeesAction, dispatch),
   calculateFamilyNumberAction: bindActionCreators(calculateFamilyNumberAction, dispatch),
   personalDeductionsAction: bindActionCreators(personalDeductionsAction, dispatch),
-  // baseForTaxationAction: bindActionCreators(baseForTaxationAction, dispatch),
-
-
-
-
-
-
+  finalAnnualTaxActioin: bindActionCreators(finalAnnualTaxActioin, dispatch),
 
 });
 

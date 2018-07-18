@@ -1,7 +1,7 @@
 const fonts = {
   size: {
     tiny: 10,
-    small: 13,
+    small: 12,
     medium: 15,
     large: 17,
     huge: 20,

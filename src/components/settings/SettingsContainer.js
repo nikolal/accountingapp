@@ -3,8 +3,8 @@ const SAVE_LANGUAGE = 'language/SAVE_LANGUAGE';
 
 const initialState = {
   languages: [
-    { name: 'English', value: 'en' },
-    { name: 'Serbian', value: 'rs' }
+    { name: 'English', value: 'en', flag: require('../../../assets/images/english.png') },
+    { name: 'Serbian', value: 'rs', flag: require('../../../assets/images/serbie.png') }
   ],
   language: 'en'
 };

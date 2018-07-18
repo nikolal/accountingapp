@@ -1,61 +1,70 @@
+import React from 'react';
+import { Button, StyleSheet, View } from 'react-native';
+import { DangerZone } from 'expo';
+const { Lottie } = DangerZone;
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Animated
-} from 'react-native';
+export default class App extends React.Component {
+  state = {
+    animation: null,
+  };
 
-const arr = [];
-for (var i = 0; i < 500; i++) {
-  arr.push(i)
-}
-
-class FirstPage extends Component {
-
-  constructor () {
-    super()
-    this.animatedValue = []
-    arr.forEach((value) => {
-      this.animatedValue[value] = new Animated.Value(0)
-    });
+  componentWillMount() {
+    this._playAnimation();
   }
 
-  componentDidMount () {
-    this.animate();
-  }
-
-  animate () {
-    const animations = arr.map((item) => {
-      return Animated.timing(
-        this.animatedValue[item],
-        {
-          toValue: 1,
-          duration: 6000
-        }
-      );
-    });
-    Animated.stagger(10, animations).start();
-  }
-
-  render () {
-    const animations = arr.map((a, i) => {
-      return <Animated.View key={i} style={{opacity: this.animatedValue[a], height: 20, width: 20, backgroundColor: 'red', marginLeft: 3, marginTop: 3}} />
-    });
+  render() {
     return (
-      <View style={styles.container}>
-        {animations}
+      <View style={styles.animationContainer}>
+        {this.state.animation &&
+          <Lottie
+            ref={animation => {
+              this.animation = animation;
+            }}
+            style={{
+              width: 400,
+              height: 400,
+              backgroundColor: '#eee',
+            }}
+            source={this.state.animation}
+          />}
+        <View style={styles.buttonContainer}>
+          <Button title="Restart Animation" onPress={this._playAnimation} />
+        </View>
       </View>
     );
   }
+
+  _playAnimation = () => {
+    if (!this.state.animation) {
+      this._loadAnimationAsync();
+    } else {
+      this.animation.reset();
+      this.animation.play();
+    }
+  };
+
+  _loadAnimationAsync = async () => {
+    const result = await fetch(
+      'https://cdn.rawgit.com/airbnb/lottie-react-native/635163550b9689529bfffb77e489e4174516f1c0/example/animations/Watermelon.json'
+    )
+      .then(data => {
+        return data.json();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    this.setState({ animation: result }, this._playAnimation);
+  };
 }
 
-export default FirstPage;
-
 const styles = StyleSheet.create({
-  container: {
+  animationContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  }
+  },
+  buttonContainer: {
+    paddingTop: 20,
+  },
 });

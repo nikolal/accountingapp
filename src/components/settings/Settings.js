@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { ScrollView, Dimensions, View, Text, TouchableOpacity, StyleSheet, AsyncStorage, Image } from 'react-native';
+import { ScrollView, Dimensions, View, Text, PixelRatio, TouchableOpacity, StyleSheet, AsyncStorage, Image, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // import { SimpleLineIcons }  from '@expo/vector-icons';
 import { saveLanguage } from './SettingsContainer.js';
-import { metrics, colors, fonts } from '../../theme';
-import { LinearGradient } from 'expo';
+import { metrics, colors, fonts, images } from '../../theme';
+// import { LinearGradient } from 'expo';
 
 
 class Settings extends Component {
+
+  static navigationOptions = {
+    header: null
+  }
 
   componentDidMount = () => {
     this.getLanguage();
@@ -31,8 +35,8 @@ class Settings extends Component {
       <TouchableOpacity key={item.name} onPress={() => this.setLanguage(item.value)}>
         <View style={styles.nameContainer}>
           <Image
-            style={{width: 30, height: 30}}
-            source={require('../../../assets/icons/english.png')}
+            style={{width: 24, height: 16}}
+            source={item.flag}
           />
           <Text style={styles.name}>{item.name}</Text>
         </View>
@@ -40,28 +44,19 @@ class Settings extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{ backgroundColor: 'grey'}} />
-          <LinearGradient
-            colors={['rgb(13, 126, 194)', 'rgb(115, 192, 239)', 'rgb(201, 233, 252)']}
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              top: 0,
-              height: Dimensions.get('window').height
-            }}
-          />
-          <Text style={styles.logoText}>HLB T&M Consulting</Text>
-          <Text style={styles.text}>CHOOSE LANGUAGE / IZABERITE JEZIK</Text>
-          <View style={styles.innerContainer}>
-            {this.props.languages.map(this.renderLanguages)}
-            <TouchableOpacity style={styles.button} onPress={() => this.goToNews('News')}>
-              <Text style={styles.buttonText}>SAVE</Text>
-            </TouchableOpacity>
-            <Text style={styles.textChange}>* You can always change your App language.</Text>
-          </View>
-      </View>
+      <ImageBackground source={images.background} style={styles.container} resizeMode="cover">
+        <View style={styles.logoImageContainer}>
+          <Image source={images.logoImage} style={styles.logoImage} />
+        </View>
+        <Text style={styles.text}>Choose language / Izaberite jezik</Text>
+        <View style={styles.innerContainer}>
+          {this.props.languages.map(this.renderLanguages)}
+          <Text style={styles.textChange}>* You can always change your App language.</Text>
+          <TouchableOpacity style={styles.buttonProceedWhite} onPress={() => this.goToNews('News')}>
+            <Image source={images.buttonProceedWhite} style={styles.buttonProceedWhite}/>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -83,17 +78,22 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     flex: 1,
-    justifyContent: 'center',
-    margin: metrics.huge
+    marginHorizontal: metrics.large,
   },
-  logoText: {
-    color: colors.white,
-    fontSize: fonts.size.large,
-    fontFamily: 'openSansRegular',
-    alignSelf: 'center',
-    marginBottom: metrics.large
+  logoImageContainer: {
+    marginTop: 94.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '17.7%',
+    backgroundColor:'#ffffff90',
+  },
+  logoImage: {
+    opacity: 1.0,
+    height: 177.26 / 2,
+    width: 498.24 / 2
   },
   text: {
+    marginVertical: metrics.extraHuge,
     color: colors.white,
     fontSize: fonts.size.large,
     fontFamily: 'openSansRegular',
@@ -101,36 +101,33 @@ const styles = StyleSheet.create({
   },
   nameContainer: {
     flexDirection: 'row',
-    borderColor: colors.white,
-    borderWidth: metrics.tinyBorder,
-    padding: metrics.medium,
-    margin: metrics.large,
-    borderRadius: 20,
+    alignItems: 'center',
+    backgroundColor: '#ffffff99',
+    borderColor: '#408D8D8D',
+    borderWidth: metrics.mediumBorder,
+    height: 49,
+    padding: metrics.large,
+    marginBottom: metrics.large,
+    borderRadius: metrics.small
   },
   name: {
-    color: colors.white,
-    fontSize: fonts.size.huge,
+    color: colors.black,
+    fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
     marginLeft: metrics.medium
   },
-  button: {
-    borderColor: colors.white,
-    borderWidth: metrics.tinyBorder,
-    padding: metrics.medium,
-    margin: metrics.large,
-    borderRadius: 20,
-  },
-  buttonText: {
-    alignSelf: 'center',
-    fontSize: fonts.size.large,
-    fontFamily: 'openSansBold',
-    color: colors.white,
-  },
   textChange: {
     color: colors.white,
-    fontSize: fonts.size.medium,
+    fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
-    alignSelf: 'center',
-    marginTop: metrics.huge
+    marginTop: metrics.tiny
+  },
+  buttonProceedWhite: {
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    bottom: 0,
+    width: 98,
+    height: 98,
+    borderRadius: 49,
   }
 });

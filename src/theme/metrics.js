@@ -2,7 +2,7 @@ const metrics = {
   // Margins/Paddings
   tiny: 2,
   small: 5,
-  medium: 10,
+  medium: 12.5,
   large: 15,
   largeToHuge: 17,
   huge: 20,

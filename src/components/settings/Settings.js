@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Dimensions, View, Text, PixelRatio, TouchableOpacity, StyleSheet, AsyncStorage, Image, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { SimpleLineIcons }  from '@expo/vector-icons';
+import { Ionicons }  from '@expo/vector-icons';
 import { saveLanguage } from './SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 // import { LinearGradient } from 'expo';
@@ -32,14 +32,16 @@ class Settings extends Component {
   goToNews = screenName => this.props.navigation.navigate(screenName);
 
   renderLanguages = (item, index) =>
-      <TouchableOpacity key={item.name} onPress={() => this.setLanguage(item.value)}>
-        <View style={styles.nameContainer}>
-          <Image
-            style={{width: 24, height: 16}}
-            source={item.flag}
-          />
-          <Text style={styles.name}>{item.name}</Text>
-        </View>
+      <TouchableOpacity style={styles.nameContainer} key={item.name} onPress={() => this.setLanguage(item.value)}>
+        <Image
+          style={{width: 24, height: 16}}
+          source={item.flag}
+        />
+        <Text style={styles.name}>{item.name}</Text>
+        {
+          item.value === this.props.language &&
+            <Ionicons style={styles.checkmark} name="ios-checkmark" size={35} color={colors.black}/>
+        }
       </TouchableOpacity>
 
   render() {
@@ -115,6 +117,9 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
     marginLeft: metrics.medium
+  },
+  checkmark: {
+    marginLeft: 'auto'
   },
   textChange: {
     color: colors.white,

@@ -7,13 +7,21 @@ const initialState = {
     en: 'Our Services Portfolio',
     rs: 'Naše usluge'
   },
+  headerTitle: {
+    en: 'About Company',
+    rs: 'O kompaniji'
+  },
   ourServices: [{
     title: {
       en: 'Financial Services',
       rs: 'Finansijske usluge '
     },
+    subTitle: {
+      en: 'More information about Financial',
+      rs: 'Više informacija o finansijama'
+    },
     image: 'archive',
-    icon: 'arrow-right',
+    icon: require('../../../assets/images/iconteam.png'),
     paragraphs: [{
       type: 'headline',
       value: {
@@ -113,11 +121,15 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Poreske usluge',
-      rs: 'Tax services'
+      en: 'Tax services',
+      rs: 'Poreske usluge'
+    },
+    subTitle: {
+      en: 'More information about Tax',
+      rs: 'Više informacija o porezima'
     },
     image: 'book',
-    icon: 'arrow-right',
+    icon: require('../../../assets/images/iconCompany.png'),
     paragraphs: [{
       type: 'headline',
       value: {
@@ -196,8 +208,12 @@ const initialState = {
       en: 'Transfer Pricing',
       rs: 'Transferne cene'
     },
+    subTitle: {
+      en: 'More information about Pricing',
+      rs: 'Više informacija o cenama'
+    },
     image: 'calculator',
-    icon: 'arrow-right',
+    icon: require('../../../assets/images/iconTransfer.png'),
     paragraphs: [{
       type: 'headline',
       value: {
@@ -270,8 +286,12 @@ const initialState = {
       en: 'Legal Services',
       rs: 'Pravne usluge'
     },
+    subTitle: {
+      en: 'More information',
+      rs: 'Više informacija'
+    },
     image: 'briefcase',
-    icon: 'arrow-right',
+    icon: require('../../../assets/images/Shape.png'),
     paragraphs: [{
       type: 'headline',
       value: {

@@ -28,7 +28,7 @@ const navigationConfig = {
     headerTintColor: colors.white,
     headerStyle: {
       justifyContent: 'center',
-      backgroundColor: colors.lightBlue1,
+      backgroundColor: colors.navigator,
       height: 60,
       borderBottomWidth: 0
     },

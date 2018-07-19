@@ -16,7 +16,7 @@ const styles = {
     fontFamily: 'openSansBold',
   },
   style: {
-    backgroundColor: colors.black,
+    backgroundColor: '#f9f9f9',
     height: 60,
     padding: metrics.small,
   },

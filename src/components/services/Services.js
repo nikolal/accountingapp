@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Ionicons, Entypo }  from '@expo/vector-icons';
 import { saveServices } from './ServicesContainer.js';
 import { metrics, colors, fonts } from '../../theme';
 
 class Services extends Component {
+
+  static navigationOptions = {
+    headerTitle: 'About Company'
+  }
 
   goToServicesDetail = (screenName, services) => {
     this.props.saveServices(services);
@@ -14,35 +17,32 @@ class Services extends Component {
   }
 
   renderList = (item, index) =>
-    <TouchableOpacity key={index} onPress={() => this.goToServicesDetail('ServicesDetail', item)} style={styles.item}>
+    <TouchableOpacity key={index} onPress={() => this.goToServicesDetail('ServicesDetail', item)} style={index % 2 === 0 ? styles.darkItem : styles.item}>
       <View style={styles.imageTitleContainer}>
-        <Entypo
-          name={item.image}
-          size={25}
-          color={colors.lightBlue1}
-        />
-        <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
-      </View>
-      <View style={styles.iconCircle}>
-        <Ionicons
-          name="md-arrow-dropright"
-          size={30}
-          color={colors.lightBlue1}
-        />
+        <View style={styles.iconCircleContainer}>
+          <Image source={item.icon} style={styles.icon}/>
+        </View>
+        <View style={styles.titleSubTitleContainer}>
+          <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
+          <Text style={styles.subTitleText}>{item.subTitle[this.props.language]}</Text>
+        </View>
       </View>
     </TouchableOpacity>
 
   render() {
+    // console.log(this.props.headerTitle);
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.innerContainer}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
-          />
-          <Text style={styles.textDescription}>{this.props.description[this.props.language]}</Text>
-          {this.props.ourServices.map(this.renderList)}
+        <View style={styles.longLineContainer}>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
+            />
+            <Text style={styles.textDescription}>{this.props.description[this.props.language]}</Text>
+          </View>
         </View>
+        {this.props.ourServices.map(this.renderList)}
       </ScrollView>
     );
   }
@@ -52,6 +52,7 @@ const stateToProps = state => ({
   ourServices: state.servicesReducer.ourServices,
   language: state.settingsReducer.language,
   description: state.servicesReducer.description,
+  headerTitle: state.servicesReducer.headerTitle
 });
 
 const dispatchToProps = dispatch => ({
@@ -65,49 +66,71 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
   },
-  innerContainer: {
-    flex: 1,
+  longLineContainer: {
+    borderBottomColor: '#bfbfbf',
+    borderBottomWidth: metrics.tinyBorder,
+    marginBottom: metrics.medium
+  },
+  imageContainer: {
     margin: metrics.medium,
   },
   image: {
-    height: Dimensions.get('window').height / 3.5,
+    height: Dimensions.get('window').height / 3.2,
+    borderRadius: 10
   },
   textDescription: {
-    alignSelf: 'center',
-    fontSize: fonts.size.hugeToExtra,
+    fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: colors.grey,
-    marginVertical: metrics.extraHuge
+    marginVertical: metrics.huge,
+    marginLeft: metrics.medium,
   },
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderRadius: 10,
+    backgroundColor: colors.white,
     borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: colors.darkGrey,
-    padding: metrics.large,
-    marginBottom: metrics.small
+    borderBottomColor: '#e6e6e6',
+    padding: metrics.largeToHuge,
+  },
+  darkItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: colors.veryLightGrey,
+    borderBottomWidth: metrics.smallBorder,
+    borderBottomColor: '#e6e6e6',
+    padding: metrics.largeToHuge,
   },
   imageTitleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
+  iconCircleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgb(202, 236, 239)',
+    height: 50,
+    width: 50,
+    borderRadius: 25
+  },
+  icon: {
+    width: metrics.large,
+    height: metrics.large
+  },
+  titleSubTitleContainer: {
+    // flex: 1,
+    flexDirection: 'column',
+    marginLeft: metrics.large,
+    // backgroundColor: 'red'
+  },
   titleText: {
-    marginLeft: metrics.medium,
     fontSize: fonts.size.large,
-    fontFamily: 'openSansBold',
+    fontFamily: 'openSansRegular',
     color: colors.grey
   },
-  iconCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: metrics.tiny,
-    marginRight: metrics.medium,
-    width: 34,
-    height: 34,
-    borderColor: colors.lightGrey,
-    borderWidth: metrics.mediumBorder,
-    borderRadius: 17
+  subTitleText: {
+    fontFamily: 'openSansLight',
   }
 });

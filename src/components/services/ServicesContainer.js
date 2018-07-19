@@ -25,8 +25,8 @@ const initialState = {
     paragraphs: [{
       type: 'headline',
       value: {
-        en: 'ACCOUNTING SERVICES',
-        rs: 'RAČUNOVODSTVENE USLUGE'
+        en: 'Accounting Services',
+        rs: 'Računovodstvene usluge'
       }
     },{
       type: 'text',
@@ -79,8 +79,8 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'FINANCIAL & BUSINESS CONSULTING',
-        rs: 'FINANSIJSKO & POSLOVNO SAVETOVNJE'
+        en: 'Financial & Business Consulting',
+        rs: 'Finansijsko & poslovno savetovanje'
       }
     },{
       type: 'text',
@@ -133,8 +133,8 @@ const initialState = {
     paragraphs: [{
       type: 'headline',
       value: {
-        en: 'ON-GOING TAX SUPPORT',
-        rs: 'SAVETODAVNA PORESKA PODRŠKA'
+        en: 'On-going Tax Support',
+        rs: 'Savetodavna poreska podrška'
       }
     },{
       type: 'text',
@@ -187,8 +187,8 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'TAX CONSULTING',
-        rs: 'POSEBNE PORESKE USLUGE '
+        en: 'Tax Consulting',
+        rs: 'Posebne poreske usluge '
       },
     },{
       type: 'text',
@@ -217,8 +217,8 @@ const initialState = {
     paragraphs: [{
       type: 'headline',
       value: {
-        en: 'TRANSFER PRICING REPORT',
-        rs:  'STUDIJE O TRANSFERNIM CENAMA'
+        en: 'Tranfer Pricing Report',
+        rs:  'Studije o transfernim cenama'
       }
     },{
       type: 'text',
@@ -253,8 +253,8 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'TRANFER PRICING CONSULTING',
-        rs: 'SAVETOVANJE O TRANSFERNIM CENAMA'
+        en: 'Tranfer Pricing Consulting',
+        rs: 'Savetovanje o transfernim cenama'
       },
     },{
       type: 'text',
@@ -319,8 +319,8 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'LABOUR LAW',
-        rs: 'KORPORATIVNO & UGOVORNO PRAVO'
+        en: 'Labur Law',
+        rs: 'Korporativno & Ugovorno pravo'
       }
     },{
       type: 'text',

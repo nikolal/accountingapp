@@ -10,10 +10,6 @@ const { Marker } = MapView;
 
 class Contact extends Component {
 
-  static navigationOptions = ({ navigation }) => ({
-    title: 'HLB T&M Consulting',
-  })
-
   goToContactMessage = screenName => {
     this.props.navigation.navigate(screenName);
   }
@@ -21,34 +17,35 @@ class Contact extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <View style={styles.innerContainer}>
-          <MapView
-            style={styles.googleMapContainer}
-            initialRegion={{
-              latitude: 44.8026777,
-              longitude: 20.4779999,
-              latitudeDelta: 0.00922,
-              longitudeDelta: 0.00421,
-            }}
-          >
-            <Marker
-              coordinate={{ latitude: 44.8026777, longitude: 20.4779999 }}
-              title="aaa"
-              // description={marker.descriptio}
-            />
-          </MapView>
-          <View style={styles.body}>
-            <View style={styles.addressContainer}>
-              <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
+        <MapView
+          style={styles.googleMapContainer}
+          initialRegion={{
+            latitude: 44.8026777,
+            longitude: 20.4779999,
+            latitudeDelta: 0.00922,
+            longitudeDelta: 0.00421,
+          }}
+        >
+          <Marker
+            coordinate={{ latitude: 44.8026777, longitude: 20.4779999 }}
+            title="aaa"
+            // description={marker.descriptio}
+          />
+        </MapView>
+        <View style={styles.body}>
+          <Text style={styles.title}>HLB T&M Consulting</Text>
+          <View style={styles.addressContainer}>
+            <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
+            <View style={styles.innerAdressText}>
               <Text style={styles.addressText}>+381 11 344-81-69</Text>
-              <Text style={styles.addressText}>+381 64 614-29-44</Text>
-              <TouchableOpacity
-                onPress={() => this.goToContactMessage('ContactMessage')}
-                style={styles.addressTextMail}>
-                <Text style={styles.contactText}>CONTACT US</Text>
-              </TouchableOpacity>
             </View>
+            <Text style={styles.addressText}>+381 64 614-29-44</Text>
           </View>
+          <TouchableOpacity
+            onPress={() => this.goToContactMessage('ContactMessage')}
+            style={styles.addressTextMail}>
+            <Text style={styles.contactText}>Contact us</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -61,39 +58,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  innerContainer: {
-    flex: 1,
-    padding: metrics.medium,
-    backgroundColor: colors.white
-  },
   googleMapContainer: {
-    height: Dimensions.get('window').height / 1.9,
+    height: Dimensions.get('window').height / 2.8,
   },
   body: {
     flex: 1,
-    justifyContent: 'space-around',
+    backgroundColor: colors.white,
+    // justifyContent: 'space-around',
+  },
+  title: {
+    fontSize: fonts.size.huge,
+    fontFamily: 'openSansBold',
+    color: 'rgb(20,32,52)',
+    margin: metrics.huge,
   },
   addressContainer: {
-    alignItems: 'center',
+    marginHorizontal: metrics.extraHuge,
   },
   addressText: {
     fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
-    color: colors.grey,
-    marginBottom: metrics.small
+    padding: metrics.medium,
+  },
+  innerAdressText: {
+    borderTopColor: 'rgb(235,235,235)',
+    borderTopWidth: metrics.tinyBorder,
+    borderBottomColor: 'rgb(235,235,235)',
+    borderBottomWidth: metrics.tinyBorder,
   },
   addressTextMail: {
-    backgroundColor: colors.lightBlue2,
-    margin: metrics.medium,
+    top: 25,
+    backgroundColor: '#14B7c5',
+    margin: metrics.large,
     padding: metrics.medium,
-    borderRadius: 10,
-    // borderWidth: metrics.largeBorder,
-    // borderColor: colors.lightBlue2
-
+    borderRadius: 5,
   },
   contactText: {
-    fontSize: fonts.size.large,
-    fontFamily: 'openSansBold',
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
     color: colors.white,
   }
 });

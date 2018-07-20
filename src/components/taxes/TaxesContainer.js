@@ -9,6 +9,7 @@ const initialState = {
       rs: 'Zarade'
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'Average gross earnings for March 2018',
@@ -88,6 +89,7 @@ const initialState = {
       rs: 'Neoporezivi iznosi'
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'Non-taxable amounts of daily allowance for a business trip',
@@ -209,6 +211,7 @@ const initialState = {
       rs:'Rokovi za izmirenje obaveza'
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'VAT report and payment of VAT for the monthly taxpayer',
@@ -646,6 +649,7 @@ const initialState = {
       rs: 'PDV'
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'VAT general rate',
@@ -689,6 +693,7 @@ const initialState = {
       rs: 'Porez na dohodak građana',
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'Earnings tax rate',
@@ -759,6 +764,7 @@ const initialState = {
       rs: 'Doprinosi'
     },
     date: '30.04.2018',
+    time: '05:52PM',
     paragraphs: [{
       text: {
         en: 'contributions for PIO at the expense of the employee',
@@ -813,42 +819,6 @@ const initialState = {
         en: '0.75%',
         rs: '0.75%'
       }
-    }]
-  },{
-    title: {
-      en: 'Non-taxable amounts',
-      rs: 'Neoporezivi iznosi'
-    },
-    description: 'is a mandatory financial charge or some other type of levy imposed upon a taxpaye',
-    date: '30.04.2018',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvRlZYD8KHSgO1hfd_B27Mi557lBUVp6Lc-yFf8Nc7CCY4pSQbYQ',
-    paragraphs: [{
-      text: 'text',
-      percentage: 'lorem imsum'
-    },{
-      text: 'image',
-      percentage: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
-    },{
-      text: 'text',
-      percentage: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
-    }]
-  },{
-    title: {
-      en: 'economy',
-      rs: 'Ekonomija Srbije'
-    },
-    description: 'is a mandatory financial charge or some other type of levy imposed upon a taxpaye',
-    date: '30.04.2018',
-    image: 'https://en-coller.tau.ac.il/sites/coller-english.tau.ac.il/files/styles/reaserch_main_image_580_x_330/public/accounting-580_2.jpg?itok=M8dzi0kF',
-    paragraphs: [{
-      text: 'text',
-      percentage: 'lorem imsum'
-    },{
-      text: 'image',
-      percentage: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
-    },{
-      text: 'text',
-      percentage: 'by a governmental organization in order to fund various public expenditures.[1] A failure to pay, or evasion of or resistance to taxation, is punishable by law. '
     }]
   }],
   article: {}

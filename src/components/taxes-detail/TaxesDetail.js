@@ -1,68 +1,44 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, ActivityIndicator, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts, images } from '../../theme';
 import { FontAwesome }  from '@expo/vector-icons';
 // import PropTypes from 'prop-types';
 
 class TaxesDetail extends Component {
 
-  state={
-    inputText: ''
-  }
-
-  updateInputText = text => this.setState({ inputText: text });
-
   static navigationOptions = ({ navigation }) => ({
-    title: 'TAXES DETAIL',
+    title: 'Taxes Detail',
   })
 
-  filterTaxes = item =>
-    this.props.language === 'en' ?
-      item.text.en.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0 :
-      this.props.language === 'rs' ?
-      item.text.rs.toLowerCase().indexOf(this.state.inputText.toLowerCase()) >= 0
-      : 'Nema jezika'
-
-
   renderTaxes = (item, index) =>
-    <View key={index }style={styles.oneParagraph}>
+    <View key={index} style={index % 2 === 0 ? styles.darkOneParagraph : styles.oneParagraph}>
       <View style={styles.textContainer}>
         <Text style={styles.text}>{item.text[this.props.language]}</Text>
-      </View>
-      <View style={styles.percentageContainer}>
         <Text style={styles.percentage}>{item.percentage[this.props.language]}</Text>
+      </View>
+      <View style={styles.dateContaioner}>
+        <View style={styles.datIconContainer}>
+          <Text style={styles.dateTimeText}>30.04.2018.</Text>
+          <Image style={styles.icons} source={images.iconCalendarsmall}/>
+        </View>
+        <View style={styles.datIconContainer}>
+          <Text style={styles.dateTimeText}>05:52PM</Text>
+          <Image style={styles.icons} source={images.iconClocksmall} />
+        </View>
       </View>
     </View>
 
   render(){
     const { article } = this.props;
-    const { inputText } = this.state;
 
     return (
       <ScrollView atyle={styles.container}>
-        <View style={styles.innerContainer}>
-          {/* <Text style={styles.titleText}>{article.title[this.props.language]}</Text> */}
-          {/* // ne radi mi ovo iznad*/}
+        <View style={styles.item}>
           {
-            this.props.language === 'en' ?
-              <Text style={styles.textSearch}>Find ....</Text> :
-            this.props.language === 'rs' ?
-              <Text style={styles.textSearch}>Pretraži željenu zaradu</Text> : null
+            article.paragraphs
+              .map(this.renderTaxes)
           }
-          <TextInput
-            style={styles.inputText}
-            onChangeText={this.updateInputText}
-            value={inputText}
-          />
-
-          <View style={styles.item}>
-            {
-              article.paragraphs
-                .filter(this.filterTaxes)
-                .map(this.renderTaxes)
-            }
-          </View>
         </View>
       </ScrollView>
     );
@@ -75,7 +51,8 @@ TaxesDetail.propTypes = { // eslint-disable-line
 
 const stateToProps = state => ({
   article: state.taxesReducer.article,
-  language: state.settingsReducer.language
+  language: state.settingsReducer.language,
+  date: state.settingsReducer.date
 });
 
 export default connect(stateToProps, null)(TaxesDetail);
@@ -84,61 +61,50 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    // nece da bude beeeooo
-  },
-  innerContainer: {
-    flex: 1,
-    padding: metrics.medium,
-    backgroundColor: colors.white,
-  },
-  // titleText: {
-  //   margin: metrics.huge,
-  //   alignSelf: 'center',
-  //   color: colors.lightBlue1,
-  //   fontSize: fonts.size.huge,
-  //   fontFamily: 'openSansRegular',
-  // },
-  textSearch: {
-    alignSelf: 'center',
-    color: colors.lightBlue1,
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.large,
-    marginBottom: metrics.large
-  },
-  inputText: {
-    height: 40,
-    borderColor: 'gray',
-    borderRadius: 10,
-    borderWidth: metrics.smallBorder,
-    marginHorizontal: metrics.medium
   },
   oneParagraph: {
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    // borderBottomColor: colors.grey,
-    // borderBottomWidth: metrics.tinyBorder,
-    // marginHorizontal: metrics.large,
-    paddingVertical: metrics.large
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    height: 90
+  },
+  darkOneParagraph: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f5fcfc',
+    height: 90
   },
   textContainer: {
-    padding: metrics.medium
+    padding: metrics.medium,
+    paddingLeft: metrics.extraHuge,
+    width: Dimensions.get('window').width / 1.4
   },
   text: {
     color: colors.grey,
     fontFamily: 'openSansRegular',
-    fontSize: fonts.size.large,
-  },
-  percentageContainer:{
-    padding: metrics.medium,
-    borderBottomColor: colors.grey,
-    borderBottomWidth: metrics.tinyBorder,
+    fontSize: fonts.size.medium,
+    marginBottom: metrics.tiny
   },
   percentage: {
     fontFamily: 'openSansRegular',
-    color: colors.lightBlue1,
     fontSize: fonts.size.small,
-
-
+    color: '#0D7ec2'
+  },
+  datIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  dateTimeText: {
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.small,
+    color: '#878888',
+    marginHorizontal: metrics.small,
+  },
+  icons: {
+    height: metrics.medium,
+    width: metrics.medium,
+    marginLeft: metrics.small,
+    marginHorizontal: metrics.small
   }
 });

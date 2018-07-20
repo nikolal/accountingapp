@@ -9,7 +9,7 @@ import { saveArticle } from './AboutContainer.js';
 class AboutUs extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'About Company',
+    title: 'About Us',
   })
 
   goAboutDetail = (screenName, article) => {

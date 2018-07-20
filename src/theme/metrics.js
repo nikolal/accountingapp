@@ -9,6 +9,7 @@ const metrics = {
   huge: 20,
   hugeToExtrahuge: 25,
   extraHuge: 30,
+  xxxHuge: 40,
   // Borders
   tinyBorder: 0.3,
   smallBorder: 0.7,

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
 import { saveArticle } from './TaxesContainer.js';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts, images } from '../../theme';
 // import { translations } from '../../translation.js';
 
 
@@ -17,31 +17,32 @@ class Taxes extends Component {
 
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToTaxesDetails('TaxesDetail', item)} style={index % 2 === 0 ? styles.darkItem : styles.item}>
+      <Image
+        style={{width: 50, height: 50, borderRadius: 25}}
+        source={{uri: 'https://c.s-microsoft.com/en-us/CMSImages/DevicesBusiness_newimage_1_3up_V1.jpg?version=6d9348ca-7cac-6af6-30c6-177ed07c1a65'}}
+      />
       <View style={styles.textContainer}>
         <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
-        <Text style={styles.dateText}>{item.date}</Text>
+        <Text style={styles.descriptionTitleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
       </View>
-      <View style={styles.iconCircle}>
-        <Ionicons
-          name="md-arrow-dropright"
-          size={30}
-          color={colors.lightBlue1}
-          style={styles.arrowIcon}
-        />
+      <View style={styles.dateTimeContainer}>
+      <Text style={styles.dateText}>{item.date}</Text>
+      <Text style={styles.dateText}>{item.time}</Text>
       </View>
-      <View style={styles.overlay} />
     </TouchableOpacity>
 
   render() {
     return (
       <ScrollView style={styles.container}>
-      <View style={styles.innerContainer}>
-        <Image
-          style={{ height: Dimensions.get('window').height / 3.5, marginBottom: metrics.small, margin: metrics.medium }}
-          source={{ uri: 'http://chimeiusa.com/wp-content/uploads/2017/06/How-to-Find-the-Best-Inventory-Management-Accounting-Software-for-Your-Small-Business-5-Questions-to-Ask-300x200.jpg' }}
-        />
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={images.backgroundImage}
+          />
+          <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
+          <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
+        </View>
         {this.props.taxes.map(this.renderList)}
-      </View>
       </ScrollView>
     );
   }
@@ -61,63 +62,66 @@ export default connect(stateToProps, dispatchToProps)(Taxes);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.veryLightGrey,
-    padding: metrics.small,
   },
-  innerContainer: {
-    // padding: metrics.medium,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+  imageContainer: {
+    alignItems: 'center',
+    paddingVertical: metrics.huge,
+    backgroundColor: colors.white
+  },
+  image: {
+    height: Dimensions.get('window').height / 3,
+    width: Dimensions.get('window').width / 1.1,
+    borderRadius: 10
+  },
+  textOverImage: {
+    position: 'absolute',
+    top: 140,
+    alignSelf: 'flex-start',
+    color: colors.white,
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansBold',
+    marginLeft:metrics.xxxHuge,
+    marginRight: metrics.xxxHuge
+  },
+  smallTextOverImage: {
+    position: 'absolute',
+    top: 200,
+    alignSelf: 'flex-start',
+    color: colors.white,
+    fontSize: fonts.size.smallToMedium,
+    fontFamily: 'openSansRegular',
+    marginLeft:metrics.xxxHuge,
   },
   darkItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.white,
-    // borderBottomColor: colors.grey,
-    // borderBottomWidth: metrics.smallBorder,
-    paddingVertical: metrics.huge
+    backgroundColor: colors.veryLightGrey,
+    padding: metrics.hugeToExtrahuge,
   },
   item: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.veryLightGrey,
-    // borderBottomColor: colors.grey,
-    // borderBottomWidth: metrics.smallBorder,
-    paddingVertical: metrics.huge
+    backgroundColor: metrics.white,
+    padding: metrics.hugeToExtrahuge
   },
   textContainer: {
     flex: 1,
-    paddingHorizontal: metrics.large
+    paddingHorizontal: metrics.large,
+    width: Dimensions.get('window').width / 2.7
   },
   titleText: {
-    fontSize: fonts.size.large,
-    fontFamily: 'openSansBold',
-    color: colors.grey,
-    marginBottom: metrics.small
-  },
-  dateText: {
-    color: colors.lightBlue1,
+    fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
   },
-  iconCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: metrics.tiny,
-    marginRight: metrics.large,
-    width: 34,
-    height: 34,
-    borderColor: colors.lightGrey,
-    borderWidth: metrics.mediumBorder,
-    borderRadius: 17
+  descriptionTitleText: {
+    fontFamily: 'openSansLight',
+    fontSize: fonts.size.small,
+  },
+  dateTimeContainer: {
+
+  },
+  dateText: {
+    fontSize: fonts.size.tiny,
+    fontFamily: 'openSansRegular',
   }
 });

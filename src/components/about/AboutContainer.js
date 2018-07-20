@@ -81,7 +81,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Our company',
+      en: 'Our Company',
       rs: 'Naša kompanija'
     },
     subTitle: {
@@ -121,7 +121,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Our clients',
+      en: 'Our Clients',
       rs: 'Naši klijenti'
     },
     subTitle: {

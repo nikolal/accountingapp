@@ -8,7 +8,7 @@ import { metrics, colors, fonts } from '../../theme';
 class Services extends Component {
 
   static navigationOptions = {
-    headerTitle: 'About Company'
+    headerTitle: 'Our Services'
   }
 
   goToServicesDetail = (screenName, services) => {

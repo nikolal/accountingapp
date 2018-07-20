@@ -213,7 +213,7 @@ const initialState = {
       rs: 'Više informacija o cenama'
     },
     image: 'calculator',
-    icon: require('../../../assets/images/iconTransfer.png'),
+    icon: require('../../../assets/images/iconClients.png'),
     paragraphs: [{
       type: 'headline',
       value: {

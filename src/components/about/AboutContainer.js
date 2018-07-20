@@ -8,12 +8,16 @@ const initialState = {
       en: 'Our Team',
       rs: 'Naš tim'
     },
+    subTitle: {
+      en: 'More About Us',
+      rs: 'Više o našem timu'
+    },
     description: {
       en: 'MILKA JANICIC - Managing Director',
       rs: 'MILKA JANIČIĆ - Direktor'
     },
+    icon: require('../../../assets/images/iconteam.png'),
     image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
-    icon: 'ios-people',
     paragraphs: [{
         type: 'headline',
         value: {
@@ -80,12 +84,16 @@ const initialState = {
       en: 'Our company',
       rs: 'Naša kompanija'
     },
+    subTitle: {
+      en: 'More About Our Company',
+      rs: 'Više o našoj kompaniji'
+    },
     description: {
       en: 'WELCOME TO HLB T&M CONSULTING.',
       rs: 'DOBRODOŠLI'
     },
     image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Transfer-pricing-Belgrade.jpg',
-    icon: 'ios-images',
+    icon: require('../../../assets/images/iconCompany.png'),
     paragraphs: [{
       type: 'text',
       value:{
@@ -116,12 +124,16 @@ const initialState = {
       en: 'Our clients',
       rs: 'Naši klijenti'
     },
+    subTitle: {
+      en: 'More About Our Clients',
+      rs: 'Više o našim klijentima'
+    },
     description: {
       en: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
       rs: 'jjj'
     },
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
-    icon: 'md-people',
+    icon: require('../../../assets/images/iconClients.png'),
     paragraphs: [{
       type: 'image',
       value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'

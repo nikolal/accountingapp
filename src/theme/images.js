@@ -6,6 +6,7 @@ const images = {
   iconCalendarsmall: require('../../assets/images/iconCalendarsmall.png'),
   iconClocksmall: require('../../assets/images/iconClocksmall.png'),
   aboutCompanyPanel500px: require('../../assets/images/aboutCompanyPanel500px.png'),
+  gross: require('../../assets/images/gross.png'),
 };
 
 export default images;

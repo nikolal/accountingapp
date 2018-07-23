@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { metrics, colors, fonts } from '../../theme';
-import { EvilIcons, FontAwesome }  from '@expo/vector-icons';
+import { metrics, colors, fonts, images } from '../../theme';
+import { FontAwesome }  from '@expo/vector-icons';
 
 
 class NewsDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'NEWS DETAIL',
+    title: 'News Detail',
   })
 
   renderArticle = (item, index) =>
@@ -28,30 +28,15 @@ class NewsDetail extends Component {
     const { article } = this.props;
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.articleContainer}>
-          <View style={styles.header}>
-            <View style={styles.left}>
-              <FontAwesome
-                name="square"
-                size={12}
-                color={colors.lightBlue1}
-                style={styles.square}
-              />
-              <Text style={styles.text}>News</Text>
-          </View>
-            <EvilIcons
-              name="share-apple"
-              size={35}
-              color={colors.lightBlue1}
-            />
-          </View>
-          <View style={styles.descriptionDateContainer}>
-            <Text style={styles.descriptionText} ellipsizeMode={'tail'}>{article.description}</Text>
-            <Text style={styles.dateText}>{article.date}</Text>
-          </View>
-          {article.paragraphs.map(this.renderArticle)}
+        <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description}</Text>
+        <View style={styles.dateSocialIconContainer}>
+          <Text style={styles.dateText}>{article.date}</Text>
+          <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
+          <Image style={styles.socialIconsImage} source={images.twit}/>
+          <Image style={styles.socialIconsImage} source={images.g}/>
+          <Image style={styles.socialIconsImage} source={images.share}/>
         </View>
-
+        {article.paragraphs.map(this.renderArticle)}
       </ScrollView>
     );
   }
@@ -70,83 +55,45 @@ export default connect(stateToProps, null)(NewsDetail);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.veryLightGrey,
-    padding: metrics.small,
-  },
-  articleContainer: {
-    padding: metrics.large,
-    backgroundColor: colors.white,
-    borderRadius: 2,
-    borderBottomWidth: 0,
-    shadowColor: colors.grey,
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  left: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  square: {
-    marginRight: metrics.small
-  },
-  text: {
-    color: colors.lightBlue1,
-    fontSize: fonts.size.medium,
-    fontFamily: 'openSansRegular',
-  },
-  articleImageContainer: {
-    flex: 1,
-    marginBottom: metrics.huge
-  },
-  articleImage: {
-    height: Dimensions.get('window').height / 3.5,
-  },
-  descriptionDateContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    marginBottom: metrics.huge,
-    borderBottomColor: colors.grey,
-    borderBottomWidth: metrics.smallBorder
+    paddingTop: metrics.huge
   },
   descriptionText: {
-    color: colors.darkGrey,
-    fontSize: fonts.size.hugeToExtra,
+    color: colors.black,
+    fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
-    alignSelf: 'center',
-    marginBottom: metrics.extraHuge,
+    paddingHorizontal: metrics.large,
+  },
+  dateSocialIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: metrics.large,
+    paddingRight: metrics.extraHuge,
+    marginVertical: metrics.large,
+    borderTopWidth: metrics.tinyBorder,
+    borderBottomWidth: metrics.tinyBorder,
+    borderColor: '#bdbdbd'
   },
   dateText: {
-    alignSelf: 'flex-end',
-    marginBottom: metrics.small,
-    marginRight: metrics.medium,
-    color: colors.lightBlue1,
-    fontSize: fonts.size.medium,
+    color: '#3191cb',
+    fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
+  },
+  fbSocialIconsImage: {
+    color: '#bdbdbd',
+  },
+  socialIconsImage: {
+    height: metrics.medium,
+    width: metrics.large
   },
   articleParagraphsContainer: {
-    marginVertical: metrics.small
+    padding: metrics.medium,
   },
   imageContainer: {
-    marginVertical: metrics.medium
+    margin: metrics.medium
   },
-  firstLetter: {
-    fontFamily: 'openSansBold',
-    fontSize: fonts.size.huge,
-    color: colors.darkGrey
-  },
-  articleParagraphs: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.medium,
-    color: colors.darkGrey,
-    textAlign: 'center'
+  articleImage: {
+    height: Dimensions.get('window').height / 3.2,
+    borderRadius: 10
   }
 });

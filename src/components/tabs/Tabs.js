@@ -1,8 +1,9 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-import { colors, fonts, metrics } from '../../theme/index.js';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import MainScreen from '../mainScreen/MainScreen.js';
+import { colors, fonts, metrics, images } from '../../theme/index.js';
+// import { SimpleLineIcons } from '@expo/vector-icons';
+// import MainScreen from '../mainScreen/MainScreen.js';
 import Something from '../something/Something.js';
 import News from '../news/News.js';
 import Calculations from '../calculations/Calculations.js';
@@ -18,7 +19,7 @@ const styles = {
   style: {
     backgroundColor: '#f9f9f9',
     height: 60,
-    padding: metrics.small,
+    padding: metrics.small
   },
 };
 
@@ -45,7 +46,16 @@ const Tabs = TabNavigator({
       title: 'NEWS',
       tabBarLabel: 'News',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <SimpleLineIcons name="book-open" size={20} color={tintColor} />
+        tintColor === colors.lightBlue1 ?
+          <Image
+            source={images.contractSelected}
+            style={{width: 20, height: 20}}
+          />
+        :
+          <Image
+            source={images.contractDefault}
+            style={{width: 20, height: 20}}
+          />
     }
   },
   Something: {
@@ -54,7 +64,16 @@ const Tabs = TabNavigator({
       title: 'INCENTIVES',
       tabBarLabel: 'Incentives',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <SimpleLineIcons name="book-open" size={20} color={tintColor} />
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.contractSelected}
+          style={{width: 25, height: 20}}
+        />
+      :
+        <Image
+          source={images.newspaperDefault}
+          style={{width: 25, height: 20}}
+        />
     }
   },
   Calculations: {
@@ -63,7 +82,16 @@ const Tabs = TabNavigator({
       title: 'CALCULATIONS',
       tabBarLabel: 'Calculations',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <SimpleLineIcons name="calculator" size={20} color={tintColor} />
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.calculatorSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.calculatorDefault}
+          style={{width: 20, height: 20}}
+        />
     }
   },
   Taxes: {
@@ -72,7 +100,16 @@ const Tabs = TabNavigator({
       title: 'TAXES',
       tabBarLabel: 'Taxes',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
-        <SimpleLineIcons name="docs" size={20} color={tintColor} />
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.taxSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.taxDefault}
+          style={{width: 20, height: 20}}
+        />
     }
   }
 }, navigationConfig);

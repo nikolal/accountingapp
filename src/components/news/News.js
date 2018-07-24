@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStorage } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStorage, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
-import { MaterialIcons }  from '@expo/vector-icons';
 import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage } from '../settings/SettingsContainer.js';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts, images } from '../../theme';
 import Modal from './Modal.js';
 
 class News extends Component {
@@ -49,22 +48,34 @@ class News extends Component {
   }
 
   renderList = (item, index) =>
-    <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)} style={styles.item}>
-      <View>
-        <Image
-          style={{ width: 80, height: 80 }}
-          source={{ uri: item.image }}
-        />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
-        <Text style={styles.dateText}>{item.date}</Text>
-      </View>
-      <MaterialIcons
-        name="play-arrow"
-        size={30}
-        color={colors.lightBlue2}
-      />
+    <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)}>
+      {
+        index === 1 ?
+        <View style={styles.firstItem}>
+          <Image
+            style={styles.firstItemImage}
+            source={{ uri: item.image }}
+          />
+          <View style={styles.textContainerFirstItem}>
+            <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title}</Text>
+            <Text style={styles.dateTextFirstItem}>{item.date}</Text>
+          </View>
+        </View>
+         :
+        <View style={styles.item}>
+          <View style={styles.itemImageContainer}>
+            <Image
+              style={styles.itemImage}
+              source={{ uri: item.image }}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Image source={images.share} style={styles.shareImage} />
+            <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
+            <Text style={styles.dateText}>{item.date}</Text>
+          </View>
+        </View>
+      }
     </TouchableOpacity>
 
   render() {
@@ -76,9 +87,7 @@ class News extends Component {
           setLanguage={this.setLanguage}
           languages={this.props.languages}
         />
-        <View style={styles.innerContainer}>
-          {this.props.news.map(this.renderList)}
-        </View>
+        {this.props.news.map(this.renderList)}
       </ScrollView>
     );
   }
@@ -102,36 +111,51 @@ export default connect(stateToProps, dispatchToProps)(News);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
-    padding: metrics.small,
+    // marginTop: 1
   },
-  innerContainer: {
-    flex: 1,
+  firstItemImage: {
+    height: Dimensions.get('window').height / 3.5,
+  },
+  textContainerFirstItem: {
+    position: 'absolute',
+    paddingHorizontal: metrics.hugeToExtrahuge,
+    top: 90,
+    alignSelf: 'center'
+  },
+  titleTextFirstItem: {
+    color: colors.white,
+    fontSize: fonts.size.huge,
+    fontFamily: 'openSansBold'
+  },
+  dateTextFirstItem: {
+    color: '#189FAB',
+    alignSelf: 'center',
+    fontFamily: 'openSansBold'
   },
   item: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomColor: colors.lightGrey,
-    borderBottomWidth: metrics.mediumBorder,
     padding: metrics.medium,
-    backgroundColor: colors.white,
+    borderBottomColor: '#bdbdbd',
+    borderBottomWidth: metrics.tinyBorder,
+    backgroundColor: colors.white
+  },
+  itemImage: {
+    height: 115,
+    width: 115
   },
   textContainer: {
     flex: 1,
-    flexWrap: 'wrap',
-    padding: metrics.small,
-    margin: metrics.medium,
+    justifyContent: 'space-between',
+    paddingVertical: metrics.small,
+    // backgroundColor: 'green',
+    paddingLeft: metrics.medium,
   },
-  titleText: {
-    color: colors.grey,
-    fontSize: fonts.size.medium,
-    fontFamily: 'openSansBold',
-    marginBottom: metrics.medium,
+  shareImage: {
+    height: metrics.smallToMedium,
+    width: metrics.medium,
+    // alignSelf: 'flex-end'
   },
   dateText: {
-    color: colors.lightBlue1,
-    fontSize: fonts.size.small,
-    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.tiny
   }
 });

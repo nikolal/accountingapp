@@ -26,6 +26,7 @@ class Calculations extends Component {
         <Image source={images.backgroundImage} style={styles.backgroundImage}/>
         <View style={styles.innerImageContainer}>
           <Image source={item.icons} style={styles.innerImage}/>
+          <TouchableOpacity style={styles.goButton}><Text style={styles.buttonText}>>>></Text></TouchableOpacity>
         </View>
         <Text style={styles.textItem} numberOfLines={2}>{item.name}</Text>
         <Text style={styles.explanation} numberOfLines={1}>{item.nameExpl}</Text>
@@ -99,21 +100,36 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 5,
     position: 'absolute',
     backgroundColor: '#10465c40',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   innerImage: {
     // zIndex: 100,
     height: 50,
     width: 40
   },
+  goButton: {
+    alignSelf: 'flex-start',
+    marginLeft: metrics.medium,
+    marginBottom: metrics.medium,
+    marginTop: metrics.large,
+    paddingVertical: metrics.small,
+    paddingHorizontal: metrics.smallToMedium,
+    backgroundColor: 'rgb(20,183,197)',
+    borderRadius: metrics.small
+  },
+  buttonText: {
+    fontSize: fonts.size.tiny,
+    color: colors.white
+  },
   textItem: {
     margin: metrics.small,
     color: colors.white,
-    fontFamily: 'openSansRegular',
+    fontFamily: 'openSansBold',
     fontSize: fonts.size.small ,
   },
   explanation: {
+    marginLeft: metrics.small,
     color: colors.white,
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.tiny,

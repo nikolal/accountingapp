@@ -13,7 +13,7 @@ const HeaderLeft = props => {
             style={styles.iconContainer}
             onPress={() => props.navigation.state.routeName === 'Tabs' && props.navigation.navigate('DrawerOpen')}
           >
-            <SimpleLineIcons name="menu" size={25} color={colors.white} />
+            <SimpleLineIcons name="menu" size={20} color={colors.lightBlue1} />
           </TouchableOpacity>
         :
           <TouchableOpacity onPress={() => props.navigation.goBack()} style={styles.iconContainer}>

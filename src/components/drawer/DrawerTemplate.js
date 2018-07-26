@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
 import { SimpleLineIcons }  from '@expo/vector-icons';
-import { metrics, colors, fonts } from '../../theme';
-import { LinearGradient } from 'expo';
-
+import { metrics, colors, fonts, images } from '../../theme';
 
 class DrawerTemplate extends Component {
 
@@ -35,36 +33,25 @@ class DrawerTemplate extends Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <View style={{ backgroundColor: 'grey'}} />
-          <LinearGradient
-            colors={['rgb(0, 0, 0)', 'rgb(38, 38, 38)', 'rgb(64, 64, 64)']}
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              top: 0,
-              height: Dimensions.get('window').height
-            }}
+        <ImageBackground source={images.background} style={{ width: 280, height: Dimensions.get('window').height}}>
+          <View style={styles.textLogoContainer}>
+            <Text style={styles.logoText}>HLB T&M Consulting</Text>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>Finance | Tax | Advisory</Text>
+              </View>
+          </View>
+          <Image
+            style={styles.image}
+            source={{ uri: 'http://www.b-accounting.com/images/blog-accounting-2.jpg' }}
           />
-
-        <View style={styles.textLogoContainer}>
-          <Text style={styles.logoText}>HLB T&M Consulting</Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Finance | Tax | Advisory</Text>
-            </View>
-        </View>
-        <Image
-          style={styles.image}
-          source={{ uri: 'http://www.b-accounting.com/images/blog-accounting-2.jpg' }}
-        />
-        {this.state.drawerList.map(this.renderList)}
-        <View style={styles.socialMediaContainer}>
-          <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={20} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={20} color="white" />
-          <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={20} color="white" />
-          <SimpleLineIcons onPress={() => this.goToContactMessage('ContactMessage')} style={styles.socialMedia} name="envelope-letter" size={20} color="white" />
-        </View>
+          {this.state.drawerList.map(this.renderList)}
+          <View style={styles.socialMediaContainer}>
+            <SimpleLineIcons style={styles.socialMedia} name="social-facebook" size={20} color="white" />
+            <SimpleLineIcons style={styles.socialMedia} name="social-instagram" size={20} color="white" />
+            <SimpleLineIcons style={styles.socialMedia} name="social-linkedin" size={20} color="white" />
+            <SimpleLineIcons onPress={() => this.goToContactMessage('ContactMessage')} style={styles.socialMedia} name="envelope-letter" size={20} color="white" />
+          </View>
+        </ImageBackground>
       </View>
     );
   }

@@ -67,7 +67,9 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.extraHuge,
     color: '#e7e8ea',
     fontFamily: 'openSansBold',
-    lineHeight: 30
+    lineHeight: 30,
+    alignSelf: 'flex-start',
+    textAlign: 'center'
   },
   paragraphsContainer: {
     justifyContent: 'space-between',

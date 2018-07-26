@@ -10,6 +10,10 @@ import Modal from './Modal.js';
 
 class News extends Component {
 
+  // static navigationOptions = ({ navigation }) => ({
+  //   headerTitle: <HeaderTitle /> // TODO: create HeaderTitle and connect it with redux
+  // });
+
   state = {
     modalVisible: false
   }
@@ -50,7 +54,7 @@ class News extends Component {
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)}>
       {
-        index === 1 ?
+        index === 0 ?
         <View style={styles.firstItem}>
           <Image
             style={styles.firstItemImage}
@@ -87,7 +91,9 @@ class News extends Component {
           setLanguage={this.setLanguage}
           languages={this.props.languages}
         />
-        {this.props.news.map(this.renderList)}
+        {
+          this.props.news.slice().reverse().map(this.renderList) //eslint-disable-line
+        }
       </ScrollView>
     );
   }

@@ -19,8 +19,13 @@ const styles = {
   style: {
     backgroundColor: '#f9f9f9',
     height: 60,
-    padding: metrics.small
+    padding: metrics.small,
   },
+  // tabStyle: {
+  //   flex: 1,
+  //   borderWidth: 1,
+  //   borderColor: 'red'
+  // }
 };
 
 const navigationConfig = {
@@ -43,7 +48,6 @@ const Tabs = TabNavigator({
   News: {
     screen: News,
     navigationOptions: {
-      title: 'NEWS',
       tabBarLabel: 'News',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
         tintColor === colors.lightBlue1 ?
@@ -61,7 +65,7 @@ const Tabs = TabNavigator({
   Something: {
     screen: Something,
     navigationOptions: {
-      title: 'INCENTIVES',
+      // title: 'INCENTIVES',
       tabBarLabel: 'Incentives',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
@@ -79,7 +83,7 @@ const Tabs = TabNavigator({
   Calculations: {
     screen: Calculations,
     navigationOptions: {
-      title: 'CALCULATIONS',
+      // title: 'CALCULATIONS',
       tabBarLabel: 'Calculations',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
@@ -97,7 +101,7 @@ const Tabs = TabNavigator({
   Taxes: {
     screen: Taxes,
     navigationOptions: {
-      title: 'TAXES',
+      // title: 'TAXES',
       tabBarLabel: 'Taxes',
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?

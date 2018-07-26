@@ -98,13 +98,13 @@ const styles = StyleSheet.create({
   darkItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: metrics.large,
+    paddingHorizontal: metrics.large,
     backgroundColor: colors.veryLightGrey
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: metrics.large,
+    paddingHorizontal: metrics.large,
     backgroundColor: colors.white
   },
   iconContainer: {
@@ -120,15 +120,21 @@ const styles = StyleSheet.create({
     width: 10
   },
   titleSubTitleContainer: {
-    marginLeft: metrics.large
+    flex: 1,
+    // backgroundColor: 'red',
+    marginHorizontal: metrics.large,
+    borderBottomWidth: 1,
+    borderBottomColor: 'red'
   },
   titleText: {
     fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
-    color: colors.grey
+    color: colors.grey,
+    marginTop: metrics.medium
   },
   subTitleText: {
     fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
+    marginBottom: metrics.medium
   }
 });

@@ -27,8 +27,8 @@ class Taxes extends Component {
         source={{uri: 'https://c.s-microsoft.com/en-us/CMSImages/DevicesBusiness_newimage_1_3up_V1.jpg?version=6d9348ca-7cac-6af6-30c6-177ed07c1a65'}}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
-        <Text style={styles.descriptionTitleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
+        <Text style={styles.titleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
+        <Text style={styles.descriptionTitleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
       </View>
       <View style={styles.dateTimeContainer}>
       <Text style={styles.dateText}>{item.date}</Text>
@@ -67,6 +67,7 @@ export default connect(stateToProps, dispatchToProps)(Taxes);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white
   },
   imageContainer: {
     alignItems: 'center',
@@ -101,17 +102,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.veryLightGrey,
-    padding: metrics.hugeToExtrahuge,
+    paddingHorizontal: metrics.large
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: metrics.white,
-    padding: metrics.hugeToExtrahuge
+    paddingHorizontal: metrics.large
   },
   textContainer: {
     flex: 1,
+    paddingVertical: metrics.huge,
     paddingHorizontal: metrics.large,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9E9E9',
     width: Dimensions.get('window').width / 2.7
   },
   titleText: {
@@ -121,9 +125,6 @@ const styles = StyleSheet.create({
   descriptionTitleText: {
     fontFamily: 'openSansLight',
     fontSize: fonts.size.small,
-  },
-  dateTimeContainer: {
-
   },
   dateText: {
     fontSize: fonts.size.tiny,

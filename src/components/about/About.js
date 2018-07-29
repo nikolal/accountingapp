@@ -123,9 +123,10 @@ const styles = StyleSheet.create({
   titleSubTitleContainer: {
     flex: 1,
     // backgroundColor: 'red',
+    paddingVertical: metrics.small,
     marginHorizontal: metrics.large,
     borderBottomWidth: 1,
-    borderBottomColor: 'red'
+    borderBottomColor: '#E9E9E9'
   },
   titleText: {
     fontSize: fonts.size.medium,

@@ -89,20 +89,16 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: metrics.medium,
     alignItems: 'center',
-    backgroundColor: colors.white,
-    borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: '#e6e6e6',
-    padding: metrics.largeToHuge,
+    backgroundColor: colors.white
   },
   darkItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: metrics.medium,
     alignItems: 'center',
-    backgroundColor: colors.veryLightGrey,
-    borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: '#e6e6e6',
-    padding: metrics.largeToHuge,
+    backgroundColor: colors.veryLightGrey
   },
   imageTitleContainer: {
     flexDirection: 'row',
@@ -121,10 +117,11 @@ const styles = StyleSheet.create({
     height: metrics.large
   },
   titleSubTitleContainer: {
-    // flex: 1,
-    flexDirection: 'column',
-    marginLeft: metrics.large,
-    // backgroundColor: 'red'
+    flex: 1,
+    marginHorizontal: metrics.large,
+    paddingVertical: metrics.large,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9E9E9'
   },
   titleText: {
     fontSize: fonts.size.large,

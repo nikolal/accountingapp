@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
 import { SimpleLineIcons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
@@ -8,10 +10,10 @@ class DrawerTemplate extends Component {
   state = {
     drawerList: [
       // { screen: 'MainScreen', icon: 'book-open', name: 'Main Screen', arrow: 'arrow-right' },
-      { screen: 'Services', icon: 'docs', name: 'Our Services', arrow: 'arrow-right' },
-      { screen: 'About', icon: 'info', name: 'About Us', arrow: 'arrow-right' },
-      { screen: 'Contact', icon: 'call-out', name: 'Contact', arrow: 'arrow-right' },
-      { screen: 'Settings', icon: 'settings', name: 'Settings', arrow: 'arrow-right' }
+      { screen: 'Services', icon: 'docs', nameEn: 'Our Services', nameRs: 'Naši servisi', arrow: 'arrow-right' },
+      { screen: 'About', icon: 'info', nameEn: 'About Us', nameRs: 'O nama', arrow: 'arrow-right' },
+      { screen: 'Contact', icon: 'call-out', nameEn: 'Contact', nameRs: 'Kontakt', arrow: 'arrow-right' },
+      { screen: 'Settings', icon: 'settings', nameEn: 'Settings', nameRs: 'Podešavanja', arrow: 'arrow-right' }
     ]
   };
 
@@ -25,7 +27,13 @@ class DrawerTemplate extends Component {
     <TouchableOpacity key={index} onPress={() => this.goToScreen(item.screen)} style={styles.iconTextScreen}>
       <View style={styles.iconNameContainer}>
         <SimpleLineIcons name={item.icon} size={20} color="white" />
-        <Text style={styles.textScreen}>{item.name}</Text>
+          {
+            this.props.language === 'en' ?
+              <Text style={styles.textScreen}>{item.nameEn}</Text> :
+            this.props.language === 'rs' ?
+              <Text style={styles.textScreen}>{item.nameRs}</Text> :
+            null
+          }
       </View>
       <SimpleLineIcons style={styles.arrow} name={item.arrow} size={15} color="white" />
     </TouchableOpacity>
@@ -57,7 +65,15 @@ class DrawerTemplate extends Component {
   }
 }
 
-export default DrawerTemplate;
+const stateToProps = state => ({
+  language: state.settingsReducer.language,
+});
+
+const dispatchToProps = dispatch => ({
+  // saveServices: bindActionCreators(saveServices, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(DrawerTemplate);
 
 const styles = StyleSheet.create({
   container: {

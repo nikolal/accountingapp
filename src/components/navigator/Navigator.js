@@ -24,7 +24,7 @@ const navigationConfig = {
   navigationOptions: ({ navigation }) => ({
     headerLeft: <HeaderLeft navigation={navigation} />,
     headerRight: <HeaderRight navigation={navigation} />,
-    title: 'asda',
+    // title: 'asda',
     headerTintColor: colors.white,
     headerStyle: {
       justifyContent: 'center',

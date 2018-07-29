@@ -3,12 +3,13 @@ import { View, Text, StyleSheet, Image, ScrollView, ActivityIndicator, Dimension
 import { connect } from 'react-redux';
 import { metrics, colors, fonts, images } from '../../theme';
 import { FontAwesome }  from '@expo/vector-icons';
+import HeaderTitle from './HeaderTitle.js';
 // import PropTypes from 'prop-types';
 
 class TaxesDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Taxes Detail',
+    headerTitle: <HeaderTitle />,
   })
 
   renderTaxes = (item, index) =>

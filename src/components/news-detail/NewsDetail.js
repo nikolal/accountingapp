@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
 import { FontAwesome }  from '@expo/vector-icons';
+import HeaderTitle from './HeaderTitle.js';
 
 
 class NewsDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'News Detail',
+    headerTitle: <HeaderTitle />
   })
 
   renderArticle = (item, index) =>

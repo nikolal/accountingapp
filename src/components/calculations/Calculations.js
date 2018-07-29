@@ -3,6 +3,7 @@ import { View, ScrollView, Text, TouchableOpacity, StyleSheet, Dimensions, Image
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {saveCalculation} from './CalculationsContainer';
+import HeaderTitle from './HeaderTitle.js';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
 import { LinearGradient } from 'expo';
@@ -12,8 +13,9 @@ import { LinearGradient } from 'expo';
 class Calculations extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'CALCULATIONS',
-  })
+    headerTitle: <HeaderTitle />
+  });
+
 
   goToCalculation = (item) => {
     this.props.saveCalculation(item);

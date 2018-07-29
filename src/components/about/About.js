@@ -5,12 +5,13 @@ import { bindActionCreators } from 'redux';
 import { SimpleLineIcons, Ionicons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
 import { saveArticle } from './AboutContainer.js';
+import HeaderTitle from './HeaderTitle.js';
 
 class AboutUs extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'About Us',
-  })
+    headerTitle: <HeaderTitle />
+  });
 
   goAboutDetail = (screenName, article) => {
     this.props.saveArticle(article);
@@ -122,9 +123,10 @@ const styles = StyleSheet.create({
   titleSubTitleContainer: {
     flex: 1,
     // backgroundColor: 'red',
+    paddingVertical: metrics.small,
     marginHorizontal: metrics.large,
     borderBottomWidth: 1,
-    borderBottomColor: 'red'
+    borderBottomColor: '#E9E9E9'
   },
   titleText: {
     fontSize: fonts.size.medium,

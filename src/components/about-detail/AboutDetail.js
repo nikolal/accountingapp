@@ -3,12 +3,14 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 import PropTypes from 'prop-types';
+import HeaderTitle from './HeaderTitle.js';
 
 class AboutDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'ABOUT US',
-  })
+    headerTitle: <HeaderTitle />
+  });
+
 
   renderArticle = (item, index) =>
     item.type === 'text' ?

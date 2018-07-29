@@ -3,13 +3,14 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, Dimensions
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { saveServices } from './ServicesContainer.js';
+import HeaderTitle from './HeaderTitle.js';
 import { metrics, colors, fonts } from '../../theme';
 
 class Services extends Component {
 
-  static navigationOptions = {
-    headerTitle: 'Our Services'
-  }
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: <HeaderTitle />
+  });
 
   goToServicesDetail = (screenName, services) => {
     this.props.saveServices(services);
@@ -88,20 +89,16 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: metrics.medium,
     alignItems: 'center',
-    backgroundColor: colors.white,
-    borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: '#e6e6e6',
-    padding: metrics.largeToHuge,
+    backgroundColor: colors.white
   },
   darkItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: metrics.medium,
     alignItems: 'center',
-    backgroundColor: colors.veryLightGrey,
-    borderBottomWidth: metrics.smallBorder,
-    borderBottomColor: '#e6e6e6',
-    padding: metrics.largeToHuge,
+    backgroundColor: colors.veryLightGrey
   },
   imageTitleContainer: {
     flexDirection: 'row',
@@ -120,10 +117,11 @@ const styles = StyleSheet.create({
     height: metrics.large
   },
   titleSubTitleContainer: {
-    // flex: 1,
-    flexDirection: 'column',
-    marginLeft: metrics.large,
-    // backgroundColor: 'red'
+    flex: 1,
+    marginHorizontal: metrics.large,
+    paddingVertical: metrics.large,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9E9E9'
   },
   titleText: {
     fontSize: fonts.size.large,

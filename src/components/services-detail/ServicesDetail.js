@@ -3,12 +3,13 @@ import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 import { Ionicons }  from '@expo/vector-icons';
+import HeaderTitle from './HeaderTitle.js';
 // import PropTypes from 'prop-types';
 
 class ServicesDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Services Detail',
+    headerTitle: <HeaderTitle />
   })
 
 

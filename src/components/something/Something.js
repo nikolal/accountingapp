@@ -1,9 +1,17 @@
 import React from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import { DangerZone } from 'expo';
+import HeaderTitle from './HeaderTitle.js';
+
 const { Lottie } = DangerZone;
 
 export default class App extends React.Component {
+
+
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: <HeaderTitle />
+  });
+
   state = {
     animation: null,
   };

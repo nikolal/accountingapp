@@ -7,12 +7,13 @@ import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import Modal from './Modal.js';
+import HeaderTitle from './HeaderTitle.js';
 
 class News extends Component {
 
-  // static navigationOptions = ({ navigation }) => ({
-  //   headerTitle: <HeaderTitle /> // TODO: create HeaderTitle and connect it with redux
-  // });
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: <HeaderTitle />
+  });
 
   state = {
     modalVisible: false

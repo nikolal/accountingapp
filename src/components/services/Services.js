@@ -3,13 +3,14 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, Dimensions
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { saveServices } from './ServicesContainer.js';
+import HeaderTitle from './HeaderTitle.js';
 import { metrics, colors, fonts } from '../../theme';
 
 class Services extends Component {
 
-  static navigationOptions = {
-    headerTitle: 'Our Services'
-  }
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: <HeaderTitle />
+  });
 
   goToServicesDetail = (screenName, services) => {
     this.props.saveServices(services);

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+// import PropTypes from 'prop-types';
 import { metrics, colors, fonts } from '../../theme';
-import { SimpleLineIcons }  from '@expo/vector-icons';
+// import { SimpleLineIcons }  from '@expo/vector-icons';
+import HeaderTitle from './HeaderTitle.js';
 
 import { MapView } from 'expo';
 const { Marker } = MapView;
 
 
 class Contact extends Component {
+
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: <HeaderTitle />
+  });
 
   goToContactMessage = screenName => {
     this.props.navigation.navigate(screenName);

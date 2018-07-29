@@ -5,10 +5,15 @@ import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
 import { saveArticle } from './TaxesContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
+import HeaderTitle from './HeaderTitle.js';
 // import { translations } from '../../translation.js';
 
 
 class Taxes extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+      headerTitle: <HeaderTitle />
+    });
 
   goToTaxesDetails = (screenName, article) => {
     this.props.saveArticle(article);

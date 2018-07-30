@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     marginVertical: metrics.large
   },
   item: {
-
   },
   text: {
     fontFamily: 'openSansRegular',

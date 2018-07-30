@@ -19,7 +19,7 @@ import TemporaryPermanentJobsCalculator from './TemporaryPermanentJobsCalculator
 import ContractPioTax from './ContractPioTax';
 import ContractTaxPioHealth from './ContractTaxPioHealth';
 import ContractTax from './ContractTax';
-import Allowance from './Allowance';
+import Allowance from './allowance/Allowance';
 import AnnualTax from './AnnualTax';
 
 

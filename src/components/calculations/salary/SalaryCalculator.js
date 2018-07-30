@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Image, Dimensions } from 'react-native';
-import { metrics, colors, fonts, images } from '../../theme';
+import { metrics, colors, fonts, images } from '../../../theme';
 import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 

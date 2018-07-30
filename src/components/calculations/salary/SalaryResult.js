@@ -1,34 +1,30 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
 const SalaryResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Bruto</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.value.toFixed(2)}</Text>
+        <Text style={styles.text}>Ukupna bruto zarada</Text>
+        <Text style={styles.number}>{calculation.grossSalary.value}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Porez 10%</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.tax.toFixed(2)}</Text>
+        <Text style={styles.text}>Neto za isplatu</Text>
+        <Text style={styles.number}>{calculation.totalNet}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>PIO 14%</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.pension.toFixed(2)}</Text>
+        <Text style={styles.text}>Porez na zarade</Text>
+        <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>PIO - 12%</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.pension.toFixed(2)}</Text>
+        <Text style={styles.text}>Ukupan trosak zarade</Text>
+        <Text style={styles.number}>{calculation.totalContributions}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Zdravsveni</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.health.toFixed(2)}</Text>
-      </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Nez</Text>
-        <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.nez.toFixed(2)}</Text>
+        <Text style={styles.text}>Ukupan obracun</Text>
+        <Text style={styles.number}>{calculation.totalSalary}</Text>
       </View>
     </View>
   );
@@ -41,6 +37,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: metrics.medium,
+  },
+  headline: {
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.huge,
+    color: colors.darkGrey,
+    alignSelf: 'center'
   },
   itemContainer: {
     flexDirection: 'row',

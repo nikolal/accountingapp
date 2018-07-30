@@ -4,7 +4,7 @@ import { metrics, colors, fonts, images } from '../../../theme';
 import AllowanceResult from './AllowanceResult.js';
 import AllowanceResultAway from './AllowanceResultAway.js';
 
-
+// Nesto mi gura skrollview nize (za sirinu buttonsContainer) - vidi gde ulazi kad se skroluje
 const Allowance = props => {
 
   return (

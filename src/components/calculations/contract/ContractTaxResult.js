@@ -1,48 +1,42 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
-const SalaryResult = ({ calculation }) => {
+const ContractTaxResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupna bruto zarada</Text>
-        <Text style={styles.number}>{calculation.grossSalary.value}</Text>
+        <Text style={styles.text}>Neto</Text>
+        <Text style={styles.number}>{calculation.concractTax.value}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto za isplatu</Text>
-        <Text style={styles.number}>{calculation.totalNet}</Text>
+        <Text style={styles.text}>Bruto</Text>
+        <Text style={styles.number}>{calculation.concractTax.gross.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Porez na zarade</Text>
-        <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
+        <Text style={styles.text}>Neoporezivo - 20%</Text>
+        <Text style={styles.number}>{calculation.concractTax.nontaxable.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupan trosak zarade</Text>
-        <Text style={styles.number}>{calculation.totalContributions}</Text>
+        <Text style={styles.text}>Osnovica za oporezivanje</Text>
+        <Text style={styles.number}>{calculation.concractTax.base.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupan obracun</Text>
-        <Text style={styles.number}>{calculation.totalSalary}</Text>
+        <Text style={styles.text}>Porez 20%</Text>
+        <Text style={styles.number}>{calculation.concractTax.tax.toFixed(2)}</Text>
       </View>
     </View>
   );
 };
 
 
-export default SalaryResult;
+export default ContractTaxResult;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: metrics.medium,
-  },
-  headline: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
-    color: colors.darkGrey,
-    alignSelf: 'center'
   },
   itemContainer: {
     flexDirection: 'row',

@@ -1,45 +1,41 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
-const ContractPioTaxHealthResult = ({ calculation }) => {
+const ContractPioTaxResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Neto</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.value}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.value}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Bruto</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.gross.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.gross.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Neoporezivo - 20%</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.nontaxable.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.nontaxable.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.base.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.base.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.tax.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.tax.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>PIO 26%</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.pension.toFixed(2)}</Text>
-      </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Doprinos za zdravstvo</Text>
-        <Text style={styles.number}>{calculation.concractPioTaxHealth.contribution.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.contractPioTax.pension.toFixed(2)}</Text>
       </View>
     </View>
   );
 };
 
 
-export default ContractPioTaxHealthResult;
+export default ContractPioTaxResult;
 
 const styles = StyleSheet.create({
   container: {

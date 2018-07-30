@@ -14,13 +14,13 @@ import {
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
   annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin
   } from './CalculationsContainer';
-import SalaryCalculator from './SalaryCalculator';
-import TemporaryPermanentJobsCalculator from './TemporaryPermanentJobsCalculator';
-import ContractPioTax from './ContractPioTax';
-import ContractTaxPioHealth from './ContractTaxPioHealth';
-import ContractTax from './ContractTax';
-import Allowance from './Allowance';
-import AnnualTax from './AnnualTax';
+import SalaryCalculator from './salary/SalaryCalculator';
+import TemporaryPermanentJobsCalculator from './temporaryPermanentJobs/TemporaryPermanentJobsCalculator';
+import ContractPioTax from './contract/ContractPioTax';
+import ContractTaxPioHealth from './contract/ContractTaxPioHealth';
+import ContractTax from './contract/ContractTax';
+import Allowance from './allowance/Allowance';
+import AnnualTax from './annual/AnnualTax';
 
 
 class CalculationDetail1 extends Component {

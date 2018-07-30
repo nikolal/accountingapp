@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity, StyleSheet, TextInput, Dimensions,KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts, images } from '../../theme';
-import TempPermJobsResult from './TempPermJobsResult.js';
+import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Image, Dimensions } from 'react-native';
+import { metrics, colors, fonts, images } from '../../../theme';
+import ContractTaxResult from './ContractTaxResult.js';
 
 
-const TemporaryPermanentJobsCalculator = props => {
+const ContractTax = props => {
   return (
     <View style={styles.container}>
       <Image source={images.gross} style={styles.image}/>
       <View style={styles.calculTextContainer}>
-        <Text style={styles.calculText}>Obračun Poslova</Text>
-        <Text style={styles.calculText}>(RSD)</Text>
+        <Text style={styles.calculText}>Ugovor o delu</Text>
+        <Text style={styles.calculText}>(Porez - RSD)</Text>
       </View>
       <ScrollView style={styles.scrollViewContainer}>
         <KeyboardAvoidingView
           style={styles.inputsContainer}
           behavior="padding"
         >
-        <TextInput
-          style={styles.inputText}
-          onChangeText={props.saveInput}
-          keyboardType="numeric"
-          placeholder="Unestite BRUTO izons plate na mesecnom nivou"
-          placeholderTextColor="black"
-        />
+          <TextInput
+            style={styles.inputText}
+            onChangeText={props.saveInput}
+            keyboardType="numeric"
+            placeholder="Unesite NETO iznos plate"
+            placeholderTextColor="black"
+          />
           <Text>{props.calculation.value}</Text>
           <TouchableOpacity
             style={styles.button}
@@ -32,7 +32,7 @@ const TemporaryPermanentJobsCalculator = props => {
           </TouchableOpacity>
           {
             props.showResult ?
-              <TempPermJobsResult
+              <ContractTaxResult
                 calculation={props.calculation}
               />
             :
@@ -45,7 +45,7 @@ const TemporaryPermanentJobsCalculator = props => {
 };
 
 
-export default TemporaryPermanentJobsCalculator;
+export default ContractTax;
 
 const styles = StyleSheet.create({
   container: {
@@ -56,37 +56,18 @@ const styles = StyleSheet.create({
   },
   calculTextContainer: {
     position: 'absolute',
-    top: 90,
+    top: 80,
     alignSelf: 'center'
    },
-  calculText: {
-    color: colors.white,
-    fontSize: fonts.size.extraHuge,
-    alignSelf: 'center'
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    top: -61,
-  },
-  buttons: {
-    flex: 1,
-    borderColor: 'rgb(151,151,151)',
-    borderTopWidth: metrics.tinyBorder,
-    borderBottomWidth: metrics.tinyBorder,
-    padding: metrics.huge,
-    backgroundColor: '#00000050'
-  },
-  buttonText: {
-    alignSelf: 'center',
-    fontSize: fonts.size.medium,
-    fontFamily: 'openSansBold',
-    color: colors.white,
-  },
-  scrollViewContainer: {
-    flex: 1,
-    paddingHorizontal: metrics.large
-  },
+   calculText: {
+     color: colors.white,
+     fontSize: fonts.size.extraHuge,
+     alignSelf: 'center'
+   },
+   scrollViewContainer: {
+     flex: 1,
+     paddingHorizontal: metrics.large
+   },
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
@@ -101,6 +82,12 @@ const styles = StyleSheet.create({
     marginBottom: metrics.large,
     padding: metrics.medium,
     borderRadius: metrics.small,
+  },
+  buttonText: {
+    alignSelf: 'center',
+    fontSize: fonts.size.large,
+    fontFamily: 'openSansBold',
+    color: colors.white,
   },
   description: {
     alignSelf: 'center',

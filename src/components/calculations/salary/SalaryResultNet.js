@@ -1,35 +1,44 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
-const AllowanceResult = ({ calculation }) => {
+const SalaryResultNet = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto dnevnica u RSD</Text>
-        <Text style={styles.number}>{calculation.allowancesHome.value}</Text>
+        <Text style={styles.text}>Ukupna bruto zarada</Text>
+        <Text style={styles.number}>{calculation.netSalary.value}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toFixed(2)}</Text>
+        <Text style={styles.text}>Porez na zarade</Text>
+        <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}</Text>
+        <Text style={styles.text}>Ukupan trosak zarade</Text>
+        <Text style={styles.number}>{calculation.totalContributions.toFixed(2)}</Text>
       </View>
-
+      <View style={styles.itemContainer}>
+        <Text style={styles.text}>Ukupan obracun</Text>
+        <Text style={styles.number}>{calculation.totalSalary}</Text>
+      </View>
     </View>
   );
 };
 
 
-export default AllowanceResult;
+export default SalaryResultNet;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: metrics.medium,
+  },
+  headline: {
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.huge,
+    color: colors.darkGrey,
+    alignSelf: 'center'
   },
   itemContainer: {
     flexDirection: 'row',

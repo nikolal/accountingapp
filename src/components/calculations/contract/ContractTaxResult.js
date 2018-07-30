@@ -1,29 +1,37 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
-const AnnualTaxResult = ({ calculation }) => {
+const ContractTaxResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto dnevnica u RSD</Text>
-        <Text style={styles.number}>{calculation.annualTax.value}</Text>
+        <Text style={styles.text}>Neto</Text>
+        <Text style={styles.number}>{calculation.concractTax.value}</Text>
+      </View>
+      <View style={styles.itemContainer}>
+        <Text style={styles.text}>Bruto</Text>
+        <Text style={styles.number}>{calculation.concractTax.gross.toFixed(2)}</Text>
+      </View>
+      <View style={styles.itemContainer}>
+        <Text style={styles.text}>Neoporezivo - 20%</Text>
+        <Text style={styles.number}>{calculation.concractTax.nontaxable.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.annualTax.gross && calculation.annualTax.gross.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.concractTax.base.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.annualTax.tax && calculation.annualTax.tax.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.concractTax.tax.toFixed(2)}</Text>
       </View>
-
     </View>
   );
 };
 
-export default AnnualTaxResult;
+
+export default ContractTaxResult;
 
 const styles = StyleSheet.create({
   container: {

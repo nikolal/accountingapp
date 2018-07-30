@@ -1,22 +1,22 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts } from '../../../theme';
 
 const AllowanceResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto dnevnica u EUR</Text>
-        <Text style={styles.number}>{calculation.allowancesAway.value}</Text>
+        <Text style={styles.text}>Neto dnevnica u RSD</Text>
+        <Text style={styles.number}>{calculation.allowancesHome.value}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Osnovica za oporezivanje</Text>
-        <Text style={styles.number}>{calculation.allowancesAway.gross && calculation.allowancesAway.gross.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toFixed(2)}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={styles.text}>Porez 20%</Text>
-        <Text style={styles.number}>{calculation.allowancesAway.tax && calculation.allowancesAway.tax.toFixed(2)}</Text>
+        <Text style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}</Text>
       </View>
 
     </View>

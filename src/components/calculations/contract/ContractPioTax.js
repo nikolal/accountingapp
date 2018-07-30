@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { metrics, colors, fonts } from '../../theme';
+import { Text, View, TouchableOpacity, StyleSheet, Image, Dimensions, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { metrics, colors, fonts, images } from '../../../theme';
 import ContractPioTaxResult from './ContractPioTaxResult.js';
 
 
 const ContractPioTax = props => {
   return (
     <View style={styles.container}>
+      <Image source={images.gross} style={styles.image}/>
+      <View style={styles.calculTextContainer}>
+        <Text style={styles.calculText}>Ugovor o delu</Text>
+        <Text style={styles.calculText}>(Porez, PIO - RSD)</Text>
+      </View>
       <ScrollView style={styles.scrollViewContainer}>
         <KeyboardAvoidingView
           style={styles.inputsContainer}
           behavior="padding"
         >
-          <Text style={styles.name}>Ugovor o delu - PIO i porez</Text>
-          <Text style={styles.text}>Unesite NETO iznos plate</Text>
           <TextInput
             style={styles.inputText}
             onChangeText={props.saveInput}
             keyboardType="numeric"
+            placeholder="Unesite NETO iznos plate"
+            placeholderTextColor="black"
           />
           <Text>{props.calculation.value}</Text>
           <TouchableOpacity
@@ -45,33 +50,38 @@ export default ContractPioTax;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: metrics.medium,
   },
-  name: {
-    fontFamily: 'openSansBold',
-    fontSize: fonts.size.huge,
-    alignSelf: 'center',
-    color: colors.lightBlue1,
-    marginVertical: metrics.huge
+  image: {
+    height: Dimensions.get('window').height / 2.8,
   },
-  text: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.medium,
-    alignSelf: 'center',
-    color: colors.grey
-  },
+  calculTextContainer: {
+    position: 'absolute',
+    top: 80,
+    alignSelf: 'center'
+   },
+   calculText: {
+     color: colors.white,
+     fontSize: fonts.size.extraHuge,
+     alignSelf: 'center'
+   },
+   scrollViewContainer: {
+     flex: 1,
+     paddingHorizontal: metrics.large
+   },
   inputText: {
-    height: 40,
-    borderColor: colors.darkGrey,
+    height: 50,
+    borderColor: 'rgb(141,141,141)',
     borderWidth: metrics.smallBorder,
-    marginVertical: metrics.huge,
-    borderRadius: metrics.small
+    marginVertical: metrics.extraHuge,
+    borderRadius: metrics.small,
+    fontSize: fonts.size.small,
+    textAlign: 'center'
   },
   button: {
-    backgroundColor: colors.lightBlue2,
+    backgroundColor: '#14B7C5',
     marginBottom: metrics.large,
     padding: metrics.medium,
-    borderRadius: 10,
+    borderRadius: metrics.small,
   },
   buttonText: {
     alignSelf: 'center',
@@ -82,6 +92,7 @@ const styles = StyleSheet.create({
   description: {
     alignSelf: 'center',
     marginTop: metrics.large,
-    color: colors.grey
+    fontSize: fonts.size.small,
+    color: 'rgb(128,128,128)'
   }
 });

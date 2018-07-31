@@ -8,7 +8,7 @@ import HeaderTitle from './HeaderTitle.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import { LinearGradient } from 'expo';
 
-
+// kako resiti ovaj problem - jedna slika je mnogo svetlija i jacih boja pa deluje da nema opacity
 
 class Calculations extends Component {
 
@@ -25,10 +25,10 @@ class Calculations extends Component {
   renderList = (item) =>
     <TouchableOpacity style={styles.item} key={item.name} onPress={() => this.goToCalculation(item)}>
       <View style={styles.imageTextContainer}>
-        <Image source={images.backgroundImage} style={styles.backgroundImage}/>
+        <Image source={item.image} style={styles.backgroundImage}/>
         <View style={styles.innerImageContainer}>
           <Image source={item.icons} style={styles.innerImage}/>
-          <TouchableOpacity style={styles.goButton}><Text style={styles.buttonText}>>>></Text></TouchableOpacity>
+          <TouchableOpacity style={styles.goButton} key={item.name} onPress={() => this.goToCalculation(item)}><Text style={styles.buttonText}>>>></Text></TouchableOpacity>
         </View>
         <Text style={styles.textItem} numberOfLines={2}>{item.name}</Text>
         <Text style={styles.explanation} numberOfLines={1}>{item.nameExpl}</Text>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   innerImage: {
     // zIndex: 100,
     height: 50,
-    width: 40
+    width: 41
   },
   goButton: {
     alignSelf: 'flex-start',

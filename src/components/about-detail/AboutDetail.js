@@ -28,16 +28,12 @@ class AboutDetail extends Component {
     return (
       article.title === 'Our Team' || 'Naš tim' || article.title === 'Our company' || 'Naša kompanija' ?
         <ScrollView style={styles.container}>
-          <View style={styles.innerContainer}>
             <Image
               style={styles.image}
-              source={{uri: article.image}}
+              source={article.image}
             />
             <Text style={styles.description}>{article.description[this.props.language]}</Text>
-            <View style={styles.paragraphsContainer}>
-              {article.paragraphs.map(this.renderArticle)}
-            </View>
-          </View>
+            {article.paragraphs.map(this.renderArticle)}
         </ScrollView> :
       article.title === 'Our clients' || 'Naši klijenti' ?
         <ScrollView style={styles.container}>
@@ -67,11 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white
   },
-  innerContainer: {
-    // margin: metrics.medium,
-    padding: metrics.medium,
-    backgroundColor: colors.white,
-  },
+
   innerContainerClients: {
     flex: 1,
     flexDirection: 'row',
@@ -81,43 +73,35 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   image: {
-    height: 150,
-    width: 150,
-    borderRadius: 75,
-    alignSelf: 'center',
-    marginVertical: metrics.huge,
+    height: 145,
+    width: 130,
+    margin: metrics.huge,
   },
   description: {
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
-    color: colors.lightBlue1,
-    alignSelf: 'center',
+    color: colors.black,
+    marginHorizontal: metrics.large,
     marginBottom: metrics.huge,
-    marginHorizontal: metrics.large
-  },
-  paragraphsContainer: {
-    margin: metrics.medium
   },
   headlineContainer: {
-    // backgroundColor: '#d1eaf9',
-    borderBottomWidth: metrics.mediumBorder,
-    borderBottomColor: colors.lightBlue1,
-    borderRadius: 5,
-    padding: metrics.small,
-    marginRight: metrics.medium,
-    marginBottom: metrics.medium
+    backgroundColor: '#fcfcfc',
+    borderBottomWidth: metrics.tinyBorder,
+    borderTopWidth: metrics.tinyBorder,
+    borderColor: '#E9E9E9',
+    padding: metrics.large,
+    paddingVertical: metrics.huge
   },
   headline: {
     fontSize: fonts.size.large,
-    fontFamily: 'openSansBold',
-    color: colors.grey,
+    fontFamily: 'openSansRegular',
+    color: colors.lightBlue1,
   },
   textParagraph: {
-    marginHorizontal: metrics.medium,
-    marginBottom: metrics.medium,
-    fontSize: fonts.size.medium,
+    marginHorizontal: metrics.large,
+    marginVertical: metrics.medium,
+    fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
-    color: colors.grey
   },
   clientsImage: {
     height: 100,

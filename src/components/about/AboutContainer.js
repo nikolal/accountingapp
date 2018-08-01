@@ -13,11 +13,11 @@ const initialState = {
       rs: 'Više o našem timu'
     },
     description: {
-      en: 'MILKA JANICIC - Managing Director',
+      en: 'MILKA JANIČIĆ - Managing Director',
       rs: 'MILKA JANIČIĆ - Direktor'
     },
     icon: require('../../../assets/images/iconteam.png'),
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Milka-Accounting-company-belgrade.jpg',
+    image: require('../../../assets/images/milkaSlika.png'),
     paragraphs: [{
         type: 'headline',
         value: {

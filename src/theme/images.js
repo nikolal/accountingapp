@@ -18,9 +18,9 @@ const images = {
   taxDefault: require('../../assets/images/taxDefault.png'),
   taxSelected: require('../../assets/images/taxSelected.png'),
   newspaperDefault: require('../../assets/images/newspaperDefault.png'),
+  newspaperSelected: require('../../assets/images/newspaperSelected.png'),
   iconServices: require('../../assets/images/iconServices.png'),
-  servicesImagex: require('../../assets/images/servicesImagex.png')
-
+  servicesImagex: require('../../assets/images/servicesImagex.png'),
 };
 
 export default images;

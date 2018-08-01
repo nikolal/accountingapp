@@ -5,28 +5,38 @@ import { metrics, colors, fonts } from '../../../theme';
 const SalaryResult = ({ calculation }) => {
 
   return (
-    <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupna bruto zarada</Text>
-        <Text style={styles.number}>{calculation.grossSalary.value}</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.itemContainerDark}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>Ukupna bruto zarada</Text>
+          <Text style={styles.number}>{calculation.grossSalary.value}</Text>
+        </View>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Neto za isplatu</Text>
-        <Text style={styles.number}>{calculation.totalNet}</Text>
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>Neto za isplatu</Text>
+          <Text style={styles.number}>{calculation.totalNet}</Text>
+        </View>
+      </View>
+      <View style={styles.itemContainerDark}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>Porez na zarade</Text>
+          <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
+        </View>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>Porez na zarade</Text>
-        <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>Ukupan trosak zarade</Text>
+          <Text style={styles.number}>{calculation.totalContributions}</Text>
+        </View>
       </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupan trosak zarade</Text>
-        <Text style={styles.number}>{calculation.totalContributions}</Text>
+      <View style={styles.itemContainerDark}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>Ukupan obracun</Text>
+          <Text style={styles.number}>{calculation.totalSalary}</Text>
+        </View>
       </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.text}>Ukupan obracun</Text>
-        <Text style={styles.number}>{calculation.totalSalary}</Text>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -36,29 +46,33 @@ export default SalaryResult;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: metrics.medium,
-  },
-  headline: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
-    color: colors.darkGrey,
-    alignSelf: 'center'
+    backgroundColor: colors.white,
+    paddingTop: metrics.large,
   },
   itemContainer: {
+    backgroundColor: colors.white
+
+  },
+  itemContainerDark: {
+    backgroundColor: colors.veryLightGrey,
+  },
+  innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: metrics.large,
-    borderBottomColor: colors.grey,
-    borderBottomWidth: metrics.smallBorder
+    paddingVertical: metrics.hugeToExtrahuge,
+    marginHorizontal: metrics.hugeToExtrahuge,
+    borderColor: '#e6e6e6',
+    borderBottomWidth: metrics.tinyBorder,
+    borderTopWidth: metrics.tinyBorder
   },
   text: {
     fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
+    fontSize: fonts.size.medium,
     color: colors.grey
   },
   number: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.huge,
-    color: colors.lightBlue1
+    color: '#47d6e2'
   }
 });

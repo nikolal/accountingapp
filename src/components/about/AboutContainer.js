@@ -92,8 +92,8 @@ const initialState = {
       en: 'WELCOME TO HLB T&M CONSULTING.',
       rs: 'DOBRODOŠLI'
     },
-    image: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/Transfer-pricing-Belgrade.jpg',
     icon: require('../../../assets/images/iconCompany.png'),
+    image: require('../../../assets/images/servicesImagex.png'),
     paragraphs: [{
       type: 'text',
       value:{

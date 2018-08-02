@@ -33,7 +33,7 @@ const SalaryResult = ({ calculation }) => {
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Ukupan obracun</Text>
-          <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toFixed(2)}</Text>
+          <Text style={styles.number}>{calculation.totalSalary}</Text>
         </View>
       </View>
     </ScrollView>

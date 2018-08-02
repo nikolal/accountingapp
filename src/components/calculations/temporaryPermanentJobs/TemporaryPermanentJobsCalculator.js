@@ -7,7 +7,7 @@ import TempPermJobsResult from './TempPermJobsResult.js';
 const TemporaryPermanentJobsCalculator = props => {
   return (
     <View style={styles.container}>
-      <Image source={images.gross} style={styles.image}/>
+      <Image source={images.background} style={styles.image}/>
       <View style={styles.calculTextContainer}>
         <Text style={styles.calculText}>Obračun Poslova</Text>
         <Text style={styles.calculText}>(RSD)</Text>

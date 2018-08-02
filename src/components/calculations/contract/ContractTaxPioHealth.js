@@ -7,7 +7,7 @@ import ContractPioTaxHealthResult from './ContractPioTaxHealthResult.js';
 const ContractPioTaxHealth = props => {
   return (
     <View style={styles.container}>
-      <Image source={images.gross} style={styles.image}/>
+      <Image source={images.background} style={styles.image}/>
       <View style={styles.calculTextContainer}>
         <Text style={styles.calculText}>Ugovor o delu</Text>
         <Text style={styles.calculTextBottom}>(Porez, PIO, zdravstvo - RSD)</Text>

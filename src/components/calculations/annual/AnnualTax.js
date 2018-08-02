@@ -7,7 +7,7 @@ const AnnualTax = props => {
   // console.log(props.finalTax(props.input))
   return (
     <View style={styles.container}>
-      <Image source={images.gross} style={styles.image}/>
+      <Image source={images.background} style={styles.image}/>
       <View style={styles.calculTextContainer}>
         <Text style={styles.calculText}>Godišnji porez</Text>
         <Text style={styles.calculText}>(RSD)</Text>

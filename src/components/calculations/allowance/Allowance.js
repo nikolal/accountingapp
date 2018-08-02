@@ -9,7 +9,7 @@ const Allowance = props => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={images.gross} style={styles.image}>
+      <ImageBackground source={images.background} style={styles.image}>
         {
           props.calculation.type === 'allowanceHome' ?
             <View style={styles.calculTextContainer}>
@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
     borderTopWidth: metrics.tinyBorder,
     borderBottomWidth: metrics.tinyBorder,
     paddingTop: 15,
-    // backgroundColor: 'yellow'
     backgroundColor: '#08000099'
   },
   buttonText: {

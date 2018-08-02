@@ -9,31 +9,31 @@ const SalaryResult = ({ calculation }) => {
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Ukupna bruto zarada</Text>
-          <Text style={styles.number}>{calculation.grossSalary.value}</Text>
+          <Text style={styles.number}>{calculation.grossSalary.value && calculation.grossSalary.value.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Neto za isplatu</Text>
-          <Text style={styles.number}>{calculation.totalNet}</Text>
+          <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Porez na zarade</Text>
-          <Text style={styles.number}>{calculation.grossSalary.tax}</Text>
+          <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Ukupan trosak zarade</Text>
-          <Text style={styles.number}>{calculation.totalContributions}</Text>
+          <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Ukupan obracun</Text>
-          <Text style={styles.number}>{calculation.totalSalary}</Text>
+          <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toFixed(2)}</Text>
         </View>
       </View>
     </ScrollView>
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     backgroundColor: colors.white
-
   },
   itemContainerDark: {
     backgroundColor: colors.veryLightGrey,

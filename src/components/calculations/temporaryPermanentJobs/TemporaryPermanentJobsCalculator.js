@@ -12,34 +12,37 @@ const TemporaryPermanentJobsCalculator = props => {
         <Text style={styles.calculText}>Obračun Poslova</Text>
         <Text style={styles.calculText}>(RSD)</Text>
       </View>
-      <ScrollView style={styles.scrollViewContainer}>
-        <KeyboardAvoidingView
-          style={styles.inputsContainer}
-          behavior="padding"
-        >
-        <TextInput
-          style={styles.inputText}
-          onChangeText={props.saveInput}
-          keyboardType="numeric"
-          placeholder="Unestite BRUTO izons plate na mesecnom nivou"
-          placeholderTextColor="black"
-        />
-          <Text>{props.calculation.value}</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => props.calculateValue(props.calculation.input)}>
-            <Text style={styles.buttonText}>Izracunaj</Text>
-          </TouchableOpacity>
-          {
-            props.showResult ?
-              <TempPermJobsResult
-                calculation={props.calculation}
-              />
-            :
+      {
+        !props.showResult &&
+          <ScrollView style={styles.scrollViewContainer}>
+            <KeyboardAvoidingView
+              style={styles.inputsContainer}
+              behavior="padding"
+            >
+            <TextInput
+              style={styles.inputText}
+              onChangeText={props.saveInput}
+              keyboardType="numeric"
+              placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+              placeholderTextColor="black"
+            />
+              <Text>{props.calculation.value}</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => props.calculateValue(props.calculation.input)}>
+                <Text style={styles.buttonText}>Izracunaj</Text>
+              </TouchableOpacity>
               <Text style={styles.description}>{props.calculation.description}</Text>
-          }
-        </KeyboardAvoidingView>
-      </ScrollView>
+            </KeyboardAvoidingView>
+          </ScrollView>
+      }
+      {
+        props.showResult ?
+          <TempPermJobsResult
+            calculation={props.calculation}
+          />
+        : null
+      }
     </View>
   );
 };
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
     borderRadius: metrics.small,
   },
   description: {
+    paddingHorizontal: metrics.large,
     alignSelf: 'center',
     marginTop: metrics.large,
     fontSize: fonts.size.small,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions } from 'react-native';
+import { ScrollView, View, ImageBackground, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Ionicons }  from '@expo/vector-icons';
+import { Feather }  from '@expo/vector-icons';
 import { saveArticle } from './TaxesContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import HeaderTitle from './HeaderTitle.js';
@@ -22,31 +22,27 @@ class Taxes extends Component {
 
   renderList = (item, index) =>
     <TouchableOpacity key={index} onPress={() => this.goToTaxesDetails('TaxesDetail', item)} style={index % 2 === 0 ? styles.darkItem : styles.item}>
-      <Image
-        style={{width: 50, height: 50, borderRadius: 25}}
-        source={{uri: 'https://c.s-microsoft.com/en-us/CMSImages/DevicesBusiness_newimage_1_3up_V1.jpg?version=6d9348ca-7cac-6af6-30c6-177ed07c1a65'}}
-      />
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
-        <Text style={styles.descriptionTitleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
-      </View>
-      <View style={styles.dateTimeContainer}>
-      <Text style={styles.dateText}>{item.date}</Text>
-      <Text style={styles.dateText}>{item.time}</Text>
+      <View style={styles.textArrowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.titleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
+          <Text style={styles.descriptionTitleText} numberOfLines={1}>{item.title[this.props.language]}</Text>
+        </View>
+        <Feather name="arrow-right" size={17} color={colors.lightBlue1}/>
       </View>
     </TouchableOpacity>
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image
+          <ImageBackground
             style={styles.image}
-            source={images.backgroundImage}
-          />
-          <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
-          <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
-        </View>
+            source={images.taxesImage}
+            imageStyle={{ borderRadius: 10 }}
+          >
+            <View style={styles.overlay} />
+            <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
+            <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
+          </ImageBackground>
         {this.props.taxes.map(this.renderList)}
       </ScrollView>
     );
@@ -69,54 +65,59 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white
   },
-  imageContainer: {
-    alignItems: 'center',
-    paddingVertical: metrics.huge,
-    backgroundColor: colors.white
-  },
   image: {
     height: Dimensions.get('window').height / 3,
     width: Dimensions.get('window').width / 1.1,
-    borderRadius: 10
+    alignSelf: 'center',
+    marginVertical: metrics.huge,
+    justifyContent: 'center',
   },
+  overlay: {
+     ...StyleSheet.absoluteFillObject, // {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0}
+     backgroundColor: '#00000040',
+     borderRadius: 10
+   },
   textOverImage: {
-    position: 'absolute',
-    top: 140,
-    alignSelf: 'flex-start',
     color: colors.white,
     fontSize: fonts.size.medium,
     fontFamily: 'openSansBold',
-    marginLeft:metrics.xxxHuge,
-    marginRight: metrics.xxxHuge
+    marginHorizontal: metrics.huge,
   },
   smallTextOverImage: {
-    position: 'absolute',
-    top: 200,
-    alignSelf: 'flex-start',
     color: colors.white,
     fontSize: fonts.size.smallToMedium,
     fontFamily: 'openSansRegular',
-    marginLeft:metrics.xxxHuge,
+    marginLeft:metrics.huge,
   },
   darkItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.veryLightGrey,
-    paddingHorizontal: metrics.large
+    backgroundColor: '#F6FCFCFC',
+    paddingHorizontal: metrics.extraHuge
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: metrics.white,
-    paddingHorizontal: metrics.large
+    paddingHorizontal: metrics.extraHuge
+  },
+  textArrowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+    paddingVertical: metrics.huge,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9E9E9',
+    // width: Dimensions.get('window').width / 2.7
   },
   textContainer: {
     flex: 1,
-    paddingVertical: metrics.huge,
-    paddingHorizontal: metrics.large,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E9E9E9',
-    width: Dimensions.get('window').width / 2.7
+    // backgroundColor: 'yellow',
+    // paddingVertical: metrics.huge,
+    // borderBottomWidth: 1,
+    // borderBottomColor: '#E9E9E9',
+    // width: Dimensions.get('window').width / 2.7
   },
   titleText: {
     fontSize: fonts.size.medium,
@@ -126,8 +127,4 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansLight',
     fontSize: fonts.size.small,
   },
-  dateText: {
-    fontSize: fonts.size.tiny,
-    fontFamily: 'openSansRegular',
-  }
 });

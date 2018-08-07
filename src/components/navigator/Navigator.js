@@ -16,6 +16,9 @@ import Settings from '../settings/Settings.js';
 import TaxesDetail from '../taxes-detail/TaxesDetail';
 import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
+import Something from '../something/Something.js';
+import IncentivesDetail from '../incentives-detail/IncentivesDetail.js';
+
 
 
 const navigationConfig = {
@@ -54,6 +57,8 @@ const Navigator = StackNavigator({
   CalculationDetail: { screen: CalculationDetail},
   CalculationDetail1: { screen: CalculationDetail1},
   TaxesDetail: { screen: TaxesDetail },
+  Something: {screen: Something},
+  IncentivesDetail: {screen: IncentivesDetail}
 }, navigationConfig);
 
 export default Navigator;

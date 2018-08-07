@@ -46,7 +46,7 @@ class Settings extends Component {
 
   render() {
     return (
-      <ImageBackground source={images.background} style={styles.container} resizeMode="cover">
+      <ImageBackground source={images.drawerBackground} style={styles.container} resizeMode="cover">
         <View style={styles.logoImageContainer}>
           <Image source={images.logoImage} style={styles.logoImage} />
         </View>

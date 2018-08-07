@@ -70,7 +70,7 @@ const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
         <Image
-          source={images.contractSelected}
+          source={images.newspaperSelected}
           style={{width: 25, height: 20}}
         />
       :

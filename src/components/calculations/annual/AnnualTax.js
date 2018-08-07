@@ -7,51 +7,55 @@ const AnnualTax = props => {
   // console.log(props.finalTax(props.input))
   return (
     <View style={styles.container}>
-      <Image source={images.gross} style={styles.image}/>
+      <Image source={images.background} style={styles.image}/>
       <View style={styles.calculTextContainer}>
         <Text style={styles.calculText}>Godišnji porez</Text>
         <Text style={styles.calculText}>(RSD)</Text>
       </View>
-      <ScrollView style={styles.scrollViewContainer}>
-        <KeyboardAvoidingView
-          style={styles.inputsContainer}
-          behavior="padding"
-        >
-          <TextInput
-            style={styles.inputText}
-            onChangeText={props.saveInput}
-            keyboardType="numeric"
-            placeholder="Unesite ukupnu mesecnu zaradu"
-            placeholderTextColor="black"
-          />
-          <TextInput
-            style={styles.inputText}
-            onChangeText={props.saveInputFamily}
-            keyboardType="numeric"
-            placeholder="Broj clanova porodice"
-            placeholderTextColor="black"
-          />
-          <Text>{props.calculation.value}</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              props.calculateValue(props.calculation.input);
-              props.calculateValueInput2(props.calculation.input2);
-              props.calculateFinalAnnualTax(props.calculation.input, props.calculation.input2);
-              console.log(props.finalTax(props.calculation.input));
-            }}>
-            <Text style={styles.buttonText}>Izracunaj</Text>
-          </TouchableOpacity>
-          {
-            props.showResult ?
-              <AnnualTaxResult
-                calculation={props.calculation}
+      {
+        !props.showResult &&
+          <ScrollView style={styles.scrollViewContainer}>
+            <KeyboardAvoidingView
+              style={styles.inputsContainer}
+              behavior="padding"
+            >
+              <TextInput
+                style={styles.inputText}
+                onChangeText={props.saveInput}
+                keyboardType="numeric"
+                placeholder="Unesite ukupnu mesecnu zaradu"
+                placeholderTextColor="black"
               />
-            :
+              <TextInput
+                style={styles.inputText}
+                onChangeText={props.saveInputFamily}
+                keyboardType="numeric"
+                placeholder="Broj clanova porodice"
+                placeholderTextColor="black"
+              />
+              <Text>{props.calculation.value}</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                  props.calculateValue(props.calculation.input);
+                  props.calculateValueInput2(props.calculation.input2);
+                  props.calculateFinalAnnualTax(props.calculation.input, props.calculation.input2);
+                  console.log(props.finalTax(props.calculation.input));
+                }}>
+                <Text style={styles.buttonText}>Izracunaj</Text>
+              </TouchableOpacity>
               <Text style={styles.description}>{props.calculation.description}</Text>
-          }
-        </KeyboardAvoidingView>
-      </ScrollView>
+            </KeyboardAvoidingView>
+          </ScrollView>
+      }
+      {
+        props.showResult ?
+          <AnnualTaxResult
+            calculation={props.calculation}
+          />
+        : null
+      }
+
     </View>
   );
 };

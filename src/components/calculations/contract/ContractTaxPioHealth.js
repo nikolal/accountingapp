@@ -7,39 +7,42 @@ import ContractPioTaxHealthResult from './ContractPioTaxHealthResult.js';
 const ContractPioTaxHealth = props => {
   return (
     <View style={styles.container}>
-      <Image source={images.gross} style={styles.image}/>
+      <Image source={images.background} style={styles.image}/>
       <View style={styles.calculTextContainer}>
         <Text style={styles.calculText}>Ugovor o delu</Text>
         <Text style={styles.calculTextBottom}>(Porez, PIO, zdravstvo - RSD)</Text>
       </View>
-      <ScrollView style={styles.scrollViewContainer}>
-        <KeyboardAvoidingView
-          style={styles.inputsContainer}
-          behavior="padding"
-        >
-          <TextInput
-            style={styles.inputText}
-            onChangeText={props.saveInput}
-            keyboardType="numeric"
-            placeholder="Unesite NETO iznos plate"
-            placeholderTextColor="black"
+      {
+        !props.showResult &&
+        <ScrollView style={styles.scrollViewContainer}>
+          <KeyboardAvoidingView
+            style={styles.inputsContainer}
+            behavior="padding"
+          >
+            <TextInput
+              style={styles.inputText}
+              onChangeText={props.saveInput}
+              keyboardType="numeric"
+              placeholder="Unesite NETO iznos plate"
+              placeholderTextColor="black"
+            />
+            <Text>{props.calculation.value}</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => props.calculateValue(props.calculation.input)}>
+              <Text style={styles.buttonText}>Izracunaj</Text>
+            </TouchableOpacity>
+            <Text style={styles.description}>{props.calculation.description}</Text>
+          </KeyboardAvoidingView>
+        </ScrollView>
+      }
+      {
+        props.showResult ?
+          <ContractPioTaxHealthResult
+            calculation={props.calculation}
           />
-          <Text>{props.calculation.value}</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => props.calculateValue(props.calculation.input)}>
-            <Text style={styles.buttonText}>Izracunaj</Text>
-          </TouchableOpacity>
-          {
-            props.showResult ?
-              <ContractPioTaxHealthResult
-                calculation={props.calculation}
-              />
-            :
-              <Text style={styles.description}>{props.calculation.description}</Text>
-          }
-        </KeyboardAvoidingView>
-      </ScrollView>
+        : null
+      }
     </View>
   );
 };

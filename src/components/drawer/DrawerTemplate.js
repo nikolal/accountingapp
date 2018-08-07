@@ -42,7 +42,7 @@ class DrawerTemplate extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageBackground source={images.background} style={{ width: 280, height: Dimensions.get('window').height}}>
+        <ImageBackground source={images.drawerBackground} style={{ width: 280, height: Dimensions.get('window').height}}>
           <View style={styles.textLogoImageContainer}>
             <Image
               style={styles.image}

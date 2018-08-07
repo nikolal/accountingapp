@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions } from 'react-native';
+import { ScrollView, View, ImageBackground, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Feather }  from '@expo/vector-icons';
@@ -34,14 +34,15 @@ class Taxes extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image
+          <ImageBackground
             style={styles.image}
             source={images.taxesImage}
-          />
-          <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
-          <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
-        </View>
+            imageStyle={{ borderRadius: 10 }}
+          >
+            <View style={styles.overlay} />
+            <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
+            <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
+          </ImageBackground>
         {this.props.taxes.map(this.renderList)}
       </ScrollView>
     );
@@ -64,35 +65,29 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white
   },
-  imageContainer: {
-    alignItems: 'center',
-    paddingVertical: metrics.huge,
-    backgroundColor: colors.white
-  },
   image: {
     height: Dimensions.get('window').height / 3,
     width: Dimensions.get('window').width / 1.1,
-    borderRadius: 10,
-    // opacity: 70
+    alignSelf: 'center',
+    marginVertical: metrics.huge,
+    justifyContent: 'center',
   },
+  overlay: {
+     ...StyleSheet.absoluteFillObject, // {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0}
+     backgroundColor: '#00000040',
+     borderRadius: 10
+   },
   textOverImage: {
-    position: 'absolute',
-    top: 140,
-    alignSelf: 'flex-start',
     color: colors.white,
     fontSize: fonts.size.medium,
     fontFamily: 'openSansBold',
-    marginLeft:metrics.xxxHuge,
-    marginRight: metrics.xxxHuge
+    marginHorizontal: metrics.huge,
   },
   smallTextOverImage: {
-    position: 'absolute',
-    top: 200,
-    alignSelf: 'flex-start',
     color: colors.white,
     fontSize: fonts.size.smallToMedium,
     fontFamily: 'openSansRegular',
-    marginLeft:metrics.xxxHuge,
+    marginLeft:metrics.huge,
   },
   darkItem: {
     flexDirection: 'row',

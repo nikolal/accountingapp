@@ -14,19 +14,10 @@ class TaxesDetail extends Component {
 
   renderTaxes = (item, index) =>
     <View key={index} style={index % 2 === 0 ? styles.darkOneParagraph : styles.oneParagraph}>
+      {/* <FontAwesome name="circle" size={7} color="#0D7ec2"/> */}
       <View style={styles.textContainer}>
         <Text style={styles.text}>{item.text[this.props.language]}</Text>
         <Text style={styles.percentage}>{item.percentage[this.props.language]}</Text>
-      </View>
-      <View style={styles.dateContaioner}>
-        <View style={styles.datIconContainer}>
-          <Text style={styles.dateTimeText}>30.04.2018.</Text>
-          <Image style={styles.icons} source={images.iconCalendarsmall}/>
-        </View>
-        <View style={styles.datIconContainer}>
-          <Text style={styles.dateTimeText}>05:52PM</Text>
-          <Image style={styles.icons} source={images.iconClocksmall} />
-        </View>
       </View>
     </View>
 
@@ -67,18 +58,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    height: 90
   },
   darkOneParagraph: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f5fcfc',
-    height: 90
   },
   textContainer: {
+    justifyContent: 'center',
+    height: 100,
     padding: metrics.medium,
-    paddingLeft: metrics.extraHuge,
-    width: Dimensions.get('window').width / 1.4
+    width: Dimensions.get('window').width / 1,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9E9E9',
   },
   text: {
     color: colors.grey,
@@ -89,23 +81,6 @@ const styles = StyleSheet.create({
   percentage: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.small,
-    color: '#0D7ec2'
+    color: '#0D7ec2',
   },
-  datIconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  dateTimeText: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.small,
-    color: '#878888',
-    marginHorizontal: metrics.small,
-  },
-  icons: {
-    height: metrics.medium,
-    width: metrics.medium,
-    marginLeft: metrics.small,
-    marginHorizontal: metrics.small
-  }
 });

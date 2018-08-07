@@ -21,6 +21,7 @@ const images = {
   newspaperSelected: require('../../assets/images/newspaperSelected.png'),
   iconServices: require('../../assets/images/iconServices.png'),
   servicesImagex: require('../../assets/images/servicesImagex.png'),
+  taxesImage: require('../../assets/images/taxesImage.png'),
 };
 
 export default images;

@@ -120,9 +120,8 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: 'rgb(151,151,151)',
     borderTopWidth: metrics.tinyBorder,
-    borderBottomWidth: metrics.tinyBorder,
-    paddingTop: 15,
-    backgroundColor: '#08000099'
+    paddingTop: 22,
+    backgroundColor: '#08000060'
   },
   buttonText: {
     alignSelf: 'center',
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
   },
   trangle: {
     alignSelf: 'center',
-    marginTop: 9,
+    marginTop: 16,
     width: 0,
     height: 0,
     borderWidth: 6,
@@ -144,7 +143,6 @@ const styles = StyleSheet.create({
   scrollViewContainer: {
     paddingHorizontal: metrics.large,
     paddingVertical: metrics.extraHuge,
-    // flex: 1
   },
   inputText: {
     height: 50,

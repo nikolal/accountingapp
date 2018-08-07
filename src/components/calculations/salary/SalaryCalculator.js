@@ -105,8 +105,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: Dimensions.get('window').height / 2.8,
-    justifyContent: 'center',
-
+    justifyContent: 'flex-end', // ne radi!!!!!!!
   },
   calculTextContainer: {
     alignSelf: 'center'

@@ -28,10 +28,6 @@ class IncentiveDetail extends Component {
     return (
       article.title === 'Our Team' || 'Naš tim' || article.title === 'Our company' || 'Naša kompanija' ?
         <ScrollView style={styles.container}>
-            <Image
-              style={styles.image}
-              source={article.image}
-            />
             <Text style={styles.description}>{article.description[this.props.language]}</Text>
             {article.paragraphs.map(this.renderArticle)}
         </ScrollView> :
@@ -68,17 +64,12 @@ const styles = StyleSheet.create({
     padding: metrics.medium,
     backgroundColor: colors.white,
   },
-  image: {
-    height: 145,
-    width: 130,
-    margin: metrics.huge,
-  },
   description: {
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: colors.black,
     marginHorizontal: metrics.large,
-    marginBottom: metrics.huge,
+    marginVertical: metrics.huge,
   },
   headlineContainer: {
     backgroundColor: '#fcfcfc',

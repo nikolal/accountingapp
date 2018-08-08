@@ -22,6 +22,7 @@ const images = {
   iconServices: require('../../assets/images/iconServices.png'),
   servicesImagex: require('../../assets/images/servicesImagex.png'),
   taxesImage: require('../../assets/images/taxesImage.png'),
+  drawerLogo: require('../../assets/images/drawerLogo.png'),
 };
 
 export default images;

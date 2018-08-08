@@ -43,17 +43,12 @@ class DrawerTemplate extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground source={images.drawerBackground} style={{ width: 280, height: Dimensions.get('window').height}}>
-          <View style={styles.textLogoImageContainer}>
+          <View style={styles.drawerLogoContainer}>
             <Image
-              style={styles.image}
-              source={{ uri: 'http://www.b-accounting.com/images/blog-accounting-2.jpg' }}
+              resizeMode="center"
+              source={images.drawerLogo}
+              style={styles.drawerLogo}
             />
-            <View style={styles.logoTextContainer}>
-              <Text style={styles.logoText}>HLB T&M Consulting</Text>
-              <View style={styles.textContainer}>
-                <Text style={styles.text}>Finance | Tax | Advisory</Text>
-              </View>
-            </View>
           </View>
           {this.state.drawerList.map(this.renderList)}
           <View style={styles.socialTextContainer}>
@@ -89,39 +84,16 @@ export default connect(stateToProps, dispatchToProps)(DrawerTemplate);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // justifyContent: 'space-between'
   },
-  textLogoImageContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: metrics.huge,
-    marginTop: metrics.extraHuge,
-    marginBottom: metrics.huge
+  drawerLogoContainer: {
+    marginTop: 100,
+    marginBottom: metrics.extraHuge,
   },
-  image: {
-    height: 46,
-    width: 46,
-    borderRadius: 23,
-    marginRight: metrics.large
-  },
-  logoTextContainer: {
-    marginTop: metrics.huge
-  },
-  logoText: {
-    color: colors.white,
-    fontSize: fonts.size.medium,
-    fontFamily: 'openSansRegular',
-  },
-  textContainer: {
-    paddingBottom: metrics.large,
-    borderBottomColor: '#cccccc',
-    borderBottomWidth: metrics.tinyBorder,
-  },
-  text: {
-    color: colors.white,
-    fontSize: fonts.size.tiny,
-    marginTop: metrics.tiny,
-    marginRight: metrics.small,
-    fontFamily: 'openSansRegular',
+  drawerLogo: {
+    marginLeft: metrics.extraHuge,
+    height: 60,
+    width: Dimensions.get('window').width / 2.3,
   },
   iconTextScreen: {
     flexDirection: 'row',

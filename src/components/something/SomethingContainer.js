@@ -3,6 +3,10 @@ const SAVE_ABOUT = 'incentives/SAVE_ABOUT';
 
 // Initial State
 const initialState = {
+  headlineText: {
+    en: '????',
+    rs: 'Izaberite jednu od ponudjenih opcija'
+  },
   incentives: [{
     title: {
       en: '????',
@@ -10,12 +14,13 @@ const initialState = {
     },
     subTitle: {
       en: 'Learn More...',
-      rs: 'Saznajte više...'
+      rs: 'Više informacija o poreskim olakšicama'
     },
     description: {
       en: '???',
-      rs: 'Olakšice za zapošljavanje novih radnika'
+      rs: 'Izaberite jednu od ponudjenih opcija'
     },
+    icon: require('../../../assets/images/iconteam.png'),
     image: require('../../../assets/images/milkaSlika.png'),
     paragraphs: [{
         type: 'headline',
@@ -336,7 +341,7 @@ const initialState = {
       rs: 'jjj'
     },
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
-    icon: require('../../../assets/images/iconClients.png'),
+    icon: require('../../../assets/images/iconTransfer.png'),
     paragraphs: [{
       type: 'image',
       value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'

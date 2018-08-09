@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   percentage: {
     fontFamily: 'openSansRegular',
-    fontSize: fonts.size.small,
+    fontSize: fonts.size.medium,
     color: '#0D7ec2',
   },
 });

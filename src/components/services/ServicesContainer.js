@@ -307,7 +307,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: "Counseling, negotiation and drafting ofassociations’ memorandums and articles,shareholders' agreements, rules of internal rocedures and other corporate documents",
+        en: "Counseling, negotiation and drafting ofassociations’ memorandums and articles,shareholders' agreements, rules of internal procedures and other documents.",
         rs: 'Izrada pravilnika o radu, ugovora o radu i aneksa istih kao i sporazuma o prestanku radnog odnosa uključujući i ostalu potrebnu dokumentaciju '
       }
     },{

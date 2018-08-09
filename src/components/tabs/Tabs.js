@@ -7,6 +7,12 @@ import { colors, fonts, metrics, images } from '../../theme/index.js';
 import Something from '../something/Something.js';
 import News from '../news/News.js';
 import Calculations from '../calculations/Calculations.js';
+
+
+import Splash from '../splash/Splash.js';
+
+
+
 import Taxes from '../taxes/Taxes.js';
 
 const styles = {
@@ -98,6 +104,31 @@ const Tabs = TabNavigator({
         />
     }
   },
+
+
+
+  Splash: {
+    screen: Splash,
+    navigationOptions: {
+      // title: 'CALCULATIONS',
+      tabBarLabel: 'Splash',
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.calculatorSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.calculatorDefault}
+          style={{width: 20, height: 20}}
+        />
+    }
+  },
+
+
+
+
   Taxes: {
     screen: Taxes,
     navigationOptions: {

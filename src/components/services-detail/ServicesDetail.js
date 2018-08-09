@@ -16,10 +16,7 @@ class ServicesDetail extends Component {
   renderServices = (item, index) =>
     item.type === 'text' ?
       <View key={index} style={index % 2 === 0 ? styles.darkParagraphsContainer : styles.paragraphsContainer}>
-        <View style={styles.paragraphsCon}>
-          <Text style={styles.textParagraph}>{item.value[this.props.language]}</Text>
-        </View>
-        <Ionicons name="md-arrow-round-forward" size={20} color={colors.lightBlue1}/>
+        <Text style={styles.textParagraph}>{item.value[this.props.language]}</Text>
       </View> :
     item.type === 'headline' ?
       <View key={index} style={styles.headlineContainer}>
@@ -77,8 +74,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f6fcfc',
     flexDirection: 'row',
-    height: 90,
-    padding: metrics.extraHuge,
+    height: 100,
+    paddingHorizontal: metrics.extraHuge,
+    paddingVertical: metrics.huge
   },
   darkParagraphsContainer: {
     justifyContent: 'space-between',
@@ -86,10 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flexDirection: 'row',
     height: 90,
-    padding: metrics.extraHuge,
-  },
-  paragraphsCon: {
-    width: Dimensions.get('window').width / 1.3,
+    paddingHorizontal: metrics.extraHuge,
   },
   textParagraph: {
     fontSize: fonts.size.medium,

@@ -6,6 +6,10 @@ import { metrics, colors, fonts, images } from '../../theme';
 
 
 class Splash extends Component {
+  // 
+  // state = {
+  //   splashVisible: true
+  // }
 
   static navigationOptions = {
     header: null

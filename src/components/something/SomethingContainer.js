@@ -18,7 +18,7 @@ const initialState = {
     },
     description: {
       en: '???',
-      rs: 'Izaberite jednu od ponudjenih opcija'
+      rs: 'Olakšice za nova zapošljavanja'
     },
     icon: require('../../../assets/images/iconteam.png'),
     image: require('../../../assets/images/milkaSlika.png'),
@@ -216,7 +216,7 @@ const initialState = {
     },
     subTitle: {
       en: 'Learn more',
-      rs: 'Saznajte više...'
+      rs: 'Više o slobodnim zonama'
     },
     description: {
       en: '???',
@@ -329,61 +329,109 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Our Clients',
-      rs: 'Naši klijenti'
+      en: '????',
+      rs: 'Podsticaji za investiranje'
     },
     subTitle: {
       en: 'More About Our Clients',
-      rs: 'Više o našim klijentima'
+      rs: 'Saznajte više o podsticajima'
     },
     description: {
-      en: 'Accounting or accountancy is the measurement, processing, and communication of financial information about economic entities[1][2] such as businesses and corporations.',
-      rs: 'jjj'
+      en: '++++++',
+      rs: 'Podsticaji za investiranje'
     },
     image: 'https://s.hswstatic.com/gif/13-incredible-bat-facts.jpg',
     icon: require('../../../assets/images/iconTransfer.png'),
     paragraphs: [{
-      type: 'image',
-      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+        type: 'headline',
+        value: {
+          en: '?????',
+          rs: 'Podsticaji za investiranje'
+        }
+      },{
+        type: 'text',
+        value: {
+          en: '????',
+          rs: 'U cilju privlačenja stranih investitora Republika Srbija omogućila je finansijske podsticaje za kompanije koje ulažu u našu zemlju. Finansijski podsticaji regulisani su Uredbom o uslovima i načinu privlačenja direktnih investicija, u koja spadaju sredstva podsticaja i ulaganja od posebnog značaja.'
+      }
     },{
-      type: 'image',
-      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Sredstva podsticaja za privlačenje direktnih investicija se mogu koristiti za finansiranje opravdanih troškova investicionih projekata i to: u proizvodnji, za usluge međunarodne trgovine, za usluge hotelskog smeštaja.'
+    }
     },{
-      type: 'image',
-      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Podsticaji se ne mogu koristiti za ulaganja u: saobraćaj, razvoj softvera (osim ako je u funkciji unapređenja proizvoda, proizvodnog procesa ili pružanja usluga međunarodne trgovine), ugostiteljstvo, igre na sreću, trgovine, proizvodnju sintetičkih vlakana, uglja, čelika, rudarstva, duvana, duvanskih prerađevina, oružja, municije, brodogradnje, aerodroma, logističkih centara, komunalni sektor, sektor energetike, širokopojasne mreže, ribarstvo, akvakulturu.'
+    }
     },{
-      type: 'image',
-      value: 'http://news.korcula.net/uploads/2016124342.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Opravdani troškovi: ulaganja u materijalna i nematerijalna sredstva, bruto zarade za nove zaposlene.'
+    }
     },{
-      type: 'image',
-      value: 'https://www.tmconsulting.co.rs/uploads/news/thumb_1513693781-Invoices%20In%20Serbia.jpeg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Investitor je dužan da obezbedi učešće od najmanje 25% opravdanih troškova  (sopstvena sredstva, drugi izvori, osim državne pomoći).'
+    }
     },{
-      type: 'image',
-      value: 'http://news.korcula.net/uploads/2016124342.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Maksimalni iznos koji kompanije mogu dobiti za realizaciju investicionog projekta su: za velika preduzeća do 50%, za srednja preduzeća do 60%, za mala preduzeća do 70%.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Najveći iznos koji može biti dodeljen za opravdane troškove ulaganja velikih preduzeća su: do 50.000.000 EUR najviše do 50%, za deo troškova preko 50.000.000 EUR najviše do 25%, za deo troškova preko 100.000.000 EUR do 17%.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Sredstva mogu dobiti kompanije za opravdane troškove ukoliko se zaposli do 100 novozaposlenih (zavisi od stepena razvijenosti opštine): I grupa - opravdani troškovi minimum 500.000 EUR i najmanje 50 radnika, II grupa - opravdani troškovi minimum 400.000 EUR i najmanje 40 radnika, III grupa - opravdani troškovi minimum 300.000 EUR i najmanje 30 radnika, IV grupa - opravdani troškovi minimum 200.000 EUR i najmanje 20 radnika, devastirana područja - opravdani troškovi minimum 100.000  EUR i najmanje 10 radnika.'
+    }
     },{
-      type: 'image',
-      value: 'http://www.invent.rfid.bg/images/content/EuroAllianceEngineering.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Za usluge međunarodne trgovine uslov je da opravdani troškovi budu minimum 150.000 EUR i da se zapošljava najmanje 15 novozaposlenih.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Investitor može dobiti podsticaj za opravdane troškove bruto zarada (po novom radnom mestu). Iznos zavisi od grupe regiona i stepena razvijenosti opštine: I grupa – najviše do 20% i maksimum 3.000 EUR, II grupa - najviše do 25% i maksimum 4.000 EUR, III grupa - najviše do 30% i maksimum 5.000 EUR, IV grupa - najviše do 35% i maksimum 6.000 EUR, devastirano područje - najviše do 40% i maksimum 7.000 EUR.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Investitorima se može odobriti povećanje i dodatni podsticaj za opravdane troškove ulaganja u OS, prema razvijenosti opštine: I grupa do 10%, II grupa do 15%, III grupa do 20%, IV grupa do 25%, devastirano područje do 30%.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Dodatni podsticaji za opravdane troškove bruto zarada mogu se dobiti za radno intenzivne projekte: 10% za 200 – 500 novozaposlenih, 15% za 500 – 1.000 novozaposlenih, 20% za više od 1.000 novozaposlenih.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Ulaganje od posebnog značaja jeste ulaganje koje bitno utiče na dalji razvoj privrede u Republici Srbiji, na unapređenje konkurentnosti privrede i na ravnomeran regionalni razvoj. Odnosi se na: ulaganje u OS veća od 5.000.000 EUR ili otvaranje više od 500 radnih mesta (I i II grupa), ulaganje u osnovna sredstva veća od 2.000.000 EUR ili otvaranje više od 100 radnih mesta (III i IV grupa, devastirano područje), ulaganje koje se realizuje na teritoriji jedne ili više opština i koje podstiče realizaciju zajedničkih prioriteta u cilju povećanja konkurentnosti, ulaganje na osnovu usvojenih bilateralnih sporazuma i sporazuma o prekograničnoj saradnji.'
+    }
     },{
-      type: 'image',
-      value: 'https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg'
+      type: 'text',
+      value: {
+        en: '????',
+        rs: 'Uslovi za dodelu sredstava: da se investicija održi na istoj lokaciji u kojoj se realizuje ulaganje, najmanje 5 godina nakon realizacije projekta za velika, odnosno najmanje 3 godine za mala i srednja preduzeća, da se broj zaposlenih nakon realizacije projekta ne smanjuje 5 godina za velika, odnosno 3 godine za mala i srednja preduzeća, investitor ima obavezu da zaposlenima redovno ispladuje zaradu (najmanje u visini 120% minimalne zarade), rok za realizaciju projekta i otvaranje novih radnih mesta je 3 godine (od dana zaključenja ugovora o dodeli podsticaja), a koji se nakon zaključenja može produžiti najviše na pet godina, ukupan iznos sredstava koja se mogu dodeliti određuje se u apsolutnom iznosu, ne sme preći gornju granicu do koje je dozvoljeno dodeliti ukupan iznos državne pomoći.'
+    }
     }]
   }],
   article: {}

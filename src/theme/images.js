@@ -23,6 +23,8 @@ const images = {
   servicesImagex: require('../../assets/images/servicesImagex.png'),
   taxesImage: require('../../assets/images/taxesImage.png'),
   drawerLogo: require('../../assets/images/drawerLogo.png'),
+  incentiveImage: require('../../assets/images/incentiveImage.png'),
+  // iconTransfer: require('../../assets/images/iconTransfer.png'),
 };
 
 export default images;

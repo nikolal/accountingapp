@@ -35,9 +35,9 @@ class Incentives extends Component {
         <View style={styles.imageTitleContainer}>
           <Image
             style={styles.image}
-            source={images.aboutCompanyPanel500px}
+            source={images.incentiveImage}
           />
-          <Text style={styles.headline}>HLB T&M Consulting</Text>
+          <Text style={styles.headline}>{this.props.headlineText[this.props.language]}</Text>
         </View>
           {this.props.incentives.map(this.renderList)}
       </ScrollView>
@@ -47,7 +47,9 @@ class Incentives extends Component {
 
 const stateToProps = state => ({
   incentives: state.incentiveReducer.incentives,
-  language: state.settingsReducer.language
+  language: state.settingsReducer.language,
+  headlineText: state.incentiveReducer.headlineText,
+
 });
 
 const dispatchToProps = dispatch => ({
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     paddingTop: metrics.huge,
     backgroundColor: colors.white,
     borderBottomColor: '#e6e6e6',
-    borderBottomWidth: metrics.tinyBorder
+    borderBottomWidth: metrics.tinyBorder,
   },
   image: {
     height: Dimensions.get('window').height / 3,
@@ -74,30 +76,22 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   headline: {
+    alignSelf: 'center',
     color: '#142024',
     fontFamily: 'openSansBold',
-    fontSize: fonts.size.huge,
+    fontSize: fonts.size.large,
     marginVertical: metrics.huge,
-    alignSelf: 'flex-start',
-    marginLeft: metrics.largeToHuge
-  },
-  descriptionText: {
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.small,
-    color: colors.black,
-    margin: metrics.large,
-    marginBottom: metrics.extraHuge
   },
   darkItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: metrics.large,
+    paddingHorizontal: metrics.huge,
     backgroundColor: colors.veryLightGrey
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: metrics.large,
+    paddingHorizontal: metrics.huge,
     backgroundColor: colors.white
   },
   iconContainer: {
@@ -109,12 +103,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   icon: {
-    height: 10,
-    width: 10
+    height: 13,
+    width: 11
   },
   titleSubTitleContainer: {
     flex: 1,
-    // backgroundColor: 'red',
     paddingVertical: metrics.small,
     marginHorizontal: metrics.large,
     borderBottomWidth: 1,
@@ -129,6 +122,7 @@ const styles = StyleSheet.create({
   subTitleText: {
     fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',
+    marginTop: metrics.tiny,
     marginBottom: metrics.medium
   }
 });

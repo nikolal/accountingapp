@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 import PropTypes from 'prop-types';
@@ -26,22 +26,14 @@ class AboutDetail extends Component {
   render(){
     const { article } = this.props;
     return (
-      article.title === 'Our Team' || 'Naš tim' || article.title === 'Our company' || 'Naša kompanija' ?
-        <ScrollView style={styles.container}>
-            <Image
-              style={styles.image}
-              source={article.image}
-            />
-            <Text style={styles.description}>{article.description[this.props.language]}</Text>
-            {article.paragraphs.map(this.renderArticle)}
-        </ScrollView> :
-      article.title === 'Our clients' || 'Naši klijenti' ?
-        <ScrollView style={styles.container}>
-          <View style={styles.innerContainerClients}>
-            {article.paragraphs.map(this.renderArticle)}
-          </View>
-        </ScrollView> :
-      null
+      <ScrollView style={styles.container}>
+          <Image
+            style={styles.image}
+            source={article.image}
+          />
+          <Text style={styles.description}>{article.description[this.props.language]}</Text>
+          {article.paragraphs.map(this.renderArticle)}
+      </ScrollView>
     );
   }
 }
@@ -73,15 +65,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   image: {
-    height: 145,
-    width: 130,
-    margin: metrics.huge,
+    alignSelf: 'center',
+    height: Dimensions.get('window').height / 3.5,
+    width: Dimensions.get('window').width / 1.1,
+    borderRadius: 10,
+    marginVertical: metrics.largeToHuge
   },
   description: {
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: colors.black,
-    marginHorizontal: metrics.large,
+    marginHorizontal: metrics.largeToHuge,
     marginBottom: metrics.huge,
   },
   headlineContainer: {
@@ -89,7 +83,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: metrics.tinyBorder,
     borderTopWidth: metrics.tinyBorder,
     borderColor: '#E9E9E9',
-    padding: metrics.large,
+    padding: metrics.largeToHuge,
     paddingVertical: metrics.huge
   },
   headline: {
@@ -98,7 +92,7 @@ const styles = StyleSheet.create({
     color: colors.lightBlue1,
   },
   textParagraph: {
-    marginHorizontal: metrics.large,
+    marginHorizontal: metrics.largeToHuge,
     marginVertical: metrics.medium,
     fontSize: fonts.size.small,
     fontFamily: 'openSansRegular',

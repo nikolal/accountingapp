@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: 10,
-    width: 10
+    width: 11
   },
   titleSubTitleContainer: {
     flex: 1,

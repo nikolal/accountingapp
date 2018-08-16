@@ -73,7 +73,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Assistance in the process of audit',
         rs: 'Podrška pri radu sa revizorima '
       }
     },{
@@ -115,7 +115,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Preparation of business plans',
         rs: 'Izrada biznis planova'
       }
     }]
@@ -182,7 +182,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Thin capitalization advisory',
-        rs: ''
+        rs: 'Savetovanje u vezi sa utanjenom kapitalizacijom'
       }
     },{
       type: 'headline',
@@ -247,7 +247,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Preparation of benchmark analisys via specialised software databases',
         rs: 'Priprema “benchmark analize“ pomoću specijalizovanih baza podataka '
       }
     },{
@@ -271,13 +271,13 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Consulting related to services provided by Group',
         rs: 'Savetovanje u vezi konsultantskih usluga pruženih od Grupe'
       }
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Support in a process of tax control',
         rs: 'Pordška u postupku poreske kontrole'
       }
     }]
@@ -337,7 +337,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Preparation of commercial agreements',
         rs: 'Izrada svih vrsta komercijalnih ugovora'
       }
     }]

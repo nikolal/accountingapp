@@ -141,7 +141,7 @@ const initialState = {
         rs: 'Otpremnina za odlazak u penziju'
       },
       percentage: {
-        en: 'Something?????????????',
+        en: '127.398 RSD',
         rs: 'Najmanje u visini 2 prosečne mesečne zarade u R. Srbiji'
       }
     },{
@@ -167,7 +167,10 @@ const initialState = {
         en: 'Non-taxable amount of solidarity in the case of a serious illness of an employee or a close family member',
         rs: 'Neoporezivi iznos solidarne pomoći za slučaj teže bolesti zapolsenog ili člana uže porodice'
       },
-      percentage: '38.370 RSD'
+      percentage: {
+        en: '36.665 RSD',
+        rs: '36.665 RSD'
+      }
     },{
       text: {
         en: 'Non-taxable gift for children under the age of fifteen on the occasion of New Year and Christmas',
@@ -218,7 +221,7 @@ const initialState = {
         rs: 'PDV prijava i plaćanje PDV-a za mesečnog obveznika'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: '15th day in a month for a previous month',
         rs: '15. u mesecu za prethodni mesec'
       }
     },{
@@ -227,7 +230,7 @@ const initialState = {
         rs: 'PDV prijava i plaćanje PDV-a za tromesečnog obveznika'
       },
       percentage: {
-        en: 'SOMRETHING',
+        en: '15th day in a month for a previous quarter',
         rs: '15. u mesecu za prethodni kvartal'
       }
     },{
@@ -236,7 +239,7 @@ const initialState = {
         rs: 'Prijava poreza na dobit'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: '180 days from the end of fiscal year',
         rs: '180 dana od završetka fiskalne godine'
       }
     },{
@@ -245,16 +248,16 @@ const initialState = {
         rs: 'Plaćanje godišnjeg poreza na dobit'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: 'On a day of submission of tax application',
         rs: 'Sa danom podnošenja prijave'
       }
     },{
       text: {
-        en: 'Active payment of income tax',
-        rs: 'Aktivno plaćanje poreza na dobit'
+        en: 'Advance payment of income tax',
+        rs: '?? plaćanje poreza na dobit'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: '15th day in a month for a previous month',
         rs: '15. u mesecu za prethodni mesec'
       }
     },{
@@ -263,7 +266,7 @@ const initialState = {
         rs: 'Plaćanje poreza i doprinosa na zarade'
       },
       percentage: {
-        en: 'SOMETHINHG',
+        en: 'Before payment of salaries during each month',
         rs: 'Pre svake isplate prihoda tokom meseca'
       }
     },{
@@ -272,7 +275,7 @@ const initialState = {
         rs: 'Rok za uplatu sredstava po osnovu obaveze zapošljavanja osoba sa invaliditetom i podnošenje obrasca IOSI'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: '5th day in a month for a previous month',
         rs: '5. u mesecu za prethodni mesec'
       }
     },{
@@ -281,7 +284,7 @@ const initialState = {
         rs: 'Uplata akontacije za akcize'
       },
       percentage: {
-        en: 'SOMETHING',
+        en: '20th day in a month for a previous quarter',
         rs: '20. u mesecu za prethodni kvartal'
       }
     },{
@@ -290,16 +293,16 @@ const initialState = {
         rs: 'Plaćanje akcize'
       },
       percentage: {
-        en: 'Something',
+        en: '15 days starting from calculation period',
         rs: '15 dana u donosu na obračunski period'
       }
     },{
       text: {
-        en: '..............',
+        en: 'Payment of whitholding taxs for the revenues which non-resident entities make in relatin with resident entities',
         rs: 'Plaćanje poreza po odbitku na prihode koji nerezidentna pravna lica ostvaruju od rezidentnih pravnih lica'
       },
       percentage: {
-        en: 'SOMEtHING',
+        en: 'Before each payment during the month',
         rs: 'Pre svake isplate prihoda tokom meseca'
       }
     },{
@@ -308,7 +311,7 @@ const initialState = {
         rs: 'D11 obrazac (Direktne investicije)'
       },
       percentage: {
-        en: 'Something',
+        en: '10th day in a months for a previous quarter',
         rs: '10. u mesecu za prethodni kvartal'
       }
     },{
@@ -317,7 +320,7 @@ const initialState = {
         rs: 'D12 obrazac (Direktne investicije)'
       },
       percentage: {
-        en: 'Something',
+        en: '10th day in a months for a previous quarter',
         rs: '10. u mesecu za prethodni kvartal'
       }
     },{
@@ -326,7 +329,7 @@ const initialState = {
         rs: 'GRU obrazac (Građevinski radovi rezidenta u inostranstvu i zemlji)'
       },
       percentage: {
-        en: 'Something',
+        en: '10th day in a months for a previous quarter',
         rs: '10. u mesecu za prethodni kvartal'
       }
     },{
@@ -335,7 +338,7 @@ const initialState = {
         rs: 'RN obrazac (Izveštaj o stanju i prometu na računima u inostranstvu)'
       },
       percentage: {
-        en: 'SOmething',
+        en: '10th day in a  months for a previous quarter',
         rs: '10. u mesecu za prethodni kvartal'
       }
     }]
@@ -401,7 +404,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax on deduction authors fee',
+        en: 'Witholding tax for authors fees',
         rs: 'Porez po odbitku autorske naknade'
       },
       percentage: {
@@ -410,7 +413,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '???????',
+        en: 'Witholding tax for offshore financial centres',
         rs: 'Porez po odbitku poreski ????'
       },
       percentage: {
@@ -419,7 +422,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '................of secondary raw material',
+        en: 'Witholding tax for trade of secundary raw material',
         rs: 'Porez po dobitku za promet sekundarnih sirovina'
       },
       percentage: {
@@ -491,7 +494,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'expenditure for marketing ,,,,,,,,,,,,,',
+        en: 'Costs for marketing which are tax recognized / overal revenues',
         rs: 'Izdaci za marketing koji se mogu priznati / ukupni prihodi'
       },
       percentage: {
@@ -500,7 +503,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Affiliation fees to chambers that can be recognized',
+        en: 'Affiliation fees for chamberst which are tax recognized / overal revenues',
         rs: 'Clanarine komorama koje se mogu priznatii'
       },
       percentage: {
@@ -522,12 +525,12 @@ const initialState = {
         rs: 'Neophodno ulaganje u osnovna sredstva u svrhu oslobadjanja placanja poreza na dobit u periodu od 10 godina'
       },
       percentage: {
-        en: '??????',
+        en: '1 billion ESD',
         rs: '1 milijarda RSD%'
       }
     },{
       text: {
-        en: '...',
+        en: 'Minimal number of employees for the coorporate income tax releif in a period of 10 years',
         rs: 'Neophodan broj novozaposlenih u svrhu oslobadjanja placanja poreza na dobit u periodu od 10 godina'
       },
       percentage: {
@@ -536,7 +539,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '.......',
+        en: 'Percentage of shares in the ownership structure which determinate related entities',
         rs: 'Procenat vlasnistva u pravnom licu koji odredjuje status povezanih lica'
       },
       percentage: {
@@ -573,7 +576,7 @@ const initialState = {
     },{
       text: {
         en: 'Short-term loan RSD',
-        rs: 'Kratkorocni krediti RSD'
+        rs: 'Kamatne stope - Kratkorocni krediti RSD'
       },
       percentage: {
         en: '5,84%',
@@ -582,7 +585,7 @@ const initialState = {
     },{
       text: {
         en: 'Long- term loan RSD',
-        rs: 'Dugorocni krediti RSD'
+        rs: 'Kamatne stope - Dugorocni krediti RSD'
       },
       percentage: {
         en: '5,58%',
@@ -591,7 +594,7 @@ const initialState = {
     },{
       text: {
         en: 'Short-term loans EUR and RSD loans indexed in EUR',
-        rs: 'Kratkorocni krediti EUR i dinarski krediti indeksirane u EUR'
+        rs: 'Kamatne stope - Kratkorocni krediti EUR i dinarski krediti indeksirane u EUR'
       },
       percentage: {
         en: '3,10%',
@@ -600,7 +603,7 @@ const initialState = {
     },{
       text: {
         en: 'Long-term loans EUR and RSD loans indexed in EUR',
-        rs: 'Dugorocni krediti EUR i dinarski krediti indeksirane u EUR'
+        rs: 'Kamatne stope - Dugorocni krediti EUR i dinarski krediti indeksirane u EUR'
       },
       percentage: {
         en: '3.42%',
@@ -609,7 +612,7 @@ const initialState = {
     },{
       text: {
         en: 'Long-term loans CHF and RSD loans indexed in CHF',
-        rs: 'Dugoročni krediti CHF i dinarski krediti indeksirane u CHF'
+        rs: 'Kamatne stope - Dugoročni krediti CHF i dinarski krediti indeksirane u CHF'
       },
       percentage: {
         en: '12.97%',
@@ -618,7 +621,7 @@ const initialState = {
     },{
       text: {
         en: 'Short-term loans CHF and RSD loans indexed in CHF',
-        rs: 'Kratkorični krediti CHF i dinarski krediti indeksirane u CHF'
+        rs: 'Kamatne stope - Kratkorični krediti CHF i dinarski krediti indeksirane u CHF'
       },
       percentage: {
         en: '8.21%',
@@ -627,7 +630,7 @@ const initialState = {
     },{
       text: {
         en: 'Short-term loans USD and RSD loans indexed in USD',
-        rs: 'Kratkoročni krediti u USD i dinarski krediti indeksirani u USD'
+        rs: 'Kamatne stope - Kratkoročni krediti u USD i dinarski krediti indeksirani u USD'
       },
       percentage: {
         en: '4.41%',
@@ -636,7 +639,7 @@ const initialState = {
     },{
       text: {
         en: 'Long-term loans USD and RSD loans indexed in USD',
-        rs: 'Dugoročni krediti u USD i dinarski krediti indeksirani u USD.'
+        rs: 'Kamatne stope - Dugoročni krediti u USD i dinarski krediti indeksirani u USD.'
       },
       percentage: {
         en: '4.16%',
@@ -661,7 +664,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'AT special rate',
+        en: 'VAT special rate',
         rs: 'PDV Posebna stopa'
       },
       percentage: {
@@ -683,7 +686,7 @@ const initialState = {
         rs: 'Promet u poslednjih 12 meseci nakon kojeg nastupa obaveza PDV-a'
       },
       percentage: {
-        en: '?????',
+        en: '8 million dinars',
         rs: '8 miliona RSD'
       }
     }]
@@ -709,8 +712,8 @@ const initialState = {
         rs: 'Granica za godisnji porez na dohodak'
       },
       percentage: {
-        en: '',
-        rs: ''
+        en: '2.375.136,00 RSD - Year 2017',
+        rs: '2.375.136,00 RSD - za 2017. godinu'
       }
     },{
       text: {

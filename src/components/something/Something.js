@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   icon: {
-    height: 13,
-    width: 11
+    height: 11,
+    width: 12
   },
   titleSubTitleContainer: {
     flex: 1,

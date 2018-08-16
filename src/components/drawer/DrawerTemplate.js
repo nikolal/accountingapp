@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
+import { View, Text, Linking, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
 import { MaterialCommunityIcons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
 
@@ -20,6 +20,8 @@ class DrawerTemplate extends Component {
   };
 
   goToScreen = screen => this.props.navigation.navigate(screen);
+
+  _linkPressed = (url) => Linking.openURL(url)
 
   // goToContactMessage = screenName => {
   //   this.props.navigation.navigate(screenName);
@@ -61,8 +63,9 @@ class DrawerTemplate extends Component {
             }
             <View style={styles.sosialIconsContainer}>
               <MaterialCommunityIcons style={styles.socialIcons} name="twitter" size={13} color="#00deff" />
-              <MaterialCommunityIcons style={styles.socialIcons} name="facebook" size={15} color="#00deff" />
-              <MaterialCommunityIcons style={styles.socialIcons} name="google-plus" size={15} color="#00deff" />
+              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.facebook.com/hlbtmconsulting/?fref=ts')} name="facebook" size={15} color="#00deff" />
+              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.tmconsulting.co.rs/')} name="google-plus" size={15} color="#00deff" />
+              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.linkedin.com/in/milka-jan%C4%8Di%C4%87-%C5%BEivkovi%C4%87-5401718a?trk=nav_responsive_tab_profile_pic')} name="linkedin" size={15} color="#00deff" />
             </View>
           </View>
         </ImageBackground>

@@ -4,12 +4,14 @@ import { bindActionCreators } from 'redux';
 import { View, Text, Linking, TouchableOpacity, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
 import { MaterialCommunityIcons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
+import { NavigationActions } from 'react-navigation';
+
 
 class DrawerTemplate extends Component {
 
   state = {
     drawerList: [
-      // { screen: 'MainScreen', icon: 'book-open', name: 'Main Screen', arrow: 'arrow-right' },
+      { screen: 'Tabs', icon: 'book-open', nameEn: 'Home', nameRs: 'Pocetna', arrow: 'arrow-right' },
       { screen: 'Services', icon: 'domain', nameEn: 'Our Services', nameRs: 'Naši servisi', arrow: 'arrow-right' },
       { screen: 'About', icon: 'phone', nameEn: 'About Us', nameRs: 'O nama', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'message-alert', nameEn: 'Contact', nameRs: 'Kontakt', arrow: 'arrow-right' },
@@ -19,7 +21,9 @@ class DrawerTemplate extends Component {
     socialRs: 'Poveži se'
   };
 
-  goToScreen = screen => this.props.navigation.navigate(screen);
+  goToScreen = screen => {
+    this.props.navigation.navigate(screen);
+  }
 
   _linkPressed = (url) => Linking.openURL(url)
 
@@ -27,19 +31,24 @@ class DrawerTemplate extends Component {
   //   this.props.navigation.navigate(screenName);
   // }
 
-  renderList = (item, index) =>
-    <TouchableOpacity key={index} onPress={() => this.goToScreen(item.screen)} style={styles.iconTextScreen}>
-      <View style={styles.iconNameContainer}>
-        <MaterialCommunityIcons name={item.icon} size={13} color="black" />
-          {
-            this.props.language === 'en' ?
-              <View style={styles.textScreenContainer}><Text style={styles.textScreen}>{item.nameEn}</Text></View> :
-            this.props.language === 'rs' ?
-              <View style={styles.textScreenContainer}><Text style={styles.textScreen}>{item.nameRs}</Text></View> :
-            null
-          }
-      </View>
-    </TouchableOpacity>
+  renderList = (item, index) => {
+    const activeRoute = this.props.navigation.state.routes[0].routes.slice(-1)[0].routeName;
+
+    return (
+      <TouchableOpacity key={index} onPress={() => this.goToScreen(item.screen)} style={styles.iconTextScreen}>
+        <View style={styles.iconNameContainer}>
+          <MaterialCommunityIcons name={item.icon} size={13} color="black" />
+            {
+              this.props.language === 'en' ?
+                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'blue' : 'white' }]}>{item.nameEn}</Text></View> :
+              this.props.language === 'rs' ?
+                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'blue' : 'white' }]}>{item.nameRs}</Text></View> :
+              null
+            }
+        </View>
+      </TouchableOpacity>
+    );
+  }
 
   render() {
     return (

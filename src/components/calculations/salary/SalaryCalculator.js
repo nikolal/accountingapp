@@ -23,21 +23,19 @@ const SalaryCalculator = props => {
         }
         {
           !props.showResult &&
-            <View style={{flex: 1}}>
-              <View style={styles.buttonsContainer}>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => props.switchingGrossToNet('grossToNet')}
-                >
-                  <Text style={styles.buttonGrossNetText}>Gross to Net</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => props.switchNetToGross('netToGross')}
-                >
-                  <Text style={styles.buttonGrossNetText}>Net to gross</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.buttonsContainer}>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchingGrossToNet('grossToNet')}
+              >
+                <Text style={styles.buttonGrossNetText}>Gross to Net</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchNetToGross('netToGross')}
+              >
+                <Text style={styles.buttonGrossNetText}>Net to gross</Text>
+              </TouchableOpacity>
             </View>
           }
       </ImageBackground>
@@ -104,6 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
+    backgroundColor: 'red',
     height: Dimensions.get('window').height / 2.8,
     justifyContent: 'flex-end', // ne radi!!!!!!!
   },

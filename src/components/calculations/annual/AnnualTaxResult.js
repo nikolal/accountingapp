@@ -8,20 +8,14 @@ const AnnualTaxResult = ({ calculation }) => {
     <View style={styles.container}>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Neto dnevnica u RSD</Text>
+          <Text style={styles.text}>Bruto zarada u RSD</Text>
           <Text style={styles.number}>{calculation.annualTax.value && calculation.annualTax.value.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Osnovica za oporezivanje</Text>
-          <Text style={styles.number}>{calculation.annualTax.gross && calculation.annualTax.gross.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez 20%</Text>
-          <Text style={styles.number}>{calculation.annualTax.tax && calculation.annualTax.tax.toFixed(2)}</Text>
+          <Text style={styles.text}>Porez</Text>
+          <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toFixed(2)}</Text>
         </View>
       </View>
 

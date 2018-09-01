@@ -58,7 +58,7 @@ export default ContractPioTaxHealthResult;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: -64, //gura ga nesto ???
+    // top: -64, //gura ga nesto ???
     backgroundColor: colors.white,
     paddingTop: metrics.large,
   },

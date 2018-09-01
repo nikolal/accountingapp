@@ -23,21 +23,27 @@ const SalaryCalculator = props => {
         }
         {
           !props.showResult &&
-            <View style={{flex: 1}}>
-              <View style={styles.buttonsContainer}>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => props.switchingGrossToNet('grossToNet')}
-                >
-                  <Text style={styles.buttonGrossNetText}>Gross to Net</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => props.switchNetToGross('netToGross')}
-                >
-                  <Text style={styles.buttonGrossNetText}>Net to gross</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.buttonsContainer}>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchingGrossToNet('grossToNet')}
+              >
+                <Text style={styles.buttonGrossNetText}>Gross to Net</Text>
+                {
+                  props.calculation.type === 'grossToNet' ?
+                    <View style={styles.trangle}></View> : null
+                }
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.buttons}
+                onPress={() => props.switchNetToGross('netToGross')}
+              >
+                <Text style={styles.buttonGrossNetText}>Net to gross</Text>
+                {
+                  props.calculation.type === 'netToGross' ?
+                    <View style={styles.trangle}></View> : null
+                }
+              </TouchableOpacity>
             </View>
           }
       </ImageBackground>
@@ -117,14 +123,25 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
+    marginTop: 50
   },
   buttons: {
     flex: 1,
     borderColor: 'rgb(151,151,151)',
     borderTopWidth: metrics.tinyBorder,
-    borderBottomWidth: metrics.tinyBorder,
-    padding: metrics.huge,
-    backgroundColor: '#00000060'
+    paddingTop: 22,
+    backgroundColor: '#08000060'
+  },
+  trangle: {
+    alignSelf: 'center',
+    marginTop: 16,
+    width: 0,
+    height: 0,
+    borderWidth: 6,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderTopColor: 'transparent',
+    borderBottomColor: colors.white,
   },
   buttonGrossNetText: {
     alignSelf: 'center',
@@ -133,8 +150,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   scrollViewContainer: {
-    flex: 1,
-    paddingHorizontal: metrics.large
+    paddingHorizontal: metrics.large,
+    paddingVertical: metrics.extraHuge,
   },
   inputText: {
     height: 50,

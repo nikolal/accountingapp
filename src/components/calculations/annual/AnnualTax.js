@@ -23,14 +23,14 @@ const AnnualTax = props => {
                 style={styles.inputText}
                 onChangeText={props.saveInput}
                 keyboardType="numeric"
-                placeholder="Unesite ukupnu mesecnu zaradu"
+                placeholder="Unesite ukupnu bruto mesecnu zaradu"
                 placeholderTextColor="black"
               />
               <TextInput
                 style={styles.inputText}
                 onChangeText={props.saveInputFamily}
                 keyboardType="numeric"
-                placeholder="Broj clanova porodice"
+                placeholder="Broj izdržavanih članova porodice"
                 placeholderTextColor="black"
               />
               <Text>{props.calculation.value}</Text>

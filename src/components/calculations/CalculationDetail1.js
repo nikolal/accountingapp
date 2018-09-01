@@ -298,7 +298,10 @@ annualTaxCalculator = val => {
   this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
 };
 
-annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
+annualGross = val => val
+
+
+// annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
 baseForTax = val => (this.annualGross(val) - 15000);
 taxOnEarning = val => (this.baseForTax(val) * 0.1);
 baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330)
@@ -309,10 +312,12 @@ annualEmployerPension = val => (this.baseForSocialContribution(val) * 0.12);
 annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
 annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
 annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val));
-monthlyNet12Value = val => (val * 12);
+
+monthlyNet12Value = val => (this.annualGross(val) - (this.annualInsurance(val) + this.annualHealth(val) + this.annualPension(val) + this.taxOnEarning(val))) * 12;
+
 contributionsEmployees = val => ((this.annualGross(val) * 12) - (15000 * 12));
-annualTaxValueTotal = val => ((this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12);
-annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)); // toFixed(2)
+annualTaxValueTotal = val => (this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12;
+annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)) // toFixed(2)
 annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
 biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
 
@@ -320,9 +325,16 @@ calculateFinalAnnualTax = val => {
   this.props.finalAnnualTaxActioin(this.finalTax(val));
 }
 
+
+// Ovako je u onoj EY
 finalTax = val =>
-  this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
-  : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
+  (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+
+
+// ovo je po Milkinoj kalkulaciji
+// finalTax = val =>
+//   this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+//   : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
 
 
   render () {

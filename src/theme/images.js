@@ -24,7 +24,7 @@ const images = {
   taxesImage: require('../../assets/images/taxesImage.png'),
   drawerLogo: require('../../assets/images/drawerLogo.png'),
   incentiveImage: require('../../assets/images/incentiveImage.png'),
-  // pioTax: require('../../assets/images/pioTax.png'),
+  whiteLogo: require('../../assets/images/whiteLogo.png'),
   // iconTransfer: require('../../assets/images/iconTransfer.png'),
 };
 

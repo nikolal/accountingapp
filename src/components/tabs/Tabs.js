@@ -8,6 +8,7 @@ import Something from '../something/Something.js';
 import News from '../news/News.js';
 import Calculations from '../calculations/Calculations.js';
 
+import AddNews from '../addNews/AddNews.js';
 
 import Splash from '../splash/Splash.js';
 

@@ -56,30 +56,33 @@ class News extends Component {
     <TouchableOpacity key={index} onPress={() => this.goToNewsDetail('NewsDetail', item)}>
       {
         index === 0 ?
-        <View style={styles.firstItem}>
-          <Image
-            style={styles.firstItemImage}
-            source={{ uri: item.image }}
-          />
-          <View style={styles.textContainerFirstItem}>
-            <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title}</Text>
-            <Text style={styles.dateTextFirstItem}>{item.date}</Text>
-          </View>
-        </View>
-         :
-        <View style={styles.item}>
-          <View style={styles.itemImageContainer}>
+          <View style={styles.firstItem}>
             <Image
-              style={styles.itemImage}
+              style={styles.firstItemImage}
               source={{ uri: item.image }}
             />
+            <View style={styles.textContainerFirstItem}>
+              <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title}</Text>
+              <View style={styles.authorDateContainer}>
+                <Text style={styles.authorFirstItem}>{item.author}</Text>
+                <Text style={styles.dateTextFirstItem}>{item.date}</Text>
+              </View>
+            </View>
           </View>
-          <View style={styles.textContainer}>
-            <Image source={images.share} style={styles.shareImage} />
-            <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
-            <Text style={styles.dateText}>{item.date}</Text>
+         :
+          <View style={styles.item}>
+            <View style={styles.itemImageContainer}>
+              <Image
+                style={styles.itemImage}
+                source={{ uri: item.image }}
+              />
+            </View>
+            <View style={styles.textContainer}>
+              <Image source={images.share} style={styles.shareImage} />
+              <Text style={styles.titleText} numberOfLines={2}>{item.title}</Text>
+              <Text style={styles.dateText}>{item.date}</Text>
+            </View>
           </View>
-        </View>
       }
     </TouchableOpacity>
 
@@ -134,10 +137,24 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold'
   },
+  authorDateContainer: {
+    // backgroundColor: 'red',
+    flexDirection: 'row',
+    // alignItems: 'center',
+  },
+  authorFirstItem: {
+    marginRight: metrics.tiny,
+    color: colors.white,
+    alignSelf: 'center',
+    fontFamily: 'openSansBold',
+    fontSize: fonts.size.medium,
+  },
   dateTextFirstItem: {
+    marginLeft: metrics.tiny,
     color: '#189FAB',
     alignSelf: 'center',
-    fontFamily: 'openSansBold'
+    fontFamily: 'openSansBold',
+    fontSize: fonts.size.medium,
   },
   item: {
     flexDirection: 'row',

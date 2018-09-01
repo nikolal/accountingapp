@@ -1271,7 +1271,6 @@ export const calculateFamilyNumberAction = value => ({ type: CALCULATE_FAMILY_NU
 export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_ACTION, value });
 export const finalAnnualTaxActioin = value => ({ type: FINAL_ANNUAL_TAX_ACTION, value });
 
-
 // export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
 
 

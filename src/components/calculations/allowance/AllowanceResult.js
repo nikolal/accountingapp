@@ -20,7 +20,7 @@ const AllowanceResult = ({ calculation }) => {
       </View>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez 20%</Text>
+          <Text style={styles.text}>Porez</Text>
           <Text style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}</Text>
         </View>
       </View>

@@ -14,7 +14,8 @@ const colors = {
   lightGrey: '#dbe1de',
 
   lightBlue1: '#14B7C5',
-  lightBlue2: '#4babe5'
+  lightBlue2: '#4babe5',
+  drawerBlue: 'rgb(65,231,255)'
 
 };
 

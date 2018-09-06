@@ -4,7 +4,7 @@
     "description": "An app for accounting services",
     "slug": "accountingapp",
     "privacy": "public",
-    "sdkVersion": "25.0.0",
+    "sdkVersion": "29.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -12,6 +12,9 @@
     "loading": {
       "icon": "./assets/icons/loading.png",
       "hideExponentText": false
+    },
+    "splash": {
+      "image": "./assets/images/splash.png"
     },
     "packagerOpts": {
       "assetExts": ["ttf", "mp4"]

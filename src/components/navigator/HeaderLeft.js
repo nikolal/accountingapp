@@ -16,7 +16,7 @@ const HeaderLeft = props => {
         ?
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => props.navigation.navigate('DrawerOpen')}
+            onPress={() => props.navigation.openDrawer()}
           >
             <SimpleLineIcons name="menu" size={20} color={colors.lightBlue1} />
           </TouchableOpacity>

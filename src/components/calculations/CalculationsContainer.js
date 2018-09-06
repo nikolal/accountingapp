@@ -7,6 +7,7 @@ const SAVE_INPUT = 'calculations/SAVE_INPUT';
 const SAVE_GROSS_VALUE_ACTION = 'calculations/SAVE_GROSS_VALUE_ACTION';
 const SAVE_NET_VALUE_ACTION = 'calculations/SAVE_NET_VALUE_ACTION';
 const SAVE_INPUT_FAMILY_ACTION = 'calculations/SAVE_INPUT_FAMILY_ACTION';
+const SAVE_INPUT_LEASE_ACTION = 'calculations/SAVE_INPUT_LEASE_ACTION';
 
 
 // const SWITCH_GROSS_NET_ACTION = 'calculations/SWITCH_GROSS_NET_ACTION';
@@ -99,8 +100,15 @@ const CALCULATE_FAMILY_NUMBER_ACTION = 'calculations/CALCULATE_FAMILY_NUMBER_ACT
 const PERSONAL_DEDUCTIONS_ACTION = 'calculations/PERSONAL_DEDUCTIONS_ACTION';
 const BASE_FOR_TAXATION_ACTION = 'calculations/BASE_FOR_TAXATION_ACTION';
 const FINAL_ANNUAL_TAX_ACTION = 'calculations/FINAL_ANNUAL_TAX_ACTION';
-
-
+const SAVE_LEASE_ACTION = 'calculations/SAVE_LEASE_ACTION';
+const CALCULATE_COURSE_EURO_ACTION = 'calculations/CALCULATE_COURSE_EURO_ACTION';
+const RSD_COVERTED_LEASE_ACTION = 'calculations/RSD_COVERTED_LEASE_ACTION';
+const GROSS_INPUT_ACTION = 'calculations/GROSS_INPUT_ACTION';
+const EURO_INPUT_ACTION = 'calculations/EURO_INPUT_ACTION';
+const CALCULATE_GROSS_LEASE_ACTION = 'calculations/CALCULATE_GROSS_LEASE_ACTION';
+const CALCULATE_NONTAXABLE_LEASE_ACTION = 'calculations/CALCULATE_NONTAXABLE_LEASE_ACTION';
+const CALCULATE_BASE_LEASE_ACTION = 'calculations/CALCULATE_BASE_LEASE_ACTION';
+const CALCULATE_LEASE_TAX_FINAL_ACTION = 'calculations/CALCULATE_LEASE_TAX_FINAL_ACTION';
 
 // Initial State
 const initialState = {
@@ -235,10 +243,23 @@ const initialState = {
     image: require('../../../assets/images/panel05.png'),
     icons: require('../../../assets/images/manUser.png'),
     input: '',
-    func: x => x * 2,
+    func: 'lease',
     type: 'blabla',
+    input2: '',
     value: '',
-    icon: 'user'
+    lease: {
+      value: null,
+      course: null,
+      courseCalculate: null,
+      rsdConverted: null,
+      grossInput: null,
+      euroInput: null,
+      gross: null,
+      nonTaxable: null,
+      base: null,
+      tax: null
+    },
+    icon: 'user',
     },{
     name: 'Ugovori o delu  ',
     nameExpl: '(kada se placa porez, PIO i zdravstvo)',
@@ -342,6 +363,17 @@ const calculationsReducer = (state = initialState, action) =>
       annualTax: {
         ...state.calculation.annualTax,
         familyNumber: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_INPUT_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input2: action.value,
+      lease: {
+        ...state.calculation.lease,
+        course: action.value
       }
     }
   }) :
@@ -1170,6 +1202,98 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  // Lease
+  action.type === SAVE_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      lease: {
+        ...state.calculation.lease,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === CALCULATE_COURSE_EURO_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        courseCalculate: action.value,
+      }
+    }
+  }) :
+  action.type === RSD_COVERTED_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        rsdConverted: action.value,
+      }
+    }
+  }) :
+  action.type === GROSS_INPUT_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        grossInput: action.value,
+      }
+    }
+  }) :
+  action.type === EURO_INPUT_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        euroInput: action.value,
+      }
+    }
+  }) :
+  action.type === CALCULATE_GROSS_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        gross: action.value,
+      }
+    }
+  }) :
+  action.type === CALCULATE_NONTAXABLE_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        nonTaxable: action.value,
+      }
+    }
+  }) :
+  action.type === CALCULATE_BASE_LEASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        base: action.value,
+      }
+    }
+  }) :
+  action.type === CALCULATE_LEASE_TAX_FINAL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      lease:{
+        ...state.calculation.lease,
+        tax: action.value,
+      }
+    }
+  }) :
   state;
 
 
@@ -1180,6 +1304,7 @@ export const saveCalculation = item => ({ type: SAVE_CALCULATION, item });
 export const saveGrossValueAction = value => ({ type: SAVE_GROSS_VALUE_ACTION, value });
 export const saveNetValueAction = value => ({ type: SAVE_NET_VALUE_ACTION, value });
 export const saveInputFamilyAction = value => ({ type: SAVE_INPUT_FAMILY_ACTION, value });
+export const saveInputLeseAction = value => ({ type: SAVE_INPUT_LEASE_ACTION, value });
 
 // export const switchGrossNetAction = value => ({ type: SWITCH_GROSS_NET_ACTION, value });
 // Salary gross to net
@@ -1272,6 +1397,19 @@ export const personalDeductionsAction = value => ({ type: PERSONAL_DEDUCTIONS_AC
 export const finalAnnualTaxActioin = value => ({ type: FINAL_ANNUAL_TAX_ACTION, value });
 
 // export const baseForTaxationAction = value => ({ type: BASE_FOR_TAXATION_ACTION, value });
+
+// Lease
+export const saveLeaseAction = value => ({ type: SAVE_LEASE_ACTION, value });
+export const calculateCourseEuroAction = value => ({ type: CALCULATE_COURSE_EURO_ACTION, value });
+export const rsdConvertedActioin = value => ({ type: RSD_COVERTED_LEASE_ACTION, value });
+export const grossInputValueAction = value => ({ type: GROSS_INPUT_ACTION, value });
+export const euroInputValueAction = value => ({ type: EURO_INPUT_ACTION, value });
+export const calculateGrossLeaseAction = value => ({ type: CALCULATE_GROSS_LEASE_ACTION, value });
+export const calculateNonTaxableLeaseAction = value => ({ type: CALCULATE_NONTAXABLE_LEASE_ACTION, value });
+export const calculateBaseLeaseAction = value => ({ type: CALCULATE_BASE_LEASE_ACTION, value });
+export const calculateLeaseTaxFinalAction = value => ({ type: CALCULATE_LEASE_TAX_FINAL_ACTION, value });
+
+
 
 
 

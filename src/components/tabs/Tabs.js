@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import { colors, fonts, metrics, images } from '../../theme/index.js';
 // import { SimpleLineIcons } from '@expo/vector-icons';
 // import MainScreen from '../mainScreen/MainScreen.js';
@@ -41,7 +41,7 @@ const navigationConfig = {
   swipeEnabled: true
 };
 
-const Tabs = TabNavigator({
+const Tabs = createBottomTabNavigator({
   // MainScreen: {
   //   screen: MainScreen,
   //   navigationOptions: {
@@ -108,24 +108,24 @@ const Tabs = TabNavigator({
 
 
 
-  Splash: {
-    screen: Splash,
-    navigationOptions: {
-      // title: 'CALCULATIONS',
-      tabBarLabel: 'Splash',
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-      tintColor === colors.lightBlue1 ?
-        <Image
-          source={images.calculatorSelected}
-          style={{width: 20, height: 20}}
-        />
-      :
-        <Image
-          source={images.calculatorDefault}
-          style={{width: 20, height: 20}}
-        />
-    }
-  },
+  // Splash: {
+  //   screen: Splash,
+  //   navigationOptions: {
+  //     // title: 'CALCULATIONS',
+  //     tabBarLabel: 'Splash',
+  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
+  //     tintColor === colors.lightBlue1 ?
+  //       <Image
+  //         source={images.calculatorSelected}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //     :
+  //       <Image
+  //         source={images.calculatorDefault}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //   }
+  // },
 
 
 

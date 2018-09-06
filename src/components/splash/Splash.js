@@ -39,25 +39,32 @@ class Splash extends Component {
         );
       };
       Animated.parallel([
-        createAnimation(this.animatedValue1, 2000, Easing.ease),
-        createAnimation(this.animatedValue2, 1000, Easing.ease, 1000),
-        createAnimation(this.animatedValue3, 1000, Easing.ease, 2000)
+        createAnimation(this.animatedValue1, 2000, Easing.ease, 2000),
+        createAnimation(this.animatedValue2, 2000, Easing.ease, 1000),
+        createAnimation(this.animatedValue3, 1000, Easing.ease, 500)
       ]).start();
     }
 
     render () {
-      const scaleText = this.animatedValue1.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0.5, 2]
-      });
-      const spinText = this.animatedValue2.interpolate({
-        inputRange: [0, 1],
-        outputRange: ['0deg', '720deg']
-      });
+      // const scaleText = this.animatedValue1.interpolate({
+      //   inputRange: [0, 1],
+      //   outputRange: [0.5, 2]
+      // });
       const introButton = this.animatedValue3.interpolate({
         inputRange: [0, 1],
-        outputRange: [-120, 150]
+        outputRange: [300, 130]
       });
+
+      const introButton2 = this.animatedValue2.interpolate({
+        inputRange: [0, 1],
+        outputRange: [800, 300]
+      });
+
+      const introButton3 = this.animatedValue1.interpolate({
+        inputRange: [0, 1],
+        outputRange: [800, 350]
+      });
+
       return (
         <ImageBackground source={images.drawerBackground} style={[styles.container]}>
 
@@ -67,12 +74,12 @@ class Splash extends Component {
             </View>
           </Animated.View>
 
-          <Animated.View style={{ transform: [{scale: scaleText}] }}>
-            <Text style={styles.text}>Introducing an application</Text>
+          <Animated.View style={{top: introButton2, position: 'absolute'}}>
+            <Text style={styles.text}>Together</Text>
           </Animated.View>
 
-          <Animated.View style={{ marginTop: 20, transform: [{rotate: spinText}] }}>
-            <Text style={styles.smallText}>for tax and finance!</Text>
+          <Animated.View style={{top: introButton3, position: 'absolute'}}>
+            <Text style={styles.textBottom}>WE make It happen.</Text>
           </Animated.View>
 
         </ImageBackground>
@@ -106,11 +113,12 @@ const styles = StyleSheet.create({
     backgroundColor:'#ffffff20',
   },
   text: {
+    fontSize: 30,
     color: colors.white,
     fontFamily: 'openSansRegular',
   },
-  smallText: {
-    fontSize: 20,
+  textBottom: {
+    fontSize: 30,
     color: colors.white,
     fontFamily: 'openSansRegular',
   }

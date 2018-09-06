@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
 import MainScreen from '../mainScreen/MainScreen.js';
 import Tabs from '../tabs/Tabs.js';
@@ -30,7 +30,7 @@ const navigationConfig = {
     // title: 'asda',
     headerTintColor: colors.white,
     headerStyle: {
-      justifyContent: 'center',
+      // justifyContent: 'center',
       backgroundColor: colors.navigator,
       height: 60,
       borderBottomWidth: 0
@@ -43,7 +43,7 @@ const navigationConfig = {
   }),
 };
 
-const Navigator = StackNavigator({
+const Navigator = createStackNavigator({
   // MainScreen: { screen: MainScreen },
   Tabs: { screen: Tabs },
   Services: { screen: Services },

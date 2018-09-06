@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon, saveInputFamilyAction,
+  resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon, saveInputFamilyAction, saveInputLeseAction,
   saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, totalSalaryGrossToNetContributionsAction,
   saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction,
   tempPermJobsGrossToNetAction, saveTempPermJobsAction, tempPermJobsNetAction, tempPermJobsTaxAction, tempPermJobsPension14Action, tempPermJobsHealthAction, tempPermJobsNezAction, tempPermJobsPension12Action,
@@ -12,7 +12,8 @@ import {
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
-  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin
+  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin,
+  saveLeaseAction, calculateCourseEuroAction, rsdConvertedActioin, grossInputValueAction, euroInputValueAction, calculateGrossLeaseAction, calculateNonTaxableLeaseAction, calculateBaseLeaseAction, calculateLeaseTaxFinalAction
   } from './CalculationsContainer';
 import SalaryCalculator from './salary/SalaryCalculator';
 import TemporaryPermanentJobsCalculator from './temporaryPermanentJobs/TemporaryPermanentJobsCalculator';
@@ -21,6 +22,7 @@ import ContractTaxPioHealth from './contract/ContractTaxPioHealth';
 import ContractTax from './contract/ContractTax';
 import Allowance from './allowance/Allowance';
 import AnnualTax from './annual/AnnualTax';
+import Lease from './lease/Lease';
 
 
 class CalculationDetail1 extends Component {
@@ -53,13 +55,18 @@ class CalculationDetail1 extends Component {
       this.allowanceCalculator(val) :
     this.props.calculation.func === 'annualTax' ?
       this.annualTaxCalculator(val) :
+    this.props.calculation.func === 'lease' ?
+      this.leaseCalculator(val) :
     null;
   };
 
   calculateValueInput2 = val => {
     this.setState({ showResult: true });
     this.props.calculation.func === 'annualTax' ?
-      this.saveFamilyNumber(val) : null;
+      this.saveFamilyNumber(val) :
+    this.props.calculation.func === 'lease' ?
+      this.saveCourseEuro(val) :
+    null;
   }
 
   saveFamilyNumber = val => {
@@ -67,8 +74,15 @@ class CalculationDetail1 extends Component {
     this.props.personalDeductionsAction(this.personalDeductions(val));
   };
 
+  saveCourseEuro = val => {
+    this.props.calculateCourseEuroAction(this.calculateCourseEuro(val));
+  }
+
   calculateFamilyNumber = val => (val * 118757);
   personalDeductions = val => (this.calculateFamilyNumber(val) + 316685)
+
+  calculateCourseEuro = val => (val + 1)
+
 
   /********
   * SALARY
@@ -168,11 +182,17 @@ class CalculationDetail1 extends Component {
         null :
       this.props.calculation.func === 'annualTax' ?
         this.props.saveAnnualTaxAction(Number(value)) :
+      this.props.calculation.func === 'lease' ?
+        this.props.saveLeaseAction(Number(value)) :
       null;
   };
 
   saveInputFamily = value => {
-    this.props.saveInputFamilyAction(Number(value));
+    this.props.calculation.func === 'annualTax' ?
+      this.props.saveInputFamilyAction(Number(value)) :
+    this.props.calculation.func === 'lease' ?
+      this.props.saveInputLeseAction(Number(value)) :
+    null;
   };
 
   /********
@@ -278,7 +298,11 @@ allowanceAwayTaxBase = val => (val - 50)
 allowanceAwayGross = val => (this.allowanceAwayTaxBase(val) * 1.111111111)
 allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
 
-// Annual tax
+
+/********
+* ANNUAL TAX
+********/
+
 annualTaxCalculator = val => {
   this.props.annualGrossAction(this.annualGross(val));
   this.props.baseForTaxAction(this.baseForTax(val));
@@ -325,7 +349,6 @@ calculateFinalAnnualTax = val => {
   this.props.finalAnnualTaxActioin(this.finalTax(val));
 }
 
-
 // Ovako je u onoj EY
 finalTax = val =>
   (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
@@ -335,6 +358,38 @@ finalTax = val =>
 // finalTax = val =>
 //   this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
 //   : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
+
+
+
+/********
+* LEASE
+********/
+
+// nije final, ovaj samo mnozi euro sa koeficijentom
+calculateFinaLease = val => {
+  this.props.rsdConvertedActioin(this.leaseConverted(val));
+}
+
+leaseConverted = val => (this.grossInputValue(this.props.calculation.input) * (this.euroInputValue(this.props.calculation.input2)))
+
+
+leaseCalculator = val => {
+  this.props.grossInputValueAction(this.grossInputValue(val));
+  this.props.euroInputValueAction(this.euroInputValue(val));
+  this.props.calculateGrossLeaseAction(this.calculateGrossLease(val));
+  this.props.calculateNonTaxableLeaseAction(this.calculateNonTaxableLease(val));
+  this.props.calculateBaseLeaseAction(this.calculateBaseLease(val));
+  this.props.calculateLeaseTaxFinalAction(this.calculateLeaseTaxFinal(val));
+
+
+}
+
+grossInputValue = val => val
+euroInputValue = val => val
+calculateGrossLease = val => (this.leaseConverted(val) * 1.17647059)
+calculateNonTaxableLease = val => (this.calculateGrossLease(val) * 0.25)
+calculateBaseLease = val => (this.calculateGrossLease(val) - this.calculateNonTaxableLease(val))
+calculateLeaseTaxFinal = val => (this.calculateBaseLease(val) * 0.20)
 
 
   render () {
@@ -406,6 +461,18 @@ finalTax = val =>
             baseForTaxation={this.baseForTaxation}
             finalTax={this.finalTax}
             calculateFinalAnnualTax={this.calculateFinalAnnualTax}
+          /> :
+        this.props.calculation.func === 'lease' ?
+          <Lease
+            calculation = {this.props.calculation}
+            saveInput = {this.saveInput}
+            showResult={this.state.showResult}
+            calculateValue ={this.calculateValue}
+            calculateValueInput2={this.calculateValueInput2}
+            saveInputFamily={this.saveInputFamily}
+            // baseForTaxation={this.baseForTaxation}
+            // finalTax={this.finalTax}
+            calculateFinaLease={this.calculateFinaLease}
           />
         : null
     );
@@ -424,6 +491,7 @@ const dispatchToProps = dispatch => ({
   saveGrossValueAction: bindActionCreators(saveGrossValueAction, dispatch),
   saveNetValueAction: bindActionCreators(saveNetValueAction, dispatch),
   saveInputFamilyAction: bindActionCreators(saveInputFamilyAction, dispatch),
+  saveInputLeseAction: bindActionCreators(saveInputLeseAction, dispatch),
 
 
   // switchGrossNetAction: bindActionCreators(switchGrossNetAction, dispatch),
@@ -519,6 +587,21 @@ const dispatchToProps = dispatch => ({
   calculateFamilyNumberAction: bindActionCreators(calculateFamilyNumberAction, dispatch),
   personalDeductionsAction: bindActionCreators(personalDeductionsAction, dispatch),
   finalAnnualTaxActioin: bindActionCreators(finalAnnualTaxActioin, dispatch),
+
+  // LEASE
+  saveLeaseAction: bindActionCreators(saveLeaseAction, dispatch),
+  calculateCourseEuroAction: bindActionCreators(calculateCourseEuroAction, dispatch),
+  rsdConvertedActioin: bindActionCreators(rsdConvertedActioin, dispatch),
+  grossInputValueAction: bindActionCreators(grossInputValueAction, dispatch),
+  euroInputValueAction: bindActionCreators(euroInputValueAction, dispatch),
+  calculateGrossLeaseAction: bindActionCreators(calculateGrossLeaseAction, dispatch),
+  calculateNonTaxableLeaseAction: bindActionCreators(calculateNonTaxableLeaseAction, dispatch),
+  calculateBaseLeaseAction: bindActionCreators(calculateBaseLeaseAction, dispatch),
+  calculateLeaseTaxFinalAction: bindActionCreators(calculateLeaseTaxFinalAction, dispatch),
+
+
+
+
 
 });
 

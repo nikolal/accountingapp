@@ -2,34 +2,28 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../../theme';
 
-const AnnualTaxResult = ({ calculation }) => {
+const LeaseResult = ({ calculation }) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Bruto zarada u RSD</Text>
-          <Text style={styles.number}>{calculation.annualTax.value && calculation.annualTax.value.toFixed(2)}</Text>
+          <Text style={styles.text}>Ukupan porez</Text>
+          <Text style={styles.number}>{calculation.lease.tax && calculation.lease.tax.toFixed(2)}</Text>
         </View>
       </View>
-      <View style={styles.itemContainer}>
+      {/* <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Broj izdžavanih članova</Text>
-          <Text style={styles.number}>{calculation.annualTax.familyNumber && calculation.annualTax.familyNumber}</Text>
+          <Text style={styles.text}>Porez</Text>
+          <Text style={styles.number}>{calculation.lease.finnalAnnualTax && calculation.lease.finnalAnnualTax.toFixed(2)}</Text>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Iznos godišnjeg poreza</Text>
-          <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toFixed(2)}</Text>
-        </View>
-      </View>
+      </View> */}
 
     </View>
   );
 };
 
-export default AnnualTaxResult;
+export default LeaseResult;
 
 const styles = StyleSheet.create({
   container: {

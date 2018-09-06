@@ -40,9 +40,9 @@ class DrawerTemplate extends Component {
           <MaterialCommunityIcons name={item.icon} size={13} color="black" />
             {
               this.props.language === 'en' ?
-                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'blue' : 'white' }]}>{item.nameEn}</Text></View> :
+                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'rgb(65,231,255)' : 'white' }]}>{item.nameEn}</Text></View> :
               this.props.language === 'rs' ?
-                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'blue' : 'white' }]}>{item.nameRs}</Text></View> :
+                <View style={styles.textScreenContainer}><Text style={[styles.textScreen, { color: item.screen === activeRoute ? 'rgb(65,231,255)' : 'white' }]}>{item.nameRs}</Text></View> :
               null
             }
         </View>

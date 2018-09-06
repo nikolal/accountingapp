@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation';
 import Navigator from '../navigator/Navigator.js';
 import DrawerTemplate from './DrawerTemplate.js';
 
@@ -12,6 +12,6 @@ const DrawerNavigatorConfig = {
   contentComponent: ({ navigation }) => <DrawerTemplate navigation={navigation} routes={RouteConfigs} />
 };
 
-const Drawer = DrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
+const Drawer = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
 
 export default Drawer;

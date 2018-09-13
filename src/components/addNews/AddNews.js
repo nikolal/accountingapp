@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, DatePickerIOS, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, DatePickerIOS, StyleSheet, ScrollView, Dimensions, Constants } from 'react-native';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import firebase from '../../firebase/firebase.js';
 // import { bindActionCreators } from 'redux';
 // import { Entypo }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
 // import HeaderTitle from './HeaderTitle.js';
 //
+//
+const database = firebase.database();
 
 class AddNews extends Component {
 
   state = {
-    title: '',
-    description: '',
-    date: new Date(),
+    newsItem: {
+      author: {
+        en: '',
+        rs: '',
+      },
+      title: {
+        en: '',
+        rs: '',
+      },
+      description: '',
+      createdAt: moment(new Date()).format('DD/MM/YYYY'),
+      image: 'https://best-wallpaper.net/wallpaper/1366x768/1201/Dream-clouds-on-the-mountain-and-the-planet_1366x768.jpg',
+      paragraphs: []
+    },
     showDatePicker: false,
-    image: '',
-    paragraphs: []
   }
 
   // static navigationOptions = ({ navigation }) => ({
@@ -28,34 +40,82 @@ class AddNews extends Component {
     this.props.navigation.navigate(screenName);
   }
 
-  updateTitle  = text => {
-    this.setState({ title: text });
+  updateAuthor  = (text, lang) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      author: {
+        ...this.state.newsItem.author,
+        [lang]: text
+      }
+    }});
   }
 
-  updateDescription= text => {
-    this.setState({ description: text });
+  updateTitle  = (text, lang) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      title: {
+        ...this.state.newsItem.title,
+        [lang]: text
+      }
+    }});
   }
 
-  setDate = (newDate) => {
-    this.setState({chosenDate: newDate});
+  updateImage = (text) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      image: text
+    }});
+  }
+
+  updateDescription = (text, lang) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      description: {
+        ...this.state.newsItem.description,
+        [lang]: text
+      }
+    }});
+  }
+
+  updateDate = date => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      createdAt: date
+    }});
   }
 
   addParagraph = type => {
     type === 'text' ?
-      this.setState({ paragraphs: [...this.state.paragraphs, {id: this.state.paragraphs.length + 1, type: 'text', value: 'milana'}] })
+      this.setState({ newsItem: {
+        ...this.state.newsItem,
+        paragraphs: [...this.state.newsItem.paragraphs, {id: this.state.newsItem.paragraphs.length + 1, type: 'text', value: 'milana'}]
+      }})
     :
     type === 'image' ?
-      this.setState({ paragraphs: [...this.state.paragraphs, {id: this.state.paragraphs.length + 1, type: 'image', value: 'nikola'}] })
+      this.setState({ newsItem: {
+        ...this.state.newsItem,
+        paragraphs: [...this.state.newsItem.paragraphs, {id: this.state.newsItem.paragraphs.length + 1, type: 'image', value: 'nikola'}]
+      }})
     : null;
   }
 
   updateParagraph = (text, item, index) => {
-    const newParagraphs = this.state.paragraphs.slice(); //copy the array
+    const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
     newParagraphs[index] = { // eslint-disable-line
       type: item.type,
       value: text
     };
-    this.setState({ paragraphs: newParagraphs });
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      paragraphs: newParagraphs
+    }});
+  }
+
+  submitNews = () => {
+    const { news } = this.props;
+    console.log(this.state.newsItem);
+    database.ref(`news/${news.length}`)
+      .set(this.state.newsItem);
   }
 
 
@@ -68,6 +128,7 @@ class AddNews extends Component {
         onChangeText={(text) => this.updateParagraph(text, item, index)}
         placeholder="Unesi tekst"
         placeholderTextColor="black"
+        autoCorrect={false}
       /> :
     item.type === 'image' ?
       <TextInput
@@ -76,59 +137,105 @@ class AddNews extends Component {
         onChangeText={(text) => this.updateParagraph(text, item, index)}
         placeholder="Link slike"
         placeholderTextColor="black"
+        autoCorrect={false}
       />
     : null
 
   render() {
-    // console.log(this.state.date);
-    // console.log(this.state.paragraphs);
+    console.log(this.state.newsItem);
 
     const showDatePicker = this.state.showDatePicker ?
       <DatePickerIOS
         style={{ height: 200 }}
-        date={this.state.date} onDateChange={(date)=>this.setState({date})}
+        date={this.state.newsItem.createdAt}
+        onDateChange={(date) => this.updateDate(date)}
         mode="date"/> : <View />;
 
     return (
-      <ScrollView style={styles.container}>
-        <View>
-          <Text style={styles.directionText}>Unesi naslov</Text>
-          <TextInput
-            style={styles.inputText}
-            onChangeText={(text) => this.updateTitle(text)}
-            placeholder=" Unesi tekst"
-            placeholderTextColor="black"
-          />
-          <Text style={styles.directionText}>Kratak opis vesti</Text>
-          <TextInput
-            style={styles.inputText}
-            onChangeText={(text) => this.updateDescription(text)}
-            placeholder=" Unesi tekst"
-            placeholderTextColor="black"
-          />
-        </View>
-        <View>
-          <Text style={styles.directionText}>Odaberi datum</Text>
-          <TouchableOpacity
-            style={styles.dateContainer}
-            onPress={() => this.setState({showDatePicker: !this.state.showDatePicker})}>
-            <Text style={styles.dateText}>{moment(this.state.date).format('DD/MM/YYYY')}</Text>
-          </TouchableOpacity>
-          {showDatePicker}
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.textButton}>Dodaj tekst</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.textButton}>Dodaj sliku</Text></TouchableOpacity>
-        </View>
-        {this.state.paragraphs.map(this.renderParagraphs)}
-      </ScrollView>
+      <View style={styles.containerHead}>
+         <TouchableOpacity style={styles.submitButton} onPress={this.submitNews}>
+            <Text style={styles.buttonText}>SUBMIT / POTVRDI</Text>
+            </TouchableOpacity>
+        <ScrollView style={styles.container}>
+          <View>
+            <Text style={styles.directionText}>Autor teksta</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateAuthor(text, 'rs')}
+              placeholder=" Unesi autora"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateAuthor(text, 'en')}
+              placeholder="Add Author"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+            <Text style={styles.directionText}>Naslov teksta</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateTitle(text, 'rs')}
+              placeholder=" Unesi naslov"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateTitle(text, 'en')}
+              placeholder="Add headline"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+            <Text style={styles.directionText}>Link slike</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateImage(text)}
+              placeholder="Link slike"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+            <Text style={styles.directionText}>Kratak opis vesti</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateDescription(text, 'rs')}
+              placeholder=" Unesi tekst"
+              autoCorrect={false}
+              placeholderTextColor="black"
+            />
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateDescription(text, 'en')}
+              placeholder=" Add text"
+              placeholderTextColor="black"
+              autoCorrect={false}
+            />
+          </View>
+          <View>
+            <Text style={styles.directionText}>Odaberi datum</Text>
+            <TouchableOpacity
+              style={styles.dateContainer}
+              onPress={() => this.setState({showDatePicker: !this.state.showDatePicker})}>
+              <Text style={styles.dateText}>{this.state.newsItem.createdAt}</Text>
+            </TouchableOpacity>
+            {showDatePicker}
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.textButton}>Dodaj tekst</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.textButton}>Dodaj sliku</Text></TouchableOpacity>
+          </View>
+          {this.state.newsItem.paragraphs.map(this.renderParagraphs)}
+        </ScrollView>
+      </View>
     );
   }
 }
 
 const stateToProps = state => ({
   about: state.aboutReducer.about,
-  language: state.settingsReducer.language
+  language: state.settingsReducer.language,
+  news: state.newsReducer.news
 });
 
 const dispatchToProps = dispatch => ({
@@ -138,7 +245,8 @@ const dispatchToProps = dispatch => ({
 export default connect(stateToProps, dispatchToProps)(AddNews);
 
 const styles = StyleSheet.create({
-  container: {
+  containerHead: {
+    flex: 1
   },
   directionText: {
     margin: metrics.small,
@@ -183,5 +291,17 @@ const styles = StyleSheet.create({
     borderRadius: metrics. medium,
     margin: metrics.medium,
     padding: metrics.large
-  }
+  },
+  submitButton: {
+    backgroundColor: '#14B7C5',
+    margin: metrics.medium,
+    padding: metrics.medium,
+    borderRadius: metrics.small,
+  },
+  buttonText: {
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansBold',
+    color: colors.white,
+  },
 });

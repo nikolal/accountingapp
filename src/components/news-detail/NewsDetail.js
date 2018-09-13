@@ -27,9 +27,10 @@ class NewsDetail extends Component {
 
   render(){
     const { article } = this.props;
+    console.log(article.description);
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description}</Text>
+        <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description[this.props.language]}</Text>
         <View style={styles.dateSocialIconContainer}>
           <Text style={styles.dateText}>{article.date}</Text>
           <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
@@ -48,7 +49,9 @@ NewsDetail.propTypes = { // eslint-disable-line
 };
 
 const stateToProps = state => ({
-  article: state.newsReducer.article
+  article: state.newsReducer.article,
+  languages: state.settingsReducer.languages,
+  language: state.settingsReducer.language,
 });
 
 export default connect(stateToProps, null)(NewsDetail);

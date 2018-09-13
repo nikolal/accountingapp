@@ -108,24 +108,24 @@ const Tabs = createBottomTabNavigator({
 
 
 
-  // Splash: {
-  //   screen: Splash,
-  //   navigationOptions: {
-  //     // title: 'CALCULATIONS',
-  //     tabBarLabel: 'Splash',
-  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
-  //     tintColor === colors.lightBlue1 ?
-  //       <Image
-  //         source={images.calculatorSelected}
-  //         style={{width: 20, height: 20}}
-  //       />
-  //     :
-  //       <Image
-  //         source={images.calculatorDefault}
-  //         style={{width: 20, height: 20}}
-  //       />
-  //   }
-  // },
+  Splash: {
+    screen: AddNews,
+    navigationOptions: {
+      // title: 'CALCULATIONS',
+      tabBarLabel: 'Splash',
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.calculatorSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.calculatorDefault}
+          style={{width: 20, height: 20}}
+        />
+    }
+  },
 
 
 

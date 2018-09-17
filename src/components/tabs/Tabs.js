@@ -109,7 +109,7 @@ const Tabs = createBottomTabNavigator({
 
 
   Splash: {
-    screen: AddNews,
+    screen: Splash,
     navigationOptions: {
       // title: 'CALCULATIONS',
       tabBarLabel: 'Splash',

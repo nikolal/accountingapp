@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, DatePickerIOS, StyleSheet, ScrollView, Dimensions, Constants } from 'react-native';
+import { View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, DatePickerIOS, StyleSheet, ScrollView, Dimensions, Constants } from 'react-native';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import firebase from '../../firebase/firebase.js';
@@ -23,7 +23,10 @@ class AddNews extends Component {
         en: '',
         rs: '',
       },
-      description: '',
+      description: {
+        en: '',
+        rs: '',
+      },
       createdAt: moment(new Date()).format('DD/MM/YYYY'),
       image: 'https://best-wallpaper.net/wallpaper/1366x768/1201/Dream-clouds-on-the-mountain-and-the-planet_1366x768.jpg',
       paragraphs: []
@@ -157,19 +160,22 @@ class AddNews extends Component {
             <Text style={styles.buttonText}>SUBMIT / POTVRDI</Text>
             </TouchableOpacity>
         <ScrollView style={styles.container}>
+          <KeyboardAvoidingView
+            behavior="padding"
+          >
           <View>
             <Text style={styles.directionText}>Autor teksta</Text>
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateAuthor(text, 'rs')}
-              placeholder=" Unesi autora"
+              placeholder="  Unesi autora"
               placeholderTextColor="black"
               autoCorrect={false}
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateAuthor(text, 'en')}
-              placeholder="Add Author"
+              placeholder="  Add Author"
               placeholderTextColor="black"
               autoCorrect={false}
             />
@@ -177,14 +183,14 @@ class AddNews extends Component {
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateTitle(text, 'rs')}
-              placeholder=" Unesi naslov"
+              placeholder="  Unesi naslov"
               placeholderTextColor="black"
               autoCorrect={false}
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateTitle(text, 'en')}
-              placeholder="Add headline"
+              placeholder="  Add headline"
               placeholderTextColor="black"
               autoCorrect={false}
             />
@@ -192,7 +198,7 @@ class AddNews extends Component {
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateImage(text)}
-              placeholder="Link slike"
+              placeholder="  Link slike"
               placeholderTextColor="black"
               autoCorrect={false}
             />
@@ -200,19 +206,19 @@ class AddNews extends Component {
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateDescription(text, 'rs')}
-              placeholder=" Unesi tekst"
+              placeholder="  Unesi tekst"
               autoCorrect={false}
               placeholderTextColor="black"
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateDescription(text, 'en')}
-              placeholder=" Add text"
+              placeholder="  Add text"
               placeholderTextColor="black"
               autoCorrect={false}
             />
           </View>
-          <View>
+          <View >
             <Text style={styles.directionText}>Odaberi datum</Text>
             <TouchableOpacity
               style={styles.dateContainer}
@@ -222,10 +228,11 @@ class AddNews extends Component {
             {showDatePicker}
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.textButton}>Dodaj tekst</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.textButton}>Dodaj sliku</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.buttonText}>Dodaj paragraf</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.buttonText}>Dodaj sliku</Text></TouchableOpacity>
           </View>
           {this.state.newsItem.paragraphs.map(this.renderParagraphs)}
+        </KeyboardAvoidingView>
         </ScrollView>
       </View>
     );
@@ -249,13 +256,15 @@ const styles = StyleSheet.create({
     flex: 1
   },
   directionText: {
+    alignSelf: 'center',
     margin: metrics.small,
     marginTop: metrics.huge,
     color: colors.lightBlue1,
+    fontSize: fonts.size.large
   },
   inputText: {
     height: 50,
-    marginHorizontal: metrics.small,
+    margin: metrics.small,
     borderColor: 'rgb(141,141,141)',
     borderWidth: metrics.smallBorder,
     borderRadius: metrics.small,
@@ -270,8 +279,10 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.small,
   },
   dateContainer: {
+    alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    margin: metrics.medium,
     height: 30,
     width: Dimensions.get('window').width / 3,
     marginLeft: metrics.small,
@@ -286,11 +297,10 @@ const styles = StyleSheet.create({
   },
   button: {
     width: Dimensions.get('window').width / 3,
-    borderColor: colors.lightBlue1,
-    borderWidth: metrics.mediumBorder,
-    borderRadius: metrics. medium,
+    backgroundColor: '#14B7C5',
+    borderRadius: metrics. small,
     margin: metrics.medium,
-    padding: metrics.large
+    padding: metrics.medium
   },
   submitButton: {
     backgroundColor: '#14B7C5',

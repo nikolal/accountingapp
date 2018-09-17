@@ -40,7 +40,7 @@ class Settings extends Component {
         <Text style={styles.name}>{item.name}</Text>
         {
           item.value === this.props.language &&
-            <Ionicons style={styles.checkmark} name="ios-checkmark" size={35} color={colors.black}/>
+            <Ionicons style={styles.checkmark} name="ios-checkmark" size={30} color={colors.black}/>
         }
       </TouchableOpacity>
 
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff99',
     borderColor: '#408D8D8D',
     borderWidth: metrics.mediumBorder,
-    height: 49,
-    padding: metrics.large,
+    height: 60,
+    paddingHorizontal: metrics.huge,
     marginBottom: metrics.large,
     borderRadius: metrics.small
   },

@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
   percentage: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    color: '#0D7ec2',
+    color: colors.lightBlue1,
   },
 });

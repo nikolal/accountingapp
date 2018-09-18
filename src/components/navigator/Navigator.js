@@ -18,6 +18,8 @@ import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
 import Something from '../something/Something.js';
 import IncentivesDetail from '../incentives-detail/IncentivesDetail.js';
+// import ContractTax from '../calculations/contract/ContractTax.js';
+
 
 
 
@@ -58,7 +60,9 @@ const Navigator = createStackNavigator({
   CalculationDetail1: { screen: CalculationDetail1},
   TaxesDetail: { screen: TaxesDetail },
   Something: {screen: Something},
-  IncentivesDetail: {screen: IncentivesDetail}
+  IncentivesDetail: {screen: IncentivesDetail},
+  // ContractTax: {screen: ContractTax}
+
 }, navigationConfig);
 
 export default Navigator;

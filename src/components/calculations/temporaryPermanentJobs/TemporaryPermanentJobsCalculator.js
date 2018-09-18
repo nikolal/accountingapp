@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 2.8,
+    height: Dimensions.get('window').height / 3,
   },
   calculTextContainer: {
     position: 'absolute',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
    },
   calculText: {
     color: colors.white,
-    fontSize: fonts.size.extraHuge,
+    fontSize: fonts.size.hugeToExtra,
     alignSelf: 'center'
   },
   buttonsContainer: {
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: 'rgb(141,141,141)',
     borderWidth: metrics.smallBorder,
-    marginVertical: metrics.extraHuge,
+    marginTop: metrics.extraHuge,
+    marginBottom: metrics.small,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,
     textAlign: 'center'

@@ -113,7 +113,10 @@ const CALCULATE_LEASE_TAX_FINAL_ACTION = 'calculations/CALCULATE_LEASE_TAX_FINAL
 // Initial State
 const initialState = {
   calculations: [{
-    name: 'Obracun zarada',
+    name: {
+      en:'????',
+      rs: 'Obracun zarada'
+    },
     calculation: 'OBRACUN ZARADA',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/calculationsPanel.png'),
@@ -146,7 +149,10 @@ const initialState = {
       totalNet: null,
       icon: 'calculator'
     },{
-    name: 'Privremeni i povremeni poslovi',
+    name: {
+      en: '///',
+      rs: 'Privremeni i povremeni poslovi'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/imageCalculation.png'),
     icons: require('../../../assets/images/caseCalculations.png'),
@@ -171,7 +177,10 @@ const initialState = {
     },
     icon: 'briefcase'
     },{
-    name: 'Godisnji porez',
+    name: {
+      en: 'lll',
+      rs: 'Godisnji porez'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/imageCalculation.png'),
     icons: require('../../../assets/images/calendarCalculations.png'),
@@ -214,7 +223,10 @@ const initialState = {
     },
     icon: 'calendar'
     },{
-    name: 'Dnevnice',
+    name: {
+      en: 'ppp',
+      rs: 'Dnevnice'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/panel05.png'),
     icons: require('../../../assets/images/walletCalculations.png'),
@@ -238,7 +250,10 @@ const initialState = {
     },
     icon: 'wallet'
     },{
-    name: 'Zakup fizickom licu',
+    name: {
+      en: 'kkkk',
+      rs: 'Zakup fizickom licu'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/panel05.png'),
     icons: require('../../../assets/images/manUser.png'),
@@ -261,8 +276,14 @@ const initialState = {
     },
     icon: 'user',
     },{
-    name: 'Ugovori o delu  ',
-    nameExpl: '(kada se placa porez, PIO i zdravstvo)',
+    name: {
+      en: 'uuu',
+      rs: 'Ugovori o delu'
+    },
+    nameExpl: {
+      en: 'lll',
+      rs: '(kada se placa porez, PIO i zdravstvo)'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/calculationsPanel.png'),
     icons: require('../../../assets/images/folder.png'),
@@ -282,8 +303,14 @@ const initialState = {
     },
     icon: 'folder'
     },{
-    name: 'Ugovor o delu',
-    nameExpl: '(kada se placa porez, PIO)',
+    name: {
+      en: 'tt',
+      rs: 'Ugovor o delu'
+    },
+    nameExpl: {
+      en: 'ssss',
+      rs: '(kada se placa porez, PIO)'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/calculationsPanel.png'),
     icons: require('../../../assets/images/pioTax.png'),
@@ -302,8 +329,14 @@ const initialState = {
     },
     icon: 'folder'
     },{
-    name: 'Ugovor o delu ',
-    nameExpl: '(kada se placa samo porez)',
+    name: {
+      en: 'lkdhjag',
+      rs: 'Ugovor o delu '
+    },
+    nameExpl: {
+      en: 'ddd',
+      rs: '(kada se placa samo porez)'
+    },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/imageCalculation.png'),
     icons: require('../../../assets/images/onlyTax.png'),

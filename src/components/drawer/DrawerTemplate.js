@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   drawerLogo: {
     marginLeft: metrics.extraHuge,
-    height: 60,
+    height: 70,
     width: Dimensions.get('window').width / 2.3,
   },
   iconTextScreen: {
@@ -117,10 +117,10 @@ const styles = StyleSheet.create({
   },
   textScreenContainer: {
     paddingVertical: metrics.huge,
-    width: Dimensions.get('window').width / 1.7,
+    width: Dimensions.get('window').width / 1.8,
     borderColor: '#cccccc',
-    borderBottomWidth: metrics.tinyBorder,
-    borderTopWidth: metrics.tinyBorder,
+    borderBottomWidth: 0.9,
+    // borderTopWidth: metrics.tinyBorder,
   },
   textScreen: {
     color: colors.white,

@@ -10,11 +10,18 @@ import Calculations from '../calculations/Calculations.js';
 
 import AddNews from '../addNews/AddNews.js';
 
+import NewsTabs from './NewsTabs.js';
+import NewsTabsActive from './NewsTabsActive.js';
+import IncentivesTabsActive from './IncentivesTabsActive.js';
+import IncentivesTabs from './IncentivesTabs.js';
+import CalculationsTabsActive from './CalculationsTabsActive.js';
+import CalculationsTabs from './CalculationsTabs.js';
+import TaxesTabActive from './TaxesTabActive.js';
+import TaxesTab from './TaxesTab.js';
+
 import Splash from '../splash/Splash.js';
-
-
-
 import Taxes from '../taxes/Taxes.js';
+
 
 const styles = {
   inactiveTintColor: colors.grey,
@@ -55,7 +62,11 @@ const Tabs = createBottomTabNavigator({
   News: {
     screen: News,
     navigationOptions: {
-      tabBarLabel: 'News',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <NewsTabsActive />
+        :
+          <NewsTabs />,
       tabBarIcon: ({ tintColor, activeTintColor }) =>
         tintColor === colors.lightBlue1 ?
           <Image
@@ -73,7 +84,11 @@ const Tabs = createBottomTabNavigator({
     screen: Something,
     navigationOptions: {
       // title: 'INCENTIVES',
-      tabBarLabel: 'Incentives',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <IncentivesTabsActive />
+        :
+          <IncentivesTabs />,
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
         <Image
@@ -91,7 +106,11 @@ const Tabs = createBottomTabNavigator({
     screen: Calculations,
     navigationOptions: {
       // title: 'CALCULATIONS',
-      tabBarLabel: 'Calculations',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <CalculationsTabsActive />
+        :
+          <CalculationsTabs />,
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
         <Image
@@ -108,25 +127,24 @@ const Tabs = createBottomTabNavigator({
 
 
 
-  Splash: {
-    screen: Splash,
-    navigationOptions: {
-      // title: 'CALCULATIONS',
-      tabBarLabel: 'Splash',
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-      tintColor === colors.lightBlue1 ?
-        <Image
-          source={images.calculatorSelected}
-          style={{width: 20, height: 20}}
-        />
-      :
-        <Image
-          source={images.calculatorDefault}
-          style={{width: 20, height: 20}}
-        />
-    }
-  },
-
+  // Splash: {
+  //   screen: Splash,
+  //   navigationOptions: {
+  //     // title: 'CALCULATIONS',
+  //     tabBarLabel: 'Vezba',
+  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
+  //     tintColor === colors.lightBlue1 ?
+  //       <Image
+  //         source={images.calculatorSelected}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //     :
+  //       <Image
+  //         source={images.calculatorDefault}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //   }
+  // },
 
 
 
@@ -134,7 +152,11 @@ const Tabs = createBottomTabNavigator({
     screen: Taxes,
     navigationOptions: {
       // title: 'TAXES',
-      tabBarLabel: 'Taxes',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <TaxesTabActive />
+        :
+          <TaxesTab />,
       tabBarIcon: ({ tintColor, activeTintColor }) =>
       tintColor === colors.lightBlue1 ?
         <Image

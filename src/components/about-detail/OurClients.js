@@ -1,168 +1,95 @@
-import React from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  ViewPagerAndroid,
-  Platform
-} from "react-native";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, StyleSheet, Dimensions, Image, AppRegistry, Animated, Easing, Text } from 'react-native';
+// import { Ionicons }  from '@expo/vector-icons';
+import { metrics, colors, fonts, images } from '../../theme';
+import { LinearGradient } from 'expo';
 
-type Props = {
-  count: number,
-  selectedIndex: number,
-  onSelectedIndexChange?: (index: number) => void,
-  bounces?: boolean,
-  children?: any,
-  style?: any
-};
 
-type State = {
-  width: number,
-  height: number,
-  selectedIndex: number,
-  initialSelectedIndex: number,
-  scrollingTo: ?number
-};
 
-class ViewPager extends React.Component {
-  props: Props;
-  state: State;
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      width: 0,
-      height: 0,
-      selectedIndex: this.props.selectedIndex,
-      initialSelectedIndex: this.props.selectedIndex,
-      scrollingTo: null
-    };
-    (this: any).handleHorizontalScroll = this.handleHorizontalScroll.bind(this);
-    (this: any).adjustCardSize = this.adjustCardSize.bind(this);
+  const arr = [];
+  for (var i = 0; i < 12; i++) {
+    arr.push(i);
   }
 
-  render() {
-    if (Platform.OS === "ios") {
-      return this.renderIOS();
-    } else {
-      return this.renderAndroid();
-    }
-  }
+class Splash extends Component {
 
-  renderIOS() {
-    return (
-      <ScrollView
-        ref={c => (this._scrollview = c)}
-        contentOffset={{
-          x: this.state.width * this.state.initialSelectedIndex,
-          y: 0
-        }}
-        style={[styles.scrollview, this.props.style]}
-        horizontal={true}
-        pagingEnabled={true}
-        bounces={!!this.props.bounces}
-        scrollsToTop={false}
-        onScroll={this.handleHorizontalScroll}
-        scrollEventThrottle={100}
-        removeClippedSubviews={false}
-        automaticallyAdjustContentInsets={false}
-        directionalLockEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        onLayout={this.adjustCardSize}
-      >
-        {this.renderContent()}
-      </ScrollView>
-    );
-  }
-
-  renderAndroid() {
-    return (
-      <ViewPagerAndroid
-        ref={c => (this._scrollview = c)}
-        initialPage={this.state.initialSelectedIndex}
-        onPageSelected={this.handleHorizontalScroll}
-        style={styles.container}
-      >
-        {this.renderContent()}
-      </ViewPagerAndroid>
-    );
-  }
-
-  adjustCardSize(e: any) {
-    this.setState({
-      width: e.nativeEvent.layout.width,
-      height: e.nativeEvent.layout.height
-    });
-  }
-
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.selectedIndex !== this.state.selectedIndex) {
-      if (Platform.OS === "ios") {
-        this._scrollview.scrollTo({
-          x: nextProps.selectedIndex * this.state.width,
-          animated: true
-        });
-        this.setState({ scrollingTo: nextProps.selectedIndex });
-      } else {
-        this._scrollview.setPage(nextProps.selectedIndex);
-        this.setState({ selectedIndex: nextProps.selectedIndex });
-      }
-    }
-  }
-
-  renderContent(): Array<ReactElement> {
-    const { width, height } = this.state;
-    const style = Platform.OS === "ios" && styles.card;
-    return React.Children.map(this.props.children, (child, i) => (
-      <View style={[style, { width, height }]} key={"r_" + i}>
-        {child}
-      </View>
-    ));
-  }
-
-  handleHorizontalScroll(e: any) {
-    let selectedIndex = e.nativeEvent.position;
-    if (selectedIndex === undefined) {
-      selectedIndex = Math.round(
-        e.nativeEvent.contentOffset.x / this.state.width
-      );
-    }
-    if (selectedIndex < 0 || selectedIndex >= this.props.count) {
-      return;
-    }
-    if (
-      this.state.scrollingTo !== null &&
-      this.state.scrollingTo !== selectedIndex
-    ) {
-      return;
-    }
-    if (
-      this.props.selectedIndex !== selectedIndex ||
-      this.state.scrollingTo !== null
-    ) {
-      this.setState({ selectedIndex, scrollingTo: null }, () => {
-        // the onSelectedIndexChange handler can change props.selectedIndex, so we want
-        // to call it after the state has actually changed to avoid extra scrollTo call
-        // (see componentWillReceiveProps)
-        const { onSelectedIndexChange } = this.props;
-        onSelectedIndexChange && onSelectedIndexChange(selectedIndex);
+  constructor () {
+      super();
+      this.animatedValue = []
+      arr.forEach((value) => {
+        this.animatedValue[value] = new Animated.Value(0)
       });
     }
+
+    componentDidMount () {
+      this.animate();
+    }
+
+    animate () {
+      const animations = arr.map((item) => {
+        return Animated.timing(
+          this.animatedValue[item],
+          {
+            toValue: 1,
+            duration: 300
+          }
+        );
+      });
+      Animated.sequence(animations).start();
+    }
+
+
+    render () {
+      const animations = arr.map((a, i) => {
+        return <Animated.View
+          key={i} style={{opacity: this.animatedValue[a],
+          }}>
+          <Image
+            style={styles.image}
+            source={{uri: 'https://kids.nationalgeographic.com/content/dam/kids/photos/animals/Mammals/H-P/lion-male-roar.adapt.945.1.jpg'}}
+          />
+        </Animated.View>;
+      });
+      return (
+        <View style={styles.container}>
+          <LinearGradient
+            colors={['rgb(26,52,75)', 'rgb(18,66,89)', 'rgb(16,70,92)']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: Dimensions.get('window').height
+            }}
+          />
+          {animations}
+        </View>
+      );
+    }
   }
-}
+
+  AppRegistry.registerComponent('Splash', () => Splash);
+
+  const stateToProps = state => ({
+    article: state.aboutReducer.article,
+    language: state.settingsReducer.language
+
+  });
+  export default connect(stateToProps, null)(Splash);
+
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  scrollview: {
     flex: 1,
-    backgroundColor: "transparent"
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
   },
-  card: {
-    backgroundColor: "transparent"
+  image: {
+     width: Dimensions.get('window').width / 3.5,
+     height: Dimensions.get('window').width / 3.5,
+     margin: 5,
+     marginTop: metrics.huge
   }
 });
-
-module.exports = ViewPager;

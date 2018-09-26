@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../theme';
 import PropTypes from 'prop-types';
 import HeaderTitle from './HeaderTitle.js';
-import OurClients from './OurClients';
 
 class AboutDetail extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     headerTitle: <HeaderTitle />
   });
+
 
   renderArticle = (item, index) =>
     item.type === 'text' ?
@@ -27,18 +27,12 @@ class AboutDetail extends Component {
     const { article } = this.props;
     return (
       <ScrollView style={styles.container}>
-        {
-          article.clientType === 'noClients' ?
-            <View>
-              <Image
-                style={styles.image}
-                source={article.image}
-              />
-              <Text style={styles.description}>{article.description[this.props.language]}</Text>
-              {article.paragraphs.map(this.renderArticle)}
-            </View> :
-            <OurClients article={article} />
-        }
+          <Image
+            style={styles.image}
+            source={article.image}
+          />
+          <Text style={styles.description}>{article.description[this.props.language]}</Text>
+          {article.paragraphs.map(this.renderArticle)}
       </ScrollView>
     );
   }

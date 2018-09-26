@@ -8,6 +8,7 @@ const initialState = {
       en: 'Our Team',
       rs: 'Naš tim'
     },
+    clientType: 'noClients',
     subTitle: {
       en: 'More About Us',
       rs: 'Više o našem timu'
@@ -84,6 +85,7 @@ const initialState = {
       en: 'Our Company',
       rs: 'Naša kompanija'
     },
+    clientType: 'noClients',
     subTitle: {
       en: 'More About Our Company',
       rs: 'Više o našoj kompaniji'
@@ -124,6 +126,7 @@ const initialState = {
       en: 'Our Clients',
       rs: 'Naši klijenti'
     },
+    clientType: 'clients',
     subTitle: {
       en: 'More About Our Clients',
       rs: 'Više o našim klijentima'

@@ -8,8 +8,6 @@ import HeaderTitle from './HeaderTitle.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import { LinearGradient } from 'expo';
 
-// kako resiti ovaj problem - jedna slika je mnogo svetlija i jacih boja pa deluje da nema opacity
-
 class Calculations extends Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -23,15 +21,15 @@ class Calculations extends Component {
   };
 
   renderList = (item) =>
-    <TouchableOpacity style={styles.item} key={item.name} onPress={() => this.goToCalculation(item)}>
+    <TouchableOpacity style={styles.item} key={item.name[this.props.language]} onPress={() => this.goToCalculation(item)}>
       <View style={styles.imageTextContainer}>
         <Image source={item.image} style={styles.backgroundImage}/>
         <View style={styles.innerImageContainer}>
           <Image source={item.icons} style={styles.innerImage}/>
-          <TouchableOpacity style={styles.goButton} key={item.name} onPress={() => this.goToCalculation(item)}><Text style={styles.buttonText}>>>></Text></TouchableOpacity>
+          <TouchableOpacity style={styles.goButton} key={item.name[this.props.language]} onPress={() => this.goToCalculation(item)}><Text style={styles.buttonText}>>>></Text></TouchableOpacity>
         </View>
-        <Text style={styles.textItem} numberOfLines={2}>{item.name}</Text>
-        <Text style={styles.explanation} numberOfLines={1}>{item.nameExpl}</Text>
+        <Text style={styles.textItem} numberOfLines={2}>{item.name[this.props.language]}</Text>
+        <Text style={styles.explanation} numberOfLines={1}>{item.nameExpl && item.nameExpl[this.props.language]}</Text>
       </View>
     </TouchableOpacity>
 
@@ -63,7 +61,8 @@ class Calculations extends Component {
 
 const stateToProps = state => ({
   calculations: state.calculationsReducer.calculations,
-  calculation: state.calculationsReducer.calculation
+  calculation: state.calculationsReducer.calculation,
+  language: state.settingsReducer.language
 
 });
 

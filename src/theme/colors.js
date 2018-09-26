@@ -8,7 +8,7 @@ const colors = {
 
 
 
-
+  tabGrey: '#8c8c8c',
   navigator: '#142034',
   darkGrey: '#474747',
   lightGrey: '#dbe1de',

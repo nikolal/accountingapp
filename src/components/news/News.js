@@ -91,7 +91,7 @@ class News extends Component {
     </TouchableOpacity>
 
   render() {
-    console.log(this.props.news);
+    // console.log(this.props.news);
     return (
       <ScrollView style={styles.container}>
         <Modal

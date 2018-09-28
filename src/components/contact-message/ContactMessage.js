@@ -3,6 +3,8 @@ import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity,
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
+import { MailComposer } from 'expo';
+import Toast from 'react-native-root-toast';
 
 
 class ConcatMessage extends Component {
@@ -35,7 +37,46 @@ class ConcatMessage extends Component {
     title: 'HLB T&M Consulting',
   })
 
-  submitData = () => false
+  submitData = () => {
+    const options = {
+      recipients: ['milana_lukic@yahoo.com'],
+      subject: 'AccountingApp',
+      body: `
+        name: ${this.state.contactForms.filter(x => x.id === 'name')[0].value}
+        company: ${this.state.contactForms.filter(x => x.id === 'company')[0].value}
+        email: ${this.state.contactForms.filter(x => x.id === 'email')[0].value}
+        question: ${this.state.contactForms.filter(x => x.id === 'question')[0].value}
+      `
+    };
+    MailComposer.composeAsync(options)
+      .then(res => {
+        // console.log(res);
+        const toast = Toast.show('Email sent', {
+          duration: Toast.durations.LONG,
+          position: Toast.positions.TOP,
+          backgroundColor: 'white',
+          textColor: 'black',
+          shadow: true,
+          animation: true,
+          hideOnPress: true,
+          delay: 0
+        });
+        this.props.navigation.navigate('News');
+      })
+      .catch(err => {
+        console.log(err);
+        const toast = Toast.show('Error sending email', {
+          duration: Toast.durations.LONG,
+          position: Toast.positions.TOP,
+          backgroundColor: 'red',
+          textColor: 'white',
+          shadow: true,
+          animation: true,
+          hideOnPress: true,
+          delay: 0
+        });
+      });
+  }
     // console.log('onPressButton')
 
   renderForms = (item, index) =>
@@ -54,7 +95,7 @@ class ConcatMessage extends Component {
     </View>
 
   render(){
-
+    console.log(this.state);
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView

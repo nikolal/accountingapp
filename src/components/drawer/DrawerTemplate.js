@@ -76,10 +76,18 @@ class DrawerTemplate extends Component {
               null
             }
             <View style={styles.sosialIconsContainer}>
-              <MaterialCommunityIcons style={styles.socialIcons} name="twitter" size={13} color="#00deff" />
-              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.facebook.com/hlbtmconsulting/?fref=ts')} name="facebook" size={15} color="#00deff" />
-              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.tmconsulting.co.rs/')} name="google-plus" size={15} color="#00deff" />
-              <MaterialCommunityIcons style={styles.socialIcons} onPress = {()=> this._linkPressed('https://www.linkedin.com/in/milka-jan%C4%8Di%C4%87-%C5%BEivkovi%C4%87-5401718a?trk=nav_responsive_tab_profile_pic')} name="linkedin" size={15} color="#00deff" />
+            <TouchableOpacity style={styles.touchableOpacitySocialContainer}>
+              <MaterialCommunityIcons name="twitter" size={18} color="#00deff" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.facebook.com/hlbtmconsulting/?fref=ts')}>
+              <MaterialCommunityIcons name="facebook" size={18} color="#00deff" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.tmconsulting.co.rs/')}>
+              <MaterialCommunityIcons name="google-plus" size={20} color="#00deff" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.linkedin.com/in/milka-jan%C4%8Di%C4%87-%C5%BEivkovi%C4%87-5401718a?trk=nav_responsive_tab_profile_pic')}>
+              <MaterialCommunityIcons name="linkedin" size={18} color="#00deff" />
+            </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>
@@ -144,10 +152,11 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansBold',
     marginBottom: metrics.large
   },
+  touchableOpacitySocialContainer: {
+    marginHorizontal: metrics.small,
+    padding: metrics.large
+  },
   sosialIconsContainer: {
     flexDirection: 'row'
-  },
-  socialIcons: {
-    marginHorizontal: metrics.huge,
   }
 });

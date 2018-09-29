@@ -53,13 +53,13 @@ class NewsDetail extends Component {
             <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
           </TouchableOpacity>
           <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <Image style={styles.socialIconsImage} onPress={this.share} source={images.twit}/>
+            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="twitter" />
           </TouchableOpacity>
           <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <Image style={styles.socialIconsImage} onPress={this.share} source={images.g}/>
+            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="google-plus" />
           </TouchableOpacity>
           <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <Image style={styles.socialIconsImage} onPress={this.share} source={images.share}/>
+            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="share" />
           </TouchableOpacity>
         </View>
         {article.paragraphs.map(this.renderArticle)}
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   sharingOpacity: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
+    paddingVertical: metrics.large,
     width: 50,
   },
   dateText: {
@@ -115,10 +115,6 @@ const styles = StyleSheet.create({
   },
   fbSocialIconsImage: {
     color: '#bdbdbd',
-  },
-  socialIconsImage: {
-    height: metrics.medium,
-    width: metrics.large
   },
   articleParagraphsContainer: {
     padding: metrics.medium,

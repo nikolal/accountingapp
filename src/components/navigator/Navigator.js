@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { colors, fonts } from '../../theme/index.js';
-import MainScreen from '../mainScreen/MainScreen.js';
+// import MainScreen from '../mainScreen/MainScreen.js';
 import Tabs from '../tabs/Tabs.js';
 import NewsDetail from '../news-detail/NewsDetail.js';
 import CalculationDetail from '../calculations/CalculationDetail';
@@ -18,6 +18,7 @@ import HeaderLeft from './HeaderLeft.js';
 import HeaderRight from './HeaderRight.js';
 import Something from '../something/Something.js';
 import IncentivesDetail from '../incentives-detail/IncentivesDetail.js';
+import AddNews from '../addNews/AddNews.js';
 
 
 
@@ -60,6 +61,8 @@ const Navigator = createStackNavigator({
   TaxesDetail: { screen: TaxesDetail },
   Something: {screen: Something},
   IncentivesDetail: {screen: IncentivesDetail},
+  AddNews: {screen: AddNews},
+
 
 }, navigationConfig);
 

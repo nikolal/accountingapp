@@ -15,6 +15,7 @@
     "npm": "^5.8.0",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-native-datepicker": "^1.7.2",
     "react-native-root-toast": "^3.0.1",
     "react-navigation": "^2.9.3",
     "react-redux": "^5.0.1",

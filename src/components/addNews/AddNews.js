@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, DatePickerIOS, StyleSheet, ScrollView, Dimensions, Constants } from 'react-native';
 import { connect } from 'react-redux';
+import DatePicker from 'react-native-datepicker';
 import moment from 'moment';
 import firebase from '../../firebase/firebase.js';
 // import { bindActionCreators } from 'redux';
@@ -27,12 +28,27 @@ class AddNews extends Component {
         en: '',
         rs: '',
       },
-      createdAt: moment(new Date()).format('DD/MM/YYYY'),
+      date: '',
       image: 'https://best-wallpaper.net/wallpaper/1366x768/1201/Dream-clouds-on-the-mountain-and-the-planet_1366x768.jpg',
       paragraphs: []
     },
     showDatePicker: false,
   }
+
+  handleErr = () =>
+    this.state.newsItem.author.rs.length === 0 ?
+      'Unesite autora' :
+    this.state.newsItem.author.en.length === 0 ?
+      'Please enter author' :
+    this.state.newsItem.title.rs.length === 0 ?
+      'Unesite naslov' :
+    this.state.newsItem.title.en.length === 0 ?
+      'Please enter title' :
+    this.state.newsItem.description.rs.length === 0 ?
+      'Unesite kratak opis' :
+    this.state.newsItem.description.en.length === 0 ?
+      'Please enter description'
+    : false
 
   // static navigationOptions = ({ navigation }) => ({
   //   headerTitle: <HeaderTitle />
@@ -83,7 +99,7 @@ class AddNews extends Component {
   updateDate = date => {
     this.setState({ newsItem: {
       ...this.state.newsItem,
-      createdAt: date
+      date: date
     }});
   }
 
@@ -114,11 +130,26 @@ class AddNews extends Component {
     }});
   }
 
+  validateNews = () => {
+    const { news } = this.props;
+    // console.log(this.state.newsItem);
+    // console.log(this.handleErr());
+    !this.handleErr() ?
+      this.submitNews() :
+      alert(this.handleErr());
+  }
+
   submitNews = () => {
     const { news } = this.props;
-    console.log(this.state.newsItem);
-    database.ref(`news/${news.length}`)
-      .set(this.state.newsItem);
+    database.ref(`news/${news.length}`).set(this.state.newsItem)
+      .then(res => {
+        console.log(res);
+        alert('News added!');
+      })
+      .catch(err => {
+        console.log(err);
+        alert('Failed adding news');
+      });
   }
 
 
@@ -147,18 +178,18 @@ class AddNews extends Component {
   render() {
     console.log(this.state.newsItem);
 
-    const showDatePicker = this.state.showDatePicker ?
-      <DatePickerIOS
-        style={{ height: 200 }}
-        date={this.state.newsItem.createdAt}
-        onDateChange={(date) => this.updateDate(date)}
-        mode="date"/> : <View />;
+    // const showDatePicker = this.state.showDatePicker ?
+
 
     return (
       <View style={styles.containerHead}>
-         <TouchableOpacity style={styles.submitButton} onPress={this.submitNews}>
+         <TouchableOpacity style={styles.submitButton} onPress={this.validateNews}>
             <Text style={styles.buttonText}>SUBMIT / POTVRDI</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.buttonText}>Dodaj paragraf</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.buttonText}>Dodaj sliku</Text></TouchableOpacity>
+          </View>
         <ScrollView style={styles.container}>
           <KeyboardAvoidingView
             behavior="padding"
@@ -169,14 +200,14 @@ class AddNews extends Component {
               style={styles.inputText}
               onChangeText={(text) => this.updateAuthor(text, 'rs')}
               placeholder="  Unesi autora"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateAuthor(text, 'en')}
               placeholder="  Add Author"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
             <Text style={styles.directionText}>Naslov teksta</Text>
@@ -184,14 +215,14 @@ class AddNews extends Component {
               style={styles.inputText}
               onChangeText={(text) => this.updateTitle(text, 'rs')}
               placeholder="  Unesi naslov"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateTitle(text, 'en')}
               placeholder="  Add headline"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
             <Text style={styles.directionText}>Link slike</Text>
@@ -199,7 +230,7 @@ class AddNews extends Component {
               style={styles.inputText}
               onChangeText={(text) => this.updateImage(text)}
               placeholder="  Link slike"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
             <Text style={styles.directionText}>Kratak opis vesti</Text>
@@ -208,28 +239,58 @@ class AddNews extends Component {
               onChangeText={(text) => this.updateDescription(text, 'rs')}
               placeholder="  Unesi tekst"
               autoCorrect={false}
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
             />
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateDescription(text, 'en')}
               placeholder="  Add text"
-              placeholderTextColor="black"
+              placeholderTextColor={colors.tabGrey}
               autoCorrect={false}
             />
           </View>
           <View >
-            <Text style={styles.directionText}>Odaberi datum</Text>
-            <TouchableOpacity
+            <DatePicker
+              date={this.state.date}
+              mode="date"
+              placeholder="Odaberi datum"
+              format={
+                this.props.language === 'en' ?
+                  'YYYY-MM-DD' : 'DD.MM.YYYY.'
+              }
+              // minDate={componentData.settings.minValue}
+              // maxDate={componentData.settings.maxValue}
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              showIcon={false}
+              style={styles.datePicker}
+              customStyles={{
+                // dateText: this.componentStyles.dateText,
+                dateInput: {
+                  flex: 1,
+                  borderWidth: 0,
+                },
+                btnTextConfirm: {
+                  height: 20,
+                  color: colors.lightBlue1,
+                  fontWeight: 'bold'
+                },
+                btnTextCancel: {
+                  height: 20,
+                  color: 'red',
+                },
+                dateTouchBody: {
+                  flex: 1,
+                },
+              }}
+              onDateChange={this.updateDate}
+            />
+            {/* <TouchableOpacity
               style={styles.dateContainer}
               onPress={() => this.setState({showDatePicker: !this.state.showDatePicker})}>
               <Text style={styles.dateText}>{this.state.newsItem.createdAt}</Text>
             </TouchableOpacity>
-            {showDatePicker}
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.buttonText}>Dodaj paragraf</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.buttonText}>Dodaj sliku</Text></TouchableOpacity>
+            {showDatePicker} */}
           </View>
           {this.state.newsItem.paragraphs.map(this.renderParagraphs)}
         </KeyboardAvoidingView>
@@ -278,33 +339,28 @@ const styles = StyleSheet.create({
     borderRadius: metrics.small,
     fontSize: fonts.size.small,
   },
-  dateContainer: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: metrics.medium,
-    height: 30,
-    width: Dimensions.get('window').width / 3,
-    marginLeft: metrics.small,
-    borderColor: 'rgb(141,141,141)',
-    borderWidth: metrics.smallBorder,
+  datePicker: {
+    flex: 1,
+    backgroundColor: colors.lightBlue1,
     borderRadius: metrics.small,
+    alignSelf: 'center',
+    margin: metrics.medium
   },
   buttonContainer: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
   },
   button: {
-    width: Dimensions.get('window').width / 3,
+    width: Dimensions.get('window').width / 2.8,
     backgroundColor: '#14B7C5',
     borderRadius: metrics. small,
     margin: metrics.medium,
-    padding: metrics.medium
+    padding: metrics.small
   },
   submitButton: {
     backgroundColor: '#14B7C5',
-    margin: metrics.medium,
+    margin: metrics.small,
     padding: metrics.medium,
     borderRadius: metrics.small,
   },

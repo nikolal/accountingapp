@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, AsyncStorage, Dimensions } from 'react-native';
+import { ScrollView, View, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, AsyncStorage, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
@@ -57,10 +57,10 @@ class News extends Component {
       {
         index === 0 ?
           <View style={styles.firstItem}>
-            <Image
+            <ImageBackground
               style={styles.firstItemImage}
               source={{ uri: item.image }}
-            />
+            >
             <View style={styles.textContainerFirstItem}>
               <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title[this.props.language]}</Text>
               <View style={styles.authorDateContainer}>
@@ -68,6 +68,9 @@ class News extends Component {
                 <Text style={styles.dateTextFirstItem}>{item.date}</Text>
               </View>
             </View>
+
+            </ImageBackground>
+
           </View>
          :
           <View style={styles.item}>
@@ -132,14 +135,14 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3.5,
   },
   textContainerFirstItem: {
-    position: 'absolute',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: metrics.hugeToExtrahuge,
-    top: 90,
-    alignSelf: 'center'
   },
   titleTextFirstItem: {
     color: colors.white,
-    fontSize: fonts.size.huge,
+    fontSize: fonts.size.hugeToExtra,
     fontFamily: 'openSansBold'
   },
   authorDateContainer: {
@@ -152,7 +155,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     alignSelf: 'center',
     fontFamily: 'openSansBold',
-    fontSize: fonts.size.medium,
+    fontSize: fonts.size.large,
   },
   dateTextFirstItem: {
     marginLeft: metrics.tiny,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Dimensions, Share } from 'react-native';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
@@ -8,6 +8,22 @@ import HeaderTitle from './HeaderTitle.js';
 
 
 class NewsDetail extends Component {
+
+
+  share = () => {
+    Share.share({
+      message: 'BAM: we\'re helping your business with awesome React Native apps',
+      url: 'http://bam.tech',
+      title: 'Wow, did you see that?'
+    }, {
+      // Android only:
+      dialogTitle: 'Share BAM goodness',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
 
   static navigationOptions = ({ navigation }) => ({
     headerTitle: <HeaderTitle />
@@ -33,10 +49,18 @@ class NewsDetail extends Component {
         <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description[this.props.language]}</Text>
         <View style={styles.dateSocialIconContainer}>
           <Text style={styles.dateText}>{article.date}</Text>
-          <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
-          <Image style={styles.socialIconsImage} source={images.twit}/>
-          <Image style={styles.socialIconsImage} source={images.g}/>
-          <Image style={styles.socialIconsImage} source={images.share}/>
+          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
+            <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
+            <Image style={styles.socialIconsImage} onPress={this.share} source={images.twit}/>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
+            <Image style={styles.socialIconsImage} onPress={this.share} source={images.g}/>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
+            <Image style={styles.socialIconsImage} onPress={this.share} source={images.share}/>
+          </TouchableOpacity>
         </View>
         {article.paragraphs.map(this.renderArticle)}
       </ScrollView>
@@ -77,6 +101,12 @@ const styles = StyleSheet.create({
     borderTopWidth: metrics.tinyBorder,
     borderBottomWidth: metrics.tinyBorder,
     borderColor: '#bdbdbd'
+  },
+  sharingOpacity: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50,
+    width: 50,
   },
   dateText: {
     color: '#3191cb',

@@ -31,6 +31,11 @@ class DrawerTemplate extends Component {
   //   this.props.navigation.navigate(screenName);
   // }
 
+  openAdmin = () => {
+    this.props.admin &&
+      this.props.navigation.navigate('AddNews');
+  }
+
   renderList = (item, index) => {
     const activeRoute = this.props.navigation.state.routes[0].routes.slice(-1)[0].routeName;
 
@@ -54,13 +59,13 @@ class DrawerTemplate extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground source={images.drawerBackground} style={{ width: 280, height: Dimensions.get('window').height}}>
-          <View style={styles.drawerLogoContainer}>
+          <TouchableOpacity style={styles.drawerLogoContainer} onPress={this.openAdmin}>
             <Image
               resizeMode="center"
               source={images.drawerLogo}
               style={styles.drawerLogo}
             />
-          </View>
+          </TouchableOpacity>
           {this.state.drawerList.map(this.renderList)}
           <View style={styles.socialTextContainer}>
             {
@@ -85,6 +90,7 @@ class DrawerTemplate extends Component {
 
 const stateToProps = state => ({
   language: state.settingsReducer.language,
+  admin: state.settingsReducer.admin
 });
 
 const dispatchToProps = dispatch => ({

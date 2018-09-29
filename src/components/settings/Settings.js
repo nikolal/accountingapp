@@ -3,7 +3,7 @@ import { ScrollView, Dimensions, View, Text, PixelRatio, TouchableOpacity, Style
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
-import { saveLanguage } from './SettingsContainer.js';
+import { saveLanguage, saveAdmin } from './SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 // import { LinearGradient } from 'expo';
 
@@ -11,7 +11,11 @@ import { metrics, colors, fonts, images } from '../../theme';
 class Settings extends Component {
 
   static navigationOptions = {
-    header: null
+    header: null,
+  }
+
+  state = {
+    adminPassword: []
   }
 
   componentDidMount = () => {
@@ -26,10 +30,26 @@ class Settings extends Component {
   setLanguage = language => {
     this.props.saveLanguage(language);
     AsyncStorage.setItem('@accountingApp:ddddddd', language);
+    language === 'en' ?
+      this.setState({
+        adminPassword: [...this.state.adminPassword, 1]
+      }) :
+      this.setState({
+        adminPassword: [...this.state.adminPassword, 3]
+      });
       // .then(() => this.closeSettings());
   }
 
-  goToNews = screenName => this.props.navigation.navigate(screenName);
+  resetAdminPassword = () => this.setState({
+    adminPassword: []
+  })
+
+  submitPassward = () => {
+    JSON.stringify(this.state.adminPassword) === JSON.stringify([3, 3, 3, 1, 3, 3, 3]) ?
+    this.props.saveAdmin(true) : this.props.saveAdmin(false);
+    this.props.navigation.navigate('News');
+  }
+
 
   renderLanguages = (item, index) =>
       <TouchableOpacity style={styles.nameContainer} key={item.name} onPress={() => this.setLanguage(item.value)}>
@@ -45,16 +65,19 @@ class Settings extends Component {
       </TouchableOpacity>
 
   render() {
+    console.log(this.props.admin);
     return (
       <ImageBackground source={images.drawerBackground} style={styles.container} resizeMode="cover">
         <View style={styles.logoImageContainer}>
-          <Image source={images.logoImage} style={styles.logoImage} />
+          <TouchableOpacity onPress={this.resetAdminPassword}>
+            <Image source={images.logoImage} style={styles.logoImage} />
+        </TouchableOpacity>
         </View>
         <Text style={styles.text}>Choose language / Izaberite jezik</Text>
         <View style={styles.innerContainer}>
           {this.props.languages.map(this.renderLanguages)}
           <Text style={styles.textChange}>* You can always change your App language.</Text>
-          <TouchableOpacity style={styles.buttonProceedWhite} onPress={() => this.goToNews('News')}>
+          <TouchableOpacity style={styles.buttonProceedWhite} onPress={this.submitPassward}>
             <Image source={images.buttonProceedWhite} style={styles.buttonProceedWhite}/>
           </TouchableOpacity>
         </View>
@@ -65,11 +88,13 @@ class Settings extends Component {
 
 const stateToProps = state => ({
   languages: state.settingsReducer.languages,
-  language: state.settingsReducer.language
+  language: state.settingsReducer.language,
+  admin: state.settingsReducer.admin
 });
 
 const dispatchToProps = dispatch => ({
-  saveLanguage: bindActionCreators(saveLanguage, dispatch)
+  saveLanguage: bindActionCreators(saveLanguage, dispatch),
+  saveAdmin: bindActionCreators(saveAdmin, dispatch),
 });
 
 export default connect(stateToProps, dispatchToProps)(Settings);

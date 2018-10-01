@@ -14,10 +14,10 @@ class Splash extends Component {
 
   constructor (props) {
       super(props);
-      this.animatedValue = []
+      this.animatedValue = [];
       this.arr = [];
       props.article.paragraphs.forEach((item) => {
-        this.animatedValue[item.value] = new Animated.Value(0)
+        this.animatedValue[item.value] = new Animated.Value(0);
       });
     }
 

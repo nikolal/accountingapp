@@ -12,7 +12,7 @@ class DrawerTemplate extends Component {
   state = {
     drawerList: [
       { screen: 'Tabs', icon: 'book-open', nameEn: 'Home', nameRs: 'Pocetna', arrow: 'arrow-right' },
-      { screen: 'Services', icon: 'domain', nameEn: 'Our Services', nameRs: 'Naši servisi', arrow: 'arrow-right' },
+      { screen: 'Services', icon: 'domain', nameEn: 'Our Services', nameRs: 'Naše usluge', arrow: 'arrow-right' },
       { screen: 'About', icon: 'phone', nameEn: 'About Us', nameRs: 'O nama', arrow: 'arrow-right' },
       { screen: 'Contact', icon: 'message-alert', nameEn: 'Contact', nameRs: 'Kontakt', arrow: 'arrow-right' },
       { screen: 'Settings', icon: 'settings', nameEn: 'Settings', nameRs: 'Podešavanja', arrow: 'arrow-right' }

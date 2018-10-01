@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { metrics, colors, fonts, images } from '../../theme';
 import { MailComposer } from 'expo';
 import Toast from 'react-native-root-toast';
@@ -12,40 +12,52 @@ class ConcatMessage extends Component {
   state = {
     contactForms: [{
       id: 'name',
-      title: 'Your name',
+      title: {
+        en: 'Your name',
+        rs: 'Vaše ime'
+      },
       value: '',
       style: 'input'
     },{
       id: 'company',
-      title: 'Your company',
+      title: {
+        en: 'Your company',
+        rs: 'Naziv Vaše kompanije'
+      },
       value: '',
       style: 'input'
     },{
       id: 'email',
-      title: 'Email',
+      title: {
+        en: 'Email',
+        rs: 'Mejl adresa'
+      },
       value: '',
       style: 'input'
     },{
       id: 'question',
-      title: 'Your question',
+      title: {
+        en: 'Your question',
+        rs: 'Postavite pitanje'
+      },
       value: '',
       style: 'textArea'
     }]
   };
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'HLB T&M Consulting',
+    title: 'HLB Consulting',
   })
 
   submitData = () => {
     const options = {
-      recipients: ['milana_lukic@yahoo.com'],
+      recipients: ['office@tmconsulting.co.rs'],
       subject: 'AccountingApp',
       body: `
-        name: ${this.state.contactForms.filter(x => x.id === 'name')[0].value}
-        company: ${this.state.contactForms.filter(x => x.id === 'company')[0].value}
-        email: ${this.state.contactForms.filter(x => x.id === 'email')[0].value}
-        question: ${this.state.contactForms.filter(x => x.id === 'question')[0].value}
+        Ime: ${this.state.contactForms.filter(x => x.id === 'name')[0].value}
+        Kompanija: ${this.state.contactForms.filter(x => x.id === 'company')[0].value}
+        Mejl adresa: ${this.state.contactForms.filter(x => x.id === 'email')[0].value}
+        Pitanje: ${this.state.contactForms.filter(x => x.id === 'question')[0].value}
       `
     };
     MailComposer.composeAsync(options)
@@ -81,17 +93,31 @@ class ConcatMessage extends Component {
 
   renderForms = (item, index) =>
     <View key={item.id} style={styles.textInputContainer}>
-      <TextInput
-        style={styles[item.style]}
-        placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title}
-        placeholderTextColor={colors.black}
-        onChangeText={text => {
-          const array = this.state.contactForms.slice();
-          array[index].value = text; //eslint-disable-line
-          this.setState({ contactForms: array });
-        }}
-        value={this.state.contactForms[index].value}
-      />
+      {
+        this.props.language === 'en' ?
+          <TextInput
+            style={styles[item.style]}
+            placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.en}
+            placeholderTextColor="#8c8c8c"
+            onChangeText={text => {
+              const array = this.state.contactForms.slice();
+              array[index].value = text; //eslint-disable-line
+              this.setState({ contactForms: array });
+            }}
+            value={this.state.contactForms[index].value}
+          /> :
+          <TextInput
+            style={styles[item.style]}
+            placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.rs}
+            placeholderTextColor="#8c8c8c"
+            onChangeText={text => {
+              const array = this.state.contactForms.slice();
+              array[index].value = text; //eslint-disable-line
+              this.setState({ contactForms: array });
+            }}
+            value={this.state.contactForms[index].value}
+          />
+      }
     </View>
 
   render(){
@@ -107,11 +133,15 @@ class ConcatMessage extends Component {
               style={styles.image}
               source={images.aboutCompanyPanel500px}
             />
-            <Text style={styles.hlbText}>HLB T&M Consulting</Text>
+            <Text style={styles.hlbText}>HLB Consulting</Text>
           </View>
             {this.state.contactForms.map(this.renderForms)}
           <TouchableOpacity onPress={this.submitData} style={styles.button}>
-            <Text style={styles.buttonText}>Send</Text>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.buttonText}>Send</Text> :
+                <Text style={styles.buttonText}>Pošalji</Text>
+            }
           </TouchableOpacity>
         </KeyboardAvoidingView>
 
@@ -124,7 +154,15 @@ ConcatMessage.propTypes = { // eslint-disable-line
 
 };
 
-export default ConcatMessage;
+const stateToProps = state => ({
+  language: state.settingsReducer.language
+});
+
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(ConcatMessage);
 
 const styles = StyleSheet.create({
   container: {
@@ -155,6 +193,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   hlbText: {
+    alignSelf: 'center',
     fontSize: fonts.size.large,
     color: colors.grey,
     fontFamily: 'openSansBold',

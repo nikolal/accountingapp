@@ -49,15 +49,6 @@ const navigationConfig = {
 };
 
 const Tabs = createBottomTabNavigator({
-  // MainScreen: {
-  //   screen: MainScreen,
-  //   navigationOptions: {
-  //     title: 'SOMETHING',
-  //     tabBarLabel: 'MainScreen',
-  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
-  //       <SimpleLineIcons name="book-open" size={20} color={tintColor} />
-  //   }
-  // },
 
   News: {
     screen: News,
@@ -78,6 +69,70 @@ const Tabs = createBottomTabNavigator({
             source={images.contractDefault}
             style={{width: 20, height: 20}}
           />
+    }
+  },
+
+  Calculations: {
+    screen: Calculations,
+    navigationOptions: {
+      // title: 'CALCULATIONS',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <CalculationsTabsActive />
+        :
+          <CalculationsTabs />,
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.calculatorSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.calculatorDefault}
+          style={{width: 20, height: 20}}
+        />
+    }
+  },
+  // Splash: {
+  //   screen: AddNews,
+  //   navigationOptions: {
+  //     // title: 'CALCULATIONS',
+  //     tabBarLabel: 'Vezba',
+  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
+  //     tintColor === colors.lightBlue1 ?
+  //       <Image
+  //         source={images.calculatorSelected}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //     :
+  //       <Image
+  //         source={images.calculatorDefault}
+  //         style={{width: 20, height: 20}}
+  //       />
+  //   }
+  // },
+
+  Taxes: {
+    screen: Taxes,
+    navigationOptions: {
+      // title: 'TAXES',
+      tabBarLabel: ({ tintColor, activeTintColor }) =>
+        tintColor === colors.lightBlue1 ?
+          <TaxesTabActive />
+        :
+          <TaxesTab />,
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.taxSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.taxDefault}
+          style={{width: 20, height: 20}}
+        />
     }
   },
   Something: {
@@ -102,74 +157,6 @@ const Tabs = createBottomTabNavigator({
         />
     }
   },
-  Calculations: {
-    screen: Calculations,
-    navigationOptions: {
-      // title: 'CALCULATIONS',
-      tabBarLabel: ({ tintColor, activeTintColor }) =>
-        tintColor === colors.lightBlue1 ?
-          <CalculationsTabsActive />
-        :
-          <CalculationsTabs />,
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-      tintColor === colors.lightBlue1 ?
-        <Image
-          source={images.calculatorSelected}
-          style={{width: 20, height: 20}}
-        />
-      :
-        <Image
-          source={images.calculatorDefault}
-          style={{width: 20, height: 20}}
-        />
-    }
-  },
-
-
-
-  Splash: {
-    screen: AddNews,
-    navigationOptions: {
-      // title: 'CALCULATIONS',
-      tabBarLabel: 'Vezba',
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-      tintColor === colors.lightBlue1 ?
-        <Image
-          source={images.calculatorSelected}
-          style={{width: 20, height: 20}}
-        />
-      :
-        <Image
-          source={images.calculatorDefault}
-          style={{width: 20, height: 20}}
-        />
-    }
-  },
-
-
-
-  Taxes: {
-    screen: Taxes,
-    navigationOptions: {
-      // title: 'TAXES',
-      tabBarLabel: ({ tintColor, activeTintColor }) =>
-        tintColor === colors.lightBlue1 ?
-          <TaxesTabActive />
-        :
-          <TaxesTab />,
-      tabBarIcon: ({ tintColor, activeTintColor }) =>
-      tintColor === colors.lightBlue1 ?
-        <Image
-          source={images.taxSelected}
-          style={{width: 20, height: 20}}
-        />
-      :
-        <Image
-          source={images.taxDefault}
-          style={{width: 20, height: 20}}
-        />
-    }
-  }
 }, navigationConfig);
 
 export default Tabs;

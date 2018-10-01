@@ -28,8 +28,8 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Milka Jančić is partner in the company HLB T&M Consulting. She graduated from The Faculty of Economics in 2001, and since then she has provided audit, tax advisory and accounting services. Milka is the certified auditor and cerfitied accountant.',
-        rs: 'Milka Jančić je partner u kompaniji HLB T&M Consulting u Srbiji. Poseduje licence za ovlašćenog revizora I ovlašćenog računovođu. Završila je Ekonomski fakultet i od 2001. godine se bavi revizijom, računovodstvom, poreskim savetovanjem i izradom studija o transfernim cenama.'
+        en: 'Milka graduated from The Faculty of Economics in 2001, and since then she has provided audit, accounting, financial & tax advisory services. She is certified accountant and auditor.',
+        rs: 'Milka je osnivač i direktor kompanije HLB T&M Consulting d.o.o. Završila je Ekonomski fakultet i od 2001. godine se bavi računovodstvom, revizijom i poreskim savetovanjem. Ovlašćeni je revizor i računovođa.'
       }
     },{
       type: 'headline',
@@ -40,26 +40,26 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Prior to establishing HLB T&M Consulting, the longest part of her career Milka spent in the leading international financial and tax consulting companies on a managing positions related to auditing, tax consulting and accounting.',
-        rs: 'Veliki deo poslovne karijere provela je na pozicijama menadžera u vodećim međunarodnim konsultantskim kompanijama koje pružaju usluge iz oblasti finansijskog, poreskog i pravnog savetovanja'
+        en: 'Prior to establishing HLB T&M Consulting, the longest part of career Milka spent in the leading international financial and tax consulting companies Deloitte, Confida Consulting and IB Interbilanz Consulting on a managing positions related to financial consulting, accounting, auditing and tax.',
+        rs: 'Najveći deo svoje karijere provela je u međunarodnim konsultantskim kompanijama iz oblasti poreza i finansija Deloitte, Confida Consulting i IB Interbilanz Consulting, baveći se poslovima računovodstva, poreskog savetovanja i revizije.'
       }
     },{
       type: 'text',
       value: {
         en: 'Milka was working In the company Deloitte Ltd Serbia in period 2012 - 2014 as a Manager of accounting department. She was responsible for providing accounting outsourcing and accounting advisory services as well as payroll related services to the clients.',
-        rs: 'U kompaniji Deloitte Milka je bila direktor računovodstvenog sektora u periodu od 2011 - 2013 godine. Bila je zadužena za eksterno računovodstvo i savetovanje u vezi računovodstvom kao i za usluge obračuna zarada za klijente.'
+        rs: 'U kompaniji Deloitte d.o.o. Beograd, Milka je bila zaposlena kao direktor računovodstvenog sektora u periodu od 2011. godine do 2013. godine. Bila je zadužena za eksterno računovodstvo i savetovanje u vezi računovodstvom kao i za usluge obračuna zarada za klijente'
       }
     },{
       type: 'text',
       value: {
-        en: 'Prior to engagement in Deloitte, from 2008 Milka was employed in the Austrian company Confida Consulting Ltd Serbia as a Managing Director, and most of engagement was related to tax consulting and financial services.',
-        rs: 'Pre angažmana u kompaniji Deloitte, u periodu od 2008. godine Milka je bila angažovana u austrijskoj kompaniji Confiida Consulting na mestu direktora kompanije, a najveći deo angažovanja bio je na poslovima poreskog savetovanja i računovodstva.'
+        en: 'Prior to engagement in Deloitte, from 2008 Milka was employed in the Austrian company specialized for financial and tax consulting Confida Consulting Ltd Serbia as a Managing Director, and most of the engagement was related to tax consulting and financial services.',
+        rs: 'Pre angažmana u kompaniji Deloitte, u periodu od 2008. godine Milka je bila zaposlena u austrijskoj kompaniji za računovodstvo i reviziju Confiida Consulting d.o.o. na mestu direktora kompanije, a najveći deo angažovanja bio je na poslovima poreskog savetovanja i računovodstva. '
       }
     },{
       type: 'text',
       value: {
-        en: 'In the period from 2005 - 2008 Milka was Managing director of another Austrian company IB Interbilanz Consulting Ltd Serbia and was responsible for organization and development of the company in Serbia. The most of commitment was related to audit and tax consulting services.',
-        rs: '2005 - 2008. godine Milka je bila zaposlena u još jednoj austrijskoj kompaniji IB Interbilanz Consulting na mestu direktora kompanije i odgovorna za osnivanje, razvoj kompanije i svih njenih odeljenja, pronalaženje klijenata kao i rad sektora za reviziju i poresko savetovanje.'
+        en: 'During career, Milka served a large portfolio of small to large Serbian and international companies from many different business areas. Some of the major clients that Milka have cooperated with were as follows: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks, etc.',
+        rs: 'Od 2005. godine do 2008. godine Milka je bila zaposlena u još jednoj austrijskoj kompaniji kza poresko savetovanje, reviziju i računovodstvo IB Interbilanz Consulting d.o.o. na mestu direktora kompanije i odgovorna za osnivanje, razvoj kompanije i svih njenih odeljenja, pronalaženje klijenata kao i rad sektora za reviziju i poresko savetovanje.'
       }
     },{
       type: 'headline',
@@ -71,7 +71,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'During career, Milka served a large portfolio of small to large Serbian and international companies from many different business areas.',
-        rs: 'Milka je pružala usluge velikom broju klijenata od mikro do velikih srpskih i internacionalnih kompanija iz različitih oblasti poslovanja, uključujući proizvodne kompanije, maloprodajne kompanije, komapanije koje se bave pružanjem usluga i druge.'
+        rs: 'Milka je pružala usluge velikom broju klijenata od mikro do velikih srpskih i internacionalnih kompanija iz različitih oblasti poslovanja, uključujući proizvodne kompanije, maloprodajne kompanije, komapanije koje se bave pružanjem usluga i sl.'
       }
     },{
       type: 'text',
@@ -83,7 +83,7 @@ const initialState = {
   },{
     title: {
       en: 'Our Company',
-      rs: 'Naša kompanija'
+      rs: 'O kompaniji'
     },
     clientType: 'noClients',
     subTitle: {
@@ -99,26 +99,26 @@ const initialState = {
     paragraphs: [{
       type: 'text',
       value:{
-        en: 'HLB T&M Consulting is one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.',
-        rs: 'Sedište kompanije HLB T&M Consulting doo se nalazi se u Beogradu i pružamo usluge računovodstva, poreskog savetovanja, pravnog savetovanja i izrade studija o transfernim cenama. '
+        en: 'Headquarter of HLB T&M Consulting is located in Belgrade and we provide accounting, financial, tax and legal consulting services. HLB has a strong professional team of accountants, payroll and legal compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for multinational companies setting up their operations or already operating in Serbia.',
+        rs: 'Sedište kompanije HLB T&M Consulting nalazi se u Beogradu i pružamo usluge računovodstva, poreskog, finansijskog i pravnog savetovanja, kao i izrade studija o transfernim cenama.'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'HLB T&M Consulting serves clients in Serbia and worldwide as a direct part of the group HLB International, which was formed in London in 1969. Group is ranked among the top 15 global financial networks with more than 660 independent accounting and advisory offices in over 140 countries around the world.',
+        rs: 'Navedene usluge pružamo velikom broju klijenata, počev od velikih međunarodnih kompanija koje posluju u Srbiji pa do malih i srednjih domaćih preduzeća. Naš tim čine stručnjaci koji su prethodno iskustvo sticali u vodećim međunarodnim kompanijama koje posluju u oblasti revizije, računovodstva i poreskog savetovanja.'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'As a part of HLB International we are also a member of the Forum of Firms, part of the International Federation of Accountants, and as such committed to the highest quality standards in accordance with International Standards on Quality Control.',
+        rs: 'Kompanija je HLB T&M Consulting pruža konsultantske usluge klijentima u Srbiji ali i širom sveta kao deo međunarodne grupacije HLB International koja je osnovana u Londonu 1969. godine. Grupa se nalazi među 15 najvećih svetskih grupacija za poresko i finansijsko savetovanje, u čijem sastavu posluje preko 660 kompanija u 160 zemalja sveta.'
       }
     },{
       type: 'text',
       value: {
         en: 'In over six years of steady growth, our company continued to provide first-rate tax advisory and accounting services to international companies with operations in Serbia and become one of the leading consulting partners in Belgrade for financial and tax issues.',
-        rs: 'Naš tim okuplja stručnjake koji su poslovno iskustvo sticali u vodećim međunarodnim kompanijama iz oblasti finansijskog i poreskog savetovanja.'
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'HLB T&M Consulting serves clients in Serbia and worldwide as a direct member of Group HLB International, which was formed in London in year 1969. Group is ranked among the top 15 global accounting networks with more than 660 independent accounting and advisory offices in over 160 countries around the world.',
-        rs: 'Od 2012. godine kompanija je deo internacionalne mreže finansijskih savetnika HLB International, čime smo dobili međunarodno priznanje i mogućnost međunarodnog delovanja bez gubitka nacionalnog identiteta. '
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'As a part of HLB International we are also a member of the Forum of Firms, part of the International Federation of Accountants, and as such commited to the highest qualitiy standards in accordance with International Standards on Quality Control.',
-        rs: 'Međunarodna mreža HLB International je osnovana 1969. godine u Londonu i sada je svetski poznata grupacija nezavisnih računovodstvenih kompanija i finansijskih savetnika. Mreža HLB poseduje preko 500 predstavništava koji posluju u više od 130 zemalja sveta.'
+        rs: 'Kao deo grupacije HLB International, naša kompanije je član i međunarodne federacije računovodstvenih kompanija Forum of Firms. Kao član Forum of Firms, u obavezi smo da sprovodimo naviše standarde kvaliteta finansijskih i poreskih usluga a sve u skladu sa važećim međunarodnim standardima. U preko 6 godina rasta kompanije, nastavili smo da pružamo kvalitetne poreske i finansijske usluge međunarodnim kompanijama koje imaju poslovanje u Srbiji i postali smo jedna od vodećih konsultantskih kompanija u Beogradu u oblasti poreza i računovodstva.'
       }
     }]
   },{

@@ -10,7 +10,7 @@ const initialState = {
   incentives: [{
     title: {
       en: 'State business incentives',
-      rs: 'Olakšice za nova zapošljavanja'
+      rs: 'Olakšice za zapošljavanja'
     },
     subTitle: {
       en: 'Learn more about business incentives',
@@ -200,7 +200,7 @@ const initialState = {
   },{
     title: {
       en: 'Free zones in Serbia',
-      rs: 'Slobodne zone u Republici Srbiji'
+      rs: 'Slobodne zone'
     },
     subTitle: {
       en: 'Learn more about free zones',
@@ -318,7 +318,7 @@ const initialState = {
   },{
     title: {
       en: 'Free Trade Agreements',
-      rs: 'Podsticaji za investiranje'
+      rs: 'Subvencije za investiranje'
     },
     subTitle: {
       en: 'Learn more about free trade Aareements',

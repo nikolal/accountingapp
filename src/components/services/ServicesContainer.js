@@ -18,7 +18,7 @@ const initialState = {
     },
     subTitle: {
       en: 'More information about Financial',
-      rs: 'Više informacija o finansijama'
+      rs: 'Računovodstvo, finansijsko savetovanje'
     },
     image: 'archive',
     icon: require('../../../assets/images/iconteam.png'),
@@ -31,14 +31,14 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Implementation of accounting system and coorporete procedures',
-        rs: 'Izrada računovodstvenih politika i internih akata '
+        en: 'Bookkeeping services in line with local legistaltion',
+        rs: 'Knjigovodstvene usluge'
       }
     },{
       type: 'text',
       value: {
-        en: 'Bookkeeping services in line with local legistaltion',
-        rs: 'Knjigovodstvene usluge u skladu sazakonskom regulativom '
+        en: 'Implementation of accounting system and coorporete procedures',
+        rs: 'Izrada računovodstvenih politika i internih akata '
       }
     },{
       type: 'text',
@@ -50,13 +50,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Preparation of Balance Sheet, P&L Accounting',
-        rs: 'Izrada završnog računa'
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'Preparation of all statutory reports',
-        rs: 'Priprema bilansa uspeha, bilansa stanja'
+        rs: 'Izrada završnog računa (bilans uspeha, bilans stanja, poreski bilans)'
       }
     },{
       type: 'text',
@@ -69,12 +63,6 @@ const initialState = {
       value: {
         en: 'Implementation of IFRS for SME',
         rs: 'Savetovanje u vezi sa MRS/MSFI '
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'Assistance in the process of audit',
-        rs: 'Podrška pri radu sa revizorima '
       }
     },{
       type: 'headline',
@@ -118,6 +106,12 @@ const initialState = {
         en: 'Preparation of business plans',
         rs: 'Izrada biznis planova'
       }
+    },{
+      type: 'text',
+      value: {
+        en: 'Assistance in the process of audit',
+        rs: 'Podrška pri radu sa revizorima '
+      }
     }]
   },{
     title: {
@@ -126,7 +120,7 @@ const initialState = {
     },
     subTitle: {
       en: 'More information about Tax',
-      rs: 'Više informacija o porezima'
+      rs: 'Porez na dobit, PDV, porez na dohodak'
     },
     image: 'book',
     icon: require('../../../assets/images/iconCompany.png'),
@@ -152,7 +146,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Consulting in Corporate income taxes, VAT, Personal taxes, Withholding tax, Customs and others',
-        rs: 'Poresko savetovanje iz oblasti PDV-a, poreza na dobit, poreza na dohodak, poreza po dobitku '
+        rs: 'Poresko savetovanje: PDV, porez na dohodak, porez na dobit, porez po odbitku'
     }
     },{
       type: 'text',
@@ -176,7 +170,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Preparation of income tax balance',
-        rs: 'Savetovanje pri vođenju postupaka'
+        rs: 'Savetovanje pri vođenju poreskih postupaka'
       }
     },{
       type: 'text',
@@ -188,7 +182,7 @@ const initialState = {
       type: 'headline',
       value: {
         en: 'Tax Consulting',
-        rs: 'Posebne poreske usluge '
+        rs: 'Ostale poreske usluge'
       },
     },{
       type: 'text',
@@ -210,7 +204,7 @@ const initialState = {
     },
     subTitle: {
       en: 'More information about Pricing',
-      rs: 'Više informacija o cenama'
+      rs: 'Izrada studija o transfernim cenama'
     },
     image: 'calculator',
     icon: require('../../../assets/images/iconClients.png'),
@@ -288,7 +282,7 @@ const initialState = {
     },
     subTitle: {
       en: 'More information',
-      rs: 'Više informacija'
+      rs: 'Korporativno i radno pravo'
     },
     image: 'briefcase',
     icon: require('../../../assets/images/Shape.png'),
@@ -296,13 +290,13 @@ const initialState = {
       type: 'headline',
       value: {
         en: 'COORPORATIVE & CONTRACT LAW',
-        rs: 'RADNO PRAVO '
+        rs: 'Radno pravo'
       }
     },{
       type: 'text',
       value: {
         en: 'Incorporation of all legal forms of companies and other legal entities',
-        rs: 'Savetovanje klijenata povodom donošenja odluka u vezi sa zapošljavanjem i uslovima rada '
+        rs: 'Savetovanje u vezi sa svim odlukama o zapošljavanju i uslovima rada'
       }
     },{
       type: 'text',

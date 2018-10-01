@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   headline: {
     fontSize: fonts.size.huge,
-    color: colors.black,
+    color: '#595959',
     fontFamily: 'openSansBold',
     marginLeft: metrics.huge,
   },
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f6fcfc',
     flexDirection: 'row',
-    height: 100,
+    // height: 100,
     paddingHorizontal: metrics.extraHuge,
     paddingVertical: metrics.huge
   },

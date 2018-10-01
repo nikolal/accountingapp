@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { metrics, colors, fonts } from '../../theme';
-// import { SimpleLineIcons }  from '@expo/vector-icons';
 import HeaderTitle from './HeaderTitle.js';
 
 import { MapView } from 'expo';
@@ -38,18 +38,22 @@ class Contact extends Component {
           />
         </MapView>
         <View style={styles.body}>
-          <Text style={styles.title}>HLB T&M Consulting</Text>
+          <Text style={styles.title}>HLB Consulting</Text>
           <View style={styles.addressContainer}>
             <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
             <View style={styles.innerAdressText}>
-              <Text style={styles.addressText}>+381 11 344-81-69</Text>
+              <Text style={styles.addressText}>+381 11 344-81-69 / +381 64 614-29-44</Text>
             </View>
-            <Text style={styles.addressText}>+381 64 614-29-44</Text>
+            <Text style={styles.addressText}>office@tmconsulting.co.rs</Text>
           </View>
           <TouchableOpacity
             onPress={() => this.goToContactMessage('ContactMessage')}
             style={styles.addressTextMail}>
-            <Text style={styles.contactText}>Contact us</Text>
+            {
+              this.props.language === 'rs' ?
+              <Text style={styles.contactText}>Kontaktirajte nas</Text> :
+              <Text style={styles.contactText}>Contact us</Text>
+            }
           </TouchableOpacity>
         </View>
       </View>
@@ -57,7 +61,15 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+const stateToProps = state => ({
+  language: state.settingsReducer.language
+});
+
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(Contact);
 
 const styles = StyleSheet.create({
   container: {
@@ -72,6 +84,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-around',
   },
   title: {
+    alignSelf: 'center',
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: 'rgb(20,32,52)',

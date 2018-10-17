@@ -11,7 +11,7 @@ class TaxesTabActive extends Component {
       this.props.language === 'en' ?
       <Text style={styles.title}>Taxes</Text> :
       this.props.language === 'rs' ?
-      <Text style={styles.title}>Takse</Text> :
+      <Text style={styles.title}>Porezi</Text> :
       null
     );
   }

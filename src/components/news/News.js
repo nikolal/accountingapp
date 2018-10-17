@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
 import { saveArticle, saveNewsAction } from './NewsContainer.js';
-import { saveLanguage } from '../settings/SettingsContainer.js';
+import { saveLanguage, saveLocaleString } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import Modal from './Modal.js';
 import HeaderTitle from './HeaderTitle.js';
@@ -21,11 +21,13 @@ class News extends Component {
 
   componentDidMount = () => {
     this.getLanguage();
+    this.getLocaleString();
     this.setNewsListener();
   }
 
+  // Set starting language
   getLanguage = () => {
-    AsyncStorage.getItem('@accountingApp:ddddddd')
+    AsyncStorage.getItem('@accountingApp:language')
       .then(language => this.checkIfLanguageExist(language));
   }
 
@@ -34,8 +36,22 @@ class News extends Component {
 
   setLanguage = language => {
     this.props.saveLanguage(language);
-    AsyncStorage.setItem('@accountingApp:ddddddd', language)
+    AsyncStorage.setItem('@accountingApp:language', language)
       .then(() => this.toggleModal(false));
+  }
+
+  // set starting localeString
+  getLocaleString = () => {
+    AsyncStorage.getItem('@accountingApp:localeString')
+      .then(localeString => this.checkIfLanguageExist(localeString));
+  }
+
+  checkIfLocaleStringExist = localeString =>
+    localeString ? this.setLocaleString(localeString) : false;
+
+  setLocaleString = localeString => {
+    this.props.saveLocaleString(localeString);
+    AsyncStorage.setItem('@accountingApp:localeString', localeString);
   }
 
   toggleModal = bool => this.setState({ modalVisible: bool });
@@ -120,6 +136,7 @@ const stateToProps = state => ({
 const dispatchToProps = dispatch => ({
   saveArticle: bindActionCreators(saveArticle, dispatch),
   saveLanguage: bindActionCreators(saveLanguage, dispatch),
+  saveLocaleString: bindActionCreators(saveLocaleString, dispatch),
   saveNewsAction: bindActionCreators(saveNewsAction, dispatch)
 
 });

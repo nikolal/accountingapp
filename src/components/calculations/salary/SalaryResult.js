@@ -1,47 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+
 import { metrics, colors, fonts } from '../../../theme';
 
-const SalaryResult = ({ calculation }) => {
+class SalaryResult extends Component {
 
-  return (
-    <ScrollView style={styles.container}>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupna bruto zarada</Text>
-          <Text style={styles.number}>{calculation.grossSalary.value && calculation.grossSalary.value.toFixed(2)}</Text>
+  render() {
+    const { calculation, localeString } = this.props;
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Ukupna bruto zarada</Text>
+            <Text style={styles.number}>{
+              calculation.grossSalary.value && calculation.grossSalary.value
+              .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Neto za isplatu</Text>
-          <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Neto za isplatu</Text>
+            <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toFixed(2)}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez na zarade</Text>
-          <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toFixed(2)}</Text>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Porez na zarade</Text>
+            <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toFixed(2)}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupan trosak zarade</Text>
-          <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Ukupan trosak zarade</Text>
+            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toFixed(2)}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupan obracun</Text>
-          <Text style={styles.number}>{calculation.totalSalary}</Text>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Ukupan obracun</Text>
+            <Text style={styles.number}>{calculation.totalSalary}</Text>
+          </View>
         </View>
-      </View>
-    </ScrollView>
-  );
-};
+      </ScrollView>
+    );
+  }
+}
 
+const stateToProps = state => ({
+  localeString: state.settingsReducer.localeString
+});
 
-export default SalaryResult;
+export default connect(stateToProps, null)(SalaryResult);
 
 const styles = StyleSheet.create({
   container: {

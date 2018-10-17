@@ -3,7 +3,7 @@ import { ScrollView, Dimensions, View, Text, PixelRatio, TouchableOpacity, Style
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
-import { saveLanguage, saveAdmin } from './SettingsContainer.js';
+import { saveLanguage, saveLocaleString, saveAdmin } from './SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 // import { LinearGradient } from 'expo';
 
@@ -23,13 +23,13 @@ class Settings extends Component {
   }
 
   getLanguage = () => {
-    AsyncStorage.getItem('@accountingApp:ddddddd')
+    AsyncStorage.getItem('@accountingApp:language')
       .then(language => this.setLanguage(language));
   }
 
   setLanguage = language => {
     this.props.saveLanguage(language);
-    AsyncStorage.setItem('@accountingApp:ddddddd', language);
+    AsyncStorage.setItem('@accountingApp:language', language);
     language === 'en' ?
       this.setState({
         adminPassword: [...this.state.adminPassword, 1]
@@ -38,6 +38,11 @@ class Settings extends Component {
         adminPassword: [...this.state.adminPassword, 3]
       });
       // .then(() => this.closeSettings());
+  }
+
+  setLocaleString = localeString => {
+    this.props.saveLocaleString(localeString);
+    AsyncStorage.setItem('@accountingApp:localeString', localeString);
   }
 
   resetAdminPassword = () => this.setState({
@@ -52,7 +57,13 @@ class Settings extends Component {
 
 
   renderLanguages = (item, index) =>
-      <TouchableOpacity style={styles.nameContainer} key={item.name} onPress={() => this.setLanguage(item.value)}>
+      <TouchableOpacity
+        style={styles.nameContainer} key={item.name}
+        onPress={() => {
+          this.setLanguage(item.value);
+          this.setLocaleString(item.localeString);
+
+        }}>
         <Image
           style={{width: 24, height: 16}}
           source={item.flag}
@@ -94,6 +105,7 @@ const stateToProps = state => ({
 
 const dispatchToProps = dispatch => ({
   saveLanguage: bindActionCreators(saveLanguage, dispatch),
+  saveLocaleString: bindActionCreators(saveLocaleString, dispatch),
   saveAdmin: bindActionCreators(saveAdmin, dispatch),
 });
 

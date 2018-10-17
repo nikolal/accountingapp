@@ -22,19 +22,19 @@ class SalaryResult extends Component {
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Neto za isplatu</Text>
-            <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Porez na zarade</Text>
-            <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Ukupan trosak zarade</Text>
-            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>

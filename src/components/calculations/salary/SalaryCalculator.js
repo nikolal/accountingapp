@@ -8,10 +8,6 @@ import SalaryResultNet from './SalaryResultNet';
 const SalaryCalculator = props => {
   return (
     <View style={styles.container}>
-      <KeyboardAvoidingView
-        style={styles.inputsContainer}
-        behavior="position"
-      >
       <ImageBackground source={images.background} style={styles.image}>
         {
           props.calculation.type === 'grossToNet' ?
@@ -54,6 +50,10 @@ const SalaryCalculator = props => {
       {
         !props.showResult &&
         <ScrollView style={styles.scrollViewContainer}>
+          <KeyboardAvoidingView
+            style={styles.inputsContainer}
+            behavior="padding"
+          >
           {
             props.calculation.type === 'grossToNet' ?
               <View>
@@ -82,6 +82,7 @@ const SalaryCalculator = props => {
               <Text style={styles.buttonText}>Izracunaj</Text>
             </TouchableOpacity>
             <Text style={styles.description}>{props.calculation.description}</Text>
+          </KeyboardAvoidingView>
         </ScrollView>
       }
       {
@@ -97,7 +98,6 @@ const SalaryCalculator = props => {
           /> :
           null
       }
-    </KeyboardAvoidingView>
     </View>
   );
 };

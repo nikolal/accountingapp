@@ -1,54 +1,93 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Text, View, Image, TouchableOpacity, StyleSheet, TextInput, Dimensions,KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 import TempPermJobsResult from './TempPermJobsResult.js';
 
 
-const TemporaryPermanentJobsCalculator = props => {
-  return (
-    <View style={styles.container}>
-      <Image source={images.background} style={styles.image}/>
-      <View style={styles.calculTextContainer}>
-        <Text style={styles.calculText}>Obračun Poslova</Text>
-        <Text style={styles.calculText}>(RSD)</Text>
-      </View>
-      {
-        !props.showResult &&
-          <ScrollView style={styles.scrollViewContainer}>
-            <KeyboardAvoidingView
-              style={styles.inputsContainer}
-              behavior="padding"
-            >
-            <TextInput
-              style={styles.inputText}
-              onChangeText={props.saveInput}
-              keyboardType="numeric"
-              placeholder="Unestite BRUTO izons plate na mesecnom nivou"
-              placeholderTextColor="black"
+class TemporaryPermanentJobsCalculator extends Component {
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image source={images.background} style={styles.image}/>
+        {
+          this.props.language === 'en' ?
+            <View style={styles.calculTextContainer}>
+              <Text style={styles.calculText}>?????</Text>
+              <Text style={styles.calculText}>(RSD)</Text>
+            </View> :
+            <View style={styles.calculTextContainer}>
+              <Text style={styles.calculText}>Obračun Poslova</Text>
+              <Text style={styles.calculText}>(RSD)</Text>
+            </View>
+        }
+        {
+          !this.props.showResult &&
+            <ScrollView style={styles.scrollViewContainer}>
+              <KeyboardAvoidingView
+                style={styles.inputsContainer}
+                behavior="padding"
+              >
+                {
+                  this.props.language === 'en' ?
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="????????"
+                      placeholderTextColor="black"
+                    /> :
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+                      placeholderTextColor="black"
+                    />
+                }
+
+                <Text>{this.props.calculation.value}</Text>
+                {
+                  this.props.language === 'en' ?
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                    <Text style={styles.buttonText}>Calculate</Text>
+                  </TouchableOpacity> :
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                    <Text style={styles.buttonText}>Izracunaj</Text>
+                  </TouchableOpacity>
+                }
+                <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
+              </KeyboardAvoidingView>
+            </ScrollView>
+        }
+        {
+          this.props.showResult ?
+            <TempPermJobsResult
+              calculation={this.props.calculation}
             />
-              <Text>{props.calculation.value}</Text>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => props.calculateValue(props.calculation.input)}>
-                <Text style={styles.buttonText}>Izracunaj</Text>
-              </TouchableOpacity>
-              <Text style={styles.description}>{props.calculation.description}</Text>
-            </KeyboardAvoidingView>
-          </ScrollView>
-      }
-      {
-        props.showResult ?
-          <TempPermJobsResult
-            calculation={props.calculation}
-          />
-        : null
-      }
-    </View>
-  );
-};
+          : null
+        }
+      </View>
+    );
+  }
+}
 
+const stateToProps = state => ({
+  // taxes: state.calculationsContainer.taxes,
+  language: state.settingsReducer.language
+});
 
-export default TemporaryPermanentJobsCalculator;
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(TemporaryPermanentJobsCalculator);
 
 const styles = StyleSheet.create({
   container: {

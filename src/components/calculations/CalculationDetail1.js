@@ -6,7 +6,7 @@ import {
   resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon, saveInputFamilyAction, saveInputLeseAction,
   saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, totalSalaryGrossToNetContributionsAction,
   saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction,
-  tempPermJobsGrossToNetAction, saveTempPermJobsAction, tempPermJobsNetAction, tempPermJobsTaxAction, tempPermJobsPension14Action, tempPermJobsHealthAction, tempPermJobsNezAction, tempPermJobsPension12Action,
+  tempPermJobsGrossToNetAction, saveTempPermJobsAction, tempPermJobsNetAction, tempPermJobsTaxAction, tempPermJobsPension14Action, tempPermJobsHealthAction, tempPermJobsNezAction, tempPermJobsPension12Action, tempPermJobsemployeesAction, tempPermJobsemployerAction, tempPermJobsEmployerTotalAction,
   saveContractPioTaxAction, contractPioTaxGrossAction, contractPioTaxNontaxableAction, contractPioTaxBaseAction, contractPioTaxTaxAction, contractPioTaxPensionAction,
   savePioTaxHealthAction, contractPioHealthTaxGrossAction, contractPioHealthTaxNontaxableAction, contractPioHealthTaxBaseAction, contractPioHealthTaxTaxAction, contractPioHealthTaxPensionAction, contractPioHealthTaxContributionAction,
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
@@ -207,6 +207,10 @@ class CalculationDetail1 extends Component {
     this.props.tempPermJobsHealthAction(this.tempPermJobsHealth(val));
     this.props.tempPermJobsNezAction(this.tempPermJobsNez(val));
     this.props.tempPermJobsPension12Action(this.tempPermJobsPension12(val));
+    this.props.tempPermJobsemployeesAction(this.tempPermJobsemployees(val));
+    this.props.tempPermJobsemployerAction(this.tempPermJobsemployer(val));
+    this.props.tempPermJobsEmployerTotalAction(this.tempPermJobsEmployerTotal(val));
+
   };
 
   tempPermJobsGrossToNet = val => (val / 0.701)
@@ -216,6 +220,9 @@ class CalculationDetail1 extends Component {
   tempPermJobsHealth = val => ((val / 0.701) * 0.0515)
   tempPermJobsNez = val => ((val / 0.701) * 0.0075)
   tempPermJobsPension12 = val => ((val / 0.701) * 0.12)
+  tempPermJobsemployees = val => (this.tempPermJobsTax(val) + this.tempPermJobsPension14(val) + this.tempPermJobsHealth(val) + this.tempPermJobsNez(val))
+  tempPermJobsemployer = val => (this.tempPermJobsPension12(val) + this.tempPermJobsHealth(val) + this.tempPermJobsNez(val))
+  tempPermJobsEmployerTotal = val => (this.tempPermJobsGrossToNet(val) + this.tempPermJobsemployer(val))
 
   /********
   * CONTRACT - PIO and TAX
@@ -526,7 +533,9 @@ const dispatchToProps = dispatch => ({
   tempPermJobsHealthAction: bindActionCreators(tempPermJobsHealthAction, dispatch),
   tempPermJobsNezAction: bindActionCreators(tempPermJobsNezAction, dispatch),
   tempPermJobsPension12Action: bindActionCreators(tempPermJobsPension12Action, dispatch),
-
+  tempPermJobsemployeesAction: bindActionCreators(tempPermJobsemployeesAction, dispatch),
+  tempPermJobsemployerAction: bindActionCreators(tempPermJobsemployerAction, dispatch),
+  tempPermJobsEmployerTotalAction: bindActionCreators(tempPermJobsEmployerTotalAction, dispatch),
 // Contcract Pio and Tax
   saveContractPioTaxAction: bindActionCreators(saveContractPioTaxAction, dispatch),
   contractPioTaxGrossAction: bindActionCreators(contractPioTaxGrossAction, dispatch),

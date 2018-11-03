@@ -19,7 +19,7 @@ class TemporaryPermanentJobsCalculator extends Component {
               <Text style={styles.calculText}>(RSD)</Text>
             </View> :
             <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Obračun Poslova</Text>
+              <Text style={styles.calculText}>Privremeni i povremeni poslovi</Text>
               <Text style={styles.calculText}>(RSD)</Text>
             </View>
         }
@@ -43,7 +43,7 @@ class TemporaryPermanentJobsCalculator extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+                      placeholder="Uneti neto izons zarade (rsd)"
                       placeholderTextColor="black"
                     />
                 }

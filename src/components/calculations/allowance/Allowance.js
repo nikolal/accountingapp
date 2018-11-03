@@ -23,7 +23,7 @@ class Allowance extends Component {
                   <Text style={styles.calculText}>(RSD)</Text>
                 </View> :
                 <View>
-                  <Text style={styles.calculText}>Domaće dnevnica</Text>
+                  <Text style={styles.calculText}>Dnevnice u zemlji</Text>
                   <Text style={styles.calculText}>(Obračun - RSD)</Text>
                 </View>
               }
@@ -52,7 +52,7 @@ class Allowance extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.buttonText}>home :)</Text> :
-                  <Text style={styles.buttonText}>Domace</Text>
+                  <Text style={styles.buttonText}>U zemlji</Text>
               }
               {
                 this.props.calculation.type === 'allowanceHome' ?
@@ -83,27 +83,47 @@ class Allowance extends Component {
                   behavior="padding"
                 >
                 {
-                  this.props.calculation.type === 'allowanceHome' ?
-                  <TextInput
-                    style={styles.inputText}
-                    onChangeText={this.props.saveInput}
-                    keyboardType="numeric"
-                    placeholder="Unesite NETO dnevnice u RSD"
-                    placeholderTextColor="black"
-                  /> :
-                  this.props.calculation.type === 'allowanceAway' ?
-                  <TextInput
-                    style={styles.inputText}
-                    onChangeText={this.props.saveInput}
-                    keyboardType="numeric"
-                    placeholder="Unesite NETO dnevnice u EUR"
-                    placeholderTextColor="black"
-                  /> : null
+                  this.props.calculation.type === 'allowanceHome' && this.props.language === 'en' ?
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="engl (rsd)"
+                      placeholderTextColor="black"
+                    /> :
+                    this.props.calculation.type === 'allowanceAway' ?
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="UEngl (eur)"
+                      placeholderTextColor="black"
+                    /> :
+                  this.props.calculation.type === 'allowanceHome' && this.props.language === 'rs' ?
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="Unesite NETO dnevnice u zemlji (rsd)"
+                      placeholderTextColor="black"
+                    /> :
+                    this.props.calculation.type === 'allowanceAway' ?
+                    <TextInput
+                      style={styles.inputText}
+                      onChangeText={this.props.saveInput}
+                      keyboardType="numeric"
+                      placeholder="Unesite NETO dnevnice u inostranstvu (eur)"
+                      placeholderTextColor="black"
+                    /> : null
                 }
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => this.props.calculateValue(this.props.calculation.input)}>
-                  <Text style={styles.buttonText}>Izracunaj</Text>
+                  {
+                    this.props.language === 'en' ?
+                      <Text style={styles.buttonText}>Calculate</Text> :
+                      <Text style={styles.buttonText}>Izracunaj</Text>
+                  }
                 </TouchableOpacity>
                 <Text style={styles.description}>{this.props.calculation.description}</Text>
               </KeyboardAvoidingView>

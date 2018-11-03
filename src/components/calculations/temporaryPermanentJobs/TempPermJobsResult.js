@@ -11,6 +11,7 @@ class SalaryResult extends Component {
   // })
   render() {
     const { calculation, localeString } = this.props;
+    console.log(calculation);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.itemContainerDark}>
@@ -18,39 +19,33 @@ class SalaryResult extends Component {
             {
               this.props.language === 'en' ?
                 <Text style={styles.text}>Gross</Text> :
-                <Text style={styles.text}>Bruto</Text>
+                <Text style={styles.text}>Bruto zarada</Text>
             }
             <Text style={styles.number}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Porez 10%</Text>
-            <Text style={styles.number}>{calculation.tempPermJobsgross.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <View style={{flexDirection: 'column'}}>
+            <Text style={styles.text}>Doprinosi na zarade</Text>
+            <Text style={styles.text}>na teret zaposlenog</Text>
           </View>
-        </View>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            <Text style={styles.text}>PIO 14%</Text>
-            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.pension.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.employees.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>PIO - 12%</Text>
-            <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.pension.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <View style={{flexDirection: 'column'}}>
+            <Text style={styles.text}>Doprinosi na zarade</Text>
+            <Text style={styles.text}>na teret poslodavca</Text>
           </View>
-        </View>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            <Text style={styles.text}>Zdravsveni</Text>
-            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.health.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Nez</Text>
-            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.nez.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <Text style={styles.text}>Ukupan izdatak</Text>
+          <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employerTotal.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
       </ScrollView>

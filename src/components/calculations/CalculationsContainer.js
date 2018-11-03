@@ -41,6 +41,9 @@ const SAVE_TEM_PERM_JOBS_PENSION14_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_PEN
 const SAVE_TEM_PERM_JOBS_HEALTH_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_HEALTH_ACTION';
 const SAVE_TEM_PERM_JOBS_NEZ_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_NEZ_ACTION';
 const SAVE_TEM_PERM_JOBS_PENSION12_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_PENSION12_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION';
 
 // Contcract Pio and Tax
 const SAVE_CONTRACT_PIO_TAX_ACTION = 'calculations/SAVE_CONTRACT_PIO_TAX_ACTION';
@@ -173,12 +176,15 @@ const initialState = {
       firstData: {
         pension: null,
         health: null,
-        nez: null
+        nez: null,
+        employees: null
       },
       secondData: {
         pension: null,
         health: null,
-        nez: null
+        nez: null,
+        employer: null,
+        totalEmployer: null
       }
     },
     icon: 'briefcase'
@@ -753,6 +759,45 @@ const calculationsReducer = (state = initialState, action) =>
         secondData: {
           ...state.calculation.tempPermJobsgross.secondData,
           pension: action.value,
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        firstData: {
+          ...state.calculation.tempPermJobsgross.firstData,
+          employees: action.value,
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        secondData: {
+          ...state.calculation.tempPermJobsgross.secondData,
+          employer: action.value,
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        secondData: {
+          ...state.calculation.tempPermJobsgross.secondData,
+          employerTotal: action.value,
         }
       }
     }
@@ -1382,6 +1427,9 @@ export const tempPermJobsPension14Action = value => ({ type: SAVE_TEM_PERM_JOBS_
 export const tempPermJobsHealthAction = value => ({ type: SAVE_TEM_PERM_JOBS_HEALTH_ACTION, value });
 export const tempPermJobsNezAction = value => ({ type: SAVE_TEM_PERM_JOBS_NEZ_ACTION, value });
 export const tempPermJobsPension12Action = value => ({ type: SAVE_TEM_PERM_JOBS_PENSION12_ACTION, value });
+export const tempPermJobsemployeesAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION, value });
+export const tempPermJobsemployerAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION, value });
+export const tempPermJobsEmployerTotalAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION, value });
 
 // Contcract Pio and Tax
 export const saveContractPioTaxAction = value => ({ type: SAVE_CONTRACT_PIO_TAX_ACTION, value });

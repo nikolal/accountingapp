@@ -365,28 +365,26 @@ finalTax = val =>
 * LEASE
 ********/
 
-// nije final, ovaj samo mnozi euro sa koeficijentom
-calculateFinaLease = val => {
-  this.props.rsdConvertedActioin(this.leaseConverted(val));
-}
+// nije final, ovaj samo mnozi euro sa koeficijentom - promenio Bora, hoce u dinarima
+// calculateFinaLease = val => {
+//   this.props.rsdConvertedActioin(this.leaseConverted(val));
+// }
 
-leaseConverted = val => (this.grossInputValue(this.props.calculation.input) * (this.euroInputValue(this.props.calculation.input2)))
+// leaseConverted = val => (this.grossInputValue(this.props.calculation.input) * (this.euroInputValue(this.props.calculation.input2)))
 
 
 leaseCalculator = val => {
   this.props.grossInputValueAction(this.grossInputValue(val));
-  this.props.euroInputValueAction(this.euroInputValue(val));
+  // this.props.euroInputValueAction(this.euroInputValue(val));
   this.props.calculateGrossLeaseAction(this.calculateGrossLease(val));
   this.props.calculateNonTaxableLeaseAction(this.calculateNonTaxableLease(val));
   this.props.calculateBaseLeaseAction(this.calculateBaseLease(val));
   this.props.calculateLeaseTaxFinalAction(this.calculateLeaseTaxFinal(val));
-
-
 }
 
 grossInputValue = val => val
-euroInputValue = val => val
-calculateGrossLease = val => (this.leaseConverted(val) * 1.17647059)
+// euroInputValue = val => val
+calculateGrossLease = val => (this.grossInputValue(val) * 1.17647059)
 calculateNonTaxableLease = val => (this.calculateGrossLease(val) * 0.25)
 calculateBaseLease = val => (this.calculateGrossLease(val) - this.calculateNonTaxableLease(val))
 calculateLeaseTaxFinal = val => (this.calculateBaseLease(val) * 0.20)

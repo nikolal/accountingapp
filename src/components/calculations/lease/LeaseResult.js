@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../../theme';
 
-const LeaseResult = ({ calculation }) => {
+class LeaseResult extends Component {
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupan porez</Text>
-          <Text style={styles.number}>{calculation.lease.tax && calculation.lease.tax.toFixed(2)}</Text>
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>????</Text> :
+                <Text style={styles.text}>Ukupan porez</Text>
+            }
+            <Text style={styles.number}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toFixed(2)}</Text>
+          </View>
         </View>
+        {/* <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Porez</Text>
+            <Text style={styles.number}>{calculation.lease.finnalAnnualTax && calculation.lease.finnalAnnualTax.toFixed(2)}</Text>
+          </View>
+        </View> */}
+
       </View>
-      {/* <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez</Text>
-          <Text style={styles.number}>{calculation.lease.finnalAnnualTax && calculation.lease.finnalAnnualTax.toFixed(2)}</Text>
-        </View>
-      </View> */}
+    );
+  }
+}
 
-    </View>
-  );
-};
+const stateToProps = state => ({
+  // article: state.aboutReducer.article,
+  language: state.settingsReducer.language
 
-export default LeaseResult;
+});
+
+export default connect(stateToProps, null)(LeaseResult);
 
 const styles = StyleSheet.create({
   container: {

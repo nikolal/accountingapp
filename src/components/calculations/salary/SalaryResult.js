@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { metrics, colors, fonts } from '../../../theme';
 
 class SalaryResult extends Component {
+  // console.log(this.props.calculation.grossSalary)
 
   render() {
     const { calculation, localeString } = this.props;
@@ -13,7 +14,7 @@ class SalaryResult extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Ukupna bruto zarada</Text>
+            <Text style={styles.text}>Obračun za bruto zaradu: </Text>
             <Text style={styles.number}>{
               calculation.grossSalary.value && calculation.grossSalary.value
               .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
@@ -33,14 +34,17 @@ class SalaryResult extends Component {
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Ukupan trosak zarade</Text>
+            <View style={{flexDirection: 'column'}}>
+            <Text style={styles.text}>Doprinosi na teret:</Text>
+            <Text style={styles.text}>zapolenog i poslodavca</Text>
+          </View>
             <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Ukupan obracun</Text>
-            <Text style={styles.number}>{calculation.totalSalary}</Text>
+            <Text style={styles.text}>Ukupan trošak zarade</Text>
+            <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
       </ScrollView>

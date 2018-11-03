@@ -1,109 +1,164 @@
 
-import React from 'react';
-import { Text, View, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Image, Dimensions } from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Text, View, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 
-const SalaryCalculator = props => {
-  return (
-    <View style={styles.container}>
-      <ImageBackground source={images.background} style={styles.image}>
+class SalaryCalculator extends Component {
+
+  render(){
+    return (
+      <View style={styles.container}>
+        <ImageBackground source={images.background} style={styles.image}>
+          {
+            this.props.calculation.type === 'grossToNet' ?
+              <View style={styles.calculTextContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <Text style={styles.calculText}>????</Text> :
+                    <Text style={styles.calculText}>Obračun Bruto zarada</Text>
+                }
+                <Text style={styles.calculText}>(RSD)</Text>
+              </View> :
+            this.props.calculation.type === 'netToGross' ?
+              <View style={styles.calculTextContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <Text style={styles.calculText}>??????</Text> :
+                    <Text style={styles.calculText}>Obračun Neto zarada</Text>
+                }
+                <Text style={styles.calculText}>(RSD)</Text>
+              </View> : null
+          }
+          {
+            !this.props.showResult &&
+              <View style={styles.buttonsContainer}>
+                <TouchableOpacity
+                  style={styles.buttons}
+                  onPress={() => this.props.switchingGrossToNet('grossToNet')}
+                >
+                  {
+                    this.props.language === 'en' ?
+                    <Text style={styles.buttonGrossNetText}>Gross to Net</Text> :
+                    <Text style={styles.buttonGrossNetText}>Bruto u neto</Text>
+                  }
+                  {
+                    this.props.calculation.type === 'grossToNet' ?
+                      <View style={styles.trangle} /> : null
+                  }
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.buttons}
+                  onPress={() => this.props.switchNetToGross('netToGross')}
+                >
+                  {
+                    this.props.language === 'en' ?
+                      <Text style={styles.buttonGrossNetText}>Net to gross</Text> :
+                      <Text style={styles.buttonGrossNetText}>Neto u bruto</Text>
+                  }
+                  {
+                    this.props.calculation.type === 'netToGross' ?
+                      <View style={styles.trangle} /> : null
+                  }
+                </TouchableOpacity>
+              </View>
+            }
+        </ImageBackground>
         {
-          props.calculation.type === 'grossToNet' ?
-            <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Obračun Bruto zarada</Text>
-              <Text style={styles.calculText}>(RSD)</Text>
-            </View> :
-          props.calculation.type === 'netToGross' ?
-            <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Obračun Neto zarada</Text>
-              <Text style={styles.calculText}>(RSD)</Text>
-            </View> : null
+          !this.props.showResult &&
+          <ScrollView style={styles.scrollViewContainer}>
+            <KeyboardAvoidingView
+              style={styles.inputsContainer}
+              behavior="padding"
+            >
+            {
+              this.props.calculation.type === 'grossToNet' ?
+                <View>
+                  {
+                    this.props.language === 'en' ?
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        placeholder="?????"
+                        placeholderTextColor="black"
+                        keyboardType="numeric"
+                      /> :
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+                        placeholderTextColor="black"
+                        keyboardType="numeric"
+                      />
+                  }
+                </View> :
+              this.props.calculation.type === 'netToGross' ?
+                <View>
+                  {
+                    this.props.language === 'en' ?
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        placeholder="Net"
+                        placeholderTextColor="black"
+                        keyboardType="numeric"
+                      /> :
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        placeholder="Unestite NETO izons plate na mesecnom nivou"
+                        placeholderTextColor="black"
+                        keyboardType="numeric"
+                      />
+                  }
+
+                </View> : null
+              }
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                {
+                  this.props.language === 'en' ?
+                    <Text style={styles.buttonText}>Calculate</Text> :
+                    <Text style={styles.buttonText}>Izracunaj</Text>
+                }
+              </TouchableOpacity>
+              <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
+            </KeyboardAvoidingView>
+          </ScrollView>
         }
         {
-          !props.showResult &&
-            <View style={styles.buttonsContainer}>
-              <TouchableOpacity
-                style={styles.buttons}
-                onPress={() => props.switchingGrossToNet('grossToNet')}
-              >
-                <Text style={styles.buttonGrossNetText}>Gross to Net</Text>
-                {
-                  props.calculation.type === 'grossToNet' ?
-                    <View style={styles.trangle} /> : null
-                }
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.buttons}
-                onPress={() => props.switchNetToGross('netToGross')}
-              >
-                <Text style={styles.buttonGrossNetText}>Net to gross</Text>
-                {
-                  props.calculation.type === 'netToGross' ?
-                    <View style={styles.trangle} /> : null
-                }
-              </TouchableOpacity>
-            </View>
-          }
-      </ImageBackground>
-      {
-        !props.showResult &&
-        <ScrollView style={styles.scrollViewContainer}>
-          <KeyboardAvoidingView
-            style={styles.inputsContainer}
-            behavior="padding"
-          >
-          {
-            props.calculation.type === 'grossToNet' ?
-              <View>
-                <TextInput
-                  style={styles.inputText}
-                  onChangeText={props.saveInput}
-                  placeholder="Unestite BRUTO izons plate na mesecnom nivou"
-                  placeholderTextColor="black"
-                  keyboardType="numeric"
-                />
-              </View> :
-            props.calculation.type === 'netToGross' ?
-              <View>
-                <TextInput
-                  style={styles.inputText}
-                  onChangeText={props.saveInput}
-                  placeholder="Unestite NETO izons plate na mesecnom nivou"
-                  placeholderTextColor="black"
-                  keyboardType="numeric"
-                />
-              </View> : null
-            }
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => props.calculateValue(props.calculation.input)}>
-              <Text style={styles.buttonText}>Izracunaj</Text>
-            </TouchableOpacity>
-            <Text style={styles.description}>{props.calculation.description}</Text>
-          </KeyboardAvoidingView>
-        </ScrollView>
-      }
-      {
-        props.showResult &&
-        props.calculation.type === 'grossToNet' ?
-          <SalaryResult
-            calculation={props.calculation}
-          /> :
-        props.showResult &&
-        props.calculation.type === 'netToGross' ?
-          <SalaryResultNet
-            calculation={props.calculation}
-          /> :
-          null
-      }
-    </View>
-  );
-};
+          this.props.showResult &&
+          this.props.calculation.type === 'grossToNet' ?
+            <SalaryResult
+              calculation={this.props.calculation}
+            /> :
+          this.props.showResult &&
+          this.props.calculation.type === 'netToGross' ?
+            <SalaryResultNet
+              calculation={this.props.calculation}
+            /> :
+            null
+        }
+      </View>
+    );
+  }
 
+}
 
-export default SalaryCalculator;
+const stateToProps = state => ({
+  // taxes: state.calculationsContainer.taxes,
+  language: state.settingsReducer.language
+});
+
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(SalaryCalculator);
 
 const styles = StyleSheet.create({
   container: {

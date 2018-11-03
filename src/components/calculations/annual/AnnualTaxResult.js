@@ -1,35 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../../theme';
 
-const AnnualTaxResult = ({ calculation }) => {
+class AnnualTaxResult extends Component {
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Bruto zarada u RSD</Text>
-          <Text style={styles.number}>{calculation.annualTax.value && calculation.annualTax.value.toFixed(2)}</Text>
+  render() {
+    const { calculation, localeString } = this.props;
+    return (
+      <View style={styles.container}>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>??</Text> :
+                <Text style={styles.text}>Bruto zarada u RSD</Text>
+            }
+            <Text style={styles.number}>{calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Broj izdžavanih članova</Text>
-          <Text style={styles.number}>{calculation.annualTax.familyNumber && calculation.annualTax.familyNumber}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+              <Text style={styles.text}>Broj izdžavanih članova</Text> :
+              <Text style={styles.text}>Broj izdžavanih članova</Text>
+            }
+            <Text style={styles.number}>{calculation.annualTax.familyNumber && calculation.annualTax.familyNumber}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Iznos godišnjeg poreza</Text>
-          <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toFixed(2)}</Text>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>Iznos godišnjeg </Text> :
+                <Text style={styles.text}>Iznos godišnjeg poreza</Text>
+            }
+            <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
 
-    </View>
-  );
-};
+      </View>
+    );
+  }
+}
 
-export default AnnualTaxResult;
+const stateToProps = state => ({
+  localeString: state.settingsReducer.localeString,
+  language: state.settingsReducer.language
+});
+
+export default connect(stateToProps, null)(AnnualTaxResult);
 
 const styles = StyleSheet.create({
   container: {

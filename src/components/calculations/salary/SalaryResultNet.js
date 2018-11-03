@@ -1,41 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../../theme';
 
-const SalaryResultNet = ({ calculation }) => {
+class SalaryResultNet extends Component {
 
-  return (
-    <ScrollView style={styles.container}>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupna bruto zarada</Text>
-          <Text style={styles.number}>{calculation.netSalary.value && calculation.netSalary.value.toFixed(2)}</Text>
+  render() {
+
+    const { calculation, localeString } = this.props;
+
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+              <Text style={styles.text}>Total ?</Text> :
+              <Text style={styles.text}>Ukupna bruto zarada</Text>
+            }
+            <Text style={styles.number}>{calculation.netSalary.value && calculation.netSalary.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez na zarade</Text>
-          <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>??</Text> :
+                <Text style={styles.text}>Porez na zarade</Text>
+            }
+            <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupan trosak zarade</Text>
-          <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toFixed(2)}</Text>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>???</Text> :
+                <Text style={styles.text}>srp ???</Text>
+            }
+            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Ukupan obracun</Text>
-          <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>??</Text> :
+                <Text style={styles.text}>Ukupan trosak zarade</Text>
+            }
+            <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-    </ScrollView>
-  );
-};
+      </ScrollView>
+    );
+  }
+}
 
 
-export default SalaryResultNet;
+const stateToProps = state => ({
+  localeString: state.settingsReducer.localeString,
+  language: state.settingsReducer.language
+});
+
+export default connect(stateToProps, null)(SalaryResultNet);
 
 const styles = StyleSheet.create({
   container: {

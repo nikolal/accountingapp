@@ -14,7 +14,11 @@ class SalaryResult extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Obračun za bruto zaradu: </Text>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>?: </Text> :
+                <Text style={styles.text}>Obračun za bruto zaradu: </Text>
+            }
             <Text style={styles.number}>{
               calculation.grossSalary.value && calculation.grossSalary.value
               .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
@@ -22,28 +26,50 @@ class SalaryResult extends Component {
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Neto za isplatu</Text>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>Net ??</Text> :
+                <Text style={styles.text}>Neto za isplatu</Text>
+            }
             <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Porez na zarade</Text>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>???</Text> :
+                <Text style={styles.text}>Porez na zarade</Text>
+
+
+            }
             <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <View style={{flexDirection: 'column'}}>
-            <Text style={styles.text}>Doprinosi na teret:</Text>
-            <Text style={styles.text}>zapolenog i poslodavca</Text>
-          </View>
+            {
+              this.props.language === 'en' ?
+                <View style={{flexDirection: 'column'}}>
+                  <Text style={styles.text}>?:</Text>
+                  <Text style={styles.text}>??</Text>
+                </View> :
+                <View style={{flexDirection: 'column'}}>
+                  <Text style={styles.text}>Doprinosi na teret:</Text>
+                  <Text style={styles.text}>zapolenog i poslodavca</Text>
+                </View>
+
+            }
             <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Ukupan trošak zarade</Text>
+            {
+              this.props.language === 'en' ?
+              <Text style={styles.text}>??</Text> :
+              <Text style={styles.text}>Ukupan trošak zarade</Text>
+            }
             <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
@@ -53,7 +79,8 @@ class SalaryResult extends Component {
 }
 
 const stateToProps = state => ({
-  localeString: state.settingsReducer.localeString
+  localeString: state.settingsReducer.localeString,
+  language: state.settingsReducer.language
 });
 
 export default connect(stateToProps, null)(SalaryResult);

@@ -1,100 +1,140 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 import AllowanceResult from './AllowanceResult.js';
 import AllowanceResultAway from './AllowanceResultAway.js';
 
 // Nesto mi gura skrollview nize (za sirinu buttonsContainer) - vidi gde ulazi kad se skroluje
-const Allowance = props => {
+class Allowance extends Component {
 
-  return (
-    <View style={styles.container}>
-      <ImageBackground source={images.background} style={styles.image}>
-        {
-          props.calculation.type === 'allowanceHome' ?
-            <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Domaće dnevnica</Text>
-              <Text style={styles.calculText}>(Obračun - RSD)</Text>
-            </View> :
-          props.calculation.type === 'allowanceAway' ?
-            <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
-              <Text style={styles.calculText}>(Obračun - EUR)</Text>
-            </View> : null
-        }
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={styles.buttons}
-            onPress={() => props.switchingAllowanceHomeAway('allowanceHome')}
-          >
-            <Text style={styles.buttonText}>Domace</Text>
-            {
-              props.calculation.type === 'allowanceHome' ?
-                <View style={styles.trangle}></View> : null
-            }
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttons}
-            onPress={() => props.switchingAllowanceAwayHome('allowanceAway')}
-          >
-            <Text style={styles.buttonText}>U inostranstvu</Text>
-            {
-              props.calculation.type === 'allowanceAway' ?
-                <View style={styles.trangle}></View> : null
-            }
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
-        {
-          !props.showResult &&
-            <ScrollView style={styles.scrollViewContainer}>
-              <KeyboardAvoidingView
-                style={styles.inputsContainer}
-                behavior="padding"
-              >
+  render(){
+    return (
+      <View style={styles.container}>
+        <ImageBackground source={images.background} style={styles.image}>
+          {
+            this.props.calculation.type === 'allowanceHome' ?
+              <View style={styles.calculTextContainer}>
               {
-                props.calculation.type === 'allowanceHome' ?
-                <TextInput
-                  style={styles.inputText}
-                  onChangeText={props.saveInput}
-                  keyboardType="numeric"
-                  placeholder="Unesite NETO dnevnice u RSD"
-                  placeholderTextColor="black"
-                /> :
-                props.calculation.type === 'allowanceAway' ?
-                <TextInput
-                  style={styles.inputText}
-                  onChangeText={props.saveInput}
-                  keyboardType="numeric"
-                  placeholder="Unesite NETO dnevnice u EUR"
-                  placeholderTextColor="black"
-                /> : null
+                this.props.language === 'en' ?
+                <View>
+                  <Text style={styles.calculText}>??</Text>
+                  <Text style={styles.calculText}>(RSD)</Text>
+                </View> :
+                <View>
+                  <Text style={styles.calculText}>Domaće dnevnica</Text>
+                  <Text style={styles.calculText}>(Obračun - RSD)</Text>
+                </View>
               }
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => props.calculateValue(props.calculation.input)}>
-                <Text style={styles.buttonText}>Izracunaj</Text>
-              </TouchableOpacity>
-              <Text style={styles.description}>{props.calculation.description}</Text>
-            </KeyboardAvoidingView>
-          </ScrollView>
-        }
-        {
-          props.showResult && props.calculation.type === 'allowanceHome' ?
-            <AllowanceResult
-              calculation={props.calculation}
-            /> :
-            props.showResult && props.calculation.type === 'allowanceAway' ?
-          <AllowanceResultAway
-            calculation={props.calculation}
-          /> : null
-        }
-    </View>
-  );
-};
 
+              </View> :
+            this.props.calculation.type === 'allowanceAway' ?
+              <View style={styles.calculTextContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <View>
+                      <Text style={styles.calculText}>???</Text>
+                      <Text style={styles.calculText}>(EUR)</Text>
+                    </View> :
+                    <View>
+                      <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
+                      <Text style={styles.calculText}>(Obračun - EUR)</Text>
+                    </View>
+                }
+              </View> : null
+          }
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              style={styles.buttons}
+              onPress={() => this.props.switchingAllowanceHomeAway('allowanceHome')}
+            >
+              {
+                this.props.language === 'en' ?
+                  <Text style={styles.buttonText}>home :)</Text> :
+                  <Text style={styles.buttonText}>Domace</Text>
+              }
+              {
+                this.props.calculation.type === 'allowanceHome' ?
+                  <View style={styles.trangle} /> : null
+              }
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.buttons}
+              onPress={() => this.props.switchingAllowanceAwayHome('allowanceAway')}
+            >
+              {
+                this.props.language === 'en' ?
+                  <Text style={styles.buttonText}>kkjh</Text> :
+                  <Text style={styles.buttonText}>U inostranstvu</Text>
+              }
+              {
+                this.props.calculation.type === 'allowanceAway' ?
+                  <View style={styles.trangle} /> : null
+              }
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+          {
+            !this.props.showResult &&
+              <ScrollView style={styles.scrollViewContainer}>
+                <KeyboardAvoidingView
+                  style={styles.inputsContainer}
+                  behavior="padding"
+                >
+                {
+                  this.props.calculation.type === 'allowanceHome' ?
+                  <TextInput
+                    style={styles.inputText}
+                    onChangeText={this.props.saveInput}
+                    keyboardType="numeric"
+                    placeholder="Unesite NETO dnevnice u RSD"
+                    placeholderTextColor="black"
+                  /> :
+                  this.props.calculation.type === 'allowanceAway' ?
+                  <TextInput
+                    style={styles.inputText}
+                    onChangeText={this.props.saveInput}
+                    keyboardType="numeric"
+                    placeholder="Unesite NETO dnevnice u EUR"
+                    placeholderTextColor="black"
+                  /> : null
+                }
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                  <Text style={styles.buttonText}>Izracunaj</Text>
+                </TouchableOpacity>
+                <Text style={styles.description}>{this.props.calculation.description}</Text>
+              </KeyboardAvoidingView>
+            </ScrollView>
+          }
+          {
+            this.props.showResult && this.props.calculation.type === 'allowanceHome' ?
+              <AllowanceResult
+                calculation={this.props.calculation}
+              /> :
+              this.props.showResult && this.props.calculation.type === 'allowanceAway' ?
+            <AllowanceResultAway
+              calculation={this.props.calculation}
+            /> : null
+          }
+      </View>
+    );
+  }
+}
 
-export default Allowance;
+const stateToProps = state => ({
+  // taxes: state.calculationsContainer.taxes,
+  language: state.settingsReducer.language
+});
+
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(Allowance);
+
 
 const styles = StyleSheet.create({
   container: {

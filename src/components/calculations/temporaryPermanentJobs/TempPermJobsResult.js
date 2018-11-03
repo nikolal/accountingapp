@@ -8,9 +8,9 @@ class SalaryResult extends Component {
 
   // static navigationOptions = ({ navigation }) => ({
   //   headerTitle: <HeaderTitle />
-  // });
-
+  // })
   render() {
+    const { calculation, localeString } = this.props;
     return (
       <ScrollView style={styles.container}>
         <View style={styles.itemContainerDark}>
@@ -20,37 +20,37 @@ class SalaryResult extends Component {
                 <Text style={styles.text}>Gross</Text> :
                 <Text style={styles.text}>Bruto</Text>
             }
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.value.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Porez 10%</Text>
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.tax.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>PIO 14%</Text>
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.firstData.pension.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.pension.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>PIO - 12%</Text>
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.secondData.pension.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.pension.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Zdravsveni</Text>
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.firstData.health.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.health.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
             <Text style={styles.text}>Nez</Text>
-            <Text style={styles.number}>{this.props.calculation.tempPermJobsgross.firstData.nez.toFixed(2)}</Text>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.nez.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
       </ScrollView>

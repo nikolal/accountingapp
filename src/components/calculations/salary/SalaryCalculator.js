@@ -14,6 +14,7 @@ class SalaryCalculator extends Component {
 
   render(){
     // console.log(this.props.calculated);
+    console.log(this.props.calculation.input !== 0);
     return (
 
       <ScrollView style={styles.container}>
@@ -43,7 +44,7 @@ class SalaryCalculator extends Component {
                 </View> : null
             }
             {
-              !this.props.showResult &&
+              // !this.props.showResult &&
                 <View style={styles.buttonsContainer}>
                   <TouchableOpacity
                     style={styles.buttons}
@@ -77,7 +78,7 @@ class SalaryCalculator extends Component {
               }
           </ImageBackground>
           {
-            !this.props.showResult &&
+            // !this.props.showResult &&
             <View style={styles.scrollViewContainer}>
               {/* <KeyboardAvoidingView
                 style={styles.inputsContainer}
@@ -126,9 +127,21 @@ class SalaryCalculator extends Component {
 
                   </View> : null
                 }
+                {/* {
+                  this.props.showResult &&
+                  this.props.calculation.input === 0 &&
+                    <Text style={styles.errorText}>Please enter text </Text>
+                } */}
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                  onPress={() =>  !this.props.showResult &&
+                                  this.props.calculation.input !== 0 ?
+                                  this.props.calculateValue(this.props.calculation.input) :
+                                    this.props.language === 'en' ?
+                                      alert('Please enter your salary') :
+                                      alert('Molimo Vas unestite Vasu platu')
+                  }
+                >
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.buttonText}>Calculate</Text> :
@@ -155,7 +168,7 @@ class SalaryCalculator extends Component {
           <Modal
             animationType="slide"
             transparent={false}
-            visible={this.props.showResult}
+            visible={this.props.calculation.input !== 0 && this.props.showResult}
             onRequestClose={() => false}>
             <View style={{flex: 1}}>
 
@@ -169,12 +182,14 @@ class SalaryCalculator extends Component {
               </TouchableOpacity>
 
               {
+                this.props.calculation.input !== 0 &&
                 this.props.showResult &&
                 this.props.calculation.type === 'grossToNet' ?
                   <SalaryResult
                     calculation={this.props.calculation}
                   /> :
                 this.props.showResult &&
+                this.props.calculation.input !== 0 &&
                 this.props.calculation.type === 'netToGross' ?
                   <SalaryResultNet
                     calculation={this.props.calculation}
@@ -285,5 +300,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     alignSelf: 'flex-end'
+  },
+  errorText: {
+    color: 'red',
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
+    marginBottom: metrics.huge
   }
 });

@@ -127,7 +127,7 @@ const initialState = {
     },
     image: require('../../../assets/images/calculationsPanel.png'),
     icons: require('../../../assets/images/calculatorCalculations.png'),
-    input: '',
+    input: 0,
     func: 'salaryCalculator',
     type: 'grossToNet',
     grossSalary: {

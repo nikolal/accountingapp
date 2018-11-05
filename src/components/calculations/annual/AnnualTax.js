@@ -14,83 +14,83 @@ class AnnualTax extends Component {
           style={styles.inputsContainer}
           behavior="padding"
         >
-        <Image source={images.background} style={styles.image}/>
-        <View style={styles.calculTextContainer}>
+          <Image source={images.background} style={styles.image}/>
+          <View style={styles.calculTextContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.calculText}>Godišnji porez</Text> :
+                <Text style={styles.calculText}>Godišnji porez</Text>
+            }
+            <Text style={styles.calculText}>(RSD)</Text>
+          </View>
           {
-            this.props.language === 'en' ?
-              <Text style={styles.calculText}>Godišnji porez</Text> :
-              <Text style={styles.calculText}>Godišnji porez</Text>
-          }
-          <Text style={styles.calculText}>(RSD)</Text>
-        </View>
-        {
-          !this.props.showResult &&
-            <View style={styles.scrollViewContainer}>
-              <KeyboardAvoidingView
-                style={styles.inputsContainer}
-                behavior="padding"
-              >
-                {
-                  this.props.language === 'en' ?
-                    <TextInput
-                      style={styles.inputText}
-                      onChangeText={this.props.saveInput}
-                      keyboardType="numeric"
-                      placeholder="Grosss ???"
-                      placeholderTextColor="black"
-                    /> :
-                    <TextInput
-                      style={styles.inputText}
-                      onChangeText={this.props.saveInput}
-                      keyboardType="numeric"
-                      placeholder="Unesite ukupnu bruto mesecnu zaradu"
-                      placeholderTextColor="black"
-                    />
-                }
-                {
-                  this.props.language === 'en' ?
-                    <TextInput
-                      style={styles.inputText}
-                      onChangeText={this.props.saveInputFamily}
-                      keyboardType="numeric"
-                      placeholder="BFamily"
-                      placeholderTextColor="black"
-                    /> :
-                    <TextInput
-                      style={styles.inputText}
-                      onChangeText={this.props.saveInputFamily}
-                      keyboardType="numeric"
-                      placeholder="Broj izdržavanih članova porodice"
-                      placeholderTextColor="black"
-                    />
-                }
-                <Text>{this.props.calculation.value}</Text>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    this.props.calculateValue(this.props.calculation.input);
-                    this.props.calculateValueInput2(this.props.calculation.input2);
-                    this.props.calculateFinalAnnualTax(this.props.calculation.input, this.props.calculation.input2);
-                    console.log(this.props.finalTax(this.props.calculation.input));
-                  }}>
+            !this.props.showResult &&
+              <View style={styles.scrollViewContainer}>
+                <KeyboardAvoidingView
+                  style={styles.inputsContainer}
+                  behavior="padding"
+                >
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.buttonText}>Calaculate</Text> :
-                      <Text style={styles.buttonText}>Izracunaj</Text>
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        keyboardType="numeric"
+                        placeholder="Grosss ???"
+                        placeholderTextColor="black"
+                      /> :
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInput}
+                        keyboardType="numeric"
+                        placeholder="Unesite ukupnu bruto mesecnu zaradu"
+                        placeholderTextColor="black"
+                      />
                   }
-                </TouchableOpacity>
-                <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
-              </KeyboardAvoidingView>
-            </View>
-        }
-        {
-          this.props.showResult ?
-            <AnnualTaxResult
-              calculation={this.props.calculation}
-            />
-          : null
-        }
-      </KeyboardAvoidingView>
+                  {
+                    this.props.language === 'en' ?
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInputFamily}
+                        keyboardType="numeric"
+                        placeholder="BFamily"
+                        placeholderTextColor="black"
+                      /> :
+                      <TextInput
+                        style={styles.inputText}
+                        onChangeText={this.props.saveInputFamily}
+                        keyboardType="numeric"
+                        placeholder="Broj izdržavanih članova porodice"
+                        placeholderTextColor="black"
+                      />
+                  }
+                  <Text>{this.props.calculation.value}</Text>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                      this.props.calculateValue(this.props.calculation.input);
+                      this.props.calculateValueInput2(this.props.calculation.input2);
+                      this.props.calculateFinalAnnualTax(this.props.calculation.input, this.props.calculation.input2);
+                      console.log(this.props.finalTax(this.props.calculation.input));
+                    }}>
+                    {
+                      this.props.language === 'en' ?
+                        <Text style={styles.buttonText}>Calaculate</Text> :
+                        <Text style={styles.buttonText}>Izracunaj</Text>
+                    }
+                  </TouchableOpacity>
+                  <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
+                </KeyboardAvoidingView>
+              </View>
+          }
+          {
+            this.props.showResult ?
+              <AnnualTaxResult
+                calculation={this.props.calculation}
+              />
+            : null
+          }
+        </KeyboardAvoidingView>
       </ScrollView>
     );
   }

@@ -15,144 +15,149 @@ class SalaryCalculator extends Component {
   render(){
     // console.log(this.props.calculated);
     return (
-      <View style={styles.container}>
-        <ImageBackground source={images.background} style={styles.image}>
-          {
-            this.props.calculation.type === 'grossToNet' ?
-              <View style={styles.calculTextContainer}>
-                {
-                  this.props.language === 'en' ?
-                    <Text style={styles.calculText}>????</Text> :
-                    <Text style={styles.calculText}>Obračun Bruto zarada</Text>
-                }
-                <Text style={styles.calculText}>(RSD)</Text>
-              </View> :
-            this.props.calculation.type === 'netToGross' ?
-              <View style={styles.calculTextContainer}>
-                {
-                  this.props.language === 'en' ?
-                    <Text style={styles.calculText}>??????</Text> :
-                    <Text style={styles.calculText}>Obračun Neto zarada</Text>
-                }
-                <Text style={styles.calculText}>(RSD)</Text>
-              </View> : null
-          }
-          {
-            !this.props.showResult &&
-              <View style={styles.buttonsContainer}>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => this.props.switchingGrossToNet('grossToNet')}
-                >
-                  {
-                    this.props.language === 'en' ?
-                    <Text style={styles.buttonGrossNetText}>Gross to Net</Text> :
-                    <Text style={styles.buttonGrossNetText}>Bruto u neto</Text>
-                  }
-                  {
-                    this.props.calculation.type === 'grossToNet' ?
-                      <View style={styles.trangle} /> : null
-                  }
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttons}
-                  onPress={() => this.props.switchNetToGross('netToGross')}
-                >
-                  {
-                    this.props.language === 'en' ?
-                      <Text style={styles.buttonGrossNetText}>Net to gross</Text> :
-                      <Text style={styles.buttonGrossNetText}>Neto u bruto</Text>
-                  }
-                  {
-                    this.props.calculation.type === 'netToGross' ?
-                      <View style={styles.trangle} /> : null
-                  }
-                </TouchableOpacity>
-              </View>
-            }
-        </ImageBackground>
-        {
-          !this.props.showResult &&
-          <ScrollView style={styles.scrollViewContainer}>
-            <KeyboardAvoidingView
-              style={styles.inputsContainer}
-              behavior="padding"
-            >
+
+      <ScrollView style={styles.container}>
+        <KeyboardAvoidingView
+          style={styles.inputsContainer}
+          behavior="padding"
+        >
+          <ImageBackground source={images.background} style={styles.image}>
             {
               this.props.calculation.type === 'grossToNet' ?
-                <View>
+                <View style={styles.calculTextContainer}>
                   {
                     this.props.language === 'en' ?
-                      <TextInput
-                        style={styles.inputText}
-                        onChangeText={this.props.saveInput}
-                        placeholder="?????"
-                        placeholderTextColor="black"
-                        keyboardType="numeric"
-                      /> :
-                      <TextInput
-                        style={styles.inputText}
-                        onChangeText={this.props.saveInput}
-                        placeholder="Unestite BRUTO izons plate na mesecnom nivou"
-                        placeholderTextColor="black"
-                        keyboardType="numeric"
-                      />
+                      <Text style={styles.calculText}>????</Text> :
+                      <Text style={styles.calculText}>Obračun Bruto zarada</Text>
                   }
+                  <Text style={styles.calculText}>(RSD)</Text>
                 </View> :
               this.props.calculation.type === 'netToGross' ?
-                <View>
+                <View style={styles.calculTextContainer}>
                   {
                     this.props.language === 'en' ?
-                      <TextInput
-                        style={styles.inputText}
-                        onChangeText={this.props.saveInput}
-                        placeholder="Net"
-                        placeholderTextColor="black"
-                        keyboardType="numeric"
-                      /> :
-                      <TextInput
-                        style={styles.inputText}
-                        onChangeText={this.props.saveInput}
-                        placeholder="Unestite NETO izons plate na mesecnom nivou"
-                        placeholderTextColor="black"
-                        keyboardType="numeric"
-                      />
+                      <Text style={styles.calculText}>??????</Text> :
+                      <Text style={styles.calculText}>Obračun Neto zarada</Text>
                   }
-
+                  <Text style={styles.calculText}>(RSD)</Text>
                 </View> : null
+            }
+            {
+              !this.props.showResult &&
+                <View style={styles.buttonsContainer}>
+                  <TouchableOpacity
+                    style={styles.buttons}
+                    onPress={() => this.props.switchingGrossToNet('grossToNet')}
+                  >
+                    {
+                      this.props.language === 'en' ?
+                      <Text style={styles.buttonGrossNetText}>Gross to Net</Text> :
+                      <Text style={styles.buttonGrossNetText}>Bruto u neto</Text>
+                    }
+                    {
+                      this.props.calculation.type === 'grossToNet' ?
+                        <View style={styles.trangle} /> : null
+                    }
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.buttons}
+                    onPress={() => this.props.switchNetToGross('netToGross')}
+                  >
+                    {
+                      this.props.language === 'en' ?
+                        <Text style={styles.buttonGrossNetText}>Net to gross</Text> :
+                        <Text style={styles.buttonGrossNetText}>Neto u bruto</Text>
+                    }
+                    {
+                      this.props.calculation.type === 'netToGross' ?
+                        <View style={styles.trangle} /> : null
+                    }
+                  </TouchableOpacity>
+                </View>
               }
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => this.props.calculateValue(this.props.calculation.input)}>
-                {
-                  this.props.language === 'en' ?
-                    <Text style={styles.buttonText}>Calculate</Text> :
-                    <Text style={styles.buttonText}>Izracunaj</Text>
+          </ImageBackground>
+          {
+            !this.props.showResult &&
+            <View style={styles.scrollViewContainer}>
+              {/* <KeyboardAvoidingView
+                style={styles.inputsContainer}
+                behavior="padding"
+              > */}
+              {
+                this.props.calculation.type === 'grossToNet' ?
+                  <View>
+                    {
+                      this.props.language === 'en' ?
+                        <TextInput
+                          style={styles.inputText}
+                          onChangeText={this.props.saveInput}
+                          placeholder="?????"
+                          placeholderTextColor="black"
+                          keyboardType="numeric"
+                        /> :
+                        <TextInput
+                          style={styles.inputText}
+                          onChangeText={this.props.saveInput}
+                          placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+                          placeholderTextColor="black"
+                          keyboardType="numeric"
+                        />
+                    }
+                  </View> :
+                this.props.calculation.type === 'netToGross' ?
+                  <View>
+                    {
+                      this.props.language === 'en' ?
+                        <TextInput
+                          style={styles.inputText}
+                          onChangeText={this.props.saveInput}
+                          placeholder="Net"
+                          placeholderTextColor="black"
+                          keyboardType="numeric"
+                        /> :
+                        <TextInput
+                          style={styles.inputText}
+                          onChangeText={this.props.saveInput}
+                          placeholder="Unestite NETO izons plate na mesecnom nivou"
+                          placeholderTextColor="black"
+                          keyboardType="numeric"
+                        />
+                    }
+
+                  </View> : null
                 }
-              </TouchableOpacity>
-              <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
-            </KeyboardAvoidingView>
-          </ScrollView>
-        }
-        {/* {
-          this.props.showResult &&
-          this.props.calculation.type === 'grossToNet' ?
-            <SalaryResult
-              calculation={this.props.calculation}
-            /> :
-          this.props.showResult &&
-          this.props.calculation.type === 'netToGross' ?
-            <SalaryResultNet
-              calculation={this.props.calculation}
-            /> :
-            null
-        } */}
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.props.showResult}
-          onRequestClose={() => false}>
-          <View style={{flex: 1}}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                  {
+                    this.props.language === 'en' ?
+                      <Text style={styles.buttonText}>Calculate</Text> :
+                      <Text style={styles.buttonText}>Izracunaj</Text>
+                  }
+                </TouchableOpacity>
+                <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
+              {/* </KeyboardAvoidingView> */}
+            </View>
+          }
+          {/* {
+            this.props.showResult &&
+            this.props.calculation.type === 'grossToNet' ?
+              <SalaryResult
+                calculation={this.props.calculation}
+              /> :
+            this.props.showResult &&
+            this.props.calculation.type === 'netToGross' ?
+              <SalaryResultNet
+                calculation={this.props.calculation}
+              /> :
+              null
+          } */}
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.props.showResult}
+            onRequestClose={() => false}>
+            <View style={{flex: 1}}>
 
               <TouchableOpacity
                 style={styles.closeModalIcon}
@@ -176,9 +181,12 @@ class SalaryCalculator extends Component {
                   /> :
                   null
               }
-          </View>
-        </Modal>
-      </View>
+            </View>
+          </Modal>
+        </KeyboardAvoidingView>
+
+      </ScrollView>
+
     );
   }
 

@@ -9,7 +9,11 @@ class AnnualTax extends Component {
   // console.log(this.props.finalTax(this.props.input))
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <KeyboardAvoidingView
+          style={styles.inputsContainer}
+          behavior="padding"
+        >
         <Image source={images.background} style={styles.image}/>
         <View style={styles.calculTextContainer}>
           {
@@ -21,7 +25,7 @@ class AnnualTax extends Component {
         </View>
         {
           !this.props.showResult &&
-            <ScrollView style={styles.scrollViewContainer}>
+            <View style={styles.scrollViewContainer}>
               <KeyboardAvoidingView
                 style={styles.inputsContainer}
                 behavior="padding"
@@ -77,7 +81,7 @@ class AnnualTax extends Component {
                 </TouchableOpacity>
                 <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
               </KeyboardAvoidingView>
-            </ScrollView>
+            </View>
         }
         {
           this.props.showResult ?
@@ -86,8 +90,8 @@ class AnnualTax extends Component {
             />
           : null
         }
-
-      </View>
+      </KeyboardAvoidingView>
+      </ScrollView>
     );
   }
 }

@@ -21,6 +21,7 @@ import TaxesTab from './TaxesTab.js';
 
 import Splash from '../splash/Splash.js';
 import Taxes from '../taxes/Taxes.js';
+import ContractAll from '../calculations/contractAll/ContractAll.js';
 
 
 const styles = {
@@ -45,7 +46,7 @@ const styles = {
 const navigationConfig = {
   showIcon: true,
   tabBarOptions: styles,
-  swipeEnabled: true
+  swipeEnabled: true,
 };
 
 const Tabs = createBottomTabNavigator({
@@ -94,24 +95,24 @@ const Tabs = createBottomTabNavigator({
         />
     }
   },
-  // Splash: {
-  //   screen: AddNews,
-  //   navigationOptions: {
-  //     // title: 'CALCULATIONS',
-  //     tabBarLabel: 'Vezba',
-  //     tabBarIcon: ({ tintColor, activeTintColor }) =>
-  //     tintColor === colors.lightBlue1 ?
-  //       <Image
-  //         source={images.calculatorSelected}
-  //         style={{width: 20, height: 20}}
-  //       />
-  //     :
-  //       <Image
-  //         source={images.calculatorDefault}
-  //         style={{width: 20, height: 20}}
-  //       />
-  //   }
-  // },
+  Splash: {
+    screen: ContractAll,
+    navigationOptions: {
+      // title: 'CALCULATIONS',
+      tabBarLabel: 'Vezba',
+      tabBarIcon: ({ tintColor, activeTintColor }) =>
+      tintColor === colors.lightBlue1 ?
+        <Image
+          source={images.calculatorSelected}
+          style={{width: 20, height: 20}}
+        />
+      :
+        <Image
+          source={images.calculatorDefault}
+          style={{width: 20, height: 20}}
+        />
+    }
+  },
 
   Taxes: {
     screen: Taxes,

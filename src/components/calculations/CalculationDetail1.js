@@ -246,119 +246,119 @@ class CalculationDetail1 extends Component {
   * CONTRACT - PIO, TAX AND HEALTH
   ********/
 
-contractPioHealthTax = val => {
-  this.props.contractPioHealthTaxGrossAction(this.contractPioHealthTaxGross(val));
-  this.props.contractPioHealthTaxNontaxableAction(this.contractPioHealthTaxnontaxable(val));
-  this.props.contractPioHealthTaxBaseAction(this.contractPioHealthTaxBase(val));
-  this.props.contractPioHealthTaxTaxAction(this.contractPioHealthTaxTax(val));
-  this.props.contractPioHealthTaxPensionAction(this.contractPioHealthTaxPension(val));
-  this.props.contractPioHealthTaxContributionAction(this.contractPioHealthTaxContribution(val));
-};
+  contractPioHealthTax = val => {
+    this.props.contractPioHealthTaxGrossAction(this.contractPioHealthTaxGross(val));
+    this.props.contractPioHealthTaxNontaxableAction(this.contractPioHealthTaxnontaxable(val));
+    this.props.contractPioHealthTaxBaseAction(this.contractPioHealthTaxBase(val));
+    this.props.contractPioHealthTaxTaxAction(this.contractPioHealthTaxTax(val));
+    this.props.contractPioHealthTaxPensionAction(this.contractPioHealthTaxPension(val));
+    this.props.contractPioHealthTaxContributionAction(this.contractPioHealthTaxContribution(val));
+  };
 
-contractPioHealthTaxGross = val => (val * 1.81950509)
-contractPioHealthTaxnontaxable = val => (this.contractPioHealthTaxGross(val) * 0.20)
-contractPioHealthTaxBase = val => (this.contractPioHealthTaxGross(val) - this.contractPioHealthTaxnontaxable(val))
-contractPioHealthTaxTax = val => (this.contractPioHealthTaxBase(val) * 0.20)
-contractPioHealthTaxPension = val => (this.contractPioHealthTaxBase(val) * 0.26)
-contractPioHealthTaxContribution = val => (this.contractPioHealthTaxBase(val) * 0.103)
+  contractPioHealthTaxGross = val => (val * 1.81950509)
+  contractPioHealthTaxnontaxable = val => (this.contractPioHealthTaxGross(val) * 0.20)
+  contractPioHealthTaxBase = val => (this.contractPioHealthTaxGross(val) - this.contractPioHealthTaxnontaxable(val))
+  contractPioHealthTaxTax = val => (this.contractPioHealthTaxBase(val) * 0.20)
+  contractPioHealthTaxPension = val => (this.contractPioHealthTaxBase(val) * 0.26)
+  contractPioHealthTaxContribution = val => (this.contractPioHealthTaxBase(val) * 0.103)
+
+    /********
+    * CONTRACT - TAX
+    ********/
+
+  contractTax = val => {
+    this.props.contractTaxGrossAction(this.contractTaxGross(val));
+    this.props.contractTaxNontaxableAction(this.contractTaxnontaxable(val));
+    this.props.contractTaxBaseAction(this.contractTaxBase(val));
+    this.props.contractTaxTaxAction(this.contractTaxTax(val));
+  };
+
+  contractTaxGross = val => (val * 1.1904762)
+  contractTaxnontaxable = val => (this.contractTaxGross(val) * 0.20)
+  contractTaxBase = val => (this.contractTaxGross(val) - this.contractTaxnontaxable(val))
+  contractTaxTax = val => (this.contractTaxBase(val) * 0.20)
+
+
+    /********
+    * ALLOWANCE
+    ********/
+
+  // Home
+  calculateAllowancesHome = val => {
+    this.props.allowanceHomeTaxBaseAction(this.allowanceHomeTaxBase(val));
+    this.props.allowanceHomeGrossAction(this.allowanceHomeGross(val));
+    this.props.allowanceHomeTaxAction(this.allowanceHomeTax(val));
+  };
+
+  allowanceHomeTaxBase = val => (val - 2303)
+  allowanceHomeGross = val => ((val - 2303) * 1.111111111)
+  allowanceHomeTax = val => (this.allowanceHomeGross(val) * 0.1)
+
+  // Away
+  calculateAllowancesAway = val => {
+    this.props.allowanceAwayTaxBaseAction(this.allowanceAwayTaxBase(val));
+    this.props.allowanceAwayGrossAction(this.allowanceAwayGross(val));
+    this.props.allowanceAwayTaxAction(this.allowanceAwayTax(val));
+  };
+
+  allowanceAwayTaxBase = val => (val - 50)
+  allowanceAwayGross = val => (this.allowanceAwayTaxBase(val) * 1.111111111)
+  allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
+
 
   /********
-  * CONTRACT - TAX
+  * ANNUAL TAX
   ********/
 
-contractTax = val => {
-  this.props.contractTaxGrossAction(this.contractTaxGross(val));
-  this.props.contractTaxNontaxableAction(this.contractTaxnontaxable(val));
-  this.props.contractTaxBaseAction(this.contractTaxBase(val));
-  this.props.contractTaxTaxAction(this.contractTaxTax(val));
-};
+  annualTaxCalculator = val => {
+    this.props.annualGrossAction(this.annualGross(val));
+    this.props.baseForTaxAction(this.baseForTax(val));
+    this.props.taxOnEarningAction(this.taxOnEarning(val));
+    this.props.baseForSocialContributionAction(this.baseForSocialContribution(val));
+    this.props.annualPensionAction(this.annualPension(val));
+    this.props.annualHealthAction(this.annualHealth(val));
+    this.props.annualInsuranceAction(this.annualInsurance(val));
+    this.props.annualEmployerPensionAction(this.annualEmployerPension(val));
+    this.props.annualEmployerHealthAction(this.annualEmployerHealth(val));
+    this.props.annualEmployerInsuranceAction(this.annualEmployerInsurance(val));
+    this.props.annualTotalValueAction(this.annualTotalValue(val));
+    this.props.monthlyNet12ValueAction(this.monthlyNet12Value(val));
+    this.props.contributionsEmployeesAction(this.contributionsEmployees(val));
+    this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
+    this.props.annualAllAction(this.annualAll(val));
+    this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
+  };
 
-contractTaxGross = val => (val * 1.1904762)
-contractTaxnontaxable = val => (this.contractTaxGross(val) * 0.20)
-contractTaxBase = val => (this.contractTaxGross(val) - this.contractTaxnontaxable(val))
-contractTaxTax = val => (this.contractTaxBase(val) * 0.20)
-
-
-  /********
-  * ALLOWANCE
-  ********/
-
-// Home
-calculateAllowancesHome = val => {
-  this.props.allowanceHomeTaxBaseAction(this.allowanceHomeTaxBase(val));
-  this.props.allowanceHomeGrossAction(this.allowanceHomeGross(val));
-  this.props.allowanceHomeTaxAction(this.allowanceHomeTax(val));
-};
-
-allowanceHomeTaxBase = val => (val - 2303)
-allowanceHomeGross = val => ((val - 2303) * 1.111111111)
-allowanceHomeTax = val => (this.allowanceHomeGross(val) * 0.1)
-
-// Away
-calculateAllowancesAway = val => {
-  this.props.allowanceAwayTaxBaseAction(this.allowanceAwayTaxBase(val));
-  this.props.allowanceAwayGrossAction(this.allowanceAwayGross(val));
-  this.props.allowanceAwayTaxAction(this.allowanceAwayTax(val));
-};
-
-allowanceAwayTaxBase = val => (val - 50)
-allowanceAwayGross = val => (this.allowanceAwayTaxBase(val) * 1.111111111)
-allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
+  annualGross = val => val
 
 
-/********
-* ANNUAL TAX
-********/
+  // annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
+  baseForTax = val => (this.annualGross(val) - 15000);
+  taxOnEarning = val => (this.baseForTax(val) * 0.1);
+  baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330)
+  annualPension = val => (this.baseForSocialContribution(val) * 0.14);
+  annualHealth = val => (this.baseForSocialContribution(val) * 0.0515);
+  annualInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
+  annualEmployerPension = val => (this.baseForSocialContribution(val) * 0.12);
+  annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
+  annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
+  annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val));
 
-annualTaxCalculator = val => {
-  this.props.annualGrossAction(this.annualGross(val));
-  this.props.baseForTaxAction(this.baseForTax(val));
-  this.props.taxOnEarningAction(this.taxOnEarning(val));
-  this.props.baseForSocialContributionAction(this.baseForSocialContribution(val));
-  this.props.annualPensionAction(this.annualPension(val));
-  this.props.annualHealthAction(this.annualHealth(val));
-  this.props.annualInsuranceAction(this.annualInsurance(val));
-  this.props.annualEmployerPensionAction(this.annualEmployerPension(val));
-  this.props.annualEmployerHealthAction(this.annualEmployerHealth(val));
-  this.props.annualEmployerInsuranceAction(this.annualEmployerInsurance(val));
-  this.props.annualTotalValueAction(this.annualTotalValue(val));
-  this.props.monthlyNet12ValueAction(this.monthlyNet12Value(val));
-  this.props.contributionsEmployeesAction(this.contributionsEmployees(val));
-  this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
-  this.props.annualAllAction(this.annualAll(val));
-  this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
-};
+  monthlyNet12Value = val => (this.annualGross(val) - (this.annualInsurance(val) + this.annualHealth(val) + this.annualPension(val) + this.taxOnEarning(val))) * 12;
 
-annualGross = val => val
-
-
-// annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
-baseForTax = val => (this.annualGross(val) - 15000);
-taxOnEarning = val => (this.baseForTax(val) * 0.1);
-baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330)
-annualPension = val => (this.baseForSocialContribution(val) * 0.14);
-annualHealth = val => (this.baseForSocialContribution(val) * 0.0515);
-annualInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
-annualEmployerPension = val => (this.baseForSocialContribution(val) * 0.12);
-annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
-annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
-annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val));
-
-monthlyNet12Value = val => (this.annualGross(val) - (this.annualInsurance(val) + this.annualHealth(val) + this.annualPension(val) + this.taxOnEarning(val))) * 12;
-
-contributionsEmployees = val => ((this.annualGross(val) * 12) - (15000 * 12));
-annualTaxValueTotal = val => (this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12;
-annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)) // toFixed(2)
-annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
+  contributionsEmployees = val => ((this.annualGross(val) * 12) - (15000 * 12));
+  annualTaxValueTotal = val => (this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12;
+  annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)) // toFixed(2)
+  annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
 biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
 
-calculateFinalAnnualTax = val => {
-  this.props.finalAnnualTaxActioin(this.finalTax(val));
-}
+  calculateFinalAnnualTax = val => {
+    this.props.finalAnnualTaxActioin(this.finalTax(val));
+  }
 
-// Ovako je u onoj EY
-finalTax = val =>
-  (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+  // Ovako je u onoj EY
+  finalTax = val =>
+    (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
 
 
 // ovo je po Milkinoj kalkulaciji
@@ -380,22 +380,23 @@ finalTax = val =>
 // leaseConverted = val => (this.grossInputValue(this.props.calculation.input) * (this.euroInputValue(this.props.calculation.input2)))
 
 
-leaseCalculator = val => {
-  this.props.grossInputValueAction(this.grossInputValue(val));
-  // this.props.euroInputValueAction(this.euroInputValue(val));
-  this.props.calculateGrossLeaseAction(this.calculateGrossLease(val));
-  this.props.calculateNonTaxableLeaseAction(this.calculateNonTaxableLease(val));
-  this.props.calculateBaseLeaseAction(this.calculateBaseLease(val));
-  this.props.calculateLeaseTaxFinalAction(this.calculateLeaseTaxFinal(val));
-}
+  leaseCalculator = val => {
+    this.props.grossInputValueAction(this.grossInputValue(val));
+    // this.props.euroInputValueAction(this.euroInputValue(val));
+    this.props.calculateGrossLeaseAction(this.calculateGrossLease(val));
+    this.props.calculateNonTaxableLeaseAction(this.calculateNonTaxableLease(val));
+    this.props.calculateBaseLeaseAction(this.calculateBaseLease(val));
+    this.props.calculateLeaseTaxFinalAction(this.calculateLeaseTaxFinal(val));
+  }
 
-grossInputValue = val => val
-// euroInputValue = val => val
-calculateGrossLease = val => (this.grossInputValue(val) * 1.17647059)
-calculateNonTaxableLease = val => (this.calculateGrossLease(val) * 0.25)
-calculateBaseLease = val => (this.calculateGrossLease(val) - this.calculateNonTaxableLease(val))
-calculateLeaseTaxFinal = val => (this.calculateBaseLease(val) * 0.20)
+  grossInputValue = val => val
+  // euroInputValue = val => val
+  calculateGrossLease = val => (this.grossInputValue(val) * 1.17647059)
+  calculateNonTaxableLease = val => (this.calculateGrossLease(val) * 0.25)
+  calculateBaseLease = val => (this.calculateGrossLease(val) - this.calculateNonTaxableLease(val))
+  calculateLeaseTaxFinal = val => (this.calculateBaseLease(val) * 0.20)
 
+  closeModal = () => this.setState({ showResult: false })
 
   render () {
     console.log(this.props.calculation);
@@ -417,6 +418,7 @@ calculateLeaseTaxFinal = val => (this.calculateBaseLease(val) * 0.20)
           switchingGrossToNet={this.switchingGrossToNet}
           switchNetToGross={this.switchNetToGross}
           // switchGrossNetAction={this.props.switchGrossNetAction}
+          closeModal={this.closeModal}
         /> :
       this.props.calculation.func === 'temporaryPermanentJobsCalculator' ?
         <TemporaryPermanentJobsCalculator

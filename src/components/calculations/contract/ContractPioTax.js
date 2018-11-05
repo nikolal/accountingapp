@@ -1,54 +1,64 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, Image, Dimensions, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 import ContractPioTaxResult from './ContractPioTaxResult.js';
 
 
-const ContractPioTax = props => {
-  return (
-    <View style={styles.container}>
-      <Image source={images.background} style={styles.image}/>
-      <View style={styles.calculTextContainer}>
-        <Text style={styles.calculText}>Ugovor o delu</Text>
-        <Text style={styles.calculText}>(Porez, PIO - RSD)</Text>
+class ContractPioTax extends Component {
+  render(){
+    return (
+      <View style={styles.container}>
+        <Image source={images.background} style={styles.image}/>
+        <View style={styles.calculTextContainer}>
+          <Text style={styles.calculText}>Ugovor o delu</Text>
+          <Text style={styles.calculText}>(Porez, PIO - RSD)</Text>
+        </View>
+        {
+          !this.props.showResult &&
+            <ScrollView style={styles.scrollViewContainer}>
+              <KeyboardAvoidingView
+                style={styles.inputsContainer}
+                behavior="padding"
+              >
+                <TextInput
+                  style={styles.inputText}
+                  onChangeText={this.props.saveInput}
+                  keyboardType="numeric"
+                  placeholder="Unesite NETO iznos plate"
+                  placeholderTextColor="black"
+                />
+                <Text>{this.props.calculation.value}</Text>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.props.calculateValue(this.props.calculation.input)}>
+                  <Text style={styles.buttonText}>Izracunaj</Text>
+                </TouchableOpacity>
+                <Text style={styles.description}>{this.props.calculation.description}</Text>
+              </KeyboardAvoidingView>
+            </ScrollView>
+        }
+        {
+          this.props.showResult ?
+            <ContractPioTaxResult
+              calculation={this.props.calculation}
+            />
+          : null
+        }
       </View>
-      {
-        !props.showResult &&
-          <ScrollView style={styles.scrollViewContainer}>
-            <KeyboardAvoidingView
-              style={styles.inputsContainer}
-              behavior="padding"
-            >
-              <TextInput
-                style={styles.inputText}
-                onChangeText={props.saveInput}
-                keyboardType="numeric"
-                placeholder="Unesite NETO iznos plate"
-                placeholderTextColor="black"
-              />
-              <Text>{props.calculation.value}</Text>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => props.calculateValue(props.calculation.input)}>
-                <Text style={styles.buttonText}>Izracunaj</Text>
-              </TouchableOpacity>
-              <Text style={styles.description}>{props.calculation.description}</Text>
-            </KeyboardAvoidingView>
-          </ScrollView>
-      }
-      {
-        props.showResult ?
-          <ContractPioTaxResult
-            calculation={props.calculation}
-          />
-        : null
-      }
-    </View>
-  );
-};
+    );
+  }
+}
 
+const stateToProps = state => ({
+  language: state.settingsReducer.language
+});
 
-export default ContractPioTax;
+const dispatchToProps = dispatch => ({
+  // saveArticle: bindActionCreators(saveArticle, dispatch)
+});
+
+export default connect(stateToProps, dispatchToProps)(ContractPioTax);
 
 const styles = StyleSheet.create({
   container: {

@@ -2,14 +2,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Text, View, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
+import { Text, View, Modal, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../../theme';
 import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 
 class SalaryCalculator extends Component {
 
+  /* render function, etc */
+
   render(){
+    // console.log(this.props.calculated);
     return (
       <View style={styles.container}>
         <ImageBackground source={images.background} style={styles.image}>
@@ -130,7 +134,7 @@ class SalaryCalculator extends Component {
             </KeyboardAvoidingView>
           </ScrollView>
         }
-        {
+        {/* {
           this.props.showResult &&
           this.props.calculation.type === 'grossToNet' ?
             <SalaryResult
@@ -142,7 +146,38 @@ class SalaryCalculator extends Component {
               calculation={this.props.calculation}
             /> :
             null
-        }
+        } */}
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.props.showResult}
+          onRequestClose={() => false}>
+          <View style={{flex: 1}}>
+
+              <TouchableOpacity
+                style={styles.closeModalIcon}
+                onPress={() => {
+                  this.props.closeModal();
+                  // this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Ionicons name="ios-close" size={40} color="black" />
+              </TouchableOpacity>
+
+              {
+                this.props.showResult &&
+                this.props.calculation.type === 'grossToNet' ?
+                  <SalaryResult
+                    calculation={this.props.calculation}
+                  /> :
+                this.props.showResult &&
+                this.props.calculation.type === 'netToGross' ?
+                  <SalaryResultNet
+                    calculation={this.props.calculation}
+                  /> :
+                  null
+              }
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -150,7 +185,6 @@ class SalaryCalculator extends Component {
 }
 
 const stateToProps = state => ({
-  // taxes: state.calculationsContainer.taxes,
   language: state.settingsReducer.language
 });
 
@@ -234,5 +268,14 @@ const styles = StyleSheet.create({
     marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
+  },
+  closeModalIcon: {
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 22,
+    width: 50,
+    height: 50,
+    alignSelf: 'flex-end'
   }
 });

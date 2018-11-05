@@ -19,7 +19,8 @@ import HeaderRight from './HeaderRight.js';
 import Something from '../something/Something.js';
 import IncentivesDetail from '../incentives-detail/IncentivesDetail.js';
 import AddNews from '../addNews/AddNews.js';
-// import TempPermJobsResult from '../calculations/temporaryPermanentJobs/TempPermJobsResult.js';
+import ContractCalculations from '../calculations/contractAll/ContractCalculations.js';
+// import ContractPioTaxResult from '../calculations/contract/ContractPioTaxResult.js';
 
 
 
@@ -63,7 +64,7 @@ const Navigator = createStackNavigator({
   Something: {screen: Something},
   IncentivesDetail: {screen: IncentivesDetail},
   AddNews: {screen: AddNews},
-  // TempPermJobsResult: {screen: TempPermJobsResult}
+  ContractCalculations: {screen: ContractCalculations}
 
 
 }, navigationConfig);

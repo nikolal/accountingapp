@@ -19,7 +19,7 @@ const initialState = {
   func: 'contractPioTaxHealth',
   type: 'blabla',
   value: '',
-  concractPioTaxHealth: {
+  contractPioTaxHealth: {
     value: null,
     // coefficient: 1.58227848,
     gross: null,
@@ -46,7 +46,7 @@ input: '',
 func: 'contractPioTax',
 type: 'blabla',
 value: '',
-concractPioTax: {
+contractPioTax: {
   value: null,
   // coefficient: 1.58227848,
   gross: null,
@@ -69,10 +69,10 @@ description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do e
 // image: require('../../../assets/images/imageCalculation.png'),
 // icons: require('../../../assets/images/onlyTax.png'),
 input: '',
-func: 'concractTax',
+func: 'contractTax',
 type: 'blabla',
 value: '',
-concractTax: {
+contractTax: {
   value: null,
   // coefficient: 1.58227848,
   gross: null,

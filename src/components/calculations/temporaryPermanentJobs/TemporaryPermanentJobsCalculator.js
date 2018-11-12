@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Text, View, Image, TouchableOpacity, StyleSheet, TextInput, Dimensions,KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, ImageBackground, Modal, TouchableOpacity, StyleSheet, TextInput, Dimensions,KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../../theme';
 import TempPermJobsResult from './TempPermJobsResult.js';
 
@@ -10,8 +11,15 @@ class TemporaryPermanentJobsCalculator extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={images.background} style={styles.image}/>
+      <ScrollView style={styles.container}>
+        <KeyboardAvoidingView
+          style={styles.inputsContainer}
+          behavior="padding"
+        >
+
+        <ImageBackground source={images.background} style={styles.image}>
+
+
         {
           this.props.language === 'en' ?
             <View style={styles.calculTextContainer}>
@@ -23,13 +31,14 @@ class TemporaryPermanentJobsCalculator extends Component {
               <Text style={styles.calculText}>(RSD)</Text>
             </View>
         }
+
+      </ImageBackground>
+
+
+
         {
-          !this.props.showResult &&
-            <ScrollView style={styles.scrollViewContainer}>
-              <KeyboardAvoidingView
-                style={styles.inputsContainer}
-                behavior="padding"
-              >
+            <View style={styles.scrollViewContainer}>
+
                 {
                   this.props.language === 'en' ?
                     <TextInput
@@ -48,32 +57,62 @@ class TemporaryPermanentJobsCalculator extends Component {
                     />
                 }
 
-                <Text>{this.props.calculation.value}</Text>
-                {
-                  this.props.language === 'en' ?
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.calculateValue(this.props.calculation.input)}>
-                    <Text style={styles.buttonText}>Calculate</Text>
-                  </TouchableOpacity> :
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.calculateValue(this.props.calculation.input)}>
-                    <Text style={styles.buttonText}>Izracunaj</Text>
-                  </TouchableOpacity>
-                }
+
+
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() =>  !this.props.showResult &&
+                                  this.props.calculation.input !== 0 ?
+                                  this.props.calculateValue(this.props.calculation.input) :
+                                    this.props.language === 'en' ?
+                                      alert('Please enter your salary') :
+                                      alert('Molimo Vas unestite Vasu platu')
+                  }
+                >
+                  {
+                    this.props.language === 'en' ?
+                      <Text style={styles.buttonText}>Calculate</Text> :
+                      <Text style={styles.buttonText}>Izracunaj</Text>
+                  }
+                </TouchableOpacity>
+
+
+
                 <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
-              </KeyboardAvoidingView>
-            </ScrollView>
+              </View>
         }
-        {
-          this.props.showResult ?
-            <TempPermJobsResult
-              calculation={this.props.calculation}
-            />
-          : null
-        }
-      </View>
+
+
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.props.calculation.input !== 0 && this.props.showResult}
+          onRequestClose={() => false}>
+          <View style={{flex: 1}}>
+
+            <TouchableOpacity
+              style={styles.closeModalIcon}
+              onPress={() => {
+                this.props.closeModal();
+                // this.setModalVisible(!this.state.modalVisible);
+              }}>
+              <Ionicons name="ios-close" size={40} color="black" />
+            </TouchableOpacity>
+
+            {
+              this.props.calculation.input !== 0 &&
+              this.props.showResult ?
+              // this.props.calculation.type === 'temporaryPermanentJobsCalculator' ?
+                <TempPermJobsResult
+                  calculation={this.props.calculation}
+                /> :
+                null
+            }
+          </View>
+        </Modal>
+      </KeyboardAvoidingView>
+    </ScrollView>
+
     );
   }
 }
@@ -94,11 +133,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 3,
+    height: Dimensions.get('window').height / 2.9,
+    justifyContent: 'center',
   },
   calculTextContainer: {
-    position: 'absolute',
-    top: 90,
     alignSelf: 'center'
    },
   calculText: {
@@ -108,16 +146,14 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    position: 'absolute',
-    top: -61,
+    marginTop: 50
   },
   buttons: {
     flex: 1,
     borderColor: 'rgb(151,151,151)',
     borderTopWidth: metrics.tinyBorder,
-    borderBottomWidth: metrics.tinyBorder,
-    padding: metrics.huge,
-    backgroundColor: '#00000050'
+    paddingTop: 22,
+    backgroundColor: '#08000060'
   },
   buttonText: {
     alignSelf: 'center',
@@ -126,15 +162,14 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   scrollViewContainer: {
-    flex: 1,
-    paddingHorizontal: metrics.large
+    paddingHorizontal: metrics.large,
+    paddingVertical: metrics.extraHuge,
   },
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
     borderWidth: metrics.smallBorder,
-    marginTop: metrics.extraHuge,
-    marginBottom: metrics.small,
+    marginBottom: metrics.huge,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,
     textAlign: 'center'
@@ -145,11 +180,32 @@ const styles = StyleSheet.create({
     padding: metrics.medium,
     borderRadius: metrics.small,
   },
+  // buttonText: {
+  //   alignSelf: 'center',
+  //   fontSize: fonts.size.medium,
+  //   fontFamily: 'openSansBold',
+  //   color: colors.white,
+  // },
   description: {
-    paddingHorizontal: metrics.large,
     alignSelf: 'center',
     marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
+  },
+  closeModalIcon: {
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 22,
+    width: 50,
+    height: 50,
+    alignSelf: 'flex-end'
+  },
+  errorText: {
+    color: 'red',
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
+    marginBottom: metrics.huge
   }
 });

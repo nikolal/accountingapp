@@ -1,32 +1,69 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, FlatList, Image, AppRegistry, Animated, Easing, Text } from 'react-native';
+import { View, StyleSheet, FlatList, Image, AppRegistry, Animated, Easing, Text, Dimensions } from 'react-native';
 // import { Ionicons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
+import { LinearGradient } from 'expo';
 import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractDefault.png')}
   />,
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractSelected.png') }
   />,
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractSelected.png') }
   />,
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractDefault.png')}
   />,
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractSelected.png') }
   />,
   <Image
-    style={{ width: 50, height: 50, margin: 20, backgroundColor: 'red' }}
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
     source={require('../../../assets/images/contractSelected.png') }
   />
 ];
@@ -43,6 +80,17 @@ class OurClients extends Component {
 
 render() {
     return (
+      <View style={styles.container}>
+      <LinearGradient
+        colors={['rgb(26,52,75)', 'rgb(18,66,89)', 'rgb(16,70,92)']}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: Dimensions.get('window').height
+        }}
+      />
       <FlatList
         keyExtractor={(item, index) => String(index)}
         data={imageList}
@@ -50,6 +98,7 @@ render() {
         contentContainerStyle={styles.container}
         // numColumns={3}
       />
+    </View>
     );
   }
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, Modal, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../../theme';
 import LeaseResult from './LeaseResult.js';
 
@@ -9,8 +10,14 @@ class Lease extends Component {
   // console.log(this.props.finaLease(this.props.calculation.input));
   render(){
     return (
-      <View style={styles.container}>
-        <Image source={images.background} style={styles.image}/>
+      <ScrollView style={styles.container}>
+        <KeyboardAvoidingView
+          style={styles.inputsContainer}
+          behavior="padding"
+        >
+
+        <ImageBackground source={images.background} style={styles.image}>
+
         <View style={styles.calculTextContainer}>
           {
             this.props.language === 'en' ?
@@ -19,13 +26,12 @@ class Lease extends Component {
           }
           <Text style={styles.calculText}>(RSD)</Text>
         </View>
+        </ImageBackground>
+
         {
-          !this.props.showResult &&
-            <ScrollView style={styles.scrollViewContainer}>
-              <KeyboardAvoidingView
-                style={styles.inputsContainer}
-                behavior="padding"
-              >
+          // !this.props.showResult &&
+            <View style={styles.scrollViewContainer}>
+
                 {
                   this.props.language === 'en' ?
                     <TextInput
@@ -43,8 +49,8 @@ class Lease extends Component {
                       placeholderTextColor="black"
                     />
                 }
-                <Text>{this.props.calculation.value}</Text>
-                <TouchableOpacity
+
+                {/* <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
                     this.props.calculateValue(this.props.calculation.input);
@@ -57,25 +63,72 @@ class Lease extends Component {
                       <Text style={styles.buttonText}>Calculate</Text> :
                       <Text style={styles.buttonText}>Izracunaj</Text>
                   }
+                </TouchableOpacity> */}
+
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() =>  !this.props.showResult &&
+                                  this.props.calculation.input !== 0 ?
+                                  this.props.calculateValue(this.props.calculation.input) :
+                                    this.props.language === 'en' ?
+                                      alert('Please enter your salary') :
+                                      alert('Molimo Vas unestite Vasu platu')
+                  }
+                >
+                  {
+                    this.props.language === 'en' ?
+                      <Text style={styles.buttonText}>Calculate</Text> :
+                      <Text style={styles.buttonText}>Izracunaj</Text>
+                  }
                 </TouchableOpacity>
                 {
                   this.props.language === 'en' ?
                     <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text> :
                     <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>
                 }
-              </KeyboardAvoidingView>
-            </ScrollView>
+            </View>
         }
-        {
+
+
+        {/* {
           this.props.showResult ?
             <LeaseResult
               calculation={this.props.calculation}
             />
           : null
-        }
+        } */}
 
-      </View>
-    );
+
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.props.calculation.input !== 0 && this.props.showResult}
+          onRequestClose={() => false}>
+          <View style={{flex: 1}}>
+
+            <TouchableOpacity
+              style={styles.closeModalIcon}
+              onPress={() => {
+                this.props.closeModal();
+                // this.setModalVisible(!this.state.modalVisible);
+              }}>
+              <Ionicons name="ios-close" size={40} color="black" />
+            </TouchableOpacity>
+
+            {
+              this.props.calculation.input !== 0 &&
+              this.props.showResult ?
+              // this.props.calculation.type === 'grossToNet' ?
+                <LeaseResult
+                  calculation={this.props.calculation}
+                /> :
+                null
+            }
+          </View>
+        </Modal>
+      </KeyboardAvoidingView>
+
+    </ScrollView>    );
   }
 }
 
@@ -95,41 +148,39 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 2.8,
+    height: Dimensions.get('window').height / 2.9,
+    justifyContent: 'center',
   },
   calculTextContainer: {
-    position: 'absolute',
-    top: 80,
     alignSelf: 'center'
    },
-   calculText: {
-     color: colors.white,
-     fontSize: fonts.size.extraHuge,
-     alignSelf: 'center'
-   },
-   scrollViewContainer: {
-     flex: 1,
-     paddingHorizontal: metrics.large
-   },
+  calculText: {
+    color: colors.white,
+    fontSize: fonts.size.hugeToExtra,
+    alignSelf: 'center'
+  },
+  scrollViewContainer: {
+    paddingHorizontal: metrics.large,
+    paddingVertical: metrics.extraHuge,
+  },
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
     borderWidth: metrics.smallBorder,
-    marginTop: metrics.extraHuge,
+    marginBottom: metrics.huge,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,
     textAlign: 'center'
   },
   button: {
     backgroundColor: '#14B7C5',
-    marginTop: metrics.extraHuge,
     marginBottom: metrics.large,
     padding: metrics.medium,
     borderRadius: metrics.small,
   },
   buttonText: {
     alignSelf: 'center',
-    fontSize: fonts.size.large,
+    fontSize: fonts.size.medium,
     fontFamily: 'openSansBold',
     color: colors.white,
   },
@@ -138,5 +189,21 @@ const styles = StyleSheet.create({
     marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
+  },
+  closeModalIcon: {
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 22,
+    width: 50,
+    height: 50,
+    alignSelf: 'flex-end'
+  },
+  errorText: {
+    color: 'red',
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
+    marginBottom: metrics.huge
   }
 });

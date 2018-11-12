@@ -430,6 +430,8 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
           saveInput = {this.saveInput}
           showResult={this.state.showResult}
           calculateValue ={this.calculateValue}
+          closeModal={this.closeModal}
+
         /> :
       // this.props.calculation.func === 'contractPioTax' ?
       //   <ContractPioTax
@@ -454,6 +456,7 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
             showResult={this.state.showResult}
             calculateValue ={this.calculateValue}
             switchTax={this.switchTax}
+            closeModal={this.closeModal}
           /> :
         this.props.calculation.func === 'allowance' ?
           <Allowance
@@ -463,6 +466,7 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
             calculateValue ={this.calculateValue}
             switchingAllowanceHomeAway={this.switchingAllowanceHomeAway}
             switchingAllowanceAwayHome={this.switchingAllowanceAwayHome}
+            closeModal={this.closeModal}
           /> :
         this.props.calculation.func === 'annualTax' ?
           <AnnualTax
@@ -475,6 +479,7 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
             baseForTaxation={this.baseForTaxation}
             finalTax={this.finalTax}
             calculateFinalAnnualTax={this.calculateFinalAnnualTax}
+            closeModal={this.closeModal}
           /> :
         this.props.calculation.func === 'lease' ?
           <Lease
@@ -487,6 +492,7 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
             // baseForTaxation={this.baseForTaxation}
             // finalTax={this.finalTax}
             calculateFinaLease={this.calculateFinaLease}
+            closeModal={this.closeModal}
           />
         : null
     );

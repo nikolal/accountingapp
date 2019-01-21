@@ -43,7 +43,7 @@ class News extends Component {
   // set starting localeString
   getLocaleString = () => {
     AsyncStorage.getItem('@accountingApp:localeString')
-      .then(localeString => this.checkIfLanguageExist(localeString));
+      .then(localeString => this.checkIfLocaleStringExist(localeString));
   }
 
   checkIfLocaleStringExist = localeString =>

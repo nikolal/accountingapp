@@ -21,6 +21,7 @@ import TaxesTab from './TaxesTab.js';
 
 import Splash from '../splash/Splash.js';
 import Taxes from '../taxes/Taxes.js';
+// import ContractAll from '../calculations/contractAll/ContractAll.js';
 
 
 const styles = {
@@ -45,7 +46,7 @@ const styles = {
 const navigationConfig = {
   showIcon: true,
   tabBarOptions: styles,
-  swipeEnabled: true
+  swipeEnabled: true,
 };
 
 const Tabs = createBottomTabNavigator({
@@ -95,7 +96,7 @@ const Tabs = createBottomTabNavigator({
     }
   },
   // Splash: {
-  //   screen: AddNews,
+  //   screen: ContractAll,
   //   navigationOptions: {
   //     // title: 'CALCULATIONS',
   //     tabBarLabel: 'Vezba',

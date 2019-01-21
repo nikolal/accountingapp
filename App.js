@@ -29,7 +29,22 @@ class App extends Component {
 
   async _loadAssetsAsync() {
     const imageAssets = cacheImages([
+      require('./assets/images/drawerBackground.png'),
       require('./assets/images/backgroundImage.png'),
+      require('./assets/images/calculationsPanel.png'),
+      require('./assets/images/calculatorCalculations.png'),
+      require('./assets/images/imageCalculation.png'),
+      require('./assets/images/caseCalculations.png'),
+      require('./assets/images/calendarCalculations.png'),
+      require('./assets/images/panel05.png'),
+      require('./assets/images/walletCalculations.png'),
+      require('./assets/images/manUser.png'),
+      require('./assets/images/onlyTax.png'),
+      require('./assets/images/incentiveImage.png'),
+      require('./assets/images/aboutCompanyPanel500px.png'),
+      require('./assets/images/milkaSlika.png'),
+      require('./assets/images/servicesImagex.png'),
+      require('./assets/images/taxesImage.png'),
     ]);
 
     await Promise.all([...imageAssets]);

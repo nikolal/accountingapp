@@ -40,7 +40,7 @@ class Contact extends Component {
         <View style={styles.body}>
           <Text style={styles.title}>HLB Consulting</Text>
           <View style={styles.addressContainer}>
-            <Text style={styles.addressText}>Mlatisumina 19, 11 000 Beograd</Text>
+            <Text style={styles.addressText}>Cara Nikolaja II 11/2, 11 000 Beograd</Text>
             <View style={styles.innerAdressText}>
               <Text style={styles.addressText}>+381 11 344-81-69 / +381 64 614-29-44</Text>
             </View>

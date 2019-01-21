@@ -9,31 +9,31 @@ const ContractTaxResult = ({ calculation }) => {
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Neto</Text>
-          <Text style={styles.number}>{calculation.concractTax.value}</Text>
+          <Text style={styles.number}>{calculation.contractTax.value}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Bruto</Text>
-          <Text style={styles.number}>{calculation.concractTax.gross.toFixed(2)}</Text>
+          <Text style={styles.number}>{calculation.contractTax.gross.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Neoporezivo - 20%</Text>
-          <Text style={styles.number}>{calculation.concractTax.nontaxable.toFixed(2)}</Text>
+          <Text style={styles.number}>{calculation.contractTax.nontaxable.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Osnovica za oporezivanje</Text>
-          <Text style={styles.number}>{calculation.concractTax.base.toFixed(2)}</Text>
+          <Text style={styles.number}>{calculation.contractTax.base.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Porez 20%</Text>
-          <Text style={styles.number}>{calculation.concractTax.tax.toFixed(2)}</Text>
+          <Text style={styles.number}>{calculation.contractTax.tax.toFixed(2)}</Text>
         </View>
       </View>
     </ScrollView>

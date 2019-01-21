@@ -41,6 +41,9 @@ const SAVE_TEM_PERM_JOBS_PENSION14_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_PEN
 const SAVE_TEM_PERM_JOBS_HEALTH_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_HEALTH_ACTION';
 const SAVE_TEM_PERM_JOBS_NEZ_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_NEZ_ACTION';
 const SAVE_TEM_PERM_JOBS_PENSION12_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_PENSION12_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION';
+const SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION';
 
 // Contcract Pio and Tax
 const SAVE_CONTRACT_PIO_TAX_ACTION = 'calculations/SAVE_CONTRACT_PIO_TAX_ACTION';
@@ -60,6 +63,10 @@ const CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION = 'calculations/CONTRACT_PIO_HEALTH
 const CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION';
 
 // Contcract Tax
+const SWITCH_TAX = 'calculations/SWITCH_TAX';
+// const SWITCH_TAX_PIO = 'calculations/SWITCH_TAX_PIO';
+// const SWITCH_TAX_PIO_HEALTH = 'calculations/SWITCH_TAX_PIO_HEALTH';
+
 const SAVE_CONTRACT_TAX_ACTION = 'calculations/SAVE_CONTRACT_TAX_ACTION';
 const CONTRACT_TAX_GROSS_ACTION = 'calculations/CONTRACT_TAX_GROSS_ACTION';
 const CONTRACT_TAX_NONTAXABLE_ACTION = 'calculations/CONTRACT_TAX_NONTAXABLE_ACTION';
@@ -118,10 +125,13 @@ const initialState = {
       rs: 'Obracun zarada'
     },
     calculation: 'OBRACUN ZARADA',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: {
+      en: 'aj',
+      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+    },
     image: require('../../../assets/images/calculationsPanel.png'),
     icons: require('../../../assets/images/calculatorCalculations.png'),
-    input: '',
+    input: 0,
     func: 'salaryCalculator',
     type: 'grossToNet',
     grossSalary: {
@@ -153,10 +163,13 @@ const initialState = {
       en: '///',
       rs: 'Privremeni i povremeni poslovi'
     },
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: {
+      en: 'aj',
+      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+    },
     image: require('../../../assets/images/imageCalculation.png'),
     icons: require('../../../assets/images/caseCalculations.png'),
-    input: '',
+    input: 0,
     func: 'temporaryPermanentJobsCalculator',
     type: 'tempPermJobs',
     value: '',
@@ -167,12 +180,15 @@ const initialState = {
       firstData: {
         pension: null,
         health: null,
-        nez: null
+        nez: null,
+        employees: null
       },
       secondData: {
         pension: null,
         health: null,
-        nez: null
+        nez: null,
+        employer: null,
+        totalEmployer: null
       }
     },
     icon: 'briefcase'
@@ -181,11 +197,14 @@ const initialState = {
       en: 'lll',
       rs: 'Godisnji porez'
     },
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: {
+      en: 'aj',
+      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+    },
     image: require('../../../assets/images/imageCalculation.png'),
     icons: require('../../../assets/images/calendarCalculations.png'),
-    input: '',
-    input2: '',
+    input: 0,
+    input2: 0,
     func: 'annualTax',
     type: 'blabla',
     value: '',
@@ -230,7 +249,7 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     image: require('../../../assets/images/panel05.png'),
     icons: require('../../../assets/images/walletCalculations.png'),
-    input: '',
+    input: 0,
     func: 'allowance',
     type: 'allowanceHome',
     value: '',
@@ -254,13 +273,16 @@ const initialState = {
       en: 'kkkk',
       rs: 'Zakup fizickom licu'
     },
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: {
+      en: 'aj',
+      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+    },
     image: require('../../../assets/images/panel05.png'),
     icons: require('../../../assets/images/manUser.png'),
-    input: '',
+    input: 0,
     func: 'lease',
     type: 'blabla',
-    input2: '',
+    input2: 0,
     value: '',
     lease: {
       value: null,
@@ -276,22 +298,75 @@ const initialState = {
     },
     icon: 'user',
     },{
+    // name: {
+    //   en: 'uuu',
+    //   rs: 'Ugovori o delu'
+    // },
+    // nameExpl: {
+    //   en: 'lll',
+    //   rs: '(kada se placa porez, PIO i zdravstvo)'
+    // },
+    // description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    // image: require('../../../assets/images/calculationsPanel.png'),
+    // icons: require('../../../assets/images/folder.png'),
+    // input: '',
+    // func: 'contractPioTaxHealth',
+    // type: 'blabla',
+    // value: '',
+    // contractPioTaxHealth: {
+    //   value: null,
+    //   // coefficient: 1.58227848,
+    //   gross: null,
+    //   nontaxable: null,
+    //   base: null,
+    //   tax: null,
+    //   pension: null,
+    //   contribution: null
+    // },
+    // icon: 'folder'
+    // },{
+    // name: {
+    //   en: 'tt',
+    //   rs: 'Ugovor o delu'
+    // },
+    // nameExpl: {
+    //   en: 'ssss',
+    //   rs: '(kada se placa porez, PIO)'
+    // },
+    // description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    // image: require('../../../assets/images/calculationsPanel.png'),
+    // icons: require('../../../assets/images/pioTax.png'),
+    // input: '',
+    // func: 'contractPioTax',
+    // type: 'blabla',
+    // value: '',
+    // contractPioTax: {
+    //   value: null,
+    //   // coefficient: 1.58227848,
+    //   gross: null,
+    //   nontaxable: null,
+    //   base: null,
+    //   tax: null,
+    //   pension: null,
+    // },
+    // icon: 'folder'
+    // },{
     name: {
-      en: 'uuu',
-      rs: 'Ugovori o delu'
+      en: 'lkdhjag',
+      rs: 'Ugovor o delu '
     },
     nameExpl: {
-      en: 'lll',
-      rs: '(kada se placa porez, PIO i zdravstvo)'
+      en: '',
+      rs: ''
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/calculationsPanel.png'),
-    icons: require('../../../assets/images/folder.png'),
-    input: '',
-    func: 'contractPioTaxHealth',
+    image: require('../../../assets/images/imageCalculation.png'),
+    icons: require('../../../assets/images/onlyTax.png'),
+    input: 0,
+    func: 'contractTax',
     type: 'blabla',
     value: '',
-    concractPioTaxHealth: {
+    contractTax: {
       value: null,
       // coefficient: 1.58227848,
       gross: null,
@@ -300,57 +375,6 @@ const initialState = {
       tax: null,
       pension: null,
       contribution: null
-    },
-    icon: 'folder'
-    },{
-    name: {
-      en: 'tt',
-      rs: 'Ugovor o delu'
-    },
-    nameExpl: {
-      en: 'ssss',
-      rs: '(kada se placa porez, PIO)'
-    },
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/calculationsPanel.png'),
-    icons: require('../../../assets/images/pioTax.png'),
-    input: '',
-    func: 'contractPioTax',
-    type: 'blabla',
-    value: '',
-    concractPioTax: {
-      value: null,
-      // coefficient: 1.58227848,
-      gross: null,
-      nontaxable: null,
-      base: null,
-      tax: null,
-      pension: null,
-    },
-    icon: 'folder'
-    },{
-    name: {
-      en: 'lkdhjag',
-      rs: 'Ugovor o delu '
-    },
-    nameExpl: {
-      en: 'ddd',
-      rs: '(kada se placa samo porez)'
-    },
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/imageCalculation.png'),
-    icons: require('../../../assets/images/onlyTax.png'),
-    input: '',
-    func: 'concractTax',
-    type: 'blabla',
-    value: '',
-    concractTax: {
-      value: null,
-      // coefficient: 1.58227848,
-      gross: null,
-      nontaxable: null,
-      base: null,
-      tax: null,
     },
     icon: 'folder'
     }],
@@ -745,14 +769,53 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        firstData: {
+          ...state.calculation.tempPermJobsgross.firstData,
+          employees: action.value,
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        secondData: {
+          ...state.calculation.tempPermJobsgross.secondData,
+          employer: action.value,
+        }
+      }
+    }
+  }) :
+  action.type === SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      tempPermJobsgross:{
+        ...state.calculation.tempPermJobsgross,
+        secondData: {
+          ...state.calculation.tempPermJobsgross.secondData,
+          employerTotal: action.value,
+        }
+      }
+    }
+  }) :
   // Contcract Pio and Tax
   action.type === SAVE_CONTRACT_PIO_TAX_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
       input: action.value,
-      contractPioTax: {
-        ...state.calculation.contractPioTax,
+      contractTax: {
+        ...state.calculation.contractTax,
         value: action.value
       }
     }
@@ -761,8 +824,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      contractPioTax:{
-        ...state.calculation.contractPioTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         gross: action.value,
       }
     }
@@ -771,8 +834,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      contractPioTax:{
-        ...state.calculation.contractPioTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         nontaxable: action.value,
       }
     }
@@ -781,8 +844,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      contractPioTax:{
-        ...state.calculation.contractPioTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         base: action.value,
       }
     }
@@ -791,8 +854,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      contractPioTax:{
-        ...state.calculation.contractPioTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         tax: action.value,
       }
     }
@@ -801,8 +864,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      contractPioTax:{
-        ...state.calculation.contractPioTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         pension: action.value,
       }
     }
@@ -813,8 +876,8 @@ const calculationsReducer = (state = initialState, action) =>
     calculation: {
       ...state.calculation,
       input: action.value,
-      concractPioTaxHealth: {
-        ...state.calculation.concractPioTaxHealth,
+      contractTax: {
+        ...state.calculation.contractTax,
         value: action.value
       }
     }
@@ -823,8 +886,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         gross: action.value,
       }
     }
@@ -833,8 +896,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         nontaxable: action.value,
       }
     }
@@ -843,8 +906,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         base: action.value,
       }
     }
@@ -853,8 +916,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         tax: action.value,
       }
     }
@@ -863,8 +926,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         pension: action.value,
       }
     }
@@ -873,20 +936,54 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractPioTaxHealth:{
-        ...state.calculation.concractPioTaxHealth,
+      contractTax:{
+        ...state.calculation.contractTax,
         contribution: action.value,
       }
     }
   }) :
   // Contcract Tax
+  action.type === SWITCH_TAX ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      func: action.func,
+      nameExpl: {
+        ...state.nameExpl,
+        en: action.nameEn,
+        rs: action.nameRs
+      }
+    }
+  }) :
   action.type === SAVE_CONTRACT_TAX_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
       input: action.value,
-      concractTax: {
-        ...state.calculation.concractTax,
+      contractTax: {
+        ...state.calculation.contractTax,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_CONTRACT_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      contractTax: {
+        ...state.calculation.contractTax,
+        value: action.value
+      }
+    }
+  }) :
+  action.type === SAVE_CONTRACT_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      input: action.value,
+      contractTax: {
+        ...state.calculation.contractTax,
         value: action.value
       }
     }
@@ -895,8 +992,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractTax:{
-        ...state.calculation.concractTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         gross: action.value,
       }
     }
@@ -905,8 +1002,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractTax:{
-        ...state.calculation.concractTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         nontaxable: action.value,
       }
     }
@@ -915,8 +1012,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractTax:{
-        ...state.calculation.concractTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         base: action.value,
       }
     }
@@ -925,8 +1022,8 @@ const calculationsReducer = (state = initialState, action) =>
     ...state,
     calculation: {
       ...state.calculation,
-      concractTax:{
-        ...state.calculation.concractTax,
+      contractTax:{
+        ...state.calculation.contractTax,
         tax: action.value,
       }
     }
@@ -1370,6 +1467,9 @@ export const tempPermJobsPension14Action = value => ({ type: SAVE_TEM_PERM_JOBS_
 export const tempPermJobsHealthAction = value => ({ type: SAVE_TEM_PERM_JOBS_HEALTH_ACTION, value });
 export const tempPermJobsNezAction = value => ({ type: SAVE_TEM_PERM_JOBS_NEZ_ACTION, value });
 export const tempPermJobsPension12Action = value => ({ type: SAVE_TEM_PERM_JOBS_PENSION12_ACTION, value });
+export const tempPermJobsemployeesAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION, value });
+export const tempPermJobsemployerAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION, value });
+export const tempPermJobsEmployerTotalAction = value => ({ type: SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION, value });
 
 // Contcract Pio and Tax
 export const saveContractPioTaxAction = value => ({ type: SAVE_CONTRACT_PIO_TAX_ACTION, value });
@@ -1389,6 +1489,10 @@ export const contractPioHealthTaxPensionAction = value => ({ type: CONTRACT_PIO_
 export const contractPioHealthTaxContributionAction = value => ({ type: CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION, value });
 
 // Contcract Tax
+export const switchTax = (func, nameEn, nameRs) => ({ type: SWITCH_TAX, func, nameEn, nameRs });
+// export const switchTaxPio = value => ({ type: SWITCH_TAX_PIO, value });
+// export const switchTaxPioHealth = value => ({ type: SWITCH_TAX_PIO_HEALTH, value });
+
 export const saveContractTaxAction = value => ({ type: SAVE_CONTRACT_TAX_ACTION, value });
 export const contractTaxGrossAction = value => ({ type: CONTRACT_TAX_GROSS_ACTION, value });
 export const contractTaxNontaxableAction = value => ({ type: CONTRACT_TAX_NONTAXABLE_ACTION, value });

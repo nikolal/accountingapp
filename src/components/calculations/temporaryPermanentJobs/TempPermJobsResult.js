@@ -1,53 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { metrics, colors, fonts } from '../../../theme';
+import HeaderTitle from './HeaderTitle.js';
 
-const SalaryResult = ({ calculation }) => {
+class SalaryResult extends Component {
 
-  return (
-    <ScrollView style={styles.container}>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Bruto</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.value.toFixed(2)}</Text>
+  // static navigationOptions = ({ navigation }) => ({
+  //   headerTitle: <HeaderTitle />
+  // })
+  render() {
+    const { calculation, localeString } = this.props;
+    console.log(calculation);
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>Gross</Text> :
+                <Text style={styles.text}>Bruto zarada</Text>
+            }
+            <Text style={styles.number}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez 10%</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.tax.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            <View style={{flexDirection: 'column'}}>
+            <Text style={styles.text}>Doprinosi na zarade</Text>
+            <Text style={styles.text}>na teret zaposlenog</Text>
+          </View>
+            <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.employees.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>PIO 14%</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.pension.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            <View style={{flexDirection: 'column'}}>
+            <Text style={styles.text}>Doprinosi na zarade</Text>
+            <Text style={styles.text}>na teret poslodavca</Text>
+          </View>
+          <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>PIO - 12%</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.pension.toFixed(2)}</Text>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            <Text style={styles.text}>Ukupan izdatak</Text>
+          <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employerTotal.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Zdravsveni</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.health.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Nez</Text>
-          <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.nez.toFixed(2)}</Text>
-        </View>
-      </View>
-    </ScrollView>
-  );
-};
+      </ScrollView>
+    );
+  }
+}
 
+const stateToProps = state => ({
+  // article: state.aboutReducer.article,
+  language: state.settingsReducer.language
 
-export default SalaryResult;
+});
+
+export default connect(stateToProps, null)(SalaryResult);
 
 const styles = StyleSheet.create({
   container: {

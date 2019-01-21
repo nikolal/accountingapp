@@ -1,67 +1,109 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, AppRegistry, Animated, Easing, Text } from 'react-native';
+import { View, StyleSheet, FlatList, Image, AppRegistry, Animated, Easing, Text, Dimensions } from 'react-native';
 // import { Ionicons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
+import { LinearGradient } from 'expo';
+import OurClientsItem from './OurClientsItem.js';
 
+const imageList = [
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractDefault.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
+    source={require('../../../assets/images/contractSelected.png') }
+  />
+];
 
+class OurClients extends Component {
 
-  // const arr = [1, 2, 3, 4, 5];
-  // for (var i = 0; i < 20; i++) {
-  //   arr.push(i);
-  // }
+  renderItem = ({ item, index }) => {
+    return (
+      <OurClientsItem index={index} >
+        {item}
+      </OurClientsItem>
+    );
+}
 
-class Splash extends Component {
-
-  constructor (props) {
-      super(props);
-      this.animatedValue = [];
-      this.arr = [];
-      props.article.paragraphs.forEach((item) => {
-        this.animatedValue[item.value] = new Animated.Value(0);
-      });
-    }
-
-    componentDidMount () {
-      this.animate();
-    }
-
-    animate () {
-      const animations = this.props.article.paragraphs.map((item) => {
-        return Animated.timing(
-          this.animatedValue[item.value],
-          {
-            toValue: 1,
-            duration: 100
-          }
-        );
-      });
-      Animated.sequence(animations).start();
-    }
-
-
-    render () {
-      const animations = this.props.article.paragraphs.map((a, i) => {
-        return <Animated.View
-          key={i} style={{opacity: this.animatedValue[a.value],
-          }}>
-          <Image
-            style={{ width: 90, height: 90, margin: 20 }}
-            source={{uri: a.value}}
-          />
-        </Animated.View>;
-      });
-      return (
-        <View style={styles.container}>
-          {animations}
-        </View>
-      );
-    }
+render() {
+    return (
+      <View style={styles.container}>
+      <LinearGradient
+        colors={['rgb(26,52,75)', 'rgb(18,66,89)', 'rgb(16,70,92)']}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: Dimensions.get('window').height
+        }}
+      />
+      <FlatList
+        keyExtractor={(item, index) => String(index)}
+        data={imageList}
+        renderItem={this.renderItem}
+        contentContainerStyle={styles.container}
+        // numColumns={3}
+      />
+    </View>
+    );
   }
+}
 
-  AppRegistry.registerComponent('Splash', () => Splash);
-
-
-export default Splash;
+export default OurClients;
 
 
 const styles = StyleSheet.create({

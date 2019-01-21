@@ -6,7 +6,7 @@ import servicesReducer from '../components/services/ServicesContainer';
 import settingsReducer from '../components/settings/SettingsContainer';
 import calculationsReducer from '../components/calculations/CalculationsContainer';
 import incentiveReducer from '../components/something/SomethingContainer';
-import contactAllReducer from '../components/calculations/contractAll/ContractAllContainer';
+// import contactAllReducer from '../components/calculations/contractAll/ContractAllContainer';
 
 export default combineReducers({
   newsReducer,
@@ -16,5 +16,5 @@ export default combineReducers({
   settingsReducer,
   calculationsReducer,
   incentiveReducer,
-  contactAllReducer
+  // contactAllReducer
 });

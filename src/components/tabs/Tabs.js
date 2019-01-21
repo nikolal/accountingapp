@@ -21,7 +21,7 @@ import TaxesTab from './TaxesTab.js';
 
 import Splash from '../splash/Splash.js';
 import Taxes from '../taxes/Taxes.js';
-import ContractAll from '../calculations/contractAll/ContractAll.js';
+// import ContractAll from '../calculations/contractAll/ContractAll.js';
 
 
 const styles = {

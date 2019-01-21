@@ -801,7 +801,7 @@ const initialState = {
   },{
     title: {
       en: '?',
-      rs: 'Porezi'
+      rs: 'Porezi na imovinu'
     },
     date: '30.04.2018',
     time: '05:52PM',

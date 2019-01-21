@@ -76,7 +76,7 @@ class Settings extends Component {
       </TouchableOpacity>
 
   render() {
-    console.log(this.props.admin);
+    // console.log(this.props.admin);
     return (
       <ImageBackground source={images.drawerBackground} style={styles.container} resizeMode="cover">
         <View style={styles.logoImageContainer}>

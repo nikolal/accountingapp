@@ -361,14 +361,14 @@ biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
   }
 
   // Ovako je u onoj EY
-  finalTax = val =>
-    (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+  // finalTax = val =>
+  //   (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
 
 
 // ovo je po Milkinoj kalkulaciji
-// finalTax = val =>
-//   this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
-//   : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
+finalTax = val =>
+  this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
+  : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
 
 
 

@@ -192,5 +192,21 @@ const styles = StyleSheet.create({
     marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
+  },
+  closeModalIcon: {
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 22,
+    width: 50,
+    height: 50,
+    alignSelf: 'flex-end'
+  },
+  errorText: {
+    color: 'red',
+    alignSelf: 'center',
+    fontSize: fonts.size.medium,
+    fontFamily: 'openSansRegular',
+    marginBottom: metrics.huge
   }
 });

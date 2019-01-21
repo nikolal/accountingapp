@@ -28,7 +28,7 @@ import AddNews from '../addNews/AddNews.js';
 const navigationConfig = {
   initialRouteName: 'Tabs',
   headerMode: 'float',
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     headerLeft: <HeaderLeft navigation={navigation} />,
     headerRight: <HeaderRight navigation={navigation} />,
     // title: 'asda',

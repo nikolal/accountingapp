@@ -8,11 +8,10 @@ const SAVE_GROSS_VALUE_ACTION = 'calculations/SAVE_GROSS_VALUE_ACTION';
 const SAVE_NET_VALUE_ACTION = 'calculations/SAVE_NET_VALUE_ACTION';
 const SAVE_INPUT_FAMILY_ACTION = 'calculations/SAVE_INPUT_FAMILY_ACTION';
 const SAVE_INPUT_LEASE_ACTION = 'calculations/SAVE_INPUT_LEASE_ACTION';
-
-
 // const SWITCH_GROSS_NET_ACTION = 'calculations/SWITCH_GROSS_NET_ACTION';
 // salary gross to net
 const SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION';
+const SAVE_SALARY_GROSS_NET_SOCIAL_BASE_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_SOCIAL_BASE_ACTION';
 const SAVE_SALARY_GROSS_NET_TAX_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_TAX_ACTION';
 const SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION';
 const SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION';
@@ -22,6 +21,8 @@ const SAVE_SALARY_GROSS_NET_PENSION_ACTION = 'calculations/SAVE_SALARY_GROSS_NET
 const SAVE_SALARY_GROSS_NET_TOTAL_ACTION = 'calculations/SAVE_SALARY_GROSS_NET_TOTAL_ACTION';
 const SAVE_SALARY_GROSS_TO_NET_TOTAL_NET_ACTION = 'calculations/SAVE_SALARY_GROSS_TO_NET_TOTAL_NET_ACTION';
 const TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION = 'calculations/TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION';
+const TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYER_ACTION = 'calculations/TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYER_ACTION';
+const TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYEE_ACTION = 'calculations/TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYEE_ACTION';
 // salary net to gross
 const SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION';
 const SAVE_SALARY_NET_GROSS_TAX_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TAX_ACTION';
@@ -137,6 +138,7 @@ const initialState = {
     grossSalary: {
       value: null,
       baseSalaryIndex: null,
+      baseSalaryBase: null,
       tax: null,
       maxBaseContributionIndex: 329330,
       baseContributionIndex: null,
@@ -156,6 +158,8 @@ const initialState = {
       },
       totalSalary: null,
       totalContributions: null,
+      totalContributionsEmployer: null,
+      totalContributionsEmployee: null,
       totalNet: null,
       icon: 'calculator'
     },{
@@ -455,6 +459,16 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+  action.type === SAVE_SALARY_GROSS_NET_SOCIAL_BASE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      grossSalary: {
+        ...state.calculation.grossSalary,
+        baseSalaryBase: action.value
+      }
+    }
+  }) :
   action.type === SAVE_SALARY_GROSS_NET_TAX_ACTION ? ({
     ...state,
     calculation: {
@@ -553,6 +567,20 @@ const calculationsReducer = (state = initialState, action) =>
     calculation: {
       ...state.calculation,
       totalContributions: action.value,
+    }
+  }) :
+  action.type === TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYER_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalContributionsEmployer: action.value,
+    }
+  }) :
+  action.type === TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYEE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalContributionsEmployee: action.value,
     }
   }) :
   action.type === SAVE_SALARY_GROSS_TO_NET_TOTAL_NET_ACTION ? ({
@@ -1439,6 +1467,7 @@ export const saveInputLeseAction = value => ({ type: SAVE_INPUT_LEASE_ACTION, va
 // export const switchGrossNetAction = value => ({ type: SWITCH_GROSS_NET_ACTION, value });
 // Salary gross to net
 export const saveSalaryGrossNetBaseIndexAction = value => ({ type: SAVE_SALARY_GROSS_NET_BASE_INDEX_ACTION, value });
+export const saveSalaryGrossNetSocialBaseAction = value => ({ type: SAVE_SALARY_GROSS_NET_SOCIAL_BASE_ACTION, value });
 export const saveSalaryGrossNetTaxAction = value => ({ type: SAVE_SALARY_GROSS_NET_TAX_ACTION, value });
 export const saveSalaryGrossNetPensionContributionAction = value => ({ type: SAVE_SALARY_GROSS_NET_PENSION_CONTRIBUTION_ACTION, value });
 export const saveSalaryGrossNetHealthContributionAction = value => ({ type: SAVE_SALARY_GROSS_NET_HEALTH_CONTRIBUTION_ACTION, value });
@@ -1448,6 +1477,8 @@ export const saveSalaryGrossNetPensionAction = value => ({ type: SAVE_SALARY_GRO
 export const saveSalaryGrossNetTotalAction = value => ({ type: SAVE_SALARY_GROSS_NET_TOTAL_ACTION, value });
 export const saveSalaryGrossNetTotalNetActon = value => ({ type: SAVE_SALARY_GROSS_TO_NET_TOTAL_NET_ACTION, value });
 export const totalSalaryGrossToNetContributionsAction = value => ({ type: TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION, value });
+export const totalSalaryGrossToNetContributionsEmployerAction = value => ({ type: TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYER_ACTION, value });
+export const totalSalaryGrossToNetContributionsEmployeeAction = value => ({ type: TOTAL_SALARY_GROSS_TO_NET_CONTRIBUTIONSACTION_EMPLOYEE_ACTION, value });
 // Salary net to gross
 export const saveSalaryNetGrossBaseIndexAction = value => ({ type: SAVE_SALARY_NET_GROSS_BASE_INDEX_ACTION, value });
 export const saveSalaryNetGrossTaxAction = value => ({ type: SAVE_SALARY_NET_GROSS_TAX_ACTION, value });

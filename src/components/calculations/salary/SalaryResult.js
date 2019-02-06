@@ -24,16 +24,6 @@ class SalaryResult extends Component {
               .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
-        <View style={styles.itemContainer}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-                <Text style={styles.text}>Net ??</Text> :
-                <Text style={styles.text}>Neto za isplatu</Text>
-            }
-            <Text style={styles.number}>{calculation.totalNet && calculation.totalNet.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
-        </View>
         <View style={styles.itemContainerDark}>
           <View style={styles.innerContainer}>
             {
@@ -56,11 +46,28 @@ class SalaryResult extends Component {
                 </View> :
                 <View style={{flexDirection: 'column'}}>
                   <Text style={styles.text}>Doprinosi na teret:</Text>
-                  <Text style={styles.text}>zapolenog i poslodavca</Text>
+                  <Text style={styles.text}> Poslodavca</Text>
                 </View>
 
             }
-            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <Text style={styles.number}>{calculation.totalContributionsEmployer && calculation.totalContributionsEmployer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
+        </View>
+        <View style={styles.itemContainerDark}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <View style={{flexDirection: 'column'}}>
+                  <Text style={styles.text}>?:</Text>
+                  <Text style={styles.text}>??</Text>
+                </View> :
+                <View style={{flexDirection: 'column'}}>
+                  <Text style={styles.text}>Doprinosi na teret:</Text>
+                  <Text style={styles.text}> Zaposlenog</Text>
+                </View>
+
+            }
+            <Text style={styles.number}>{calculation.totalContributionsEmployee && calculation.totalContributionsEmployee.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainerDark}>

@@ -13,7 +13,7 @@ class SalaryCalculator extends Component {
   /* render function, etc */
 
   render(){
-    // console.log(this.props.calculated);
+    console.log(this.props.calculated);
     console.log(this.props.calculation.input !== 0);
     return (
 
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
-    borderWidth: metrics.smallBorder,
+    borderWidth: metrics.mediumBorder,
     marginBottom: metrics.huge,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,

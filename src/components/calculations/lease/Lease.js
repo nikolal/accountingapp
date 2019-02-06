@@ -7,7 +7,6 @@ import { metrics, colors, fonts, images } from '../../../theme';
 import LeaseResult from './LeaseResult.js';
 
 class Lease extends Component {
-  // console.log(this.props.finaLease(this.props.calculation.input));
   render(){
     return (
       <ScrollView style={styles.container}>
@@ -166,7 +165,7 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
-    borderWidth: metrics.smallBorder,
+    borderWidth: metrics.mediumBorder,
     marginBottom: metrics.huge,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,

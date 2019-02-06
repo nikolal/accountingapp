@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   resetAllValuesAction, switchTypeAction, saveCalculation, saveGrossValueAction, saveNetValueAction, saveSalaryGrossNetTotalNetActon, saveInputFamilyAction, saveInputLeseAction,
-  saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, totalSalaryGrossToNetContributionsAction,
+  saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetSocialBaseAction, saveSalaryGrossNetTaxAction,saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, totalSalaryGrossToNetContributionsAction, totalSalaryGrossToNetContributionsEmployerAction, totalSalaryGrossToNetContributionsEmployeeAction,
   saveSalaryNetGrossBaseIndexAction, saveSalaryNetGrossTaxAction, saveSalaryNetGrossPensionContributionAction, saveSalaryNetGrossHealthContributionAction, saveSalaryNetGrossInsuranceContributionAction, saveSalaryNetGrossAction, saveSalaryNetGrossPensionAction, saveSalaryNetGrossTotalAction, saveSalaryNetGrossBaseContributionAction,
   tempPermJobsGrossToNetAction, saveTempPermJobsAction, tempPermJobsNetAction, tempPermJobsTaxAction, tempPermJobsPension14Action, tempPermJobsHealthAction, tempPermJobsNezAction, tempPermJobsPension12Action, tempPermJobsemployeesAction, tempPermJobsemployerAction, tempPermJobsEmployerTotalAction,
   switchTax, switchTaxPio, switchTaxPioHealth, saveContractPioTaxAction, contractPioTaxGrossAction, contractPioTaxNontaxableAction, contractPioTaxBaseAction, contractPioTaxTaxAction, contractPioTaxPensionAction,
@@ -106,6 +106,7 @@ class CalculationDetail1 extends Component {
 
   calculateSalaryGrossToNet = val => {
     this.props.saveSalaryGrossNetBaseIndexAction(this.saveSalaryGrossNetBaseIndex(val));
+    this.props.saveSalaryGrossNetSocialBaseAction(this.saveSalaryGrossNetSocialBase(val));
     this.props.saveSalaryGrossNetTaxAction(this.saveSalaryGrossNetTax(val));
     this.props.saveSalaryGrossNetPensionContributionAction(this.saveSalaryGrossNetPensionContribution(val));
     this.props.saveSalaryGrossNetHealthContributionAction(this.saveSalaryGrossNetHealthContribution(val));
@@ -115,17 +116,22 @@ class CalculationDetail1 extends Component {
     this.props.saveSalaryGrossNetTotalAction(this.saveSalaryGrossNetTotal(val));
     this.props.saveSalaryGrossNetTotalNetActon(this.saveSalaryGrossNetTotalNet(val));
     this.props.totalSalaryGrossToNetContributionsAction(this.totalSalaryGrossToNetContributions(val));
+    this.props.totalSalaryGrossToNetContributionsEmployerAction(this.totalSalaryGrossToNetContributionsEmployer(val));
+    this.props.totalSalaryGrossToNetContributionsEmployeeAction(this.totalSalaryGrossToNetContributionsEmployee(val));
   };
 
   saveSalaryGrossNetBaseIndex = val => (val - 15000);
   saveSalaryGrossNetTax = val => ((val - 15000) * 0.1);
-  saveSalaryGrossNetPensionContribution = val => (val * 0.14);
-  saveSalaryGrossNetHealthContribution = val => (val * 0.0515);
-  saveSalaryGrossNetInsuranceContribution = val => (val * 0.0075);
-  saveSalaryGrossNetPension = val => (val * 0.12);
+  saveSalaryGrossNetPensionContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.14);
+  saveSalaryGrossNetHealthContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0515);
+  saveSalaryGrossNetInsuranceContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0075);
+  saveSalaryGrossNetPension = val => (this.saveSalaryGrossNetSocialBase(val) * 0.12);
+  saveSalaryGrossNetSocialBase = val => (val < 329330 ? val : 329330)
   saveSalaryGrossNetTotal = val => (val + this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val));
   saveSalaryGrossNetTotalNet = val => (val - this.saveSalaryGrossNetTax(val) - (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val)));
   totalSalaryGrossToNetContributions = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
+  totalSalaryGrossToNetContributionsEmployer = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
+  totalSalaryGrossToNetContributionsEmployee = val => (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
 
   // Salary net to gross
 
@@ -145,6 +151,10 @@ class CalculationDetail1 extends Component {
 
   saveSalaryNetGrossBaseIndex = val => this.saveSalaryNetGross(val) - 15000;
   saveSalaryNetGrossTax = val => (this.saveSalaryNetGross(val) - 15000) * 0.1;
+
+
+
+
   saveSalaryNetGrossBaseContribution = val => this.saveSalaryNetGross(val) < this.props.calculation.grossSalary.maxBaseContributionIndex ? this.saveSalaryNetGross(val) : this.props.calculation.grossSalary.maxBaseContributionIndex;
   saveSalaryNetGrossPensionContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.14);
   saveSalaryNetGrossHealthContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.0515);
@@ -518,6 +528,10 @@ const dispatchToProps = dispatch => ({
 
   // Salary gross to net
   saveSalaryGrossNetBaseIndexAction: bindActionCreators(saveSalaryGrossNetBaseIndexAction, dispatch),
+
+  saveSalaryGrossNetSocialBaseAction: bindActionCreators(saveSalaryGrossNetSocialBaseAction, dispatch),
+
+
   saveSalaryGrossNetTaxAction: bindActionCreators(saveSalaryGrossNetTaxAction, dispatch),
   saveSalaryGrossNetPensionContributionAction: bindActionCreators(saveSalaryGrossNetPensionContributionAction, dispatch),
   saveSalaryGrossNetHealthContributionAction: bindActionCreators(saveSalaryGrossNetHealthContributionAction, dispatch),
@@ -527,6 +541,9 @@ const dispatchToProps = dispatch => ({
   saveSalaryGrossNetTotalAction: bindActionCreators(saveSalaryGrossNetTotalAction, dispatch),
   saveSalaryGrossNetTotalNetActon: bindActionCreators(saveSalaryGrossNetTotalNetActon, dispatch),
   totalSalaryGrossToNetContributionsAction: bindActionCreators(totalSalaryGrossToNetContributionsAction, dispatch),
+  totalSalaryGrossToNetContributionsEmployerAction: bindActionCreators(totalSalaryGrossToNetContributionsEmployerAction, dispatch),
+  totalSalaryGrossToNetContributionsEmployeeAction: bindActionCreators(totalSalaryGrossToNetContributionsEmployeeAction, dispatch),
+
 
  // Salary net to gross
   saveSalaryNetGrossBaseIndexAction: bindActionCreators(saveSalaryNetGrossBaseIndexAction, dispatch),

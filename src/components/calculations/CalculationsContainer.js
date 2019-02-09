@@ -31,8 +31,18 @@ const SAVE_SALARY_NET_GROSS_HEALTH_CONTRIBUTION_ACTION = 'calculations/SAVE_SALA
 const SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION';
 const SAVE_SALARY_NET_GROSS_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_ACTION';
 const SAVE_SALARY_NET_GROSS_PENSION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_PENSION_ACTION';
+const SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION';
+const SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION';
+
+
+
 const SAVE_SALARY_NET_GROSS_TOTAL_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TOTAL_ACTION';
 const SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION';
+const SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION';
+
+
+
+
 // Temporary Permanent JOBS
 const SAVE_TEM_PERM_JOBS_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_ACTION';
 const SAVE_TEM_PERM_JOBS_GROSS_TO_NET_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_GROSS_TO_NET_ACTION';
@@ -157,9 +167,12 @@ const initialState = {
         }
       },
       totalSalary: null,
+      totalNetSalaryCost: null,
       totalContributions: null,
       totalContributionsEmployer: null,
       totalContributionsEmployee: null,
+      totalEmployerContribution: null,
+      totalEmployeeContribution: null,
       totalNet: null,
       icon: 'calculator'
     },{
@@ -696,6 +709,24 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+
+  action.type === SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalEmployerContribution: action.value,
+    }
+  }) :
+
+  action.type === SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalEmployeeContribution: action.value,
+    }
+  }) :
+
+
   action.type === SAVE_SALARY_NET_GROSS_TOTAL_ACTION ? ({
     ...state,
     calculation: {
@@ -703,6 +734,17 @@ const calculationsReducer = (state = initialState, action) =>
       totalSalary: action.value,
     }
   }) :
+
+  action.type === SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      totalNetSalaryCost: action.value,
+    }
+  }) :
+
+
+
   // Permanent Temporary Jobs
   action.type === SAVE_TEM_PERM_JOBS_ACTION ? ({
     ...state,
@@ -1487,8 +1529,20 @@ export const saveSalaryNetGrossHealthContributionAction = value => ({ type: SAVE
 export const saveSalaryNetGrossInsuranceContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION, value });
 export const saveSalaryNetGrossAction = value => ({ type: SAVE_SALARY_NET_GROSS_ACTION, value });
 export const saveSalaryNetGrossPensionAction = value => ({ type: SAVE_SALARY_NET_GROSS_PENSION_ACTION, value });
+
+export const saveSalaryNetGrossContributionEmployerAction = value => ({ type: SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION, value });
+
+export const saveSalaryNetGrossContributionEmployeeAction = value => ({ type: SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION, value });
+
+
+
 export const saveSalaryNetGrossTotalAction = value => ({ type: SAVE_SALARY_NET_GROSS_TOTAL_ACTION, value });
 export const saveSalaryNetGrossBaseContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION, value });
+export const saveSalaryNetGrossTotalCostAction = value => ({ type: SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION, value });
+
+
+
+
 // Temporary Permanent JOBS
 export const saveTempPermJobsAction = value => ({ type: SAVE_TEM_PERM_JOBS_ACTION, value });
 export const tempPermJobsGrossToNetAction = value => ({ type: SAVE_TEM_PERM_JOBS_GROSS_TO_NET_ACTION, value });

@@ -8,6 +8,7 @@ class SalaryResultNet extends Component {
 
   render() {
 
+    console.log(this.props.calculation);
     const { calculation, localeString } = this.props;
 
     return (
@@ -37,9 +38,19 @@ class SalaryResultNet extends Component {
             {
               this.props.language === 'en' ?
                 <Text style={styles.text}>???</Text> :
-                <Text style={styles.text}>srp ???</Text>
+                <Text style={styles.text}>Poslodavac</Text>
             }
-            <Text style={styles.number}>{calculation.totalContributions && calculation.totalContributions.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <Text style={styles.number}>{calculation.totalEmployeeContribution && calculation.totalEmployeeContribution.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+          </View>
+        </View>
+        <View style={styles.itemContainer}>
+          <View style={styles.innerContainer}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.text}>??</Text> :
+                <Text style={styles.text}>Zaposleni</Text>
+            }
+            <Text style={styles.number}>{calculation.totalEmployerContribution && calculation.totalEmployerContribution.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
@@ -49,7 +60,7 @@ class SalaryResultNet extends Component {
                 <Text style={styles.text}>??</Text> :
                 <Text style={styles.text}>Ukupan trosak zarade</Text>
             }
-            <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+            <Text style={styles.number}>{calculation.totalNetSalaryCost && calculation.totalNetSalaryCost.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
       </ScrollView>

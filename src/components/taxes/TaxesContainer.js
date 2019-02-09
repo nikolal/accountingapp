@@ -5,14 +5,14 @@ const SAVE_ARTICLE = 'taxes/SAVE_ARTICLE';
 const initialState = {
   taxes: [{
     title: {
-      en: 'Earnings',
+      en: 'Salary',
       rs: 'Zarade'
     },
     date: '30.04.2018',
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'Average gross earnings for March 2018',
+        en: 'Average gross salary for March',
         rs: 'Prosečna bruto zarada za mart 2018.'
       },
       percentage: {
@@ -30,7 +30,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'The lowest base 6.1.2018 - 31.12.2018',
+        en: 'The lowes salary base (6.1.2018-31.12.2018)',
         rs: 'Najniža osnovica 6.1.2018 - 31.12.2018'
       },
       percentage: {
@@ -39,7 +39,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'The highest base 6.1.2018 - 31.12.2018',
+        en: 'The highest salary base (6.1.2018-31.12.2018)',
         rs: 'Najviša osnovica 6.1.2018 - 31.12.2018'
       },
       percentage: {
@@ -48,7 +48,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '????',
+        en: 'Non-taxable amount of salary',
         rs: 'Neoporezivi iznos zarade'
       },
       percentage: {
@@ -67,7 +67,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Increase in earnings for overtime',
+        en: 'Increase in salary for overtime',
         rs: 'Uvećanje zarade za prekovremeni rad'
       },
       percentage: {
@@ -76,7 +76,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '????',
+        en: 'Increase in salary for workinh over night',
         rs: 'Uvećanje zarade za rad noću'
       },
       percentage: {
@@ -86,7 +86,7 @@ const initialState = {
     },
     {
       text: {
-        en: 'Incease in earnings for working during public holidays',
+        en: 'Increase in salary for wokrking during public holidays',
         rs: 'Uvećanje zarade za rad za vreme državnog praznika'
       },
       percentage: {
@@ -143,7 +143,7 @@ const initialState = {
         rs: 'Neoporezivi iznos naknade troškova smeštaja na službenom putovanju'
       },
       percentage: {
-        en: '???',
+        en: 'Non-taxable in amount equal to the value of relevant bills',
         rs: 'Ne oporezuje se do visine troškova prema priloženom računu'
       }
     },{
@@ -282,7 +282,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'payment of excise',
+        en: 'Payment of excise',
         rs: 'Plaćanje akcize'
       },
       percentage: {
@@ -291,7 +291,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Payment of whitholding taxs for the revenues which non-resident entities make in relatin with resident entities',
+        en: 'Payment of whitholding taxs for the revenues which non-resident entities make in relation with resident entities',
         rs: 'Plaćanje poreza po odbitku na prihode koji nerezidentna pravna lica ostvaruju od rezidentnih pravnih lica'
       },
       percentage: {
@@ -328,7 +328,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Income tax',
+      en: 'Income tax ????',
       rs: 'Porez na dobit'
     },
     date: '30.04.2018',
@@ -683,7 +683,7 @@ const initialState = {
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'Earnings tax rate',
+        en: 'Tax rate on salaries',
         rs: 'Stopa poreza na zarade'
       },
       percentage: {
@@ -745,7 +745,7 @@ const initialState = {
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'contributions for PIO at the expense of the employee',
+        en: 'Contributions for pension insurance.',
         rs: 'Doprinosi za PIO na teret zaposlenog'
       },
       percentage: {
@@ -754,7 +754,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'contributions for health insurance at the expense of the employee',
+        en: 'Contributions for health insurance at the expense of the employee',
         rs: 'Doprinosi za zdravstvo na teret zaposlenog'
       },
       percentage: {
@@ -772,7 +772,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Contributions for PIO at the expense of the employer',
+        en: 'Contributions for pension insurance..',
         rs: 'Doprinosi za PIO na teret poslodavca'
       },
       percentage: {
@@ -800,7 +800,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: '?',
+      en: '??????',
       rs: 'Porezi na imovinu'
     },
     date: '30.04.2018',

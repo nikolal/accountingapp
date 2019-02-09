@@ -8,7 +8,6 @@ class SalaryResultNet extends Component {
 
   render() {
 
-    console.log(this.props.calculation);
     const { calculation, localeString } = this.props;
 
     return (

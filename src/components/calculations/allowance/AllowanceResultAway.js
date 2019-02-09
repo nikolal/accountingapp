@@ -8,19 +8,22 @@ const AllowanceResult = ({ calculation }) => {
     <View style={styles.container}>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Neto dnevnica u EUR</Text>
+          <View styel={styles.textContainer}>
+            <Text style={styles.text}>Neto dnevnica koju zaposleni</Text>
+            <Text style={styles.text}>prima u EUR</Text>
+          </View>
           <Text style={styles.number}>{calculation.allowancesAway.value}</Text>
         </View>
       </View>
       <View style={styles.itemContainer}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Osnovica za oporezivanje</Text>
+          <Text style={styles.text}>Ukupan izdatak EUR</Text>
           <Text style={styles.number}>{calculation.allowancesAway.gross && calculation.allowancesAway.gross.toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.itemContainerDark}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez</Text>
+          <Text style={styles.text}>Porez EUR</Text>
           <Text style={styles.number}>{calculation.allowancesAway.tax && calculation.allowancesAway.tax.toFixed(2)}</Text>
         </View>
       </View>

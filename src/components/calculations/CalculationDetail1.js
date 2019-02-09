@@ -300,8 +300,8 @@ class CalculationDetail1 extends Component {
   };
 
   allowanceHomeTaxBase = val => (val - 2303)
-  allowanceHomeGross = val => ((val - 2303) * 1.111111111)
-  allowanceHomeTax = val => (this.allowanceHomeGross(val) * 0.1)
+  allowanceHomeGross = val => (val < 2303 ? 0 : ((val - 2303) * 1.111111111))
+  allowanceHomeTax = val => (val < 2303 ? 0 : (this.allowanceHomeGross(val) * 0.1))
 
   // Away
   calculateAllowancesAway = val => {
@@ -311,8 +311,8 @@ class CalculationDetail1 extends Component {
   };
 
   allowanceAwayTaxBase = val => (val - 50)
-  allowanceAwayGross = val => (this.allowanceAwayTaxBase(val) * 1.111111111)
-  allowanceAwayTax = val => (this.allowanceAwayGross(val) * 0.1)
+  allowanceAwayGross = val => (val < 50 ? 0 : (this.allowanceAwayTaxBase(val) * 1.111111111))
+  allowanceAwayTax = val => (val < 50 ? 0 : (this.allowanceAwayGross(val) * 0.1))
 
 
   /********

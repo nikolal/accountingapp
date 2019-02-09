@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     borderColor: 'rgb(141,141,141)',
-    borderWidth: metrics.smallBorder,
+    borderWidth: metrics.mediumBorder,
     marginTop: metrics.extraHuge,
     borderRadius: metrics.small,
     fontSize: fonts.size.small,

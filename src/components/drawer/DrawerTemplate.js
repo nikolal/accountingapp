@@ -85,7 +85,7 @@ class DrawerTemplate extends Component {
             <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.tmconsulting.co.rs/')}>
               <MaterialCommunityIcons name="google-plus" size={20} color="#00deff" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.linkedin.com/in/milka-jan%C4%8Di%C4%87-%C5%BEivkovi%C4%87-5401718a?trk=nav_responsive_tab_profile_pic')}>
+            <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.linkedin.com/company/hlb-consulting/')}>
               <MaterialCommunityIcons name="linkedin" size={18} color="#00deff" />
             </TouchableOpacity>
             </View>

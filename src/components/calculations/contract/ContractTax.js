@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
    inputText: {
      height: 50,
      borderColor: 'rgb(141,141,141)',
-     borderWidth: metrics.smallBorder,
+     borderWidth: metrics.mediumBorder,
      // marginBottom: metrics.huge,
      borderRadius: metrics.small,
      fontSize: fonts.size.small,

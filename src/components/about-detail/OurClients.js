@@ -1,77 +1,74 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, FlatList, Image, AppRegistry, Animated, Easing, Text, Dimensions } from 'react-native';
-// import { Ionicons }  from '@expo/vector-icons';
-import { metrics, colors, fonts, images } from '../../theme';
-import { LinearGradient } from 'expo';
+import { View, StyleSheet, FlatList, Image } from 'react-native';
 import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10}}
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
     source={require('../../../assets/images/abaxis.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/Deme.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/delta.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/essilor.png')}
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/EA.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/gws.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/gilbarco.png')}
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/flixbus.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/Eviana.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/HEP.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/Lyca.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/ofika.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/icopal.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/ursa.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/Sinohydro.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/sarens.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/powerchina.jpg') }
   />
 ];
@@ -82,7 +79,7 @@ class OurClients extends Component {
     return (
       <OurClientsItem index={index} >
         <View
-          style={{backgroundColor: 'rgb(18,66,89)', height: 100, width: 100, margin: 14, justifyContent: 'center', alignItems: 'center'}}>
+          style={{ height: 100, width: 100, margin: 14, justifyContent: 'center', alignItems: 'center'}}>
           {item}
         </View>
       </OurClientsItem>
@@ -105,7 +102,6 @@ render() {
 }
 
 export default OurClients;
-
 
 const styles = StyleSheet.create({
   container: {

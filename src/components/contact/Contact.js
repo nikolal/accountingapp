@@ -25,14 +25,14 @@ class Contact extends Component {
         <MapView
           style={styles.googleMapContainer}
           initialRegion={{
-            latitude: 44.8026777,
-            longitude: 20.4779999,
+            latitude: 44.7977904,
+            longitude: 20.4733366,
             latitudeDelta: 0.00922,
             longitudeDelta: 0.00421,
           }}
         >
           <Marker
-            coordinate={{ latitude: 44.8026777, longitude: 20.4779999 }}
+            coordinate={{ latitude: 44.7977904, longitude: 20.4755253 }}
             title="aaa"
             // description={marker.descriptio}
           />

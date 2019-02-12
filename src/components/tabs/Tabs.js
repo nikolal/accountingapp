@@ -96,7 +96,7 @@ const Tabs = createBottomTabNavigator({
     }
   },
   // Splash: {
-  //   screen: ContractAll,
+  //   screen: Splash,
   //   navigationOptions: {
   //     // title: 'CALCULATIONS',
   //     tabBarLabel: 'Vezba',

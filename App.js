@@ -37,6 +37,9 @@ class App extends Component {
       require('./assets/images/milkaSlika.png'),
       require('./assets/images/servicesImagex.png'),
       require('./assets/images/taxesImage.png'),
+      require('./assets/images/calculationsPanel.png'),
+      require('./assets/images/BG.png'),
+
     ];
 
     const cacheImages = images.map(image => {

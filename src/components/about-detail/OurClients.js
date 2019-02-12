@@ -7,64 +7,72 @@ import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractDefault.png')}
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10}}
+    source={require('../../../assets/images/abaxis.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/Deme.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/delta.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractDefault.png')}
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/essilor.png')}
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/EA.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/gws.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractDefault.png')}
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/gilbarco.png')}
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/flixbus.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/Eviana.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractDefault.png')}
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/HEP.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/Lyca.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/ofika.png') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractDefault.png')}
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/icopal.jpg')}
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/ursa.jpg') }
   />,
   <Image
-    style={{ width: 90, height: 90, margin: 15, backgroundColor: 'red' }}
-    source={require('../../../assets/images/contractSelected.png') }
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/Sinohydro.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/sarens.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, backgroundColor: 'rgb(18,66,89)', borderRadius: 10 }}
+    source={require('../../../assets/images/powerchina.jpg') }
   />
 ];
 
@@ -73,7 +81,10 @@ class OurClients extends Component {
   renderItem = ({ item, index }) => {
     return (
       <OurClientsItem index={index} >
-        {item}
+        <View
+          style={{backgroundColor: 'rgb(18,66,89)', height: 100, width: 100, margin: 14, justifyContent: 'center', alignItems: 'center'}}>
+          {item}
+        </View>
       </OurClientsItem>
     );
 }
@@ -81,23 +92,13 @@ class OurClients extends Component {
 render() {
     return (
       <View style={styles.container}>
-      <LinearGradient
-        colors={['rgb(26,52,75)', 'rgb(18,66,89)', 'rgb(16,70,92)']}
-        style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          top: 0,
-          height: Dimensions.get('window').height
-        }}
-      />
-      <FlatList
-        keyExtractor={(item, index) => String(index)}
-        data={imageList}
-        renderItem={this.renderItem}
-        contentContainerStyle={styles.container}
-        // numColumns={3}
-      />
+        <FlatList
+          keyExtractor={(item, index) => String(index)}
+          data={imageList}
+          renderItem={this.renderItem}
+          contentContainerStyle={styles.container}
+          numColumns={3}
+        />
     </View>
     );
   }
@@ -109,7 +110,7 @@ export default OurClients;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap'
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

@@ -4,8 +4,8 @@ import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
   <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-    source={require('../../../assets/images/abaxis.jpg')}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/powerchina.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -22,10 +22,6 @@ const imageList = [
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/EA.jpg') }
-  />,
-  <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/gws.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -65,7 +61,19 @@ const imageList = [
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/powerchina.jpg') }
+    source={require('../../../assets/images/blackRed.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/terran.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/abl.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/abaxis.png')}
   />
 ];
 

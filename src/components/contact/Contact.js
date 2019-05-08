@@ -38,14 +38,24 @@ class Contact extends Component {
           />
         </MapView>
         <View style={styles.body}>
-          <Text style={styles.title}>HLB Consulting</Text>
-          <View style={styles.addressContainer}>
-            <Text style={styles.addressText}>Cara Nikolaja II 11/2, 11 000 Beograd</Text>
-            <View style={styles.innerAdressText}>
-              <Text style={styles.addressText}>+381 11 344-81-69 / +381 64 614-29-44</Text>
-            </View>
-            <Text style={styles.addressText}>office@tmconsulting.co.rs</Text>
-          </View>
+          <Text style={styles.title}>HLB T&M Consulting doo</Text>
+          {
+            this.props.language === 'rs' ?
+              <View style={styles.addressContainer}>
+                <Text style={styles.addressText}>Ulica:         Cara Nikolaja II 11</Text>
+                <Text style={styles.addressText}>Mesto:      11000 Beograd</Text>
+                  <Text style={styles.addressText}>Telefon:    + 381 11 3441 373</Text>
+                  <Text style={styles.addressText}>Mobilni:    + 381 64 614-29-44</Text>
+                <Text style={styles.addressText}>Email:       office@tmconsulting.co.rs</Text>
+              </View> :
+              <View style={styles.addressContainer}>
+                <Text style={styles.addressText}>Street:         Cara Nikolaja II 11</Text>
+                <Text style={styles.addressText}>City:      11000 Beograd</Text>
+                  <Text style={styles.addressText}>Phone 1:    + 381 11 3441 373</Text>
+                  <Text style={styles.addressText}>Phone 2:    + 381 64 614-29-44</Text>
+                <Text style={styles.addressText}>Email:       office@tmconsulting.co.rs</Text>
+              </View>
+          }
           <TouchableOpacity
             onPress={() => this.goToContactMessage('ContactMessage')}
             style={styles.addressTextMail}>
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
-    color: 'rgb(20,32,52)',
+    color: '#14B7c5',
     margin: metrics.huge,
   },
   addressContainer: {
@@ -96,7 +106,7 @@ const styles = StyleSheet.create({
   addressText: {
     fontSize: fonts.size.medium,
     fontFamily: 'openSansRegular',
-    padding: metrics.medium,
+    padding: metrics.small,
   },
   innerAdressText: {
     borderTopColor: 'rgb(235,235,235)',

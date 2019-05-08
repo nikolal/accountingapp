@@ -25,7 +25,7 @@ const imageList = [
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/gws.png') }
+    source={require('../../../assets/images/gws.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -34,10 +34,6 @@ const imageList = [
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/flixbus.png') }
-  />,
-  <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/Eviana.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -61,11 +57,11 @@ const imageList = [
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/Sinohydro.png') }
+    source={require('../../../assets/images/BussHoff.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/sarens.png') }
+    source={require('../../../assets/images/sarens.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}

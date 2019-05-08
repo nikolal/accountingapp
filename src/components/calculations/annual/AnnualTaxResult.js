@@ -6,6 +6,8 @@ import { metrics, colors, fonts } from '../../../theme';
 class AnnualTaxResult extends Component {
 
   render() {
+    console.log(this.props.calculation);
+
     const { calculation, localeString } = this.props;
     return (
       <View style={styles.container}>

@@ -12,8 +12,8 @@ class AnnualTax extends Component {
   calculate = () => {
     this.props.calculateValue(this.props.calculation.input);
     this.props.calculateValueInput2(this.props.calculation.input2);
-    this.props.calculateFinalAnnualTax(this.props.calculation.input, this.props.calculation.input2);
-    console.log(this.props.finalTax(this.props.calculation.input));
+    // this.props.calculateFinalAnnualTax(this.props.calculation.input, this.props.calculation.input2);
+    // console.log(this.props.finalTax(this.props.calculation.input));
   }
 
   render() {

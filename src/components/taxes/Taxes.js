@@ -40,8 +40,8 @@ class Taxes extends Component {
             imageStyle={{ borderRadius: 10 }}
           >
             <View style={styles.overlay} />
-            <Text style={styles.textOverImage}>The idea that the police have retreated under siege will not go away.</Text>
-            <Text style={styles.smallTextOverImage}>Shaila Dewan</Text>
+            <Text style={styles.textOverImage}>"The hardest thing in the world to understand is the income tax."</Text>
+            <Text style={styles.smallTextOverImage}>Albert Einstein</Text>
           </ImageBackground>
         {this.props.taxes.map(this.renderList)}
       </ScrollView>

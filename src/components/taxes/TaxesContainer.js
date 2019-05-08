@@ -12,39 +12,39 @@ const initialState = {
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'Average gross salary for March',
-        rs: 'Prosečna bruto zarada za mart 2018.'
+        en: 'Average gross salary for January',
+        rs: 'Prosečna bruto zarada za januar 2019.'
       },
       percentage: {
-        en: '68.251 rsd',
-        rs: '68.251 rsd'
+        en: '75.296 rsd rsd',
+        rs: '75.296 rsd rsd'
       }
     },{
       text: {
         en: 'Minimum salary',
-        rs: 'Minimalna zarada za maj'
+        rs: 'Minimalna bruto zarada za januar 2019.'
       },
       percentage: {
-        en: '24.024 rsd net, gross 32.131,24 rsd',
-        rs: '24.024 rsd neto, odnosno 32.131,24 rsd'
+        en: '38.580,88 rsd',
+        rs: '38.580,88 rsd'
       }
     },{
       text: {
-        en: 'The lowes salary base (6.1.2018-31.12.2018)',
-        rs: 'Najniža osnovica 6.1.2018 - 31.12.2018'
+        en: 'The lowes salary base (1.01.2019. do 31.12.2019)',
+        rs: 'Najniža osnovica za 1.01.2019. do 31.12.2019.'
       },
       percentage: {
-        en: '23.053 rsd',
-        rs: '23.053 rsd'
+        en: '23.921 rsd',
+        rs: '23.921 rsd'
       }
     },{
       text: {
-        en: 'The highest salary base (6.1.2018-31.12.2018)',
-        rs: 'Najviša osnovica 6.1.2018 - 31.12.2018'
+        en: 'The highest salary base (1.01.2019. do 31.12.2019)',
+        rs: 'Najviša osnovica doprinosa 1.01.2019. do 31.12.2019.'
       },
       percentage: {
-        en: '329.330 rsd',
-        rs: '329.330 rsd'
+        en: '341.725 rsd',
+        rs: '341.725 rsd'
       }
     },{
       text: {
@@ -52,8 +52,8 @@ const initialState = {
         rs: 'Neoporezivi iznos zarade'
       },
       percentage: {
-        en: '15.000 rsd',
-        rs: '15.000 rsd'
+        en: '15.300 rsd',
+        rs: '15.300 rsd'
       }
     },
     {
@@ -328,7 +328,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Income tax ????',
+      en: 'Income tax',
       rs: 'Porez na dobit'
     },
     date: '30.04.2018',
@@ -772,7 +772,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Contributions for pension insurance..',
+        en: 'Contributions for pension insurance.',
         rs: 'Doprinosi za PIO na teret poslodavca'
       },
       percentage: {

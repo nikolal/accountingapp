@@ -139,7 +139,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/calculationsPanel.png'),
+    image: require('../../../assets/images/calculationImage1.jpg'),
     icons: require('../../../assets/images/calculatorCalculations.png'),
     input: 0,
     func: 'salaryCalculator',
@@ -183,7 +183,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage2.jpg'),
     icons: require('../../../assets/images/caseCalculations.png'),
     input: 0,
     func: 'temporaryPermanentJobsCalculator',
@@ -217,7 +217,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage3.jpg'),
     icons: require('../../../assets/images/calendarCalculations.png'),
     input: 0,
     input2: 0,
@@ -266,7 +266,7 @@ const initialState = {
       rs: 'Dnevnice'
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/panel05.png'),
+    image: require('../../../assets/images/calculationImage4.jpg'),
     icons: require('../../../assets/images/walletCalculations.png'),
     input: 0,
     func: 'allowance',
@@ -296,7 +296,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/panel05.png'),
+    image: require('../../../assets/images/calculationImage5.jpg'),
     icons: require('../../../assets/images/manUser.png'),
     input: 0,
     func: 'lease',
@@ -379,7 +379,7 @@ const initialState = {
       rs: ''
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage6.jpg'),
     icons: require('../../../assets/images/onlyTax.png'),
     input: 0,
     func: 'contractTax',

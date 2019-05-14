@@ -39,7 +39,7 @@ class Calculations extends Component {
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
         <LinearGradient
-          colors={['rgb(26,52,75)', 'rgb(18,66,89)', 'rgb(16,70,92)']}
+        colors={['white', 'white', 'white']}
           style={{
             position: 'absolute',
             left: 0,
@@ -75,7 +75,7 @@ export default connect(stateToProps, dispatchToProps)(Calculations);
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    backgroundColor: 'rgb(16,70,92)'
+    backgroundColor: 'white'
   },
   container: {
     flex: 1,
@@ -125,13 +125,13 @@ const styles = StyleSheet.create({
   },
   textItem: {
     margin: metrics.small,
-    color: colors.white,
+    color: 'rgb(16,70,92)',
     fontFamily: 'openSansBold',
     fontSize: fonts.size.small ,
   },
   explanation: {
     marginLeft: metrics.small,
-    color: colors.white,
+    color: 'rgb(16,70,92)',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.tiny,
   }

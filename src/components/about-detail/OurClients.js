@@ -4,8 +4,8 @@ import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
   <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-    source={require('../../../assets/images/abaxis.jpg')}
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/powerchina.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -25,19 +25,11 @@ const imageList = [
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/gws.png') }
-  />,
-  <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/gilbarco.png')}
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/flixbus.png') }
-  />,
-  <Image
-    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/Eviana.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
@@ -61,15 +53,27 @@ const imageList = [
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/Sinohydro.png') }
+    source={require('../../../assets/images/BussHoff.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/sarens.png') }
+    source={require('../../../assets/images/sarens.jpg') }
   />,
   <Image
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-    source={require('../../../assets/images/powerchina.jpg') }
+    source={require('../../../assets/images/blackRed.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/terran.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/abl.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/abaxis.png')}
   />
 ];
 

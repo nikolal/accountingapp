@@ -23,178 +23,196 @@ const initialState = {
     icon: require('../../../assets/images/iconteam.png'),
     image: require('../../../assets/images/milkaSlika.png'),
     paragraphs: [{
-        type: 'headline',
-        value: {
-          en: 'Financial incentives',
-          rs: 'Olakšice za novoosnovane firme'
-        }
-    },{
       type: 'text',
       value: {
-        en: 'With a goal of attracting foreign investments, a special financial subsidies package was introduced for companies that invest in Serbia. The financial incentives described below are provided under the Decree on conditions and method for attracting direct investments.',
-        rs: 'Olakšice za novoosnovane firme su poreska oslobođenja za poslodavce koji počinju sa obavljanjem delatnosti. '
+        en: 'All the employers who set up their company after  January 1, 2019 can be exempted from paying taxes and contributions for themselves, as an owner or a founder of the company.',
+        rs: 'Svi poslodavci koji su osnovali firmu nakon 01.01.2019. godine mogu biti oslobođeni poreza i doprinosa samo za sebe, kao vlasnika ili osnivača firme.'
       }
     },{
       type: 'text',
       value: {
-        en: 'The state grants are intended to be used for Greenfield and Brownfield projects in the following sectors: Manufacturing; Internationally marketable services; and Hotel services in areas designated as spa areas.',
-        rs: 'Poslodavci koji mogu ostvariti pravo na oslobođenje od plaćanja poreza i doprinosa su nova pravna lica i preduzetnici, registrovani u Agenciji za privredne registre. '
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'The following sectors/activities are not are eligible for incentives: Software development activities, except when performed for the purposes of improving products, manufacturing processes and internationally marketable services; Transportation activities; Activities in the energy sector; Logistics activities; Trade/retail sectors; and Projects which involve the production of synthetic fibers, coal and steel, tobacco and tobacco products, weapons and ammunition, shipbuilding (construction of certain sea merchant vessels), etc.',
-        rs: 'Mogu biti oslobođeni za: porez i doprinose za zarade osnivača pravnog lica, porez i doprinose za lične zarade preduzetnika,porez i doprinose za zarade novozaposlenih.'
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'Non-refundable state funds are granted per new job created – new jobs have to be created within 3 years from the day the request for the incentive is submitted (this period may be prolonged subsequently up to 5 years). ',
-        rs: 'Olakšice se mogu ostvariti za najviše devet novih zaposlenih koji ispune uslove. Pravo nema preduzetnik paušalac, preduzetnik poljoprivrednik i preduzetnik drugo lice. '
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'Investors can choose the basis on which the amount of funds will be determined and granted as: Eligible costs of expenditures for fixed and intangible assets or 20% to 40% of the eligible 2-year gross salary costs for new jobs created (with maximum amount per new job ranging from EUR 3,000 to 7,000).',
-        rs: 'Poresko oslobođenje od plaćanja poreza i doprinosa počinje sa primenom 01. oktobra 2018. godine. Važi za firme koje su počele da rade najranije tog datuma.'
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'Eligible costs for investing in intangible assets are determined in the amount of up to 50% of the total eligible costs for large enterprises and 100% of the total eligible costs for SME’s.',
-        rs: 'Poslodavci i nove firme te olakšice mogu ostvariti zaključno sa 31.12.2020. (poslodavac mora biti registovan najkasnije tog datuma).'
+        en: 'These changes became effective on December 16, 2018, and its appliance started from the beginning of 2019., accurately since January 1. ',
+        rs: 'Ove izmene su stupile na snagu 16. decembra 2018. godine, a njihova primena počela je početkom 2019. godine, tačnije od 01. januara tekuće godine.'
       }
     },{
       type: 'headline',
       value: {
-        en: '????',
-        rs: 'Uslovi za poslodavce i novozaposlene'
+        en: 'What are tax benefits applied to?',
+        rs: 'Na šta se odnose izmene poreskih olakšica'
       }
     },{
       type: 'text',
       value: {
-        en: 'If investors decide to use the granted funds for covering eligible salary costs, an additional 10% to 30% of the amount of eligible costs for fixed assets may be granted.',
-        rs: 'Da bi firma dobila olakšice, moraju biti ispunjeni uslovi: osnivači i preduzetnici moraju zasnovati radni odnos i biti prijavljeni na socijalno osiguranje, sa novim zaposlenima moraju biti zaključeni ugovori o radu, da su osnivači / preduzetnici bili nezaposlena lica, studenti ili učenici u prethodnih 12 meseci,da su novi zaposleni bili nezaposlena lica, studenti i učenici u prethodnih 12 meseci.'
+        en: 'The newest amendments of the Individual income tax law and the Law on compulsory social security contribution:',
+        rs: 'Najnovije izmene Zakona o porezu na dohodak građana i Zakona o doprinosima za obavezno socijalno osiguranje su sledeće:'
       }
     },{
       type: 'text',
       value: {
-        en: 'Furthermore, if the incentive is granted for labor intensive projects (at least 200 new jobs are created), additional 10% to 20% of the eligible 2-year gross salary costs for new jobs created may be granted, depending on the number of new vacancies. ',
-        rs: 'Svaki član, osnivač ili preduzetnik mora zasnovati radni odnos sa novim pravnim licem i mora se prijaviti na obavezno socijalno osiguranje. Poslodavac mora imati ugovor o radu i sa svim novim radnicima.'
+        en: '•	Future employers will be able to use the tax benefit only according to their profit – can be exempted from paying taxes and contributions only for themselves.',
+        rs: '•	budući poslodavci moći će da koriste poresku olakšicu samo po osnovu svoje zarade - biće oslobođeni plaćanja poreza i doprinosa samo za sebe;'
       }
     },{
       type: 'text',
       value: {
-        en: 'The following are the minimum requirements for manufacturing investment projects in:',
-        rs: 'Osnivači/preduzetnici su morali pre datuma osnivanja firme, najmanje šest meseci neprekidno, da budu na evidenciji kod NSZ ili da su u periodu od 12 meseci pre datuma otvaranja firme završili školu (srednju, višu ili fakultet). Isti ovi uslovi važe i za nove zaposlene.'
+        en: "•	They don't have the right to be exempted from paying  the taxes and the contributions based on the profit for their employees. (According to the old law, they had that right for 9 employees at most)",
+        rs: '•	nemaju pravo na oslobođenje od plaćanja poreza i doprinosa po osnovu zarade za svoje zaposlene (po starom propisu imali su za najviše 9 novozaposlenih lica);'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '•	The owners who meet all the necessary conditions and set up their company before  January 1, 2019. will be able to use the benefits and all the contributions will be paid from the budget of the Republic of Serbia',
+        rs: '•	vlasnici koji ispune uslove i osnuju firmu posle 01. januara 2019. godine moći će da koriste olakšice i biće im iz Budžeta Republike Srbije uplaćeni svi doprinosi (PIO, zdravstveno osiguranje i osiguranje za slučaj nezaposlenosti);'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '•	All the entrepreneurs and the legal persons who register their company according to the new law for the tax benefit can use 37000 RSD  as a maximum  net amount.',
+        rs: '•	preduzetnici i pravna lica koja registruju firmu po novom propisu za poresko oslobođenje mogu da koriste maksimalnan iznos zarade od 37.000 dinara u neto iznosu.'
       }
     },{
       type: 'headline',
       value: {
-        en: 'Regions: ',
-        rs: 'Period korišćenja olakšice'
+        en: 'Who can get tax benefits?Who can get tax benefits?',
+        rs: 'Ko sve može dobiti poresku olakšicu?'
       }
     },{
       type: 'text',
       value: {
-        en: 'Devastated regions: at least 10 new employees and eligible costs of investment in the amount of at least EUR 100,000;',
-        rs: 'Olakšice za nove zaposlene se mogu koristiti najviše 12 meseci. Period za koji se može ostvariti pravo je 12 meseci, od dana početka obavljanja poslovne delatnosti (od dana kada je registrovana firma).'
+        en: 'Newly set up companies or the future registered employers  who can get tax benefits  are :',
+        rs: 'Novoosnovane firme, odnosno budući registrovani poslodavci koji bi mogli da ostvare pravo na poreske olakšice su:'
       }
     },{
       type: 'text',
       value: {
-        en: 'Regions from group IV: at least 20 new employees and eligible costs of investment in the amount of at least EUR 200,000; Regions from group III: at least 30 new employees and eligible costs of investment in the amount of at least EUR 300,000; ',
-        rs: 'Poslodavci koji budu koristili biće u potpunosti oslobođeni plaćanja poreza i doprinosa za sebe i zaposlene.'
+        en: '•	Entrepreneurs ',
+        rs: '•	preduzetnici,'
       }
     },{
       type: 'text',
       value: {
-        en: 'Regions from group II: at least 40 new employees and eligible costs of investments of at least EUR 400,000; Regions from group I: at least 50 new employees and eligible costs of investments of at least EUR 500,000.',
-        rs: 'Olakšica prestaje: po isteku 12 meseci, kada ukupan zbir isplaćenih zarada osnivača / preduzetnika i ostalih zaposlenih pređe neoporezivi iznos.'
+        en: '•	The LLC ',
+        rs: '•	DOO firme'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '•	Agricultural entrepreneurs',
+        rs: '•	preduzetnici poljoprivrednici.'
       }
     },{
       type: 'headline',
       value: {
-        en: '????',
-        rs: 'Olakšice za postojeće poslodavce'
+        en: 'The conditions for getting the tax benefits for the newly set up companies',
+        rs: 'Uslovi za dobijanje olakšica za novoosnovane firme'
       }
     },{
       type: 'text',
       value: {
-        en: 'For internationally marketable services, the minimum requirements are at least 15 new employees and investment of at least EUR 150,000.',
-        rs: 'Postoje još i aktuelne olakšice koje mogu koristiti registrovane firme. Glavni uslov je da zaključe ugovor o radu sa novim zaposlenima.'
+        en: 'In order for the employers and the company to get the new benefits, these conditions must be met:',
+        rs: 'Da bi preduzetici i vlasnici preduzeća dobili nove olakšce moraju biti ispunjeni sledeći uslovi:'
       }
     },{
       type: 'text',
       value: {
-        en: 'The maximum amount of funds that may be awarded to investors:',
-        rs: 'Ukoliko zaposle novog radnika mogu da ostvare povraćaj od 65%, 70% i 75% isplaćenih poreza i doprinosa, po osnovu zarade radnika. Rok za ove olakšice je 31.12.2019.'
+        en: "•	That the legal person – future employers or the DOO's founders have been registered at least 6 months simultaneously before the set up of their company at the National employment service as unemployed or that in the period of 12 months before the day of registration and set up of their company they finished high school, academy or college and  got educated according to the law",
+        rs: '•	da su fizička lica - odnosno budući preduzetnici ili osnivači DOO najmanje šest meseci bez prekida pre dana otvaranja svoje firme bili pijavljeni kod Nacionalne službe za zapošljavanje kao nezaposlena lica ili da su u periodu od 12 meseci pre dana registrovanja i otvaranja svoje firme završili srednju školu, višu ili fakultet, i da su stekli obrazovanje u skladu sa Zakonom;'
       }
     },{
       type: 'text',
       value: {
-        en: 'If in accordance with the state aid regulations the beneficiary can be classified as a large company, the State may grant up to 50% of eligible investment costs; ',
-        rs: 'Ako poslodavac zaposli radnika, može dobiti: povraćaj dela plaćenog poreza na zarade, povraćaj dela plaćenih doprinosa.'
+        en: '•	That as a physical person or an entrepreneur (an agricultural entrepreneur also) is registered for  the compulsory social security in the Central  register of compulsory social security',
+        rs: '•	da je fizičko lice, odnosno preduzetnik (kao i preduzetnik poljoprivrednik) prijavljen na obavezno socijalno osiguranje u Centralni registar obaveznog socijalnog osiguranja;'
+      }
+    },{
+      en: '•	That  a legal person or a founder is employed in this new LLC company(has concluded an employment contract)',
+      rs: '•	da fizičko lice, odnosno osnivač bude zaposlen u svojoj novoosnovanoj DOO firmi (da ima zasnovan radni odnos);'
+    },{
+      en: '•	If the LLC has more than one founder, the right can be gained for 9 founders at most, who also have to sign an employment contract and be employed in the company.',
+      rs: '•	ukoliko DOO ima više osnivača pravo se može ostvariti za najviše devet osnivača, koji takođe moraju potpisati ugovor o radu i biti zaposleni u firmi.'
+    },{
+      type: 'headline',
+      value: {
+        en: 'When the employer can use new tax benefits?',
+        rs: 'Kada poslodavac može da koristi poreske olakšice?'
       }
     },{
       type: 'text',
       value: {
-        en: 'For SME’s this percentage may be increased – up to 70% for small and 60% for medium enterprises;' ,
-        rs: 'Poslodavac prvo mora da ih plati, kako bi dobio natrag refundaciju i povraćaj od države, srazmerno stopi ostvarenoj stopi.'
+        en: "The employer can use his right on the tax and contributions exemption for salaries paid in the twelve months period, starting from the day of company's set up – when the entrepreneur was registered or the LLC set up.",
+        rs: 'Poslodavac može da osvari pravo na oslobođenje od poreza i doprinosa za zarade koje su isplaćene u periodu od 12 meseci, počevši od dana kada je osnovana firma - registrovan preduzetnik ili kada je osnovano DOO.'
       }
     },{
       type: 'text',
       value: {
-        en: 'For investments that amount from EUR 50 million up to EUR 100 million , the State may grant funds up to 25% of eligible investment costs for the amount above EUR 50 million; For investments that amount more than EUR 100 million, the State may grant additional funds up to 17% of eligible investment costs for the amount above EUR 100 million.',
-        rs: 'Ove olakšice može dobiti poslodavac - pravno lice, preduzetnik, preduzetnik paušalac ili preduzetnik poljoprivrednik.'
+        en: 'New benefits can only be used by the new entrepreneurs, the new LLC founders or the agricultural entrepreneurs, but only if they  meet the conditions and if they opened the company after January 1, 2019. This benefit can be used by all the future companies which meet certain conditions and which are registered  in the business register conclusively with December 31, 2020.',
+        rs: 'Nove olakšice mogu da koriste samo novoosnovani preduzetnici, novi osnovači DOO i preduzetnici poljoprivrednici, ali samo ako ispune uslove i ako su otvorili firmu posle 01. januara 2019. godine. Ovu olakšicu mogu da iskoriste sve buduće firme koje ispunjavaju određene uslove, a koje budu registrovane u privredni registar zaključno sa 31.12.2020. godine.'
       }
     },{
       type: 'headline',
       value: {
-        en: 'Strategic significance',
-        rs: 'Uslovi za olakšice'
+        en: 'The  restrictions on tax benefits for the entrepreneurs',
+        rs: 'Ograničenje poslodavaca za korišćenje olakšica'
       }
     },{
       type: 'text',
       value: {
-        en: 'Investment that significantly impacts development and competitiveness of the Serbian economy;',
-        rs: 'Uslov za poslodavca je da sa novozaposlenim radnikom zaključi ugovor o radu i da ga prijavi na obavezno socijalno osiguranje.'
+        en: 'There are several restrictions when the new tax benefits are used.',
+        rs: 'Postoje nekoliko ograničenja kada se koriste nove poreske olakšice:'
       }
     },{
       type: 'text',
       value: {
-        en: 'Investment of more than EUR 2 million within three years, or resulting in 100 new jobs within five years, from the investment commencement;',
-        rs: 'Uslovi za radnike su: da je bio prijavljen na evidenciju NSZ šest meseci, da ranije nije bio zaposlen kod tog poslodavca.'
+        en: '•	One person can not use the benefits and tax exemption right more than once.',
+        rs: '•	jedno lice ne može više puta da ostvari olakšice i pravo na poresko oslobođenje;'
       }
     },{
       type: 'text',
       value: {
-        en: 'Investment that “fosters joint development priorities of one or more municipalities in the function of increase of their competitiveness” and investment made on the basis of a bilateral treaty or a treaty on cross-border cooperation.',
-        rs: 'Novozaposleni radnik mora biti prijavljen na evidenciju NSZ kao nezaposleno lice najmanje 6 meseci neprekidno, pre zasnivanja radnog odnosa. Takođe, nije smeo imati zaposlenje kod novog poslodavca.'
+        en: '•	If the new employer  gets the tax benefits on one person, the other employer  can not get tax exempted for the same person.',
+        rs: '•	ako jedan novoosnovani poslodavac ostvari poresko oslobođenje, drugi novoosnovani poslodavac ne može da ostvari poresko oslobođenje za istu osobu;'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Stope poreskih olakšica: Firme za zapošljavanje novih radnika mogu dobiti umanjenja poreza i doprinisa: 65% - najmanje jedan, najviše devet radnika, 70% - najmanje deset, najviše 99 radnika, 75%  - najmanje 100 radnika, 75 % - najmanje dva radnika, čime poveća broj zaposlenih.'
+        en: '•	The person who gets the new benefits for tax and contributions exemptions, cannot use other benefits like subventions for self-employment and employing new workers given by the National employment service',
+        rs: '•	lice koje ostvari nove olakšice za oslobođenje od poreza i doprinosa ne može da koristi druge olakšice, poput subvencije za samozapošljavanje i zapošljavanje novih lica koje dodeljuje Nacionalna služba za zapošljavanje.'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'The maximal amount of monthly income',
+        rs: 'Maksimalni iznos mesečne zarade'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Firme za zapošljavanje novih radnika mogu dobiti umanjenja poreza i doprinisa: 65% - najmanje jedan, najviše devet radnika, 70% - najmanje deset, najviše 99 radnika, 75%  - najmanje 100 radnika, 75 % - najmanje dva radnika, čime poveća broj zaposlenih.'
+        en: "The maximal amount which the employer can pay to himself is 37000 RSD monthly.  This is net income, without the taxes and contributions and only on that amount you can get the tax benefit. This is the case when it comes to personal incomes or the founder's income.",
+        rs: 'Maksimalna zarada koju poslodavac može sebi da isplati je 37.000 dinara mesečno. To je neto zarada, bez poreza i doprinosa, i jedino na taj iznos je moguće ostvariti poresko oslobođenje. Ovo važi kada je u pitanju ili lična zarada preduzetnika ili zarada osnivača.'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Ako poslodavac zaposli najmanje jednog, a najviše devet novih radnika dobiće povraćaj 65% plaćenih poreza i doprinosa. Kada zaposli najmanje 10, a najviše 99 novih radnika dobiće povraćaj 70%. Ako zaposli najmanje 100 novih zaposlenih, dobiće povraćaj 75%.'
+        en: 'The right to using tax benefit stops:',
+        rs: 'Pravo na korišćenje poreske olakšice ističe:'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Poslodavac - mikro i malo pravno lice, preduzetnik, preduzetnik paušalac ili preduzetnik poljoprivrednik može dobiti povraćaj 75%, ako zaposli najmanje dva nova radnika i time poveća broj zaposlenih u odnosu na prethodni period. '
+        en: '•	After the period of 12 months',
+        rs: '•	nakon isteka perioda od 12 meseci;'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: "•	On the day when the entrepreneur's monthly salary is paid, or the founder's monthly salary, which is more than 37000 RSD  individually",
+        rs: '•	na dan kada se izvrši isplata mesečne lične zarade preduzetnika, odnosno mesečne zarade osnivača, koja je više od 37.000 dinara za svakog pojedinačno.'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'According to the new laws, the contributions for RDI fund, health insurance and unemployment insurance will be paid from the budget of the Republic of Serbia, but on the lowest base of contribution.',
+        rs: 'Prema novim pravilima doprinosi za PIO, zdravstveno osiguranje i osiguranje za slučaj nezaposlenosti biće plaćeni iz Budžeta Republike Srbije, ali na iznos najniže mesečne osnovice doprinosa.'
       }
     }]
   },{

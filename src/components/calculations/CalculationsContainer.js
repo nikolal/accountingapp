@@ -33,16 +33,9 @@ const SAVE_SALARY_NET_GROSS_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_ACTION'
 const SAVE_SALARY_NET_GROSS_PENSION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_PENSION_ACTION';
 const SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION';
 const SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION';
-
-
-
 const SAVE_SALARY_NET_GROSS_TOTAL_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TOTAL_ACTION';
 const SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION';
 const SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION = 'calculations/SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION';
-
-
-
-
 // Temporary Permanent JOBS
 const SAVE_TEM_PERM_JOBS_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_ACTION';
 const SAVE_TEM_PERM_JOBS_GROSS_TO_NET_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_GROSS_TO_NET_ACTION';
@@ -55,7 +48,6 @@ const SAVE_TEM_PERM_JOBS_PENSION12_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_PEN
 const SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYEES_ACTION';
 const SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_ACTION';
 const SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION = 'calculations/SAVE_TEM_PERM_JOBS_EMPLOYER_TOTAL_ACTION';
-
 // Contcract Pio and Tax
 const SAVE_CONTRACT_PIO_TAX_ACTION = 'calculations/SAVE_CONTRACT_PIO_TAX_ACTION';
 const CONTRACT_PIO_TAX_GROSS_ACTION = 'calculations/CONTRACT_PIO_TAX_GROSS_ACTION';
@@ -63,7 +55,6 @@ const CONTRACT_PIO_TAX_NONTAXABLE_ACTION = 'calculations/CONTRACT_PIO_TAX_NONTAX
 const CONTRACT_PIO_TAX_BASE_ACTION = 'calculations/CONTRACT_PIO_TAX_BASE_ACTION';
 const CONTRACT_PIO_TAX_TAX_ACTION = 'calculations/CONTRACT_PIO_TAX_TAX_ACTION';
 const CONTRACT_PIO_TAX_PENSION_ACTION = 'calculations/CONTRACT_PIO_TAX_PENSION_ACTION';
-
 // Contcract Pio and Tax
 const SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION = 'calculations/SAVE_CONTRACT_PIO_TAX_HEALTH_ACTION';
 const CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_GROSS_ACTION';
@@ -72,12 +63,10 @@ const CONTRACT_PIO_HEALTH_TAX_BASE_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TA
 const CONTRACT_PIO_HEALTH_TAX_TAX_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_TAX_ACTION';
 const CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_PENSION_ACTION';
 const CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION = 'calculations/CONTRACT_PIO_HEALTH_TAX_CONTRIBUTION_ACTION';
-
 // Contcract Tax
 const SWITCH_TAX = 'calculations/SWITCH_TAX';
 // const SWITCH_TAX_PIO = 'calculations/SWITCH_TAX_PIO';
 // const SWITCH_TAX_PIO_HEALTH = 'calculations/SWITCH_TAX_PIO_HEALTH';
-
 const SAVE_CONTRACT_TAX_ACTION = 'calculations/SAVE_CONTRACT_TAX_ACTION';
 const CONTRACT_TAX_GROSS_ACTION = 'calculations/CONTRACT_TAX_GROSS_ACTION';
 const CONTRACT_TAX_NONTAXABLE_ACTION = 'calculations/CONTRACT_TAX_NONTAXABLE_ACTION';
@@ -111,6 +100,16 @@ const ANNUAL_EMPLOYER_INSURANCE_ACTION = 'calculations/ANNUAL_EMPLOYER_INSURANCE
 const ANNUAL_TOTAL_VALUE_ACTION = 'calculations/ANNUAL_TOTAL_VALUE_ACTION';
 const MONTHLY_NET12_VALUE_ACTION = 'calculations/MONTHLY_NET12_VALUE_ACTION';
 const CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION = 'calculations/CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION';
+const ANNUAL_CALCULATED_OPTION_3_ACTION = 'calculations/ANNUAL_CALCULATED_OPTION_3_ACTION';
+const CALCULATE_FINAL_ANNUAL_TAX_ACTION = 'calculations/CALCULATE_FINAL_ANNUAL_TAX_ACTION';
+
+
+
+const INCOME_TAX_ACTION = 'calculations/INCOME_TAX_ACTION';
+const BASE_ANNUAL_TAX_ACTION = 'calculations/BASE_ANNUAL_TAX_ACTION';
+
+
+
 const ANNUAL_TAX_VALUE_TOTAL_ACTION = 'calculations/ANNUAL_TAX_VALUE_TOTAL_ACTION';
 const ANNUAL_ALL_ACTION = 'calculations/ANNUAL_ALL_ACTION';
 const ANNUAL_TAX_EMPLOYEES_ACTION = 'calculations/ANNUAL_TAX_EMPLOYEES_ACTION';
@@ -140,7 +139,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/calculationsPanel.png'),
+    image: require('../../../assets/images/calculationImage1.jpg'),
     icons: require('../../../assets/images/calculatorCalculations.png'),
     input: 0,
     func: 'salaryCalculator',
@@ -184,7 +183,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage2.jpg'),
     icons: require('../../../assets/images/caseCalculations.png'),
     input: 0,
     func: 'temporaryPermanentJobsCalculator',
@@ -218,7 +217,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage3.jpg'),
     icons: require('../../../assets/images/calendarCalculations.png'),
     input: 0,
     input2: 0,
@@ -240,10 +239,13 @@ const initialState = {
       annualTaxValue: null,
       annualTaxValueTotal: null,
       contributionsEmployees: null,
+      incomeTax: null,
+      baseAnnualTax: null,
       baseForTaxation: null,
       all: null,
       finnalAnnualTax: null,
       annualTaxEmployees: null,
+      option3Result: null,
       socialContributions: {
         value: null,
         pensionContribution: null,
@@ -264,7 +266,7 @@ const initialState = {
       rs: 'Dnevnice'
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/panel05.png'),
+    image: require('../../../assets/images/calculationImage4.jpg'),
     icons: require('../../../assets/images/walletCalculations.png'),
     input: 0,
     func: 'allowance',
@@ -294,7 +296,7 @@ const initialState = {
       en: 'aj',
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
-    image: require('../../../assets/images/panel05.png'),
+    image: require('../../../assets/images/calculationImage5.jpg'),
     icons: require('../../../assets/images/manUser.png'),
     input: 0,
     func: 'lease',
@@ -377,7 +379,7 @@ const initialState = {
       rs: ''
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: require('../../../assets/images/imageCalculation.png'),
+    image: require('../../../assets/images/calculationImage6.jpg'),
     icons: require('../../../assets/images/onlyTax.png'),
     input: 0,
     func: 'contractTax',
@@ -1342,6 +1344,32 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+
+
+
+  action.type === INCOME_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        incomeTax: action.value,
+      }
+    }
+  }) :
+  action.type === BASE_ANNUAL_TAX_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        baseAnnualTax: action.value,
+      }
+    }
+  }) :
+
+
+
   action.type === ANNUAL_TAX_VALUE_TOTAL_ACTION ? ({
     ...state,
     calculation: {
@@ -1392,7 +1420,18 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-  action.type === FINAL_ANNUAL_TAX_ACTION ? ({
+  action.type === ANNUAL_CALCULATED_OPTION_3_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        option3Result: action.value
+      }
+    }
+  }) :
+
+  action.type === CALCULATE_FINAL_ANNUAL_TAX_ACTION ? ({
     ...state,
     calculation: {
       ...state.calculation,
@@ -1402,6 +1441,11 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
+
+
+
+
+
   // Lease
   action.type === SAVE_LEASE_ACTION ? ({
     ...state,
@@ -1529,19 +1573,11 @@ export const saveSalaryNetGrossHealthContributionAction = value => ({ type: SAVE
 export const saveSalaryNetGrossInsuranceContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_INSURANCE_CONTRIBUTION_ACTION, value });
 export const saveSalaryNetGrossAction = value => ({ type: SAVE_SALARY_NET_GROSS_ACTION, value });
 export const saveSalaryNetGrossPensionAction = value => ({ type: SAVE_SALARY_NET_GROSS_PENSION_ACTION, value });
-
 export const saveSalaryNetGrossContributionEmployerAction = value => ({ type: SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYER_ACTION, value });
-
 export const saveSalaryNetGrossContributionEmployeeAction = value => ({ type: SAVE_SALARY_NET_GROSS_CONTRIBUTION_EMPLOYEE_ACTION, value });
-
-
-
 export const saveSalaryNetGrossTotalAction = value => ({ type: SAVE_SALARY_NET_GROSS_TOTAL_ACTION, value });
 export const saveSalaryNetGrossBaseContributionAction = value => ({ type: SAVE_SALARY_NET_GROSS_BASE_CONTRIBUTION_ACTION, value });
 export const saveSalaryNetGrossTotalCostAction = value => ({ type: SAVE_SALARY_NET_GROSS_TTOTAL_COST_ACTION, value });
-
-
-
 
 // Temporary Permanent JOBS
 export const saveTempPermJobsAction = value => ({ type: SAVE_TEM_PERM_JOBS_ACTION, value });
@@ -1611,6 +1647,14 @@ export const annualEmployerInsuranceAction = value => ({ type: ANNUAL_EMPLOYER_I
 export const annualTotalValueAction = value => ({ type: ANNUAL_TOTAL_VALUE_ACTION, value });
 export const monthlyNet12ValueAction = value => ({ type: MONTHLY_NET12_VALUE_ACTION, value });
 export const contributionsEmployeesAction = value => ({ type: CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION, value });
+export const incomeTaxAction = value => ({ type: INCOME_TAX_ACTION, value });
+export const baseAnnualTaxAction = value => ({ type: BASE_ANNUAL_TAX_ACTION, value });
+export const annualCalculatedOption3Action = value => ({ type: ANNUAL_CALCULATED_OPTION_3_ACTION, value });
+export const calculateFinalAnnulTaxAction = value => ({ type: CALCULATE_FINAL_ANNUAL_TAX_ACTION, value });
+
+
+
+
 export const annualTaxValueTotalAction = value => ({ type: ANNUAL_TAX_VALUE_TOTAL_ACTION, value });
 export const annualAllAction = value => ({ type: ANNUAL_ALL_ACTION, value });
 export const annualTaxEmployeesAction = value => ({ type: ANNUAL_TAX_EMPLOYEES_ACTION, value });

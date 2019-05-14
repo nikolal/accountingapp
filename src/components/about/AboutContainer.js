@@ -82,8 +82,8 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Our Company',
-      rs: 'O kompaniji'
+      en: 'HLB T&M Consulting',
+      rs: 'HLB T&M Consulting'
     },
     clientType: 'noClients',
     subTitle: {
@@ -108,6 +108,13 @@ const initialState = {
         en: 'HLB T&M Consulting serves clients in Serbia and worldwide as a direct part of the group HLB International, which was formed in London in 1969. Group is ranked among the top 15 global financial networks with more than 660 independent accounting and advisory offices in over 140 countries around the world.',
         rs: 'Navedene usluge pružamo velikom broju klijenata, počev od velikih međunarodnih kompanija koje posluju u Srbiji pa do malih i srednjih domaćih preduzeća. Naš tim čine stručnjaci koji su prethodno iskustvo sticali u vodećim međunarodnim kompanijama koje posluju u oblasti revizije, računovodstva i poreskog savetovanja.'
       }
+    },
+    {
+      type: 'headline',
+      value: {
+        en: 'HLB International',
+        rs: 'HLB International'
+        }
     },{
       type: 'text',
       value: {

@@ -12,7 +12,7 @@ import {
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
-  annualTotalValueAction, monthlyNet12ValueAction, contributionsEmployeesAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin,
+  annualTotalValueAction, contributionsEmployeesAction, incomeTaxAction, baseAnnualTaxAction, annualCalculatedOption3Action, calculateFinalAnnulTaxAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin,
   saveLeaseAction, calculateCourseEuroAction, rsdConvertedActioin, grossInputValueAction, euroInputValueAction, calculateGrossLeaseAction, calculateNonTaxableLeaseAction, calculateBaseLeaseAction, calculateLeaseTaxFinalAction
   } from './CalculationsContainer';
 import SalaryCalculator from './salary/SalaryCalculator';
@@ -149,14 +149,14 @@ class CalculationDetail1 extends Component {
     this.props.saveSalaryNetGrossTotalCostAction(this.saveSalaryNetGrossTotalCost(val));
   };
 
-  saveSalaryNetGrossBaseIndex = val => this.saveSalaryNetGross(val) - 15000;
-  saveSalaryNetGrossTax = val => (this.saveSalaryNetGross(val) - 15000) * 0.1;
+  saveSalaryNetGrossBaseIndex = val => this.saveSalaryNetGross(val) - 15000; // D14 - H4
+  saveSalaryNetGrossTax = val => (this.saveSalaryNetGross(val) - 15000) * 0.1; // D15 x 10%
   saveSalaryNetGrossBaseContribution = val => (this.saveSalaryNetGross(val) < 329330 ? this.saveSalaryNetGross(val) : 329330)
   saveSalaryNetGrossPensionContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.14);
   saveSalaryNetGrossHealthContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.0515);
   saveSalaryNetGrossInsuranceContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.0075);
   saveSalaryNetGrossPension = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.12);
-  saveSalaryNetGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
+  saveSalaryNetGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701)) //D14
   saveSalaryNetGrossContributionEmployer = val => (this.saveSalaryNetGrossPensionContribution(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
   saveSalaryNetGrossContributionEmployee = val => (this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
   saveSalaryNetGrossTotalCost = val => (this.saveSalaryNetGross(val) + this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
@@ -331,50 +331,48 @@ class CalculationDetail1 extends Component {
     this.props.annualEmployerHealthAction(this.annualEmployerHealth(val));
     this.props.annualEmployerInsuranceAction(this.annualEmployerInsurance(val));
     this.props.annualTotalValueAction(this.annualTotalValue(val));
-    this.props.monthlyNet12ValueAction(this.monthlyNet12Value(val));
     this.props.contributionsEmployeesAction(this.contributionsEmployees(val));
-    this.props.annualTaxValueTotalAction(this.annualTaxValueTotal(val));
-    this.props.annualAllAction(this.annualAll(val));
-    this.props.annualTaxEmployeesAction(this.annualTaxEmployees(val));
+
+
+    this.props.annualCalculatedOption3Action(this.izracunajProcenteOpcije3(val));
+    this.props.calculateFinalAnnulTaxAction(this.calculateFinalAnnulTax(val));
   };
 
-  annualGross = val => val
 
 
-  // annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701))
-  baseForTax = val => (this.annualGross(val) - 15000);
-  taxOnEarning = val => (this.baseForTax(val) * 0.1);
-  baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330)
+  annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701)) // Bruto
+  baseForTax = val => (this.annualGross(val) - 15000); // Osnovica za obracun poreza na zarade
+  taxOnEarning = val => (this.baseForTax(val) * 0.1); // Porez na zarade 10%
+  baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330) // Osnovica za obracun socijalnih doprinosa
   annualPension = val => (this.baseForSocialContribution(val) * 0.14);
   annualHealth = val => (this.baseForSocialContribution(val) * 0.0515);
   annualInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
   annualEmployerPension = val => (this.baseForSocialContribution(val) * 0.12);
   annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
   annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
-  annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val));
+  annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val)); // ukupan obracun
 
-  monthlyNet12Value = val => (this.annualGross(val) - (this.annualInsurance(val) + this.annualHealth(val) + this.annualPension(val) + this.taxOnEarning(val))) * 12;
+  contributionsEmployees = val => ((val * 12) - (15000 * 12)); // Godisnji neto, neoporezivo
 
-  contributionsEmployees = val => ((this.annualGross(val) * 12) - (15000 * 12));
-  annualTaxValueTotal = val => (this.taxOnEarning(val) + (this.annualPension(val) + this.annualHealth(val) + this.annualInsurance(val))) * 12;
-  annualAll = val => (this.contributionsEmployees(val) - this.annualTaxValueTotal(val)) // toFixed(2)
-  annualTaxEmployees = val => (this.annualAll(val) < 2375136 ? 0 : this.biggerThan2375136Tax(val));
-biggerThan2375136Tax = val => (this.annualAll(val) - 2375136);
+  dohodakZaOporezivanje = val => (this.contributionsEmployees(val) - 2375136) // dohodak na oporezivanje - (B5-F2)
 
-  calculateFinalAnnualTax = val => {
-    this.props.finalAnnualTaxActioin(this.finalTax(val));
+  calculateFinalAnnulTax = val => (this.dohodakZaOporezivanje(val) < 0 ? 0 : this.calculateFinalAnnul(val)) // ? u minusu porez je 0 : POCETAK
+
+
+  licniOdbici = () => (316685 + (this.props.calculation.input2 * 118757))
+
+  calculateFinalAnnul = val => (this.licniOdbici() < (this.dohodakZaOporezivanje(val) / 2) ? this.uslovOpcije1(val) : this.opcije2DrugiSlucaj(val))
+
+  uslovOpcije1 = val => (this.dohodakZaOporezivanje(val) - this.licniOdbici()) < 4750272 ? ((this.dohodakZaOporezivanje(val) - this.licniOdbici()) * 0.1) : this.izracunajProcenteOpcije3(val)
+
+  opcije2DrugiSlucaj = val => (this.dohodakZaOporezivanje(val) / 2) < 4750272 ? (this.dohodakZaOporezivanje(val) / 2) * 0.1 : this.izracunajProcenteOpcije3(val)
+
+  //
+  izracunajProcenteOpcije3 = val => {
+    return (
+      (((this.dohodakZaOporezivanje(val) - this.licniOdbici() - 4750272) * 0.15)) + (4750272 * 0.1)
+    );
   }
-
-  // Ovako je u onoj EY
-  // finalTax = val =>
-  //   (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
-
-
-// ovo je po Milkinoj kalkulaciji
-finalTax = val =>
-  this.annualAll(val) < 4750272 ? (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.1
-  : (this.annualTaxEmployees(this.props.calculation.input) - (this.calculateFamilyNumber(this.props.calculation.input2) + 316685)) * 0.15 + 4750272 * 0.1
-
 
 
 /********
@@ -408,8 +406,6 @@ finalTax = val =>
   closeModal = () => this.setState({ showResult: false })
 
   render () {
-    console.log(this.props.calculation);
-
     // const {
     //   calculation, saveGrossValueAction, saveNetValueAction, //eslint-disable-line
     //   saveSalaryGrossNetBaseIndexAction, saveSalaryGrossNetTaxAction, saveSalaryGrossNetPensionContributionAction, saveSalaryGrossNetHealthContributionAction, saveSalaryGrossNetInsuranceContributionAction, saveSalaryGrossNetAction, saveSalaryGrossNetPensionAction, saveSalaryGrossNetTotalAction, //eslint-disable-line
@@ -630,8 +626,17 @@ const dispatchToProps = dispatch => ({
   annualEmployerHealthAction: bindActionCreators(annualEmployerHealthAction, dispatch),
   annualEmployerInsuranceAction: bindActionCreators(annualEmployerInsuranceAction, dispatch),
   annualTotalValueAction: bindActionCreators(annualTotalValueAction, dispatch),
-  monthlyNet12ValueAction: bindActionCreators(monthlyNet12ValueAction, dispatch),
   contributionsEmployeesAction: bindActionCreators(contributionsEmployeesAction, dispatch),
+
+  incomeTaxAction: bindActionCreators(incomeTaxAction, dispatch),
+  baseAnnualTaxAction: bindActionCreators(baseAnnualTaxAction, dispatch),
+  annualCalculatedOption3Action: bindActionCreators(annualCalculatedOption3Action, dispatch),
+  calculateFinalAnnulTaxAction: bindActionCreators(calculateFinalAnnulTaxAction, dispatch),
+
+
+
+
+
   annualTaxValueTotalAction: bindActionCreators(annualTaxValueTotalAction, dispatch),
   annualAllAction: bindActionCreators(annualAllAction, dispatch),
   annualTaxEmployeesAction: bindActionCreators(annualTaxEmployeesAction, dispatch),

@@ -79,7 +79,6 @@ class News extends Component {
               blurRadius={5}
             >
             <View style={styles.textContainerFirstItem}>
-              <Text style={styles.authorFirstItem}>{item.author[this.props.language]}</Text>
               <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title[this.props.language]}</Text>
               <Text style={styles.dateTextFirstItem}>{item.date}</Text>
             </View>
@@ -97,8 +96,7 @@ class News extends Component {
             </View>
             <View style={styles.textContainer}>
               <View style={styles.hlbContainer}>
-                <View style={styles.hlbCircle}><Text style={styles.hlbText}>HLB</Text></View>
-                <Text style={styles.hlbConsultingText}>Consulting</Text>
+                <Text style={styles.secondItem}>{item.author[this.props.language]}</Text>
                 <Image source={images.share} style={styles.shareImage} />
               </View>
               <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
@@ -195,15 +193,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  hlbCircle: {
-    backgroundColor: colors.black,
-    padding: 3,
-    borderRadius: 10,
-    marginRight: metrics.medium
-  },
-  hlbText: {
-    color:  colors.white,
-    fontSize: 10
+  secondItem: {
+    color: '#189FAB',
   },
   hlbConsultingText: {
     fontSize: 12,
@@ -212,9 +203,11 @@ const styles = StyleSheet.create({
   shareImage: {
     height: metrics.medium,
     width: metrics.medium,
+    marginLeft: metrics.huge,
     // alignSelf: 'flex-end'
   },
   dateText: {
     fontSize: fonts.size.tiny,
+    color: '#189FAB',
   }
 });

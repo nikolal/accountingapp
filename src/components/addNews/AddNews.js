@@ -37,7 +37,7 @@ class AddNews extends Component {
 
   handleErr = () =>
     this.state.newsItem.author.rs.length === 0 ?
-      'Unesite autora' :
+      'Unesite oblast' :
     this.state.newsItem.author.en.length === 0 ?
       'Please enter author' :
     this.state.newsItem.title.rs.length === 0 ?

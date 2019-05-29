@@ -11,7 +11,8 @@ const fonts = {
   weight: {
     small: '200',
     medium: '400',
-    large: '600'
+    large: '600',
+    huge: '900'
   }
 };
 

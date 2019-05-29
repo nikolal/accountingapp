@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
-import { metrics, colors, fonts } from '../../../theme';
+import { metrics, colors, fonts, images } from '../../../theme';
 
 class SalaryResult extends Component {
   // console.log(this.props.calculation.grossSalary)
@@ -11,76 +11,90 @@ class SalaryResult extends Component {
   render() {
     const { calculation, localeString } = this.props;
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-                <Text style={styles.text}>?: </Text> :
-                <Text style={styles.text}>Obračun za bruto zaradu: </Text>
-            }
-            <Text style={styles.number}>{
-              calculation.grossSalary.value && calculation.grossSalary.value
-              .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
-        </View>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-                <Text style={styles.text}>???</Text> :
-                <Text style={styles.text}>Porez na zarade</Text>
+      <View style={styles.maincontainer}>
+
+        <ImageBackground
+           source={images.background}
+           style={styles.imageBackground}
+         >
+
+           {
+             this.props.calculation.type === 'grossToNet' ?
+               <View style={styles.calculTextContainer}>
+                 {
+                   this.props.language === 'en' ?
+                     <Text style={styles.calculText}>????</Text> :
+                     <Text style={styles.calculText}>Obračun bruto zarada za:</Text>
+                 }
+                 <Text style={styles.numberInput}>{
+                   calculation.grossSalary.value && calculation.grossSalary.value
+                   .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+               </View> : null
+           }
+           </ImageBackground>
 
 
-            }
-            <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
-        </View>
-        <View style={styles.itemContainer}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-                <View style={{flexDirection: 'column'}}>
-                  <Text style={styles.text}>?:</Text>
-                  <Text style={styles.text}>??</Text>
-                </View> :
-                <View style={{flexDirection: 'column'}}>
-                  <Text style={styles.text}>Doprinosi na teret:</Text>
-                  <Text style={styles.text}> Poslodavca</Text>
-                </View>
+         <View style={styles.container}>
+          <ScrollView>
+            <View style={styles.itemContainerDark}>
+              <View style={styles.innerContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <Text style={styles.text}>???</Text> :
+                    <Text style={styles.text}>Porez na zarade</Text>
 
-            }
-            <Text style={styles.number}>{calculation.totalContributionsEmployer && calculation.totalContributionsEmployer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
-        </View>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-                <View style={{flexDirection: 'column'}}>
-                  <Text style={styles.text}>?:</Text>
-                  <Text style={styles.text}>??</Text>
-                </View> :
-                <View style={{flexDirection: 'column'}}>
-                  <Text style={styles.text}>Doprinosi na teret:</Text>
-                  <Text style={styles.text}> Zaposlenog</Text>
-                </View>
 
-            }
-            <Text style={styles.number}>{calculation.totalContributionsEmployee && calculation.totalContributionsEmployee.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
+                }
+                <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+              </View>
+            </View>
+            <View style={styles.itemContainer}>
+              <View style={styles.innerContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <View style={{flexDirection: 'column'}}>
+                      <Text style={styles.text}>?:</Text>
+                      <Text style={styles.text}>??</Text>
+                    </View> :
+                    <View style={{flexDirection: 'column'}}>
+                      <Text style={styles.text}>Doprinosi na teret:</Text>
+                      <Text style={styles.text}> Poslodavca</Text>
+                    </View>
+
+                }
+                <Text style={styles.number}>{calculation.totalContributionsEmployer && calculation.totalContributionsEmployer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+              </View>
+            </View>
+            <View style={styles.itemContainerDark}>
+              <View style={styles.innerContainer}>
+                {
+                  this.props.language === 'en' ?
+                    <View style={{flexDirection: 'column'}}>
+                      <Text style={styles.text}>?:</Text>
+                      <Text style={styles.text}>??</Text>
+                    </View> :
+                    <View style={{flexDirection: 'column'}}>
+                      <Text style={styles.text}>Doprinosi na teret:</Text>
+                      <Text style={styles.text}> Zaposlenog</Text>
+                    </View>
+
+                }
+                <Text style={styles.number}>{calculation.totalContributionsEmployee && calculation.totalContributionsEmployee.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+              </View>
+            </View>
+            <View style={styles.itemContainerDark}>
+              <View style={styles.innerContainer}>
+                {
+                  this.props.language === 'en' ?
+                  <Text style={styles.text}>??</Text> :
+                  <Text style={styles.text}>Ukupan trošak zarade</Text>
+                }
+                <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+              </View>
+            </View>
+          </ScrollView>
         </View>
-        <View style={styles.itemContainerDark}>
-          <View style={styles.innerContainer}>
-            {
-              this.props.language === 'en' ?
-              <Text style={styles.text}>??</Text> :
-              <Text style={styles.text}>Ukupan trošak zarade</Text>
-            }
-            <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-          </View>
-        </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -93,10 +107,28 @@ const stateToProps = state => ({
 export default connect(stateToProps, null)(SalaryResult);
 
 const styles = StyleSheet.create({
+  maincontainer: {
+    flex: 1
+  },
   container: {
     flex: 1,
-    backgroundColor: colors.white,
-    paddingTop: metrics.large,
+  },
+  imageBackground: {
+    height: Dimensions.get('window').height / 2.9,
+    justifyContent: 'flex-end',
+  },
+  calculText: {
+    fontFamily: 'openSansRegular',
+    marginLeft: metrics.medium,
+    color: colors.white,
+    fontSize: fonts.size.hugeToExtra,
+  },
+  numberInput: {
+    marginLeft: metrics.medium,
+    marginBottom: metrics.large,
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.hugeToExtra,
+    color: '#47d6e2'
   },
   itemContainer: {
     backgroundColor: colors.white

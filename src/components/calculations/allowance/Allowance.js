@@ -17,9 +17,7 @@ class Allowance extends Component {
           style={styles.inputsContainer}
           behavior="padding"
         >
-
         <ImageBackground source={images.background} style={styles.image}>
-
           {
             this.props.calculation.type === 'allowanceHome' ?
               <View style={styles.calculTextContainer}>
@@ -51,9 +49,6 @@ class Allowance extends Component {
                 }
               </View> : null
           }
-
-
-
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.buttons}

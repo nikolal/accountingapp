@@ -328,13 +328,13 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Income tax',
+      en: 'Profit tax',
       rs: 'Porez na dobit'
     },
     date: '30.04.2018',
     paragraphs: [{
       text: {
-        en: 'Income tax legal entities',
+        en: 'Profit tax for legal entities',
         rs: 'Porez na dobit pravna lica'
       },
       percentage: {
@@ -343,7 +343,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Income tax entrepreneurs',
+        en: 'Profit tax for enterpreneurs',
         rs: 'Porez na dobit preduzetnici'
       },
       percentage: {
@@ -353,7 +353,7 @@ const initialState = {
     },{
       text: {
         en: 'Tax deductible',
-        rs: 'Porez po odbitku kamate'
+        rs: 'Witholding tax on interest'
       },
       percentage: {
         en: '20%',
@@ -361,7 +361,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax on deduction of services provided or used in Serbia',
+        en: 'Witholding tax on services provided or used in Serbia',
         rs: 'Porez po odbitku usluge koje se pružaju ili koriste u Srbiji'
       },
       percentage: {
@@ -370,7 +370,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax after deduction of dividends',
+        en: 'Witholding tax on dividends',
         rs: 'Porez po odbitku dividende'
       },
       percentage: {
@@ -379,7 +379,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax on deduction lease of immovable property',
+        en: 'Witholding tax on lease of immovable property',
         rs: 'Porez po odbitku zakup nepokretnosti'
       },
       percentage: {
@@ -469,7 +469,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'The amount of REPRESENTATION that can be recognized/ total income',
+        en: 'The amount of representation that can be recognized / total income',
         rs: 'Iznos reprezentacije koji se može priznati / ukupni prihodi'
       },
       percentage: {
@@ -532,7 +532,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '.......',
+        en: 'Relation between debt and capital for the evaluation of tin capitalization for legal entities',
         rs: 'Odnos kapitala i duga kod procene utanjene kapitalizacije za privredna drustva'
       },
       percentage: {
@@ -541,8 +541,8 @@ const initialState = {
       }
     },{
       text: {
-        en: '?????????',
-        rs: 'Odnos duga i kapitala kod procene ????  kapitalizacije za banke'
+        en: 'Relation between debt and capital for the evaluation of tin capitalization for banks',
+        rs: 'Odnos duga i kapitala kod procene utanjene kapitalizacije za banke'
       },
       percentage: {
         en: '1:10',
@@ -800,86 +800,86 @@ const initialState = {
     }]
   },{
     title: {
-      en: '??????',
+      en: 'Tax',
       rs: 'Porezi na imovinu'
     },
     date: '30.04.2018',
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: '??',
+        en: 'Tax rates for immovable assets of tax payer in a bookkeeping system',
         rs: 'Stope poreza na nepokretnosti poreskog obveznika koji vodi poslovne knjige'
       },
       percentage: {
-        en: 'do 0.4%',
+        en: 'up to 0.4%',
         rs: 'do 0.4%'
       }
     },{
       text: {
-        en: '????',
+        en: 'Tax rates for land of tax payer not in a bookkeeping system',
         rs: 'Stope poreza na zemljištu kod obveznika koji ne vodi poslovne knjige'
       },
       percentage: {
-        en: 'do 0.3%',
+        en: 'up to 0.3%',
         rs: 'do 0.3%'
       }
     },{
       text: {
-        en: '????',
+        en: 'Tax rates for immovable assets of tax payer not in a bookkeeping system',
         rs: 'Stope poreza na nepokretnosti poreskog obveznika koji ne vodi poslovne knjige (osim zemljišta):'
       },
       percentage: {
-        en: '',
-        rs: ''
+        en: '?',
+        rs: '?'
       }
     },{
       text: {
-        en: '????',
-        rs: 'do poreske osnoviceod 10.000.000 RSD'
+        en: 'Up to the tax base of 10,000,000 rsd',
+        rs: 'Do poreske osnovice od 10.000.000 rsd'
       },
       percentage: {
-        en: 'do 0.4%',
+        en: 'up to 0.4%',
         rs: 'do 0.4%'
       }
     },{
       text: {
-        en: '???',
-        rs: 'od 10.000.000 do 25.000.000'
+        en: 'From 10.000.000 rsd to 25.000.000 rsd (u srpskoj veryziji dodaj ovo rsd)',
+        rs: 'Od 10.000.000 do 25.000.000'
       },
       percentage: {
-        en: '+ 0.6%',
-        rs: '+ 0.6%'
+        en: '+0.6%',
+        rs: '+0.6%'
       }
     },{
       text: {
-        en: '????',
-        rs: 'od 25.000.000 d0 50.000.000'
+        en: 'From 25.000.000 to 50.000.000 rsd',
+        rs: 'Od 25.000.000 do 50.000.000 rsd'
       },
       percentage: {
-        en: '+ 1.0%',
-        rs: '+ 1.0%'
+        en: '+1.0%',
+        rs: '+1.0%'
       }
     },{
       text: {
-        en: '????',
-        rs: 'preko 50.000.000'
+        en: 'More than 50.000.000 rsd',
+        rs: 'preko 50.000.000 rsd'
       },
       percentage: {
-        en: '+ 2.0%',
-        rs: '+ 2.0%'
+        en: '+2.0%',
+        rs: '+2.0%'
       }
     },{
       text: {
-        en: '????',
-        rs: 'Stopa poreza na nasleđe i poklon:'
+        en: 'Tax rates for gifts and inherit',
+        rs: 'Stopa poreza na nasleđe i poklon'
       },
       percentage: {
-        en: '',
-        rs: ''
+        en: '?',
+        rs: '?'
       }
     },{
       text: {
-        en: '????',
+        en: 'Tax payer which are in the second inherit line',
         rs: 'Obveznici koji se nalaze u drugom naslednom redu'
       },
       percentage: {
@@ -888,7 +888,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '????',
+        en: 'Tax payers which are in third inherit line',
         rs: 'Obveznici koji se nalaze u trećem naslednom redu'
       },
       percentage: {
@@ -897,7 +897,7 @@ const initialState = {
       }
     },{
       text: {
-        en: '????',
+        en: 'Tax rate for transfer of absolute rights',
         rs: 'Stopa poreza za prenos apsolutnih prava'
       },
       percentage: {

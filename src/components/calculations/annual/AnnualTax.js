@@ -27,8 +27,8 @@ class AnnualTax extends Component {
           <View style={styles.calculTextContainer}>
             {
               this.props.language === 'en' ?
-                <Text style={styles.calculText}>Godišnji porez</Text> :
-                <Text style={styles.calculText}>Godišnji porez</Text>
+                <Text style={styles.calculText}>????</Text> :
+                <Text style={styles.calculText}>Godišnji porez na dohodak</Text>
             }
             <Text style={styles.calculText}>(RSD)</Text>
           </View>

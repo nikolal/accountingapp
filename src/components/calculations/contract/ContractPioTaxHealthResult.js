@@ -18,36 +18,6 @@ const ContractPioTaxHealthResult = ({ calculation }) => {
           <Text style={styles.number}>{calculation.contractPioTaxHealth.gross.toFixed(2)}</Text>
         </View>
       </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Neoporezivo - 20%</Text>
-          <Text style={styles.number}>{calculation.contractPioTaxHealth.nontaxable.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Osnovica za oporezivanje</Text>
-          <Text style={styles.number}>{calculation.contractPioTaxHealth.base.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez 20%</Text>
-          <Text style={styles.number}>{calculation.contractPioTaxHealth.tax.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>PIO 26%</Text>
-          <Text style={styles.number}>{calculation.contractPioTaxHealth.pension.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainerDark}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Doprinos za zdravstvo</Text>
-          <Text style={styles.number}>{calculation.contractPioTaxHealth.contribution.toFixed(2)}</Text>
-        </View>
-      </View>
     </ScrollView>
   );
 };

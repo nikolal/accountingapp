@@ -18,24 +18,6 @@ const ContractTaxResult = ({ calculation }) => {
           <Text style={styles.number}>{calculation.contractTax.gross.toFixed(2)}</Text>
         </View>
       </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Neoporezivo - 20%</Text>
-          <Text style={styles.number}>{calculation.contractTax.nontaxable.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Osnovica za oporezivanje</Text>
-          <Text style={styles.number}>{calculation.contractTax.base.toFixed(2)}</Text>
-        </View>
-      </View>
-      <View style={styles.itemContainer}>
-        <View style={styles.innerContainer}>
-          <Text style={styles.text}>Porez 20%</Text>
-          <Text style={styles.number}>{calculation.contractTax.tax.toFixed(2)}</Text>
-        </View>
-      </View>
     </ScrollView>
   );
 };

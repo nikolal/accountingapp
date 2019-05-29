@@ -52,7 +52,7 @@ class TemporaryPermanentJobsCalculator extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Uneti neto izons zarade (rsd)"
+                      placeholder="Untesite neto iznos zarade (rsd)"
                       placeholderTextColor="black"
                     />
                 }

@@ -120,13 +120,13 @@ class CalculationDetail1 extends Component {
     this.props.totalSalaryGrossToNetContributionsEmployeeAction(this.totalSalaryGrossToNetContributionsEmployee(val));
   };
 
-  saveSalaryGrossNetBaseIndex = val => (val - 15000);
-  saveSalaryGrossNetTax = val => ((val - 15000) * 0.1);
+  saveSalaryGrossNetBaseIndex = val => (val - 15300);
+  saveSalaryGrossNetTax = val => ((val - 15300) * 0.1);
   saveSalaryGrossNetPensionContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.14);
   saveSalaryGrossNetHealthContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0515);
   saveSalaryGrossNetInsuranceContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0075);
   saveSalaryGrossNetPension = val => (this.saveSalaryGrossNetSocialBase(val) * 0.12);
-  saveSalaryGrossNetSocialBase = val => (val < 329330 ? val : 329330)
+  saveSalaryGrossNetSocialBase = val => (val < 341725 ? val : 341725)
   saveSalaryGrossNetTotal = val => (val + this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val));
   saveSalaryGrossNetTotalNet = val => (val - this.saveSalaryGrossNetTax(val) - (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val)));
   totalSalaryGrossToNetContributions = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))

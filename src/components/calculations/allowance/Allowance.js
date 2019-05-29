@@ -105,7 +105,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="UEngl (eur)"
+                      placeholder="Unesite NETO dnevnice u inostranstvu (eur)"
                       placeholderTextColor="black"
                     /> :
                   this.props.calculation.type === 'allowanceHome' && this.props.language === 'rs' ?

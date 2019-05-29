@@ -19,7 +19,7 @@ class SalaryResult extends Component {
             {
               this.props.language === 'en' ?
                 <Text style={styles.text}>Gross</Text> :
-                <Text style={styles.text}>Bruto zarada</Text>
+                <Text style={styles.text}>Bruto zarada (rsd)</Text>
             }
             <Text style={styles.number}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
@@ -28,7 +28,7 @@ class SalaryResult extends Component {
           <View style={styles.innerContainer}>
             <View style={{flexDirection: 'column'}}>
             <Text style={styles.text}>Doprinosi na zarade</Text>
-            <Text style={styles.text}>na teret zaposlenog</Text>
+            <Text style={styles.text}>na teret zaposlenog (rsd)</Text>
           </View>
             <Text style={styles.number}>{calculation.tempPermJobsgross.firstData.employees.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
@@ -37,14 +37,14 @@ class SalaryResult extends Component {
           <View style={styles.innerContainer}>
             <View style={{flexDirection: 'column'}}>
             <Text style={styles.text}>Doprinosi na zarade</Text>
-            <Text style={styles.text}>na teret poslodavca</Text>
+            <Text style={styles.text}>na teret poslodavca (rsd)</Text>
           </View>
           <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>
         <View style={styles.itemContainer}>
           <View style={styles.innerContainer}>
-            <Text style={styles.text}>Ukupan izdatak</Text>
+            <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
           <Text style={styles.number}>{calculation.tempPermJobsgross.secondData.employerTotal.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
           </View>
         </View>

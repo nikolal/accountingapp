@@ -44,7 +44,7 @@ class Lease extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite dinarsku neto mesecnu zaradu"
+                      placeholder=" Unestite neto iznos koji se plaća fizičkom licu (rsd)"
                       placeholderTextColor="black"
                     />
                 }

@@ -211,7 +211,7 @@ const initialState = {
     },{
     name: {
       en: 'lll',
-      rs: 'Godisnji porez'
+      rs: 'Godisnji porez na dohodak'
     },
     description: {
       en: 'aj',

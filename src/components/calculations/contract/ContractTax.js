@@ -28,7 +28,10 @@ const ContractTax = props => {
             {
               props.language === 'en' ?
               <Text style={styles.buttonGrossNetText}>Tax</Text> :
-              <Text style={styles.buttonGrossNetText}>Tax</Text>
+              <View>
+                <Text style={styles.buttonGrossNetText}>Tax</Text>
+                <Text style={styles.buttonGrossNetText} />
+              </View>
             }
             {
               props.calculation.func === 'contractTax' ?
@@ -42,7 +45,10 @@ const ContractTax = props => {
             {
               props.language === 'en' ?
                 <Text style={styles.buttonGrossNetText}>Tax Pio</Text> :
-                <Text style={styles.buttonGrossNetText}>Tax Pio</Text>
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Porez i</Text>
+                  <Text style={styles.buttonGrossNetText}>PIO</Text>
+                </View>
             }
             {
               props.calculation.func === 'contractPioTax' ?
@@ -56,7 +62,7 @@ const ContractTax = props => {
             {
               props.language === 'en' ?
                 <Text style={styles.buttonGrossNetText}>Tax Pio Health</Text> :
-                <Text style={styles.buttonGrossNetText}>Tax pio health</Text>
+                <Text style={styles.buttonGrossNetText}>Porez, PIO, zdravstveno</Text>
             }
             {
               props.calculation.func === 'contractPioTaxHealth' ?
@@ -79,7 +85,7 @@ const ContractTax = props => {
                 style={styles.inputText}
                 onChangeText={props.saveInput}
                 keyboardType="numeric"
-                placeholder="Unesite NETO iznos plate"
+                placeholder=" Unesite neto iznos koji se isplacuje (rsd)"
                 placeholderTextColor="black"
               />
               <Text>{props.calculation.value}</Text>
@@ -182,12 +188,12 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: 'rgb(151,151,151)',
     borderTopWidth: metrics.tinyBorder,
-    paddingTop: 22,
+    paddingTop: 10,
     backgroundColor: '#08000060'
   },
    trangle: {
      alignSelf: 'center',
-     marginTop: 16,
+     // marginTop: 16,
      width: 0,
      height: 0,
      borderWidth: 6,

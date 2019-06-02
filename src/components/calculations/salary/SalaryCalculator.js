@@ -171,16 +171,16 @@ class SalaryCalculator extends Component {
             visible={this.props.calculation.input !== 0 && this.props.showResult}
             onRequestClose={() => false}>
             <View style={{flex: 1}}>
-
-              <TouchableOpacity
-                style={styles.closeModalIcon}
-                onPress={() => {
-                  this.props.closeModal();
-                  // this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Ionicons name="ios-close" size={40} color="black" />
-              </TouchableOpacity>
-
+              <View style={{backgroundColor: colors.navigator}}>
+                <TouchableOpacity
+                  style={styles.closeModalIcon}
+                  onPress={() => {
+                    this.props.closeModal();
+                    // this.setModalVisible(!this.state.modalVisible);
+                  }}>
+                  <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
+                </TouchableOpacity>
+                </View>
               {
                 this.props.calculation.input !== 0 &&
                 this.props.showResult &&
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     // position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 22,
+    margin: 15,
     width: 50,
     height: 50,
     alignSelf: 'flex-end'

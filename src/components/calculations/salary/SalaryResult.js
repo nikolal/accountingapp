@@ -24,11 +24,35 @@ class SalaryResult extends Component {
                  {
                    this.props.language === 'en' ?
                      <Text style={styles.calculText}>????</Text> :
-                     <Text style={styles.calculText}>Obračun bruto zarada za:</Text>
+                     <View style={styles.backgroundImageTextContainer}>
+                      <Text style={styles.calculText}>Obračun bruto zarada</Text>
+                      <Text style={styles.calculText}>Bruto - Neto</Text>
+                     </View>
                  }
-                 <Text style={styles.numberInput}>{
-                   calculation.grossSalary.value && calculation.grossSalary.value
-                   .toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                 {
+                   this.props.language === 'en' ?
+                     <View style={styles.backgroundImageSmallTextContainer}>
+                      <Text style={styles.calculTextSmallText}>???</Text>
+                      <Text style={styles.numberInput}>
+                       {
+                         calculation.grossSalary.value && calculation.grossSalary.value
+                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
+                       }
+                      </Text>
+                      <Text style={styles.calculTextSmallText}> rsd</Text>
+                     </View> :
+                     <View style={styles.backgroundImageSmallTextContainer}>
+                      <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
+                      <Text style={styles.numberInput}>
+                       {
+                         calculation.grossSalary.value && calculation.grossSalary.value
+                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
+                       }
+                      </Text>
+                      <Text style={styles.calculTextSmallText}> rsd</Text>
+                     </View>
+                 }
+
                </View> : null
            }
            </ImageBackground>
@@ -108,7 +132,7 @@ export default connect(stateToProps, null)(SalaryResult);
 
 const styles = StyleSheet.create({
   maincontainer: {
-    flex: 1
+    flex: 1,
   },
   container: {
     flex: 1,
@@ -119,15 +143,29 @@ const styles = StyleSheet.create({
   },
   calculText: {
     fontFamily: 'openSansRegular',
-    marginLeft: metrics.medium,
     color: colors.white,
-    fontSize: fonts.size.hugeToExtra,
+    fontSize: fonts.size.huge,
+    textAlign: 'center'
+  },
+  calculTextSmallText: {
+    fontFamily: 'openSansRegular',
+    color: colors.white,
+    fontSize: fonts.size.large,
+  },
+  backgroundImageTextContainer: {
+    // position: 'center',
+  },
+  backgroundImageSmallTextContainer: {
+    marginTop: metrics.xxxHuge,
+    marginBottom: metrics.large,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   numberInput: {
     marginLeft: metrics.medium,
-    marginBottom: metrics.large,
     fontFamily: 'openSansRegular',
-    fontSize: fonts.size.hugeToExtra,
+    fontSize: fonts.size.huge,
     color: '#47d6e2'
   },
   itemContainer: {

@@ -60,16 +60,17 @@ class SalaryResult extends Component {
 
          <View style={styles.container}>
           <ScrollView>
-            <View style={styles.itemContainerDark}>
+            <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
                     <Text style={styles.text}>???</Text> :
                     <Text style={styles.text}>Porez na zarade</Text>
-
-
                 }
-                <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                <View style={styles.numberContainerBlue}>
+                  <Text style={styles.numberFirst}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
               </View>
             </View>
             <View style={styles.itemContainer}>
@@ -86,10 +87,13 @@ class SalaryResult extends Component {
                     </View>
 
                 }
-                <Text style={styles.number}>{calculation.totalContributionsEmployer && calculation.totalContributionsEmployer.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                <View style={styles.numberContainer}>
+                  <Text style={styles.number}>{calculation.totalContributionsEmployer && calculation.totalContributionsEmployer.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
               </View>
             </View>
-            <View style={styles.itemContainerDark}>
+            <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
@@ -101,20 +105,33 @@ class SalaryResult extends Component {
                       <Text style={styles.text}>Doprinosi na teret:</Text>
                       <Text style={styles.text}> Zaposlenog</Text>
                     </View>
-
                 }
-                <Text style={styles.number}>{calculation.totalContributionsEmployee && calculation.totalContributionsEmployee.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                <View style={styles.numberContainer}>
+                  <Text style={styles.number}>{calculation.totalContributionsEmployee && calculation.totalContributionsEmployee.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
               </View>
             </View>
-            <View style={styles.itemContainerDark}>
+            <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
                   <Text style={styles.text}>??</Text> :
                   <Text style={styles.text}>Ukupan trošak zarade</Text>
                 }
-                <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                <View style={styles.numberContainer}>
+                  <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
               </View>
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.description}>
+                {this.props.calculation.description[this.props.language]}
+              </Text>
+            </View>
+            <View style={styles.shareButton}>
+            <Text style={styles.shareText}>Podeli</Text>
             </View>
           </ScrollView>
         </View>
@@ -169,28 +186,64 @@ const styles = StyleSheet.create({
     color: '#47d6e2'
   },
   itemContainer: {
-    backgroundColor: colors.white
-  },
-  itemContainerDark: {
-    backgroundColor: colors.veryLightGrey,
+    backgroundColor: colors.white,
   },
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: metrics.hugeToExtrahuge,
     marginHorizontal: metrics.hugeToExtrahuge,
-    borderColor: '#e6e6e6',
-    borderBottomWidth: metrics.tinyBorder,
-    borderTopWidth: metrics.tinyBorder
   },
   text: {
+    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    color: colors.grey
+    color: 'rgb(128,128,128)'
+  },
+  numberContainerBlue: {
+    width: Dimensions.get('window').width / 3.1,
+    borderColor: 'rgb(128,128,128)',
+    borderWidth: 1,
+    borderRadius: metrics.small,
+    padding: metrics.medium,
+    backgroundColor: '#d3f5f8'
+  },
+  numberContainer: {
+    width: Dimensions.get('window').width / 3.1,
+    borderColor: 'rgb(128,128,128)',
+    borderWidth: 1,
+    borderRadius: metrics.small,
+    padding: metrics.medium
+  },
+  numberFirst: {
+    color: 'rgb(128,128,128)',
+
   },
   number: {
     fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
+    fontSize: fonts.size.medium,
     color: '#47d6e2'
+  },
+  descriptionContainer: {
+    paddingHorizontal: metrics.huge,
+    paddingBottom: metrics.huge,
+  },
+  description: {
+    marginTop: metrics.large,
+    fontSize: fonts.size.small,
+    color: 'rgb(128,128,128)'
+  },
+  shareButton: {
+    alignSelf: 'center',
+    width: Dimensions.get('window').width / 4,
+    backgroundColor: '#47d6e2',
+    paddingVertical: metrics.medium,
+    marginBottom: metrics.large
+  },
+  shareText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: fonts.size.large,
+    borderRadius: 5
   }
 });

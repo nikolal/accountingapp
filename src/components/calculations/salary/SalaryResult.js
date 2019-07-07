@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ImageBackground, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
@@ -75,9 +75,6 @@ class SalaryResult extends Component {
               </View>
             </View>
 
-
-
-
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
@@ -135,9 +132,13 @@ class SalaryResult extends Component {
                 {this.props.calculation.description[this.props.language]}
               </Text>
             </View>
-            <View style={styles.shareButton}>
-            <Text style={styles.shareText}>Podeli</Text>
-            </View>
+            <TouchableOpacity style={styles.shareButton}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.shareText}>Share</Text> :
+                <Text style={styles.shareText}>Podeli</Text>
+            }
+            </TouchableOpacity>
           </ScrollView>
         </View>
       </View>

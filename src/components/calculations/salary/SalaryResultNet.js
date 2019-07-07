@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Text, View, Dimensions, StyleSheet, TextInput, KeyboardAvoidingView, ImageBackground, ScrollView } from 'react-native';
+import { Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 
 class SalaryResultNet extends Component {
@@ -138,9 +138,13 @@ class SalaryResultNet extends Component {
                   {this.props.calculation.description[this.props.language]}
                 </Text>
               </View>
-              <View style={styles.shareButton}>
-              <Text style={styles.shareText}>Podeli</Text>
-              </View>
+              <TouchableOpacity style={styles.shareButton}>
+              {
+                this.props.language === 'en' ?
+                  <Text style={styles.shareText}>Share</Text> :
+                  <Text style={styles.shareText}>Podeli</Text>
+              }
+              </TouchableOpacity>
             </ScrollView>
           </View>
         </View>

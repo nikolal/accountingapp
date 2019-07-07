@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-between'
   },
   drawerLogoContainer: {
-    marginTop: 100,
+    marginTop: 80, // ako bude hteo da se prepravi
     marginBottom: metrics.extraHuge,
   },
   drawerLogo: {

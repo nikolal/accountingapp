@@ -33,5 +33,6 @@ const styles = StyleSheet.create({
     color: colors.lightBlue1,
     fontSize: fonts.size.small,
     fontFamily: 'openSansBold',
+    textAlign: 'center'
   }
 });

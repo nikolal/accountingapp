@@ -60,6 +60,7 @@ class SalaryResult extends Component {
 
          <View style={styles.container}>
           <ScrollView>
+
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
@@ -73,6 +74,10 @@ class SalaryResult extends Component {
                 </View>
               </View>
             </View>
+
+
+
+
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 {
@@ -238,7 +243,8 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width / 4,
     backgroundColor: '#47d6e2',
     paddingVertical: metrics.medium,
-    marginBottom: metrics.large
+    marginBottom: metrics.large,
+    borderRadius: 5
   },
   shareText: {
     textAlign: 'center',

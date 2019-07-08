@@ -92,61 +92,59 @@ class ConcatMessage extends Component {
     // console.log('onPressButton')
 
   renderForms = (item, index) =>
-    <KeyboardAvoidingView
-      style={{flex:1}}
-      key={item.id}
-      behavior="padding"
-      keyboardVerticalOffset={0}> // ??????
-      <ScrollView keyboardShouldPersistTaps={'handled'}>
-        <View key={item.id} style={styles.textInputContainer}>
-          {
-            this.props.language === 'en' ?
-              <TextInput
-                style={styles[item.style]}
-                placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.en}
-                placeholderTextColor="#8c8c8c"
-                onChangeText={text => {
-                  const array = this.state.contactForms.slice();
-                  array[index].value = text; //eslint-disable-line
-                  this.setState({ contactForms: array });
-                }}
-                value={this.state.contactForms[index].value}
-              /> :
-              <TextInput
-                style={styles[item.style]}
-                placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.rs}
-                placeholderTextColor="#8c8c8c"
-                onChangeText={text => {
-                  const array = this.state.contactForms.slice();
-                  array[index].value = text; //eslint-disable-line
-                  this.setState({ contactForms: array });
-                }}
-                value={this.state.contactForms[index].value}
-              />
-          }
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <View key={item.id} style={styles.textInputContainer}>
+      {
+        this.props.language === 'en' ?
+          <TextInput
+            style={styles[item.style]}
+            placeholder={item.title.en}
+            placeholderTextColor="#8c8c8c"
+            onChangeText={text => {
+              const array = this.state.contactForms.slice();
+              array[index].value = text; //eslint-disable-line
+              this.setState({ contactForms: array });
+            }}
+            value={this.state.contactForms[index].value}
+          /> :
+          <TextInput
+            style={styles[item.style]}
+            placeholder={item.title.rs}
+            placeholderTextColor="#8c8c8c"
+            onChangeText={text => {
+              const array = this.state.contactForms.slice();
+              array[index].value = text; //eslint-disable-line
+              this.setState({ contactForms: array });
+            }}
+            value={this.state.contactForms[index].value}
+          />
+      }
+    </View>
 
   render(){
     console.log(this.state);
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.imageTextContainer}>
-          <Image
-            style={styles.image}
-            source={images.aboutCompanyPanel500px}
-          />
-          <Text style={styles.hlbText}>HLB Consulting</Text>
-        </View>
-          {this.state.contactForms.map(this.renderForms)}
-        <TouchableOpacity onPress={this.submitData} style={styles.button}>
-          {
-            this.props.language === 'en' ?
-              <Text style={styles.buttonText}>Send</Text> :
-              <Text style={styles.buttonText}>Pošalji</Text>
-          }
-        </TouchableOpacity>
+      <KeyboardAvoidingView
+        style={{flex:1}}
+        behavior="padding"
+        keyboardVerticalOffset={0}
+      >
+          <View style={styles.imageTextContainer}>
+            <Image
+              style={styles.image}
+              source={images.aboutCompanyPanel500px}
+            />
+            <Text style={styles.hlbText}>HLB Consulting</Text>
+          </View>
+            {this.state.contactForms.map(this.renderForms)}
+          <TouchableOpacity onPress={this.submitData} style={styles.button}>
+            {
+              this.props.language === 'en' ?
+                <Text style={styles.buttonText}>Send</Text> :
+                <Text style={styles.buttonText}>Pošalji</Text>
+            }
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ScrollView>
     );
   }
@@ -175,14 +173,15 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: '#E9E9E9',
     borderWidth: metrics.smallBorder,
-    fontSize: fonts.size.small
-
+    fontSize: fonts.size.small,
+    paddingLeft: metrics.large,
   },
   textArea: {
     height: 100,
     borderColor: '#E9E9E9',
     borderWidth: metrics.smallBorder,
-    fontSize: fonts.size.small
+    fontSize: fonts.size.small,
+    paddingLeft: metrics.large,
   },
   imageTextContainer: {
     padding: metrics.large,
@@ -212,7 +211,6 @@ const styles = StyleSheet.create({
   button: {
     margin: metrics.large,
     padding: metrics.medium,
-
     backgroundColor: '#14B7C5',
     borderRadius: metrics.small,
   },

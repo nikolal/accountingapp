@@ -133,9 +133,8 @@ class SalaryResult extends Component {
 }
 
 const stateToProps = state => ({
-  // article: state.aboutReducer.article,
+  localeString: state.settingsReducer.localeString,
   language: state.settingsReducer.language
-
 });
 
 export default connect(stateToProps, null)(SalaryResult);

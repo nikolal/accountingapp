@@ -143,7 +143,9 @@ class Allowance extends Component {
                   }
                 </TouchableOpacity>
 
-                <Text style={styles.description}>{this.props.calculation.description}</Text>
+                <Text style={styles.description}>
+                  {this.props.calculation.description[this.props.language]}
+                </Text>
 
             </View>
           }

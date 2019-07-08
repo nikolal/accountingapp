@@ -17,7 +17,6 @@ class SalaryResult extends Component {
            source={images.background}
            style={styles.imageBackground}
          >
-
            {
              this.props.calculation.type === 'grossToNet' ?
                <View style={styles.calculTextContainer}>

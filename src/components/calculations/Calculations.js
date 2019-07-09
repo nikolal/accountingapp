@@ -6,7 +6,7 @@ import {saveCalculation} from './CalculationsContainer';
 import HeaderTitle from './HeaderTitle.js';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
-import { LinearGradient } from 'expo';
+import { LinearGradient } from 'expo-linear-gradient';
 
 class Calculations extends Component {
 

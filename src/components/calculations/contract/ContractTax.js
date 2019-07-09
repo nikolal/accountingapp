@@ -107,7 +107,9 @@ const ContractTax = props => {
                 }
               </TouchableOpacity>
 
-              <Text style={styles.description}>{props.calculation.description}</Text>
+              <Text style={styles.description}>
+                {props.calculation.description[props.language]}
+              </Text>
           </View>
       }
       {/* {

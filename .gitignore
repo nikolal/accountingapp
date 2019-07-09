@@ -1,5 +1,6 @@
 node_modules/
 config/
+src/firebase/
 .expo/
 npm-debug.*
 .DS_Store

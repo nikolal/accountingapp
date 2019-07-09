@@ -64,7 +64,9 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Neto dnevnica u RSD</Text>
               }
               <View style={styles.numberContainerBlue}>
-                <Text style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toFixed(2)}</Text>
+                <Text
+                  style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                </Text>
               </View>
             </View>
           </View>
@@ -77,7 +79,9 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Osnovica za oporezivanje</Text>
               }
               <View style={styles.numberContainer}>
-                <Text style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toFixed(2)}</Text>
+                <Text
+                  style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                </Text>
               </View>
             </View>
           </View>
@@ -90,7 +94,7 @@ class AllowanceResult extends Component {
               }
               <View style={styles.numberContainer}>
               <Text
-                style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}
+                style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
               </Text>
               </View>
             </View>

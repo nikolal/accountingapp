@@ -64,7 +64,7 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Neto dnevnica u EUR</Text>
               }
               <View style={styles.numberContainerBlue}>
-                <Text style={styles.numberFirst}>{calculation.allowancesAway.value && calculation.allowancesAway.value.toFixed(2)}</Text>
+                <Text style={styles.numberFirst}>{calculation.allowancesAway.value && calculation.allowancesAway.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
           </View>
@@ -77,7 +77,7 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Ukupan izdatak EUR</Text>
               }
               <View style={styles.numberContainer}>
-                <Text style={styles.number}>{calculation.allowancesAway.gross && calculation.allowancesAway.gross.toFixed(2)}</Text>
+                <Text style={styles.number}>{calculation.allowancesAway.gross && calculation.allowancesAway.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
           </View>
@@ -89,7 +89,7 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Porez EUR</Text>
               }
               <View style={styles.numberContainer}>
-              <Text style={styles.number}>{calculation.allowancesAway.tax && calculation.allowancesAway.tax.toFixed(2)}</Text>
+              <Text style={styles.number}>{calculation.allowancesAway.tax && calculation.allowancesAway.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
           </View>

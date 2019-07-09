@@ -62,7 +62,7 @@ class LeaseResult extends Component {
                       <Text style={styles.text}>Ukupan porez</Text>
                   }
                   <View style={styles.numberContainerBlue}>
-                    <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toFixed(2)}</Text>
+                    <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
                   </View>
                 </View>
               </View>

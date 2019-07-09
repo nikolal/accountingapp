@@ -3,7 +3,10 @@ import { Image, View, Dimensions } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store/store.js';
 import Drawer from './src/components/drawer/Drawer.js';
-import { Font, SplashScreen, Asset, AppLoading } from 'expo';
+import { SplashScreen, AppLoading } from 'expo';
+import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
+// import MapView from 'react-native-maps'
 
 class App extends Component {
 

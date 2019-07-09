@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { metrics, colors, fonts } from '../../theme';
 import HeaderTitle from './HeaderTitle.js';
 
-import { MapView } from 'expo';
+import MapView from 'react-native-maps';
 const { Marker } = MapView;
 
 

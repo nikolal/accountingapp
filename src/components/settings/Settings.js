@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import { Ionicons }  from '@expo/vector-icons';
 import { saveLanguage, saveLocaleString, saveAdmin } from './SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
-// import { LinearGradient } from 'expo';
 
 
 class Settings extends Component {

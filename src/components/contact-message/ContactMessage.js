@@ -97,7 +97,7 @@ class ConcatMessage extends Component {
         this.props.language === 'en' ?
           <TextInput
             style={styles[item.style]}
-            placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.en}
+            placeholder={item.title.en}
             placeholderTextColor="#8c8c8c"
             onChangeText={text => {
               const array = this.state.contactForms.slice();
@@ -108,7 +108,7 @@ class ConcatMessage extends Component {
           /> :
           <TextInput
             style={styles[item.style]}
-            placeholder={'\xa0' + '\xa0' + '\xa0' + '\xa0' + '\xa0' + item.title.rs}
+            placeholder={item.title.rs}
             placeholderTextColor="#8c8c8c"
             onChangeText={text => {
               const array = this.state.contactForms.slice();
@@ -124,10 +124,11 @@ class ConcatMessage extends Component {
     console.log(this.state);
     return (
       <ScrollView style={styles.container}>
-        <KeyboardAvoidingView
-          // style={styles.inputsContainer}
-          behavior="padding"
-        >
+      <KeyboardAvoidingView
+        style={{flex:1}}
+        behavior="padding"
+        keyboardVerticalOffset={0}
+      >
           <View style={styles.imageTextContainer}>
             <Image
               style={styles.image}
@@ -144,7 +145,6 @@ class ConcatMessage extends Component {
             }
           </TouchableOpacity>
         </KeyboardAvoidingView>
-
       </ScrollView>
     );
   }
@@ -173,14 +173,15 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: '#E9E9E9',
     borderWidth: metrics.smallBorder,
-    fontSize: fonts.size.small
-
+    fontSize: fonts.size.small,
+    paddingLeft: metrics.large,
   },
   textArea: {
     height: 100,
     borderColor: '#E9E9E9',
     borderWidth: metrics.smallBorder,
-    fontSize: fonts.size.small
+    fontSize: fonts.size.small,
+    paddingLeft: metrics.large,
   },
   imageTextContainer: {
     padding: metrics.large,
@@ -210,7 +211,6 @@ const styles = StyleSheet.create({
   button: {
     margin: metrics.large,
     padding: metrics.medium,
-
     backgroundColor: '#14B7C5',
     borderRadius: metrics.small,
   },

@@ -91,14 +91,14 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: colors.white,
-    // justifyContent: 'space-around',
+    justifyContent: 'space-around',
   },
   title: {
     alignSelf: 'center',
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: '#14B7c5',
-    margin: metrics.huge,
+    // margin: metrics.huge,
   },
   addressContainer: {
     marginHorizontal: metrics.extraHuge,
@@ -115,11 +115,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: metrics.tinyBorder,
   },
   addressTextMail: {
-    top: 25,
     backgroundColor: '#14B7c5',
-    margin: metrics.large,
+    marginHorizontal: metrics.large,
     padding: metrics.medium,
     borderRadius: 5,
+    marginBottom: metrics.large
   },
   contactText: {
     alignSelf: 'center',

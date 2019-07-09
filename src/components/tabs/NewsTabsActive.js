@@ -30,6 +30,7 @@ export default connect(stateToProps, dispatchToProps)(NewsTabsActive);
 
 const styles = StyleSheet.create({
   title: {
+    textAlign: 'center',
     color: colors.lightBlue1,
     fontSize: fonts.size.small,
     fontFamily: 'openSansBold',

@@ -127,12 +127,12 @@ const Tabs = createBottomTabNavigator({
       tintColor === colors.lightBlue1 ?
         <Image
           source={images.taxSelected}
-          style={{width: 20, height: 20}}
+          style={{width: 20, height: 21}}
         />
       :
         <Image
           source={images.taxDefault}
-          style={{width: 20, height: 20}}
+          style={{width: 20, height: 21}}
         />
     }
   },

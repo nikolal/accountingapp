@@ -17,7 +17,7 @@ const initialState = {
       rs: 'Finansijske usluge '
     },
     subTitle: {
-      en: 'More information about Financial',
+      en: 'Accounting, paroll, audit',
       rs: 'Računovodstvo, finansijsko savetovanje'
     },
     image: 'archive',
@@ -37,19 +37,19 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Implementation of accounting system and coorporete procedures',
+        en: 'Implementation of accounting system and coorporate procedures',
         rs: 'Izrada računovodstvenih politika i internih akata '
       }
     },{
       type: 'text',
       value: {
-        en: 'Payroll accounting',
+        en: 'Payroll services',
         rs: 'Obračun zarada'
       }
     },{
       type: 'text',
       value: {
-        en: 'Preparation of Balance Sheet, P&L Accounting',
+        en: 'Preparation of Balance sheet and P&L statement',
         rs: 'Izrada završnog računa (bilans uspeha, bilans stanja, poreski bilans)'
       }
     },{
@@ -119,7 +119,7 @@ const initialState = {
       rs: 'Poreske usluge'
     },
     subTitle: {
-      en: 'More information about Tax',
+      en: 'VAT, profit tax,  tax optimisation',
       rs: 'Porez na dobit, PDV, porez na dohodak'
     },
     image: 'book',
@@ -145,13 +145,13 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Consulting in Corporate income taxes, VAT, Personal taxes, Withholding tax, Customs and others',
+        en: 'Consulting in Corporate income taxes, VAT, Personal taxes, Withholding tax, and others',
         rs: 'Poresko savetovanje: PDV, porez na dohodak, porez na dobit, porez po odbitku'
     }
     },{
       type: 'text',
       value: {
-        en: 'Preparation and submission all tax returns',
+        en: 'Preparation and submission of tax returns',
         rs: 'Priprema i podnošenje poreskih prijava'
       }
     },{
@@ -203,7 +203,7 @@ const initialState = {
       rs: 'Transferne cene'
     },
     subTitle: {
-      en: 'More information about Pricing',
+      en: 'Transfer pricing reports',
       rs: 'Izrada studija o transfernim cenama'
     },
     image: 'calculator',
@@ -223,7 +223,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Analysis of the functions performed, risks assumed and assets',
+        en: 'Analysis of functions and risks in relation with related entity',
         rs: 'Analiza obavljenih delatnosti, preuzetih rizika i korišćenih sredstava'
       }
     },{
@@ -259,7 +259,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Dealing with tax authorities during tax audits',
+        en: 'Control of excisting transfer pricing policy and alignment with local legislation',
         rs: 'Priprema interkompanijiskih ugovora'
       }
     },{
@@ -281,7 +281,7 @@ const initialState = {
       rs: 'Pravne usluge'
     },
     subTitle: {
-      en: 'More information',
+      en: 'Coorporate and labor law',
       rs: 'Korporativno i radno pravo'
     },
     image: 'briefcase',
@@ -289,25 +289,25 @@ const initialState = {
     paragraphs: [{
       type: 'headline',
       value: {
-        en: 'COORPORATIVE & CONTRACT LAW',
+        en: 'Coorporative & contrct law',
         rs: 'Radno pravo'
       }
     },{
       type: 'text',
       value: {
-        en: 'Incorporation of all legal forms of companies and other legal entities',
+        en: 'Company formation services',
         rs: 'Savetovanje u vezi sa svim odlukama o zapošljavanju i uslovima rada'
       }
     },{
       type: 'text',
       value: {
-        en: "Counseling, negotiation and drafting ofassociations’ memorandums and articles,shareholders' agreements, rules of internal procedures and other documents.",
+        en: 'Drafting of founding acts, shareholders agreements, internal acts and other coorporate documents',
         rs: 'Izrada pravilnika o radu, ugovora o radu i aneksa istih kao i sporazuma o prestanku radnog odnosa uključujući i ostalu potrebnu dokumentaciju '
       }
     },{
       type: 'text',
       value: {
-        en: 'Drafting all kinds of commercial contracts',
+        en: 'Drafting of comercial agreements',
         rs: 'Podrška u sporovima u vezi sa radnim odnosima '
       }
     },{
@@ -319,19 +319,19 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: "Preparing general legal acts for employers or for employers 'associations",
+        en: 'Advisory for establishment of employment policy',
         rs: 'Osnivanje svih pravnih formi privrednih društava i drugih pravnih lica'
       }
     },{
       type: 'text',
       value: {
-        en: 'Drafting of employment rulebook, employment contracts and mutual termination agreements',
+        en: 'Preparation of employment rulebook, labor agreements, labor termination agreements',
         rs: 'Konsultacije, pregovori i izrada osnivačkih akata, statuta, ugovora članova društva, pravilnika o internim procedurama i drugih internih korporativnih dokumenata '
       }
     },{
       type: 'text',
       value: {
-        en: 'Preparation of commercial agreements',
+        en: 'Support during litigation',
         rs: 'Izrada svih vrsta komercijalnih ugovora'
       }
     }]

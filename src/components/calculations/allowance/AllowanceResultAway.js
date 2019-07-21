@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ImageBackground, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Dimensions, ScrollView, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts, images } from '../../../theme';
 
 class AllowanceResult extends Component {
+
+  share = () => {
+    Share.share({
+      message: 'BAM: we\'re helping your business with awesome React Native apps',
+      url: 'http://bam.tech',
+      title: 'Wow, did you see that?'
+    }, {
+      // Android only:
+      dialogTitle: 'Share BAM goodness',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
 
   render() {
     const { calculation, localeString } = this.props;
@@ -98,7 +113,7 @@ class AllowanceResult extends Component {
               {this.props.calculation.description[this.props.language]}
             </Text>
           </View>
-          <TouchableOpacity style={styles.shareButton}>
+          <TouchableOpacity style={styles.shareButton} onPress={this.share}>
           {
             this.props.language === 'en' ?
               <Text style={styles.shareText}>Share</Text> :

@@ -49,11 +49,11 @@ class Contact extends Component {
                 <Text style={styles.addressText}>Email:       office@tmconsulting.co.rs</Text>
               </View> :
               <View style={styles.addressContainer}>
-                <Text style={styles.addressText}>Street:         Cara Nikolaja II 11</Text>
-                <Text style={styles.addressText}>City:      11000 Beograd</Text>
+                <Text style={styles.addressText}>Street:        Cara Nikolaja II 11</Text>
+                <Text style={styles.addressText}>City:            11000 Beograd</Text>
                   <Text style={styles.addressText}>Phone 1:    + 381 11 3441 373</Text>
                   <Text style={styles.addressText}>Phone 2:    + 381 64 614-29-44</Text>
-                <Text style={styles.addressText}>Email:       office@tmconsulting.co.rs</Text>
+                <Text style={styles.addressText}>Email:         office@tmconsulting.co.rs</Text>
               </View>
           }
           <TouchableOpacity

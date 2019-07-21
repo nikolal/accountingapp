@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ImageBackground, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
@@ -7,6 +7,20 @@ import { metrics, colors, fonts, images } from '../../../theme';
 
 class SalaryResult extends Component {
   // console.log(this.props.calculation.grossSalary)
+  share = () => {
+    Share.share({
+      message: 'BAM: we\'re helping your business with awesome React Native apps',
+      url: 'http://bam.tech',
+      title: 'Wow, did you see that?'
+    }, {
+      // Android only:
+      dialogTitle: 'Share BAM goodness',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
 
   render() {
     const { calculation, localeString } = this.props;
@@ -126,18 +140,18 @@ class SalaryResult extends Component {
                 </View>
               </View>
             </View>
-            <View style={styles.descriptionContainer}>
-              <Text style={styles.description}>
-                {this.props.calculation.description[this.props.language]}
-              </Text>
-            </View>
-            <TouchableOpacity style={styles.shareButton}>
+            <TouchableOpacity style={styles.shareButton} onPress={this.share}>
             {
               this.props.language === 'en' ?
                 <Text style={styles.shareText}>Share</Text> :
                 <Text style={styles.shareText}>Podeli</Text>
             }
             </TouchableOpacity>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.description}>
+                {this.props.calculation.description[this.props.language]}
+              </Text>
+            </View>
           </ScrollView>
         </View>
       </View>
@@ -170,33 +184,32 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   calculTextSmallText: {
-    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
     color: colors.white,
-    fontSize: fonts.size.large,
-  },
-  backgroundImageTextContainer: {
-    // position: 'center',
   },
   backgroundImageSmallTextContainer: {
+    backgroundColor: '#08000060',
     marginTop: metrics.xxxHuge,
-    marginBottom: metrics.large,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: metrics.huge
   },
   numberInput: {
     marginLeft: metrics.medium,
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
-    color: '#47d6e2'
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
+    color: colors.white,
   },
   itemContainer: {
     backgroundColor: colors.white,
   },
   innerContainer: {
+    // backgroundColor: 'red',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: metrics.hugeToExtrahuge,
+    paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
@@ -222,16 +235,20 @@ const styles = StyleSheet.create({
   },
   numberFirst: {
     color: 'rgb(128,128,128)',
+    textAlign: 'center'
 
   },
   number: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    color: '#47d6e2'
+    color: 'rgb(128,128,128)',
+    textAlign: 'center'
+
   },
   descriptionContainer: {
-    paddingHorizontal: metrics.huge,
+    // backgroundColor: 'yellow',
     paddingBottom: metrics.huge,
+    marginHorizontal: metrics.hugeToExtrahuge,
   },
   description: {
     marginTop: metrics.large,
@@ -239,12 +256,11 @@ const styles = StyleSheet.create({
     color: 'rgb(128,128,128)'
   },
   shareButton: {
-    alignSelf: 'center',
-    width: Dimensions.get('window').width / 4,
-    backgroundColor: '#47d6e2',
-    paddingVertical: metrics.medium,
-    marginBottom: metrics.large,
-    borderRadius: 5
+    backgroundColor: '#14B7C5',
+    marginVertical: metrics.large,
+    padding: metrics.medium,
+    borderRadius: metrics.small,
+    marginHorizontal: metrics.hugeToExtrahuge,
   },
   shareText: {
     textAlign: 'center',

@@ -13,8 +13,8 @@ class SalaryCalculator extends Component {
   /* render function, etc */
 
   render(){
-    console.log(this.props.calculated);
-    console.log(this.props.calculation.input !== 0);
+    // console.log(this.props.calculated);
+    // console.log(this.props.calculation.input !== 0);
     return (
 
       <ScrollView style={styles.container}>
@@ -293,13 +293,12 @@ const styles = StyleSheet.create({
     color: 'rgb(128,128,128)'
   },
   closeModalIcon: {
-    // position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 13,
     margin: 15,
     width: 50,
     height: 50,
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
+    alignItems: 'center',
   },
   errorText: {
     color: 'red',

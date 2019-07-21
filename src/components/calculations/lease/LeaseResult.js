@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, TouchableOpacity, StyleSheet, ImageBackground, ScrollView, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, ImageBackground, ScrollView, Dimensions, Share } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
 
 class LeaseResult extends Component {
+
+  share = () => {
+    Share.share({
+      message: 'BAM: we\'re helping your business with awesome React Native apps',
+      url: 'http://bam.tech',
+      title: 'Wow, did you see that?'
+    }, {
+      // Android only:
+      dialogTitle: 'Share BAM goodness',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
 
   render() {
     const { calculation, localeString } = this.props;
@@ -62,7 +77,7 @@ class LeaseResult extends Component {
                       <Text style={styles.text}>Ukupan porez</Text>
                   }
                   <View style={styles.numberContainerBlue}>
-                    <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toFixed(2)}</Text>
+                    <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
                   </View>
                 </View>
               </View>
@@ -71,7 +86,7 @@ class LeaseResult extends Component {
                   {this.props.calculation.description[this.props.language]}
                 </Text>
               </View>
-              <TouchableOpacity style={styles.shareButton}>
+              <TouchableOpacity style={styles.shareButton} onPress={this.share}>
               {
                 this.props.language === 'en' ?
                   <Text style={styles.shareText}>Share</Text> :

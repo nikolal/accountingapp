@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ImageBackground, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Dimensions, ScrollView, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 import { metrics, colors, fonts, images } from '../../../theme';
 
 class AllowanceResult extends Component {
+
+  share = () => {
+    Share.share({
+      message: 'BAM: we\'re helping your business with awesome React Native apps',
+      url: 'http://bam.tech',
+      title: 'Wow, did you see that?'
+    }, {
+      // Android only:
+      dialogTitle: 'Share BAM goodness',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
 
   render() {
     const { calculation, localeString } = this.props;
@@ -64,7 +79,9 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Neto dnevnica u RSD</Text>
               }
               <View style={styles.numberContainerBlue}>
-                <Text style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toFixed(2)}</Text>
+                <Text
+                  style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                </Text>
               </View>
             </View>
           </View>
@@ -77,7 +94,9 @@ class AllowanceResult extends Component {
                   <Text style={styles.text}>Osnovica za oporezivanje</Text>
               }
               <View style={styles.numberContainer}>
-                <Text style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toFixed(2)}</Text>
+                <Text
+                  style={styles.number}>{calculation.allowancesHome.gross && calculation.allowancesHome.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                </Text>
               </View>
             </View>
           </View>
@@ -90,7 +109,7 @@ class AllowanceResult extends Component {
               }
               <View style={styles.numberContainer}>
               <Text
-                style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toFixed(2)}
+                style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
               </Text>
               </View>
             </View>
@@ -100,7 +119,7 @@ class AllowanceResult extends Component {
               {this.props.calculation.description[this.props.language]}
             </Text>
           </View>
-          <TouchableOpacity style={styles.shareButton}>
+          <TouchableOpacity style={styles.shareButton} onPress={this.share}>
           {
             this.props.language === 'en' ?
               <Text style={styles.shareText}>Share</Text> :
@@ -113,7 +132,6 @@ class AllowanceResult extends Component {
   );
 }
 }
-
 
 const stateToProps = state => ({
   localeString: state.settingsReducer.localeString,

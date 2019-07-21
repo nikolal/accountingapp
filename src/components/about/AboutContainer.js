@@ -14,7 +14,7 @@ const initialState = {
       rs: 'Više o našem timu'
     },
     description: {
-      en: 'MILKA JANIČIĆ - Managing Director',
+      en: 'MILKA JANIČIĆ',
       rs: 'MILKA JANIČIĆ - Direktor'
     },
     icon: require('../../../assets/images/iconteam.png'),
@@ -22,7 +22,7 @@ const initialState = {
     paragraphs: [{
         type: 'headline',
         value: {
-          en: 'Partner',
+          en: 'Managing Partner',
           rs: 'Partner'
         }
     },{
@@ -58,7 +58,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'During career, Milka served a large portfolio of small to large Serbian and international companies from many different business areas. Some of the major clients that Milka have cooperated with were as follows: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks, etc.',
+        en: '',
         rs: 'Od 2005. godine do 2008. godine Milka je bila zaposlena u još jednoj austrijskoj kompaniji kza poresko savetovanje, reviziju i računovodstvo IB Interbilanz Consulting d.o.o. na mestu direktora kompanije i odgovorna za osnivanje, razvoj kompanije i svih njenih odeljenja, pronalaženje klijenata kao i rad sektora za reviziju i poresko savetovanje.'
       }
     },{

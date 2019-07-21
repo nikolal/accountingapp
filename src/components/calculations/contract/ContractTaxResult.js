@@ -98,11 +98,6 @@ class ContractTaxResult extends Component {
                 </View>
                   </View>
                 </View>
-                <View style={styles.descriptionContainer}>
-                  <Text style={styles.description}>
-                    {this.props.calculation.description[this.props.language]}
-                  </Text>
-                </View>
                 <TouchableOpacity style={styles.shareButton} onPress={this.share}>
                 {
                   this.props.language === 'en' ?
@@ -110,6 +105,11 @@ class ContractTaxResult extends Component {
                     <Text style={styles.shareText}>Podeli</Text>
                 }
                 </TouchableOpacity>
+                <View style={styles.descriptionContainer}>
+                  <Text style={styles.description}>
+                    {this.props.calculation.description[this.props.language]}
+                  </Text>
+                </View>
               </ScrollView>
           </View>
         );
@@ -141,25 +141,23 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   calculTextSmallText: {
-    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
     color: colors.white,
-    fontSize: fonts.size.large,
-  },
-  backgroundImageTextContainer: {
-    // position: 'center',
   },
   backgroundImageSmallTextContainer: {
+    backgroundColor: '#08000060',
     marginTop: metrics.xxxHuge,
-    marginBottom: metrics.large,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: metrics.huge
   },
   numberInput: {
     marginLeft: metrics.medium,
-    fontFamily: 'openSansRegular',
-    fontSize: fonts.size.huge,
-    color: '#47d6e2'
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
+    color: colors.white,
   },
   itemContainer: {
     backgroundColor: colors.white,
@@ -167,11 +165,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: metrics.hugeToExtrahuge,
+    paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    // alignSelf: 'center',
+    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'
@@ -193,29 +191,30 @@ const styles = StyleSheet.create({
   },
   numberFirst: {
     color: 'rgb(128,128,128)',
+    textAlign: 'center'
 
   },
   number: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
-    color: '#47d6e2'
+    color: 'rgb(128,128,128)',
+    textAlign: 'center'
+
   },
   descriptionContainer: {
-    paddingHorizontal: metrics.huge,
     paddingBottom: metrics.huge,
+    marginHorizontal: metrics.hugeToExtrahuge,
   },
   description: {
-    marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
   },
   shareButton: {
-    alignSelf: 'center',
-    width: Dimensions.get('window').width / 4,
-    backgroundColor: '#47d6e2',
-    paddingVertical: metrics.medium,
-    marginBottom: metrics.large,
-    borderRadius: 5
+    backgroundColor: '#14B7C5',
+    marginVertical: metrics.hugeToExtrahuge,
+    padding: metrics.medium,
+    borderRadius: metrics.small,
+    marginHorizontal: metrics.hugeToExtrahuge,
   },
   shareText: {
     textAlign: 'center',
@@ -223,4 +222,4 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.large,
     borderRadius: 5
   }
-  });
+});

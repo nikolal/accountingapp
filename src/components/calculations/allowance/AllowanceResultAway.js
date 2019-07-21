@@ -108,11 +108,6 @@ class AllowanceResult extends Component {
               </View>
             </View>
           </View>
-          <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>
-              {this.props.calculation.description[this.props.language]}
-            </Text>
-          </View>
           <TouchableOpacity style={styles.shareButton} onPress={this.share}>
           {
             this.props.language === 'en' ?
@@ -120,6 +115,11 @@ class AllowanceResult extends Component {
               <Text style={styles.shareText}>Podeli</Text>
           }
           </TouchableOpacity>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.description}>
+              {this.props.calculation.description[this.props.language]}
+            </Text>
+          </View>
         </ScrollView>
       </View>
     </View>
@@ -137,103 +137,102 @@ export default connect(stateToProps, null)(AllowanceResult);
 
 
 const styles = StyleSheet.create({
-maincontainer: {
-  flex: 1,
-},
-container: {
-  flex: 1,
-},
-imageBackground: {
-  height: Dimensions.get('window').height / 2.9,
-  justifyContent: 'flex-end',
-},
-calculText: {
-  fontFamily: 'openSansRegular',
-  color: colors.white,
-  fontSize: fonts.size.huge,
-  textAlign: 'center'
-},
-calculTextSmallText: {
-  fontFamily: 'openSansRegular',
-  color: colors.white,
-  fontSize: fonts.size.large,
-},
-backgroundImageTextContainer: {
-  // position: 'center',
-},
-backgroundImageSmallTextContainer: {
-  marginTop: metrics.xxxHuge,
-  marginBottom: metrics.large,
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center'
-},
-numberInput: {
-  marginLeft: metrics.medium,
-  fontFamily: 'openSansRegular',
-  fontSize: fonts.size.huge,
-  color: '#47d6e2'
-},
-itemContainer: {
-  backgroundColor: colors.white,
-},
-innerContainer: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  paddingVertical: metrics.hugeToExtrahuge,
-  marginHorizontal: metrics.hugeToExtrahuge,
-},
-text: {
-  alignSelf: 'center',
-  fontFamily: 'openSansRegular',
-  fontSize: fonts.size.medium,
-  color: 'rgb(128,128,128)'
-},
-numberContainerBlue: {
-  width: Dimensions.get('window').width / 3.1,
-  borderColor: 'rgb(128,128,128)',
-  borderWidth: 1,
-  borderRadius: metrics.small,
-  padding: metrics.medium,
-  backgroundColor: '#d3f5f8'
-},
-numberContainer: {
-  width: Dimensions.get('window').width / 3.1,
-  borderColor: 'rgb(128,128,128)',
-  borderWidth: 1,
-  borderRadius: metrics.small,
-  padding: metrics.medium
-},
-numberFirst: {
-  color: 'rgb(128,128,128)',
+  maincontainer: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+  },
+  imageBackground: {
+    height: Dimensions.get('window').height / 2.9,
+    justifyContent: 'flex-end',
+  },
+  calculText: {
+    fontFamily: 'openSansRegular',
+    color: colors.white,
+    fontSize: fonts.size.huge,
+    textAlign: 'center'
+  },
+  calculTextSmallText: {
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
+    color: colors.white,
+  },
+  backgroundImageSmallTextContainer: {
+    backgroundColor: '#08000060',
+    marginTop: metrics.xxxHuge,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: metrics.huge
+  },
+  numberInput: {
+    marginLeft: metrics.medium,
+    fontSize: fonts.size.small,
+    fontFamily: 'openSansBold',
+    color: colors.white,
+  },
+  itemContainer: {
+    backgroundColor: colors.white,
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: metrics.huge,
+    marginHorizontal: metrics.hugeToExtrahuge,
+  },
+  text: {
+    alignSelf: 'center',
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.medium,
+    color: 'rgb(128,128,128)'
+  },
+  numberContainerBlue: {
+    width: Dimensions.get('window').width / 3.1,
+    borderColor: 'rgb(128,128,128)',
+    borderWidth: 1,
+    borderRadius: metrics.small,
+    padding: metrics.medium,
+    backgroundColor: '#d3f5f8'
+  },
+  numberContainer: {
+    width: Dimensions.get('window').width / 3.1,
+    borderColor: 'rgb(128,128,128)',
+    borderWidth: 1,
+    borderRadius: metrics.small,
+    padding: metrics.medium
+  },
+  numberFirst: {
+    color: 'rgb(128,128,128)',
+    textAlign: 'center'
 
-},
-number: {
-  fontFamily: 'openSansRegular',
-  fontSize: fonts.size.medium,
-  color: '#47d6e2'
-},
-descriptionContainer: {
-  paddingHorizontal: metrics.huge,
-  paddingBottom: metrics.huge,
-},
-description: {
-  marginTop: metrics.large,
-  fontSize: fonts.size.small,
-  color: 'rgb(128,128,128)'
-},
-shareButton: {
-  alignSelf: 'center',
-  width: Dimensions.get('window').width / 4,
-  backgroundColor: '#47d6e2',
-  paddingVertical: metrics.medium,
-  marginBottom: metrics.large,
-  borderRadius: 5
-},
-shareText: {
-  textAlign: 'center',
-  color: 'white',
-  fontSize: fonts.size.large,
-  borderRadius: 5
-}
+  },
+  number: {
+    fontFamily: 'openSansRegular',
+    fontSize: fonts.size.medium,
+    color: 'rgb(128,128,128)',
+    textAlign: 'center'
+
+  },
+  descriptionContainer: {
+    paddingBottom: metrics.huge,
+    marginHorizontal: metrics.hugeToExtrahuge,
+  },
+  description: {
+    fontSize: fonts.size.small,
+    color: 'rgb(128,128,128)'
+  },
+  shareButton: {
+    backgroundColor: '#14B7C5',
+    marginVertical: metrics.hugeToExtrahuge,
+    padding: metrics.medium,
+    borderRadius: metrics.small,
+    marginHorizontal: metrics.hugeToExtrahuge,
+  },
+  shareText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: fonts.size.large,
+    borderRadius: 5
+  }
 });

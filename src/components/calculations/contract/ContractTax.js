@@ -125,15 +125,16 @@ const ContractTax = props => {
         visible={props.calculation.input !== 0 && props.showResult}
         onRequestClose={() => false}>
         <View style={{flex: 1}}>
-
-          <TouchableOpacity
-            style={styles.closeModalIcon}
-            onPress={() => {
-              props.closeModal();
-              // setModalVisible(!state.modalVisible);
-            }}>
-            <Ionicons name="ios-close" size={40} color="black" />
-          </TouchableOpacity>
+          <View style={{backgroundColor: colors.navigator}}>
+            <TouchableOpacity
+              style={styles.closeModalIcon}
+              onPress={() => {
+                props.closeModal();
+                // setModalVisible(!state.modalVisible);
+              }}>
+              <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
+            </TouchableOpacity>
+          </View>
 
           {
             props.calculation.input !== 0 &&
@@ -241,15 +242,14 @@ const styles = StyleSheet.create({
      fontSize: fonts.size.small,
      color: 'rgb(128,128,128)'
    },
-  closeModalIcon: {
-    // position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 22,
-    width: 50,
-    height: 50,
-    alignSelf: 'flex-end'
-  },
+   closeModalIcon: {
+     paddingTop: 13,
+     margin: 15,
+     width: 50,
+     height: 50,
+     alignSelf: 'flex-end',
+     alignItems: 'center',
+   },
   errorText: {
     color: 'red',
     alignSelf: 'center',

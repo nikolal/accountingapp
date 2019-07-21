@@ -206,7 +206,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   innerContainer: {
-    // backgroundColor: 'red',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: metrics.huge,
@@ -246,18 +245,16 @@ const styles = StyleSheet.create({
 
   },
   descriptionContainer: {
-    // backgroundColor: 'yellow',
     paddingBottom: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   description: {
-    marginTop: metrics.large,
     fontSize: fonts.size.small,
     color: 'rgb(128,128,128)'
   },
   shareButton: {
     backgroundColor: '#14B7C5',
-    marginVertical: metrics.large,
+    marginVertical: metrics.hugeToExtrahuge,
     padding: metrics.medium,
     borderRadius: metrics.small,
     marginHorizontal: metrics.hugeToExtrahuge,

@@ -78,7 +78,7 @@ class App extends Component {
             width: Dimensions.get('window').width,
             height: Dimensions.get('window').height
           }}
-          source={require('./assets/images/drawerBackground.png')}
+          source={require('./assets/images/splash.png')}
           onLoad={this.cacheResourcesAsync}
         />
       );

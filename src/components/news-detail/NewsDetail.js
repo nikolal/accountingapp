@@ -32,8 +32,7 @@ class NewsDetail extends Component {
   renderArticle = (item, index) =>
     item.type === 'text' ?
       <Text key={index} style={styles.articleParagraphsContainer}>
-        <Text style={styles.firstLetter}>{item.value[0]}</Text>
-        <Text style={styles.articleParagraphs}>{item.value[this.props.language].slice(1)}</Text>
+        <Text style={styles.articleParagraphs}>{item.value[this.props.language]}</Text>
       </Text> :
     item.type === 'image' ?
       <View key={index} style={styles.imageContainer}>
@@ -63,6 +62,7 @@ class NewsDetail extends Component {
           </TouchableOpacity>
         </View>
         {article.paragraphs.map(this.renderArticle)}
+        <Text />
       </ScrollView>
     );
   }
@@ -83,7 +83,7 @@ export default connect(stateToProps, null)(NewsDetail);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: metrics.huge
+    paddingTop: metrics.huge,
   },
   descriptionText: {
     color: colors.black,

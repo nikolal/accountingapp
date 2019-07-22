@@ -25,6 +25,7 @@ const images = {
   drawerLogo: require('../../assets/images/drawerLogo.png'),
   incentiveImage: require('../../assets/images/incentiveImage.png'),
   whiteLogo: require('../../assets/images/whiteLogo.png'),
+  splash: require('../../assets/images/splash.png'),
   // iconTransfer: require('../../assets/images/iconTransfer.png'),
 };
 

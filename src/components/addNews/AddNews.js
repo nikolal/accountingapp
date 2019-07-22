@@ -107,22 +107,27 @@ class AddNews extends Component {
     type === 'text' ?
       this.setState({ newsItem: {
         ...this.state.newsItem,
-        paragraphs: [...this.state.newsItem.paragraphs, {id: this.state.newsItem.paragraphs.length + 1, type: 'text', value: 'milana'}]
+        paragraphs: [...this.state.newsItem.paragraphs,
+          {id: this.state.newsItem.paragraphs.length + 1, type: 'text', value: {en: '', rs: ''}}]
       }})
     :
     type === 'image' ?
       this.setState({ newsItem: {
         ...this.state.newsItem,
-        paragraphs: [...this.state.newsItem.paragraphs, {id: this.state.newsItem.paragraphs.length + 1, type: 'image', value: 'nikola'}]
+        paragraphs: [...this.state.newsItem.paragraphs,
+          {id: this.state.newsItem.paragraphs.length + 1, type: 'image', value: 'nikola'}]
       }})
     : null;
   }
 
-  updateParagraph = (text, item, index) => {
+  updateParagraph = (text, item, index, lang) => {
     const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
     newParagraphs[index] = { // eslint-disable-line
       type: item.type,
-      value: text
+      value: {
+        ...this.state.newsItem.paragraphs[index].value,
+        [lang]: text
+      }
     };
     this.setState({ newsItem: {
       ...this.state.newsItem,
@@ -153,17 +158,28 @@ class AddNews extends Component {
   }
 
 
-  renderParagraphs = (item, index) =>
+  renderParagraphs = (item, index, lang) =>
     item.type === 'text' ?
-      <TextInput
-        key={index}
-        multiline={true}
-        style={styles.inputTextParagraph}
-        onChangeText={(text) => this.updateParagraph(text, item, index)}
-        placeholder="Unesi tekst"
-        placeholderTextColor="black"
-        autoCorrect={false}
-      /> :
+      <React.Fragment key={index}>
+        <TextInput
+          multiline={true}
+          style={styles.inputTextParagraph}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'rs')}
+          placeholder="Unesi tekst"
+          placeholderTextColor="black"
+          autoCorrect={false}
+        />
+        <TextInput
+          // key={`${index}en`}
+          multiline={true}
+          style={styles.inputTextParagraph}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'en')}
+          placeholder="Add text"
+          placeholderTextColor="black"
+          autoCorrect={false}
+        />
+      </React.Fragment>
+    :
     item.type === 'image' ?
       <TextInput
         key={index}
@@ -176,7 +192,7 @@ class AddNews extends Component {
     : null
 
   render() {
-    console.log(this.state.newsItem);
+    // console.log(this.state.newsItem.paragraphs);
 
     // const showDatePicker = this.state.showDatePicker ?
 

@@ -76,9 +76,6 @@ class DrawerTemplate extends Component {
               null
             }
             <View style={styles.sosialIconsContainer}>
-            <TouchableOpacity style={styles.touchableOpacitySocialContainer}>
-              <MaterialCommunityIcons name="twitter" size={18} color="#00deff" />
-            </TouchableOpacity>
             <TouchableOpacity style={styles.touchableOpacitySocialContainer} onPress = {()=> this._linkPressed('https://www.facebook.com/hlbtmconsulting/?fref=ts')}>
               <MaterialCommunityIcons name="facebook" size={18} color="#00deff" />
             </TouchableOpacity>

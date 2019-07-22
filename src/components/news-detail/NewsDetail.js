@@ -33,7 +33,7 @@ class NewsDetail extends Component {
     item.type === 'text' ?
       <Text key={index} style={styles.articleParagraphsContainer}>
         <Text style={styles.firstLetter}>{item.value[0]}</Text>
-        <Text style={styles.articleParagraphs}>{item.value.slice(1)}</Text>
+        <Text style={styles.articleParagraphs}>{item.value[this.props.language].slice(1)}</Text>
       </Text> :
     item.type === 'image' ?
       <View key={index} style={styles.imageContainer}>

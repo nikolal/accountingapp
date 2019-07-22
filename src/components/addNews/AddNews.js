@@ -120,19 +120,32 @@ class AddNews extends Component {
     : null;
   }
 
-  updateParagraph = (text, item, index, lang) => {
-    const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
-    newParagraphs[index] = { // eslint-disable-line
-      type: item.type,
-      value: {
-        ...this.state.newsItem.paragraphs[index].value,
-        [lang]: text
-      }
-    };
-    this.setState({ newsItem: {
-      ...this.state.newsItem,
-      paragraphs: newParagraphs
-    }});
+  updateParagraph = (text, item, index, lang, type) => {
+    if (lang && type === 'text') {
+        const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
+        newParagraphs[index] = { // eslint-disable-line
+          type: item.type,
+          value: {
+            ...this.state.newsItem.paragraphs[index].value,
+            [lang]: text
+          }
+        };
+        this.setState({ newsItem: {
+          ...this.state.newsItem,
+          paragraphs: newParagraphs
+        }});
+    } else {
+      console.log(text);
+        const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
+        newParagraphs[index] = { // eslint-disable-line
+          type: item.type,
+          value: text
+        };
+        this.setState({ newsItem: {
+          ...this.state.newsItem,
+          paragraphs: newParagraphs
+        }});
+    }
   }
 
   validateNews = () => {
@@ -158,13 +171,13 @@ class AddNews extends Component {
   }
 
 
-  renderParagraphs = (item, index, lang) =>
+  renderParagraphs = (item, index, lang, type) =>
     item.type === 'text' ?
       <React.Fragment key={index}>
         <TextInput
           multiline={true}
           style={styles.inputTextParagraph}
-          onChangeText={(text) => this.updateParagraph(text, item, index, 'rs')}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'rs', 'text')}
           placeholder="Unesi tekst"
           placeholderTextColor="black"
           autoCorrect={false}
@@ -173,7 +186,7 @@ class AddNews extends Component {
           // key={`${index}en`}
           multiline={true}
           style={styles.inputTextParagraph}
-          onChangeText={(text) => this.updateParagraph(text, item, index, 'en')}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'en', 'text')}
           placeholder="Add text"
           placeholderTextColor="black"
           autoCorrect={false}
@@ -184,7 +197,7 @@ class AddNews extends Component {
       <TextInput
         key={index}
         style={styles.inputText}
-        onChangeText={(text) => this.updateParagraph(text, item, index)}
+        onChangeText={(text) => this.updateParagraph(text, item, index, null, 'image' )}
         placeholder="Link slike"
         placeholderTextColor="black"
         autoCorrect={false}
@@ -192,10 +205,6 @@ class AddNews extends Component {
     : null
 
   render() {
-    // console.log(this.state.newsItem.paragraphs);
-
-    // const showDatePicker = this.state.showDatePicker ?
-
 
     return (
       <View style={styles.containerHead}>

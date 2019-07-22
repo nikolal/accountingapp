@@ -63,7 +63,11 @@ class News extends Component {
 
   setNewsListener = () => {
     firebase.database().ref('news/').on('value', (snapshot) => {
-      this.props.saveNewsAction(snapshot.val());
+      snapshot.val() ?
+      this.props.saveNewsAction(snapshot.val())
+      :
+      this.props.saveNewsAction([]);
+
       // console.log(snapshot.val());
     });
   }

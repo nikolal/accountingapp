@@ -110,13 +110,14 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-between'
   },
   drawerLogoContainer: {
+    // backgroundColor: 'red',
     marginTop: 80, // ako bude hteo da se prepravi
     marginBottom: metrics.extraHuge,
   },
   drawerLogo: {
     marginLeft: metrics.extraHuge,
     height: 70,
-    width: Dimensions.get('window').width / 2.3,
+    width: Dimensions.get('window').width / 2,
   },
   iconTextScreen: {
     flexDirection: 'row',

@@ -300,7 +300,7 @@ const initialState = {
       rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
     },
     image: require('../../../assets/images/calculationImage5.jpg'),
-    icons: require('../../../assets/images/manUser.png'),
+    icons: require('../../../assets/images/user1.png'),
     input: 0,
     func: 'lease',
     type: 'blabla',

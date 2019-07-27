@@ -61,8 +61,8 @@ class DrawerTemplate extends Component {
         <ImageBackground source={images.drawerBackground} style={{ width: 280, height: Dimensions.get('window').height}}>
           <TouchableOpacity style={styles.drawerLogoContainer} onPress={this.openAdmin}>
             <Image
-              resizeMode="center"
-              source={images.drawerLogo}
+              // resizeMode="center"
+              source={images.logoImage}
               style={styles.drawerLogo}
             />
           </TouchableOpacity>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   drawerLogo: {
     marginLeft: metrics.extraHuge,
     height: 70,
-    width: Dimensions.get('window').width / 2,
+    width: Dimensions.get('window').width / 1.8,
   },
   iconTextScreen: {
     flexDirection: 'row',

@@ -25,7 +25,6 @@ class App extends Component {
 
     const images = [
       require('./assets/images/aboutCompanyPanel500px.png'),
-      require('./assets/images/backgroundCalculations.png'),
       require('./assets/images/BG.png'),
       require('./assets/images/backgroundImage.png'),
       require('./assets/images/calculatorCalculations.png'),
@@ -36,7 +35,6 @@ class App extends Component {
       require('./assets/images/calculationImage5.jpg'),
       require('./assets/images/calculationImage6.jpg'),
       require('./assets/images/buttonProceedWhite.png'),
-      require('./assets/images/calculationsPanel.png'),
       require('./assets/images/calculator.png'),
       require('./assets/images/calculatorDefault.png'),
       require('./assets/images/calculatorSelected.png'),
@@ -54,34 +52,24 @@ class App extends Component {
       require('./assets/images/folder.png'),
       require('./assets/images/iconCalendarsmall.png'),
       require('./assets/images/iconCompany.png'),
-      require('./assets/images/iconServices.png'),
       require('./assets/images/iconteam.png'),
-      require('./assets/images/iconClocksmall.png'),
       require('./assets/images/iconTransfer.png'),
-      require('./assets/images/imageCalculation.png'),
       require('./assets/images/incentiveImage.png'),
       require('./assets/images/milkaSlika.png'),
       require('./assets/images/newspaperDefault.png'),
       require('./assets/images/newspaperSelected.png'),
       require('./assets/images/onlyTax.png'),
       require('./assets/images/panel.png'),
-      require('./assets/images/panel05.png'),
       require('./assets/images/pioTax.png'),
       require('./assets/images/servicesImagex.png'),
       require('./assets/images/Shape.png'),
-      require('./assets/images/share.png'),
       require('./assets/images/taxDefault.png'),
       require('./assets/images/taxesImage.png'),
       require('./assets/images/taxSelected.png'),
-      require('./assets/images/twit.png'),
       require('./assets/images/walletCalculations.png'),
       require('./assets/images/abaxis.png'),
-
-
-      require('./assets/images/face.png'),
-      require('./assets/images/g.png'),
       require('./assets/images/iconClients.png'),
-      require('./assets/images/manUser.png'),
+
     ];
 
     const cacheImages = images.map(image => {

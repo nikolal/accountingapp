@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { saveServices } from './ServicesContainer.js';
 import HeaderTitle from './HeaderTitle.js';
-import { metrics, colors, fonts } from '../../theme';
+import { metrics, colors, fonts, images } from '../../theme';
 
 class Services extends Component {
 
@@ -38,7 +38,7 @@ class Services extends Component {
           <View style={styles.imageContainer}>
             <Image
               style={styles.image}
-              source={{ uri: 'https://www.tmconsulting.co.rs/uploads/useruploads/photos/VAT-representative-Serbia.jpg' }}
+              source={images.hlbServicesPhoto}
             />
             <Text style={styles.textDescription}>{this.props.description[this.props.language]}</Text>
           </View>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: Dimensions.get('window').height / 3.2,
+    width: Dimensions.get('window').height / 1.9,
     borderRadius: 10
   },
   textDescription: {

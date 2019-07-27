@@ -1,6 +1,6 @@
 const images = {
   background: require('../../assets/images/BG.png'),
-  logoImage: require('../../assets/images/Blue.png'),
+  logoImage: require('../../assets/images/logoSettings.png'),
   buttonProceedWhite: require('../../assets/images/buttonProceedWhite.png'),
   backgroundImage: require('../../assets/images/backgroundImage.png'),
   iconCalendarsmall: require('../../assets/images/iconCalendarsmall.png'),

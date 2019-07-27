@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
   },
   image: {
     height: Dimensions.get('window').height / 3.2,
-    width: Dimensions.get('window').height / 1.9,
-    borderRadius: 10
+    borderRadius: 10,
+
   },
   textDescription: {
     fontSize: fonts.size.huge,

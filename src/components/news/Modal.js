@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '17.7%',
-    backgroundColor:'#ffffff90',
   },
   logoImage: {
     opacity: 1.0,

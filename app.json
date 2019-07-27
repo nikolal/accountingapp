@@ -17,7 +17,8 @@
       "assets/*"
     ],
     "splash": {
-      "image": "./assets/images/splash.png"
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover"
     },
     "packagerOpts": {
       "assetExts": [

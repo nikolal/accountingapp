@@ -24,6 +24,7 @@ const images = {
   drawerLogo: require('../../assets/images/drawerLogo.png'),
   incentiveImage: require('../../assets/images/incentiveImage.png'),
   splash: require('../../assets/images/splash.png'),
+  hlbServicesPhoto: require('../../assets/images/hlbServicesPhoto.jpg')
 };
 
 export default images;

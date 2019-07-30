@@ -36,8 +36,7 @@ class AllowanceResult extends Component {
                  this.props.language === 'en' ?
                    <Text style={styles.calculText}>????</Text> :
                    <View style={styles.backgroundImageTextContainer}>
-                    <Text style={styles.calculText}>Obračun dnevnica</Text>
-                    <Text style={styles.calculText}>u zemlji</Text>
+                    <Text style={styles.calculText}>Dnevnice u zemlji</Text>
                    </View>
                }
                {
@@ -76,9 +75,9 @@ class AllowanceResult extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.text}>???</Text> :
-                  <Text style={styles.text}>Neto dnevnica u RSD</Text>
+                  <Text style={styles.text}>Isplaćena dnevnice u zemlji</Text>
               }
-              <View style={styles.numberContainerBlue}>
+              <View style={styles.numberContainer}>
                 <Text
                   style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                 </Text>
@@ -105,9 +104,9 @@ class AllowanceResult extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.text}>???</Text> :
-                  <Text style={styles.text}>Porez</Text>
+                  <Text style={styles.text}>Ukupan izdatak za porez</Text>
               }
-              <View style={styles.numberContainer}>
+              <View style={styles.numberContainerBlue}>
               <Text
                 style={styles.number}>{calculation.allowancesHome.tax && calculation.allowancesHome.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
               </Text>

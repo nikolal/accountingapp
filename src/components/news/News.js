@@ -7,6 +7,8 @@ import { saveArticle, saveNewsAction } from './NewsContainer.js';
 import { saveLanguage, saveLocaleString } from '../settings/SettingsContainer.js';
 import { metrics, colors, fonts, images } from '../../theme';
 import Modal from './Modal.js';
+import { MaterialIcons, Entypo }  from '@expo/vector-icons';
+
 import HeaderTitle from './HeaderTitle.js';
 
 class News extends Component {
@@ -80,13 +82,16 @@ class News extends Component {
             <ImageBackground
               style={styles.firstItemImage}
               source={{ uri: item.image }}
-              blurRadius={5}
             >
-            <View style={styles.textContainerFirstItem}>
-              <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title[this.props.language]}</Text>
-              <Text style={styles.dateTextFirstItem}>{item.date}</Text>
-            </View>
-
+              <View style={styles.innerBackgroundColorContainer}>
+                <View style={styles.textContainerFirstItem}>
+                  <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title[this.props.language]}</Text>
+                  <View style={styles.innerContainerFirstItem}>
+                    <Text style={styles.authorFirstItem}>{item.author[this.props.language]}</Text>
+                    <Text style={styles.dateTextFirstItem}>{item.date}</Text>
+                  </View>
+                </View>
+              </View>
             </ImageBackground>
 
           </View>
@@ -100,8 +105,9 @@ class News extends Component {
             </View>
             <View style={styles.textContainer}>
               <View style={styles.hlbContainer}>
+                <Entypo style={styles.logoImage} size={20} name="info-with-circle" />
                 <Text style={styles.secondItem}>{item.author[this.props.language]}</Text>
-                <Image source={images.share} style={styles.shareImage} />
+                <MaterialIcons style={styles.shareImage} size={20} name="navigate-next" />
               </View>
               <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
               <Text style={styles.dateText}>{item.date}</Text>
@@ -153,27 +159,40 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3.5,
     alignItems: 'center'
   },
-  textContainerFirstItem: {
+  innerBackgroundColorContainer: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0, 0.60)',
+    width: Dimensions.get('window').width
+  },
+  textContainerFirstItem: {
     paddingHorizontal: metrics.hugeToExtrahuge,
   },
   titleTextFirstItem: {
     color: colors.white,
     fontSize: fonts.size.hugeToExtra,
-    fontFamily: 'openSansBold'
+    fontFamily: 'merriweatherBold',
+    textAlign: 'center'
+  },
+  innerContainerFirstItem: {
+    marginTop: metrics.small,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   authorFirstItem: {
-    marginRight: metrics.tiny,
-    color: '#189FAB',
-    fontFamily: 'openSansBold',
-    fontSize: fonts.size.large,
+    color: 'white',
+    fontFamily: 'merriweatherRegular',
+    fontSize: fonts.size.medium,
+    letterSpacing: 2,
+    marginRight: metrics.medium
   },
   dateTextFirstItem: {
-    marginLeft: metrics.tiny,
     color: '#189FAB',
-    fontFamily: 'openSansBold',
+    fontFamily: 'merriweatherRegular',
     fontSize: fonts.size.medium,
+    letterSpacing: 2
   },
   item: {
     flexDirection: 'row',
@@ -184,34 +203,35 @@ const styles = StyleSheet.create({
   },
   itemImage: {
     height: 115,
-    width: 115
+    width: 115,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'space-between',
     paddingVertical: metrics.small,
-    // backgroundColor: 'green',
     paddingLeft: metrics.medium,
   },
   hlbContainer: {
     flexDirection: 'row',
     alignItems: 'center'
   },
-  secondItem: {
-    color: '#189FAB',
+  logoImage: {
+    color: 'black',
+    marginRight: metrics.medium
   },
-  hlbConsultingText: {
-    fontSize: 12,
-    marginRight: metrics.extraHuge
+  secondItem: {
+    fontFamily: 'merriweatherRegular',
+  },
+  titleText: {
+    fontFamily: 'merriweatherRegular',
   },
   shareImage: {
-    height: metrics.medium,
-    width: metrics.medium,
     marginLeft: metrics.huge,
-    // alignSelf: 'flex-end'
+    color: '#bdbdbd',
   },
   dateText: {
     fontSize: fonts.size.tiny,
     color: '#189FAB',
+    fontFamily: 'merriweatherRegular',
   }
 });

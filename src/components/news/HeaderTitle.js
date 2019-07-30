@@ -11,7 +11,7 @@ class HeaderTitle extends Component {
       this.props.language === 'en' ?
       <Text style={styles.title}>News</Text> :
       this.props.language === 'rs' ?
-      <Text style={styles.title}>Vesti</Text> :
+      <Text style={styles.title}>Poreske vesti</Text> :
       null
     );
   }

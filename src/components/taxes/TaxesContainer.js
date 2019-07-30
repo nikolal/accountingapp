@@ -800,7 +800,7 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'Tax',
+      en: 'Property tax',
       rs: 'Porezi na imovinu'
     },
     date: '30.04.2018',
@@ -825,12 +825,12 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax rates for immovable assets of tax payer not in a bookkeeping system',
+        en: 'Tax rates for immovable assets of tax payer not in a bookkeeping system:',
         rs: 'Stope poreza na nepokretnosti poreskog obveznika koji ne vodi poslovne knjige (osim zemljišta):'
       },
       percentage: {
-        en: '?',
-        rs: '?'
+        en: '',
+        rs: ''
       }
     },{
       text: {
@@ -870,12 +870,12 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Tax rates for gifts and inherit',
-        rs: 'Stopa poreza na nasleđe i poklon'
+        en: 'Tax rates for gifts and inherit:',
+        rs: 'Stopa poreza na nasleđe i poklon:'
       },
       percentage: {
-        en: '?',
-        rs: '?'
+        en: '',
+        rs: ''
       }
     },{
       text: {

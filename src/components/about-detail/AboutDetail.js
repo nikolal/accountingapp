@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: colors.black,
-    marginHorizontal: metrics.largeToHuge,
+    textAlign: 'center',
     marginBottom: metrics.huge,
   },
   headlineContainer: {

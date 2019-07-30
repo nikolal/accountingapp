@@ -35,10 +35,7 @@ class AllowanceResult extends Component {
                {
                  this.props.language === 'en' ?
                    <Text style={styles.calculText}>????</Text> :
-                   <View style={styles.backgroundImageTextContainer}>
-                    <Text style={styles.calculText}>Obračun dnevnica</Text>
-                    <Text style={styles.calculText}>u inostranstvu</Text>
-                   </View>
+                   <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
                }
                {
                  this.props.language === 'en' ?

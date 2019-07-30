@@ -37,14 +37,14 @@ class AboutUs extends Component {
             style={styles.image}
             source={images.aboutCompanyPanel500px}
           />
-          <Text style={styles.headline}>HLB Consulting</Text>
+          <Text style={styles.headline}>HLB T&M Consulting</Text>
         </View>
           {
             this.props.language === 'en' ?
               <Text style={styles.descriptionText}>We are one of the leading accounting and consulting firms in Serbia specialised to support international companies having business in Serbia. We have a strong professional team of accountants, financial and tax compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for local and multinational companies.</Text>
             :
             this.props.language === 'rs' ?
-              <Text style={styles.descriptionText}>Sedište kompanije HLB Consulting doo se nalazi se u Beogradu i pružamo usluge računovodstva, poreskog savetovanja, pravnog savetovanja i izrade studija o transfernim cenama. Naš tim okuplja stručnjake koji su poslovno iskustvo sticali u vodećim međunarodnim kompanijama iz oblasti finansijskog i poreskog savetovanja.</Text>
+              <Text style={styles.descriptionText}>Sedište kompanije HLB T&M Consulting doo se nalazi se u Beogradu i pružamo usluge računovodstva, poreskog savetovanja, pravnog savetovanja i izrade studija o transfernim cenama. Naš tim okuplja stručnjake koji su poslovno iskustvo sticali u vodećim međunarodnim kompanijama iz oblasti finansijskog i poreskog savetovanja.</Text>
             : null
           }
           {this.props.about.map(this.renderList)}

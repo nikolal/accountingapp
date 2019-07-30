@@ -281,7 +281,7 @@ class AddNews extends Component {
               placeholder="Odaberi datum"
               format={
                 this.props.language === 'en' ?
-                  'YYYY-MM-DD' : 'DD.MM.YYYY.'
+                  'MMMM-DD' : 'DD/MM/YYYY'
               }
               // minDate={componentData.settings.minValue}
               // maxDate={componentData.settings.maxValue}
@@ -317,7 +317,7 @@ class AddNews extends Component {
             </TouchableOpacity>
             {showDatePicker} */}
           </View>
-          {this.state.newsItem.paragraphs.map(this.renderParagraphs)}
+          {this.state.newsItem.paragraphs && this.state.newsItem.paragraphs.map(this.renderParagraphs)}
         </KeyboardAvoidingView>
         </ScrollView>
       </View>

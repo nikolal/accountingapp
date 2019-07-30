@@ -42,7 +42,7 @@ class NewsDetail extends Component {
 
   render(){
     const { article } = this.props;
-    console.log(article.description);
+    // console.log(article.description);
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description[this.props.language]}</Text>
@@ -61,7 +61,7 @@ class NewsDetail extends Component {
             <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="share" />
           </TouchableOpacity>
         </View>
-        {article.paragraphs.map(this.renderArticle)}
+        {article.paragraphs && article.paragraphs.map(this.renderArticle)}
         <Text />
       </ScrollView>
     );

@@ -137,7 +137,7 @@ const initialState = {
     calculation: 'OBRACUN ZARADA',
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage1.jpg'),
     icons: require('../../../assets/images/calculatorCalculations.png'),
@@ -181,7 +181,7 @@ const initialState = {
     },
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage2.jpg'),
     icons: require('../../../assets/images/caseCalculations.png'),
@@ -215,7 +215,7 @@ const initialState = {
     },
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage3.jpg'),
     icons: require('../../../assets/images/calendarCalculations.png'),
@@ -267,7 +267,7 @@ const initialState = {
     },
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage4.jpg'),
     icons: require('../../../assets/images/walletCalculations.png'),
@@ -297,7 +297,7 @@ const initialState = {
     },
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage5.jpg'),
     icons: require('../../../assets/images/user1.png'),
@@ -383,7 +383,7 @@ const initialState = {
     },
     description: {
       en: 'aj',
-      rs: 'HLB Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB Consulting.'
+      rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage6.jpg'),
     icons: require('../../../assets/images/onlyTax.png'),

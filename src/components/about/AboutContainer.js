@@ -10,12 +10,12 @@ const initialState = {
     },
     clientType: 'noClients',
     subTitle: {
-      en: 'More About Us',
+      en: 'More About Our Team',
       rs: 'Više o našem timu'
     },
     description: {
-      en: 'MILKA JANIČIĆ',
-      rs: 'MILKA JANIČIĆ - Direktor'
+      en: 'Milka Janičić',
+      rs: 'Milka Janičić'
     },
     icon: require('../../../assets/images/iconteam.png'),
     image: require('../../../assets/images/milkaSlika.png'),
@@ -23,7 +23,7 @@ const initialState = {
         type: 'headline',
         value: {
           en: 'Managing Partner',
-          rs: 'Partner'
+          rs: 'Rukovodeći partner'
         }
     },{
       type: 'text',
@@ -71,7 +71,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'During career, Milka served a large portfolio of small to large Serbian and international companies from many different business areas.',
-        rs: 'Milka je pružala usluge velikom broju klijenata od mikro do velikih srpskih i internacionalnih kompanija iz različitih oblasti poslovanja, uključujući proizvodne kompanije, maloprodajne kompanije, komapanije koje se bave pružanjem usluga i sl.'
+        rs: 'Milka je pružala usluge velikom broju klijenata od mikro do velikih srpskih i internacionalnih kompanija iz različitih oblasti poslovanja, uključujući proizvodne kompanije, maloprodajne kompanije, kompanije koje se bave pružanjem usluga i sl.'
       }
     },{
       type: 'text',
@@ -82,8 +82,8 @@ const initialState = {
     }]
   },{
     title: {
-      en: 'HLB T&M Consulting',
-      rs: 'HLB T&M Consulting'
+      en: 'About HLB T&M Consulting',
+      rs: 'O HLB T&M Consulting'
     },
     clientType: 'noClients',
     subTitle: {
@@ -91,22 +91,29 @@ const initialState = {
       rs: 'Više o našoj kompaniji'
     },
     description: {
-      en: 'WELCOME TO HLB T&M CONSULTING.',
-      rs: 'DOBRODOŠLI'
+      en: 'Welcome to HLB T&M Consulting',
+      rs: 'Dobrodošli'
     },
     icon: require('../../../assets/images/iconCompany.png'),
     image: require('../../../assets/images/servicesImagex.png'),
     paragraphs: [{
       type: 'text',
       value:{
-        en: 'Headquarter of HLB T&M Consulting is located in Belgrade and we provide accounting, financial, tax and legal consulting services. HLB has a strong professional team of accountants, payroll and legal compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for multinational companies setting up their operations or already operating in Serbia.',
+        en: 'Headquarter of HLB T&M Consulting is located in Belgrade and we provide accounting, financial, tax and legal consulting services.',
         rs: 'Sedište kompanije HLB T&M Consulting nalazi se u Beogradu i pružamo usluge računovodstva, poreskog, finansijskog i pravnog savetovanja, kao i izrade studija o transfernim cenama.'
       }
     },{
       type: 'text',
       value: {
-        en: 'HLB T&M Consulting serves clients in Serbia and worldwide as a direct part of the group HLB International, which was formed in London in 1969. Group is ranked among the top 15 global financial networks with more than 660 independent accounting and advisory offices in over 140 countries around the world.',
+        en: 'HLB has a strong professional team of accountants, payroll and legal compliance specialists with over 15 years of experience in providing efficient and comprehensive compliance solutions for multinational companies setting up their operations or already operating in Serbia.',
         rs: 'Navedene usluge pružamo velikom broju klijenata, počev od velikih međunarodnih kompanija koje posluju u Srbiji pa do malih i srednjih domaćih preduzeća. Naš tim čine stručnjaci koji su prethodno iskustvo sticali u vodećim međunarodnim kompanijama koje posluju u oblasti revizije, računovodstva i poreskog savetovanja.'
+      }
+    },
+    {
+      type: 'text',
+      value: {
+        en: 'In over nine years of steady growth, our company continued to provide first-rate tax advisory and accounting services to international companies with operations in Serbia and become one of the leading consulting partners in Belgrade for financial and tax issues.',
+        rs: 'U preko devet godina rasta kompanije, nastavili smo da pružamo kvalitetne poreske i finansijske usluge međunarodnim kompanijama koje imaju poslovanje u Srbiji i postali smo jedna od vodećih konsultantskih kompanija u Beogradu u oblasti poreza i računovodstva.'
       }
     },
     {
@@ -118,14 +125,14 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'As a part of HLB International we are also a member of the Forum of Firms, part of the International Federation of Accountants, and as such committed to the highest quality standards in accordance with International Standards on Quality Control.',
+        en: 'HLB T&M Consulting serves clients in Serbia and worldwide as a direct part of the group HLB International, which was formed in London in 1969. Group is ranked among the top 15 global financial networks with more than 660 independent accounting and advisory offices in over 140 countries around the world.',
         rs: 'Kompanija je HLB T&M Consulting pruža konsultantske usluge klijentima u Srbiji ali i širom sveta kao deo međunarodne grupacije HLB International koja je osnovana u Londonu 1969. godine. Grupa se nalazi među 15 najvećih svetskih grupacija za poresko i finansijsko savetovanje, u čijem sastavu posluje preko 660 kompanija u 160 zemalja sveta.'
       }
     },{
       type: 'text',
       value: {
-        en: 'In over six years of steady growth, our company continued to provide first-rate tax advisory and accounting services to international companies with operations in Serbia and become one of the leading consulting partners in Belgrade for financial and tax issues.',
-        rs: 'Kao deo grupacije HLB International, naša kompanije je član i međunarodne federacije računovodstvenih kompanija Forum of Firms. Kao član Forum of Firms, u obavezi smo da sprovodimo naviše standarde kvaliteta finansijskih i poreskih usluga a sve u skladu sa važećim međunarodnim standardima. U preko 6 godina rasta kompanije, nastavili smo da pružamo kvalitetne poreske i finansijske usluge međunarodnim kompanijama koje imaju poslovanje u Srbiji i postali smo jedna od vodećih konsultantskih kompanija u Beogradu u oblasti poreza i računovodstva.'
+        en: 'As a part of HLB International we are also a member of the Forum of Firms, part of the International Federation of Accountants, and as such committed to the highest quality standards in accordance with International Standards on Quality Control.',
+        rs: 'Kao deo grupacije HLB International, naša kompanije je član i međunarodne federacije računovodstvenih kompanija Forum of Firms. Kao član Forum of Firms, u obavezi smo da sprovodimo naviše standarde kvaliteta finansijskih i poreskih usluga a sve u skladu sa važećim međunarodnim standardima.'
       }
     }]
   },{

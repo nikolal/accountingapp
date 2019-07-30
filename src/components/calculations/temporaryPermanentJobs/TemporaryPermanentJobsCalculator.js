@@ -72,7 +72,7 @@ class TemporaryPermanentJobsCalculator extends Component {
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.buttonText}>Calculate</Text> :
-                      <Text style={styles.buttonText}>Izracunaj</Text>
+                      <Text style={styles.buttonText}>Izračunaj</Text>
                   }
                 </TouchableOpacity>
 

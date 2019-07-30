@@ -86,7 +86,7 @@ class AnnualTax extends Component {
                     {
                       this.props.language === 'en' ?
                         <Text style={styles.buttonText}>Calaculate</Text> :
-                        <Text style={styles.buttonText}>Izracunaj</Text>
+                        <Text style={styles.buttonText}>Izračunaj</Text>
                     }
                   </TouchableOpacity>
                   <Text style={styles.description}>{this.props.calculation.description[this.props.language]}</Text>

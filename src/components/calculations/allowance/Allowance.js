@@ -25,11 +25,10 @@ class Allowance extends Component {
                 this.props.language === 'en' ?
                 <View>
                   <Text style={styles.calculText}>??</Text>
-                  <Text style={styles.calculText}>(RSD)</Text>
+                  <Text style={styles.calculText}>??</Text>
                 </View> :
                 <View>
                   <Text style={styles.calculText}>Dnevnice u zemlji</Text>
-                  <Text style={styles.calculText}>(Obračun - RSD)</Text>
                 </View>
               }
 
@@ -40,11 +39,10 @@ class Allowance extends Component {
                   this.props.language === 'en' ?
                     <View>
                       <Text style={styles.calculText}>???</Text>
-                      <Text style={styles.calculText}>(EUR)</Text>
+                      <Text style={styles.calculText}>?</Text>
                     </View> :
                     <View>
                       <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
-                      <Text style={styles.calculText}>(Obračun - EUR)</Text>
                     </View>
                 }
               </View> : null
@@ -113,7 +111,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite NETO dnevnice u zemlji (rsd)"
+                      placeholder="Unesite neto iznos dnevnice u zemlji (rsd)"
                       placeholderTextColor="black"
                     /> :
                     this.props.calculation.type === 'allowanceAway' ?
@@ -121,7 +119,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite NETO dnevnice u inostranstvu (eur)"
+                      placeholder="Unesite neto dnevnice u inostranstvu (eur)"
                       placeholderTextColor="black"
                     /> : null
                 }
@@ -139,7 +137,7 @@ class Allowance extends Component {
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.buttonText}>Calculate</Text> :
-                      <Text style={styles.buttonText}>Izracunaj</Text>
+                      <Text style={styles.buttonText}>Izračunaj</Text>
                   }
                 </TouchableOpacity>
 

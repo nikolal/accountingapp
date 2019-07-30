@@ -4,12 +4,12 @@ const SAVE_ABOUT = 'incentives/SAVE_ABOUT';
 // Initial State
 const initialState = {
   headlineText: {
-    en: 'Choose one',
-    rs: 'Izaberite jednu od ponudjenih opcija'
+    en: 'Incentives for business in Serbia',
+    rs: 'Podsticaji za poslovanje'
   },
   incentives: [{
     title: {
-      en: 'State business incentives',
+      en: 'Incentives for employement',
       rs: 'Olakšice za zapošljavanja'
     },
     subTitle: {
@@ -17,7 +17,7 @@ const initialState = {
       rs: 'Više informacija o poreskim olakšicama'
     },
     description: {
-      en: 'The main business incentives available in Serbia are presented below.',
+      en: 'Incentives for employement',
       rs: 'Olakšice za nova zapošljavanja'
     },
     icon: require('../../../assets/images/iconteam.png'),
@@ -49,26 +49,26 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '•	Future employers will be able to use the tax benefit only according to their profit – can be exempted from paying taxes and contributions only for themselves.',
-        rs: '•	budući poslodavci moći će da koriste poresku olakšicu samo po osnovu svoje zarade - biće oslobođeni plaćanja poreza i doprinosa samo za sebe;'
+        en: '• Future employers will be able to use the tax benefit only according to their profit – can be exempted from paying taxes and contributions only for themselves.',
+        rs: '• budući poslodavci moći će da koriste poresku olakšicu samo po osnovu svoje zarade - biće oslobođeni plaćanja poreza i doprinosa samo za sebe;'
       }
     },{
       type: 'text',
       value: {
-        en: "•	They don't have the right to be exempted from paying  the taxes and the contributions based on the profit for their employees. (According to the old law, they had that right for 9 employees at most)",
-        rs: '•	nemaju pravo na oslobođenje od plaćanja poreza i doprinosa po osnovu zarade za svoje zaposlene (po starom propisu imali su za najviše 9 novozaposlenih lica);'
+        en: "• They don't have the right to be exempted from paying  the taxes and the contributions based on the profit for their employees. (According to the old law, they had that right for 9 employees at most)",
+        rs: '•nemaju pravo na oslobođenje od plaćanja poreza i doprinosa po osnovu zarade za svoje zaposlene (po starom propisu imali su za najviše 9 novozaposlenih lica);'
       }
     },{
       type: 'text',
       value: {
-        en: '•	The owners who meet all the necessary conditions and set up their company before  January 1, 2019. will be able to use the benefits and all the contributions will be paid from the budget of the Republic of Serbia',
-        rs: '•	vlasnici koji ispune uslove i osnuju firmu posle 01. januara 2019. godine moći će da koriste olakšice i biće im iz Budžeta Republike Srbije uplaćeni svi doprinosi (PIO, zdravstveno osiguranje i osiguranje za slučaj nezaposlenosti);'
+        en: '• The owners who meet all the necessary conditions and set up their company before  January 1, 2019. will be able to use the benefits and all the contributions will be paid from the budget of the Republic of Serbia',
+        rs: '• vlasnici koji ispune uslove i osnuju firmu posle 01. januara 2019. godine moći će da koriste olakšice i biće im iz Budžeta Republike Srbije uplaćeni svi doprinosi (PIO, zdravstveno osiguranje i osiguranje za slučaj nezaposlenosti);'
       }
     },{
       type: 'text',
       value: {
-        en: '•	All the entrepreneurs and the legal persons who register their company according to the new law for the tax benefit can use 37000 RSD  as a maximum  net amount.',
-        rs: '•	preduzetnici i pravna lica koja registruju firmu po novom propisu za poresko oslobođenje mogu da koriste maksimalnan iznos zarade od 37.000 dinara u neto iznosu.'
+        en: '• All the entrepreneurs and the legal persons who register their company according to the new law for the tax benefit can use 37000 RSD  as a maximum  net amount.',
+        rs: '• preduzetnici i pravna lica koja registruju firmu po novom propisu za poresko oslobođenje mogu da koriste maksimalnan iznos zarade od 37.000 dinara u neto iznosu.'
       }
     },{
       type: 'headline',
@@ -115,21 +115,21 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: "•	That the legal person – future employers or the DOO's founders have been registered at least 6 months simultaneously before the set up of their company at the National employment service as unemployed or that in the period of 12 months before the day of registration and set up of their company they finished high school, academy or college and  got educated according to the law",
-        rs: '•	da su fizička lica - odnosno budući preduzetnici ili osnivači DOO najmanje šest meseci bez prekida pre dana otvaranja svoje firme bili pijavljeni kod Nacionalne službe za zapošljavanje kao nezaposlena lica ili da su u periodu od 12 meseci pre dana registrovanja i otvaranja svoje firme završili srednju školu, višu ili fakultet, i da su stekli obrazovanje u skladu sa Zakonom;'
+        en: "• That the legal person – future employers or the DOO's founders have been registered at least 6 months simultaneously before the set up of their company at the National employment service as unemployed or that in the period of 12 months before the day of registration and set up of their company they finished high school, academy or college and  got educated according to the law",
+        rs: '• da su fizička lica - odnosno budući preduzetnici ili osnivači DOO najmanje šest meseci bez prekida pre dana otvaranja svoje firme bili pijavljeni kod Nacionalne službe za zapošljavanje kao nezaposlena lica ili da su u periodu od 12 meseci pre dana registrovanja i otvaranja svoje firme završili srednju školu, višu ili fakultet, i da su stekli obrazovanje u skladu sa Zakonom;'
       }
     },{
       type: 'text',
       value: {
-        en: '•	That as a physical person or an entrepreneur (an agricultural entrepreneur also) is registered for  the compulsory social security in the Central  register of compulsory social security',
-        rs: '•	da je fizičko lice, odnosno preduzetnik (kao i preduzetnik poljoprivrednik) prijavljen na obavezno socijalno osiguranje u Centralni registar obaveznog socijalnog osiguranja;'
+        en: '• That as a physical person or an entrepreneur (an agricultural entrepreneur also) is registered for  the compulsory social security in the Central  register of compulsory social security',
+        rs: '• da je fizičko lice, odnosno preduzetnik (kao i preduzetnik poljoprivrednik) prijavljen na obavezno socijalno osiguranje u Centralni registar obaveznog socijalnog osiguranja;'
       }
     },{
-      en: '•	That  a legal person or a founder is employed in this new LLC company(has concluded an employment contract)',
-      rs: '•	da fizičko lice, odnosno osnivač bude zaposlen u svojoj novoosnovanoj DOO firmi (da ima zasnovan radni odnos);'
+      en: '• That  a legal person or a founder is employed in this new LLC company(has concluded an employment contract)',
+      rs: '• da fizičko lice, odnosno osnivač bude zaposlen u svojoj novoosnovanoj DOO firmi (da ima zasnovan radni odnos);'
     },{
-      en: '•	If the LLC has more than one founder, the right can be gained for 9 founders at most, who also have to sign an employment contract and be employed in the company.',
-      rs: '•	ukoliko DOO ima više osnivača pravo se može ostvariti za najviše devet osnivača, koji takođe moraju potpisati ugovor o radu i biti zaposleni u firmi.'
+      en: '• If the LLC has more than one founder, the right can be gained for 9 founders at most, who also have to sign an employment contract and be employed in the company.',
+      rs: '• ukoliko DOO ima više osnivača pravo se može ostvariti za najviše devet osnivača, koji takođe moraju potpisati ugovor o radu i biti zaposleni u firmi.'
     },{
       type: 'headline',
       value: {
@@ -151,7 +151,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'The  restrictions on tax benefits for the entrepreneurs',
+        en: 'The restrictions on tax benefits for the entrepreneurs',
         rs: 'Ograničenje poslodavaca za korišćenje olakšica'
       }
     },{
@@ -163,20 +163,20 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '•	One person can not use the benefits and tax exemption right more than once.',
-        rs: '•	jedno lice ne može više puta da ostvari olakšice i pravo na poresko oslobođenje;'
+        en: '• One person can not use the benefits and tax exemption right more than once.',
+        rs: '• jedno lice ne može više puta da ostvari olakšice i pravo na poresko oslobođenje;'
       }
     },{
       type: 'text',
       value: {
-        en: '•	If the new employer  gets the tax benefits on one person, the other employer  can not get tax exempted for the same person.',
-        rs: '•	ako jedan novoosnovani poslodavac ostvari poresko oslobođenje, drugi novoosnovani poslodavac ne može da ostvari poresko oslobođenje za istu osobu;'
+        en: '• If the new employer  gets the tax benefits on one person, the other employer  can not get tax exempted for the same person.',
+        rs: '• ako jedan novoosnovani poslodavac ostvari poresko oslobođenje, drugi novoosnovani poslodavac ne može da ostvari poresko oslobođenje za istu osobu;'
       }
     },{
       type: 'text',
       value: {
-        en: '•	The person who gets the new benefits for tax and contributions exemptions, cannot use other benefits like subventions for self-employment and employing new workers given by the National employment service',
-        rs: '•	lice koje ostvari nove olakšice za oslobođenje od poreza i doprinosa ne može da koristi druge olakšice, poput subvencije za samozapošljavanje i zapošljavanje novih lica koje dodeljuje Nacionalna služba za zapošljavanje.'
+        en: '• The person who gets the new benefits for tax and contributions exemptions, cannot use other benefits like subventions for self-employment and employing new workers given by the National employment service',
+        rs: '• lice koje ostvari nove olakšice za oslobođenje od poreza i doprinosa ne može da koristi druge olakšice, poput subvencije za samozapošljavanje i zapošljavanje novih lica koje dodeljuje Nacionalna služba za zapošljavanje.'
       }
     },{
       type: 'headline',
@@ -199,14 +199,14 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: '•	After the period of 12 months',
-        rs: '•	nakon isteka perioda od 12 meseci;'
+        en: '• After the period of 12 months',
+        rs: '• nakon isteka perioda od 12 meseci;'
       }
     },{
       type: 'text',
       value: {
-        en: "•	On the day when the entrepreneur's monthly salary is paid, or the founder's monthly salary, which is more than 37000 RSD  individually",
-        rs: '•	na dan kada se izvrši isplata mesečne lične zarade preduzetnika, odnosno mesečne zarade osnivača, koja je više od 37.000 dinara za svakog pojedinačno.'
+        en: "• On the day when the entrepreneur's monthly salary is paid, or the founder's monthly salary, which is more than 37000 RSD  individually",
+        rs: '• na dan kada se izvrši isplata mesečne lične zarade preduzetnika, odnosno mesečne zarade osnivača, koja je više od 37.000 dinara za svakog pojedinačno.'
       }
     },{
       type: 'text',

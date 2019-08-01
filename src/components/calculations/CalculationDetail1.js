@@ -78,8 +78,8 @@ class CalculationDetail1 extends Component {
     this.props.calculateCourseEuroAction(this.calculateCourseEuro(val));
   }
 
-  calculateFamilyNumber = val => (val * 118757);
-  personalDeductions = val => (this.calculateFamilyNumber(val) + 316685)
+  calculateFamilyNumber = val => (val * 123532);
+  personalDeductions = val => (this.calculateFamilyNumber(val) + 329419)
 
   calculateCourseEuro = val => (val + 1)
 
@@ -120,18 +120,23 @@ class CalculationDetail1 extends Component {
     this.props.totalSalaryGrossToNetContributionsEmployeeAction(this.totalSalaryGrossToNetContributionsEmployee(val));
   };
 
-  saveSalaryGrossNetBaseIndex = val => (val - 15300);
-  saveSalaryGrossNetTax = val => ((val - 15300) * 0.1);
-  saveSalaryGrossNetPensionContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.14);
-  saveSalaryGrossNetHealthContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0515);
-  saveSalaryGrossNetInsuranceContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0075);
-  saveSalaryGrossNetPension = val => (this.saveSalaryGrossNetSocialBase(val) * 0.12);
-  saveSalaryGrossNetSocialBase = val => (val < 341725 ? val : 341725)
-  saveSalaryGrossNetTotal = val => (val + this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val));
-  saveSalaryGrossNetTotalNet = val => (val - this.saveSalaryGrossNetTax(val) - (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val)));
-  totalSalaryGrossToNetContributions = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
-  totalSalaryGrossToNetContributionsEmployer = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
-  totalSalaryGrossToNetContributionsEmployee = val => (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
+  saveSalaryGrossNetBaseIndex = val => (val - 15300); // D15 - H4
+  saveSalaryGrossNetTax = val => ((val - 15300) * 0.1); // D16 (10%)
+  saveSalaryGrossNetSocialBase = val => (val < 341725 ? val : 341725) // uslov
+  saveSalaryGrossNetPensionContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.14); //PIO
+  saveSalaryGrossNetHealthContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0515); // zdravstveni
+  saveSalaryGrossNetInsuranceContribution = val => (this.saveSalaryGrossNetSocialBase(val) * 0.0075); // nezaposlenost
+
+  saveSalaryGrossNetPension = val => (this.saveSalaryGrossNetSocialBase(val) * 0.12); // PIO - zaposleni
+
+  saveSalaryGrossNetTotal = val => (val + this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val)); // D31
+
+  saveSalaryGrossNetTotalNet = val => (val - this.saveSalaryGrossNetTax(val) - (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))); // = D25
+
+  totalSalaryGrossToNetContributions = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val))
+
+  totalSalaryGrossToNetContributionsEmployer = val => (this.saveSalaryGrossNetPension(val) + this.saveSalaryGrossNetHealthContribution(val)) // D27
+  totalSalaryGrossToNetContributionsEmployee = val => (this.saveSalaryGrossNetPensionContribution(val) + this.saveSalaryGrossNetHealthContribution(val) + this.saveSalaryGrossNetInsuranceContribution(val)) // D21
 
   // Salary net to gross
 
@@ -149,17 +154,17 @@ class CalculationDetail1 extends Component {
     this.props.saveSalaryNetGrossTotalCostAction(this.saveSalaryNetGrossTotalCost(val));
   };
 
-  saveSalaryNetGrossBaseIndex = val => this.saveSalaryNetGross(val) - 15000; // D14 - H4
-  saveSalaryNetGrossTax = val => (this.saveSalaryNetGross(val) - 15000) * 0.1; // D15 x 10%
-  saveSalaryNetGrossBaseContribution = val => (this.saveSalaryNetGross(val) < 329330 ? this.saveSalaryNetGross(val) : 329330)
+  saveSalaryNetGrossBaseIndex = val => this.saveSalaryNetGross(val) - 15300; // D14 - H4
+  saveSalaryNetGrossTax = val => (this.saveSalaryNetGross(val) - 15300) * 0.1; // D15 x 10%
+  saveSalaryNetGrossBaseContribution = val => (this.saveSalaryNetGross(val) < 341725 ? this.saveSalaryNetGross(val) : 341725) // D19
   saveSalaryNetGrossPensionContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.14);
   saveSalaryNetGrossHealthContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.0515);
   saveSalaryNetGrossInsuranceContribution = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.0075);
   saveSalaryNetGrossPension = val => (this.saveSalaryNetGrossBaseContribution(val) * 0.12);
-  saveSalaryNetGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701)) //D14
-  saveSalaryNetGrossContributionEmployer = val => (this.saveSalaryNetGrossPensionContribution(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
-  saveSalaryNetGrossContributionEmployee = val => (this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
-  saveSalaryNetGrossTotalCost = val => (this.saveSalaryNetGross(val) + this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val))
+  saveSalaryNetGross = val => (val > 232660.33 ? ((((val - (15300 * 0.1)) + (0.199 * 341725))) / 0.9) : ((val - 15300 * 0.1) / 0.701)) //D14
+  saveSalaryNetGrossContributionEmployee = val => (this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val)) // poslodavac
+  saveSalaryNetGrossContributionEmployer = val => (this.saveSalaryNetGrossPensionContribution(val) + this.saveSalaryNetGrossHealthContribution(val) + this.saveSalaryNetGrossInsuranceContribution(val)) // zaposleni
+  saveSalaryNetGrossTotalCost = val => (this.saveSalaryNetGross(val) + this.saveSalaryNetGrossPension(val) + this.saveSalaryNetGrossHealthContribution(val))
 
 
 
@@ -210,7 +215,7 @@ class CalculationDetail1 extends Component {
     this.props.tempPermJobsTaxAction(this.tempPermJobsTax(val));
     this.props.tempPermJobsPension14Action(this.tempPermJobsPension14(val));
     this.props.tempPermJobsHealthAction(this.tempPermJobsHealth(val));
-    this.props.tempPermJobsNezAction(this.tempPermJobsNez(val));
+    // this.props.tempPermJobsNezAction(this.tempPermJobsNez(val));
     this.props.tempPermJobsPension12Action(this.tempPermJobsPension12(val));
     this.props.tempPermJobsemployeesAction(this.tempPermJobsemployees(val));
     this.props.tempPermJobsemployerAction(this.tempPermJobsemployer(val));
@@ -223,10 +228,10 @@ class CalculationDetail1 extends Component {
   tempPermJobsTax = val => ((val / 0.701) * 0.10)
   tempPermJobsPension14 = val => ((val / 0.701) * 0.14)
   tempPermJobsHealth = val => ((val / 0.701) * 0.0515)
-  tempPermJobsNez = val => ((val / 0.701) * 0.0075)
+  // tempPermJobsNez = val => ((val / 0.701) * 0.0075)
   tempPermJobsPension12 = val => ((val / 0.701) * 0.12)
-  tempPermJobsemployees = val => (this.tempPermJobsTax(val) + this.tempPermJobsPension14(val) + this.tempPermJobsHealth(val) + this.tempPermJobsNez(val))
-  tempPermJobsemployer = val => (this.tempPermJobsPension12(val) + this.tempPermJobsHealth(val) + this.tempPermJobsNez(val))
+  tempPermJobsemployees = val => (this.tempPermJobsTax(val) + this.tempPermJobsPension14(val) + this.tempPermJobsHealth(val))
+  tempPermJobsemployer = val => (this.tempPermJobsPension12(val) + this.tempPermJobsHealth(val))
   tempPermJobsEmployerTotal = val => (this.tempPermJobsGrossToNet(val) + this.tempPermJobsemployer(val))
 
   /********
@@ -299,8 +304,8 @@ class CalculationDetail1 extends Component {
     this.props.allowanceHomeTaxAction(this.allowanceHomeTax(val));
   };
 
-  allowanceHomeTaxBase = val => (val - 2303)
-  allowanceHomeGross = val => (val < 2303 ? 0 : ((val - 2303) * 1.111111111))
+  allowanceHomeTaxBase = val => (val - 2349)
+  allowanceHomeGross = val => (val < 2303 ? 0 : ((val - 2349) * 1.111111111))
   allowanceHomeTax = val => (val < 2303 ? 0 : (this.allowanceHomeGross(val) * 0.1))
 
   // Away
@@ -340,8 +345,8 @@ class CalculationDetail1 extends Component {
 
 
 
-  annualGross = val => (val > 232660.33 ? ((((val - (15000 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15000 * 0.1) / 0.701)) // Bruto
-  baseForTax = val => (this.annualGross(val) - 15000); // Osnovica za obracun poreza na zarade
+  annualGross = val => (val > 232660.33 ? ((((val - (15300 * 0.1)) + (0.199 * 329330))) / 0.9) : ((val - 15300 * 0.1) / 0.701)) // Bruto
+  baseForTax = val => (this.annualGross(val) - 15300); // Osnovica za obracun poreza na zarade
   taxOnEarning = val => (this.baseForTax(val) * 0.1); // Porez na zarade 10%
   baseForSocialContribution = val => (this.annualGross(val) < 329330 ? this.annualGross(val) : 329330) // Osnovica za obracun socijalnih doprinosa
   annualPension = val => (this.baseForSocialContribution(val) * 0.14);
@@ -352,25 +357,25 @@ class CalculationDetail1 extends Component {
   annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
   annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val)); // ukupan obracun
 
-  contributionsEmployees = val => ((val * 12) - (15000 * 12)); // Godisnji neto, neoporezivo
+  contributionsEmployees = val => ((val * 12) - (15300 * 12)); // Godisnji neto, neoporezivo
 
-  dohodakZaOporezivanje = val => (this.contributionsEmployees(val) - 2375136) // dohodak na oporezivanje - (B5-F2)
+  dohodakZaOporezivanje = val => (this.contributionsEmployees(val) - 2470644) // dohodak na oporezivanje - (B5-F2)
 
   calculateFinalAnnulTax = val => (this.dohodakZaOporezivanje(val) < 0 ? 0 : this.calculateFinalAnnul(val)) // ? u minusu porez je 0 : POCETAK
 
 
-  licniOdbici = () => (316685 + (this.props.calculation.input2 * 118757))
+  licniOdbici = () => (329419 + (this.props.calculation.input2 * 123532))
 
   calculateFinalAnnul = val => (this.licniOdbici() < (this.dohodakZaOporezivanje(val) / 2) ? this.uslovOpcije1(val) : this.opcije2DrugiSlucaj(val))
 
-  uslovOpcije1 = val => (this.dohodakZaOporezivanje(val) - this.licniOdbici()) < 4750272 ? ((this.dohodakZaOporezivanje(val) - this.licniOdbici()) * 0.1) : this.izracunajProcenteOpcije3(val)
+  uslovOpcije1 = val => (this.dohodakZaOporezivanje(val) - this.licniOdbici()) < 4941288 ? ((this.dohodakZaOporezivanje(val) - this.licniOdbici()) * 0.1) : this.izracunajProcenteOpcije3(val)
 
-  opcije2DrugiSlucaj = val => (this.dohodakZaOporezivanje(val) / 2) < 4750272 ? (this.dohodakZaOporezivanje(val) / 2) * 0.1 : this.izracunajProcenteOpcije3(val)
+  opcije2DrugiSlucaj = val => (this.dohodakZaOporezivanje(val) / 2) < 4941288 ? (this.dohodakZaOporezivanje(val) / 2) * 0.1 : this.izracunajProcenteOpcije3(val)
 
   //
   izracunajProcenteOpcije3 = val => {
     return (
-      (((this.dohodakZaOporezivanje(val) - this.licniOdbici() - 4750272) * 0.15)) + (4750272 * 0.1)
+      (((this.dohodakZaOporezivanje(val) - this.licniOdbici() - 4941288) * 0.15)) + (4941288 * 0.1)
     );
   }
 
@@ -566,7 +571,7 @@ const dispatchToProps = dispatch => ({
   tempPermJobsTaxAction: bindActionCreators(tempPermJobsTaxAction, dispatch),
   tempPermJobsPension14Action: bindActionCreators(tempPermJobsPension14Action, dispatch),
   tempPermJobsHealthAction: bindActionCreators(tempPermJobsHealthAction, dispatch),
-  tempPermJobsNezAction: bindActionCreators(tempPermJobsNezAction, dispatch),
+  // tempPermJobsNezAction: bindActionCreators(tempPermJobsNezAction, dispatch),
   tempPermJobsPension12Action: bindActionCreators(tempPermJobsPension12Action, dispatch),
   tempPermJobsemployeesAction: bindActionCreators(tempPermJobsemployeesAction, dispatch),
   tempPermJobsemployerAction: bindActionCreators(tempPermJobsemployerAction, dispatch),

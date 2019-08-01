@@ -28,9 +28,9 @@ class AnnualTax extends Component {
             {
               this.props.language === 'en' ?
                 <Text style={styles.calculText}>????</Text> :
-                <Text style={styles.calculText}>Godišnji porez na dohodak</Text>
+                <Text style={styles.calculText}>Godišnji porez</Text>
             }
-            <Text style={styles.calculText}>(RSD)</Text>
+            <Text style={styles.calculText}>na dohodak građana</Text>
           </View>
         </ImageBackground>
           {
@@ -49,7 +49,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInput}
                         keyboardType="numeric"
-                        placeholder="Unesite ukupnu bruto mesecnu zaradu"
+                        placeholder=" Unesite prosecan mesečni neto prihod od zarade (rsd)"
                         placeholderTextColor="black"
                       />
                   }
@@ -66,7 +66,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInputFamily}
                         keyboardType="numeric"
-                        placeholder="Broj izdržavanih članova porodice"
+                        placeholder="Unesite broj izdržavanih članova porodice"
                         placeholderTextColor="black"
                       />
                   }
@@ -151,11 +151,14 @@ const styles = StyleSheet.create({
   },
   image: {
     height: Dimensions.get('window').height / 2.8,
+    justifyContent: 'center',
+  },
+  background: {
+    justifyContent: 'center',
+    alignItems: 'center'
+
   },
   calculTextContainer: {
-    position: 'absolute',
-    top: 80,
-    alignSelf: 'center'
    },
    calculText: {
      color: colors.white,

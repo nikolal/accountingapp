@@ -103,7 +103,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite NETO dnevnice u inostranstvu (eur)"
+                      placeholder="Unesite neto iznos dnevnice u inostranstvu (eur)"
                       placeholderTextColor="black"
                     /> :
                   this.props.calculation.type === 'allowanceHome' && this.props.language === 'rs' ?
@@ -119,7 +119,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite neto dnevnice u inostranstvu (eur)"
+                      placeholder="?"
                       placeholderTextColor="black"
                     /> : null
                 }

@@ -36,7 +36,6 @@ class LeaseResult extends Component {
                    <Text style={styles.calculText}>????</Text> :
                    <View style={styles.backgroundImageTextContainer}>
                     <Text style={styles.calculText}>Zakup fizičkom licu</Text>
-                    <Text style={styles.calculText}>(RSD)</Text>
                    </View>
                }
                {
@@ -74,7 +73,7 @@ class LeaseResult extends Component {
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.text}>???</Text> :
-                      <Text style={styles.text}>Ukupan porez</Text>
+                      <Text style={styles.text}>Ukupan izdatak za porez</Text>
                   }
                   <View style={styles.numberContainerBlue}>
                     <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

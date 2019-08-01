@@ -22,7 +22,7 @@ class ContractTaxResult extends Component {
 
   render() {
     const { calculation, localeString } = this.props;
-    console.log(calculation);
+    // console.log(calculation);
     return (
       <View style={styles.maincontainer}>
 
@@ -37,8 +37,7 @@ class ContractTaxResult extends Component {
                    this.props.language === 'en' ?
                      <Text style={styles.calculText}>????</Text> :
                      <View style={styles.backgroundImageTextContainer}>
-                      <Text style={styles.calculText}>Obračun bruto zarada</Text>
-                      <Text style={styles.calculText}>Bruto - Neto</Text>
+                      <Text style={styles.calculText}>Ugovor o delu</Text>
                      </View>
                  }
                  {
@@ -71,27 +70,12 @@ class ContractTaxResult extends Component {
 
           <ScrollView style={styles.container}>
 
-            <View style={styles.itemContainerDark}>
-              <View style={styles.innerContainer}>
-                {
-                  this.props.language === 'en' ?
-                    <Text style={styles.text}>Gross</Text> :
-                    <Text style={styles.text}>Bruto zarada (rsd)</Text>
-                }
-                <View style={styles.numberContainerBlue}>
-                  <Text style={styles.numberFirst}>{calculation.contractTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
-                  </Text>
-                </View>
-              </View>
-            </View>
-
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 <View style={{flexDirection: 'column'}}>
-                <Text style={styles.text}>Doprinosi na zarade</Text>
-                <Text style={styles.text}>na teret zaposlenog (rsd)</Text>
+                <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
               </View>
-              <View style={styles.numberContainer}>
+              <View style={styles.numberContainerBlue}>
                 <Text
                   style={styles.number}>{calculation.contractTax.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                   </Text>
@@ -147,7 +131,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -165,11 +149,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'

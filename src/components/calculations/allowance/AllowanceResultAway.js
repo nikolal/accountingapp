@@ -57,7 +57,7 @@ class AllowanceResult extends Component {
                        .toLocaleString(localeString, { maximumFractionDigits: 2 })
                      }
                     </Text>
-                    <Text style={styles.calculTextSmallText}> rsd</Text>
+                    <Text style={styles.calculTextSmallText}> eur</Text>
                    </View>
                }
 
@@ -73,9 +73,13 @@ class AllowanceResult extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.text}>???</Text> :
-                  <Text style={styles.text}>Neto dnevnica u EUR</Text>
+                  <View>
+                    <Text style={styles.text}>Neto iznos dnevnice</Text>
+                    <Text style={styles.text}>u inostranstvu (eur)</Text>
+                  </View>
+
               }
-              <View style={styles.numberContainerBlue}>
+              <View style={styles.numberContainer}>
                 <Text style={styles.numberFirst}>{calculation.allowancesAway.value && calculation.allowancesAway.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
@@ -86,7 +90,10 @@ class AllowanceResult extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.text}>???</Text> :
-                  <Text style={styles.text}>Ukupan izdatak EUR</Text>
+                  <View>
+                    <Text style={styles.text}>Osnovica za</Text>
+                    <Text style={styles.text}>oporezivanje (eur)</Text>
+                  </View>
               }
               <View style={styles.numberContainer}>
                 <Text style={styles.number}>{calculation.allowancesAway.gross && calculation.allowancesAway.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
@@ -98,9 +105,13 @@ class AllowanceResult extends Component {
               {
                 this.props.language === 'en' ?
                   <Text style={styles.text}>???</Text> :
-                  <Text style={styles.text}>Porez EUR</Text>
+                  <View>
+                    <Text style={styles.text}>Ukupan izdatak</Text>
+                    <Text style={styles.text}>za porez (eur)</Text>
+                  </View>
+
               }
-              <View style={styles.numberContainer}>
+              <View style={styles.numberContainerBlue}>
               <Text style={styles.number}>{calculation.allowancesAway.tax && calculation.allowancesAway.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
@@ -157,7 +168,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -179,7 +190,7 @@ const styles = StyleSheet.create({
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
+    // alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'

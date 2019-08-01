@@ -23,7 +23,6 @@ class Lease extends Component {
               <Text style={styles.calculText}>????</Text> :
               <Text style={styles.calculText}>Zakup fizičkom licu</Text>
           }
-          <Text style={styles.calculText}>(RSD)</Text>
         </View>
         </ImageBackground>
 

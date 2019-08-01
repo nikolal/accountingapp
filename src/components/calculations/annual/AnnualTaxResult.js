@@ -37,8 +37,8 @@ class AnnualTaxResult extends Component {
                    this.props.language === 'en' ?
                      <Text style={styles.calculText}>????</Text> :
                      <View style={styles.backgroundImageTextContainer}>
-                      <Text style={styles.calculText}>Obračun bruto zarada</Text>
-                      <Text style={styles.calculText}>Bruto - Neto</Text>
+                      <Text style={styles.calculText}>Godišnji porez</Text>
+                      <Text style={styles.calculText}>na dohodak građana</Text>
                      </View>
                  }
                  {
@@ -75,9 +75,9 @@ class AnnualTaxResult extends Component {
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.text}>???</Text> :
-                      <Text style={styles.text}>Bruto zarada u RSD</Text>
+                      <Text style={styles.text}>Godišnja neto zarada</Text>
                   }
-                  <View style={styles.numberContainerBlue}>
+                  <View style={styles.numberContainer}>
                     <Text style={styles.numberFirst}>{calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                     </Text>
                   </View>
@@ -93,7 +93,8 @@ class AnnualTaxResult extends Component {
                         <Text style={styles.text}>??</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.text}>Broj izdžavanih članova</Text>
+                        <Text style={styles.text}>Broj izdržavanih</Text>
+                        <Text style={styles.text}>članova porodice </Text>
                       </View>
 
                   }
@@ -113,11 +114,11 @@ class AnnualTaxResult extends Component {
                         <Text style={styles.text}>??</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.text}>Iznos godišnjeg poreza</Text>
+                        <Text style={styles.text}>Ukupan izdatak za porez</Text>
                       </View>
 
                   }
-                  <View style={styles.numberContainer}>
+                  <View style={styles.numberContainerBlue}>
                     <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                     </Text>
                   </View>
@@ -161,6 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   calculText: {
+    // backgroundColor: 'red',
     fontFamily: 'openSansRegular',
     color: colors.white,
     fontSize: fonts.size.huge,
@@ -173,11 +175,11 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: metrics.huge
+    padding: metrics.huge,
   },
   numberInput: {
     marginLeft: metrics.medium,
@@ -191,11 +193,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'
@@ -218,14 +220,12 @@ const styles = StyleSheet.create({
   numberFirst: {
     color: 'rgb(128,128,128)',
     textAlign: 'center'
-
   },
   number: {
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)',
     textAlign: 'center'
-
   },
   descriptionContainer: {
     paddingBottom: metrics.huge,

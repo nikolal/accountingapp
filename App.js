@@ -82,6 +82,7 @@ class App extends Component {
       'openSansLight':require('./assets/fonts/OpenSans-Light.ttf'),
       'merriweatherBold': require('./assets/fonts/Merriweather/Merriweather-Bold.ttf'),
       'merriweatherRegular': require('./assets/fonts/Merriweather/Merriweather-Regular.ttf'),
+      'IBMPlexSansRegular': require('./assets/fonts/IBMPlexSans-Regular.ttf'),
     });
 
     await Promise.all([cacheImages, cacheFonts]);

@@ -132,7 +132,7 @@ const initialState = {
   calculations: [{
     name: {
       en:'????',
-      rs: 'Obracun zarada'
+      rs: 'Obračun zarada'
     },
     calculation: 'OBRACUN ZARADA',
     description: {
@@ -211,7 +211,7 @@ const initialState = {
     },{
     name: {
       en: 'lll',
-      rs: 'Godisnji porez na dohodak'
+      rs: 'Godisnji porez na dohodak građana'
     },
     description: {
       en: 'aj',
@@ -293,7 +293,7 @@ const initialState = {
     },{
     name: {
       en: 'kkkk',
-      rs: 'Zakup fizickom licu'
+      rs: 'Zakup fizičkom licu'
     },
     description: {
       en: 'aj',

@@ -25,7 +25,7 @@ class SalaryResult extends Component {
   // })
   render() {
     const { calculation, localeString } = this.props;
-    console.log(calculation);
+    // console.log(calculation);
     return (
       <View style={styles.maincontainer}>
 
@@ -40,8 +40,8 @@ class SalaryResult extends Component {
                    this.props.language === 'en' ?
                      <Text style={styles.calculText}>????</Text> :
                      <View style={styles.backgroundImageTextContainer}>
-                      <Text style={styles.calculText}>Obračun bruto zarada</Text>
-                      <Text style={styles.calculText}>Bruto - Neto</Text>
+                      <Text style={styles.calculText}>Privremeni i</Text>
+                      <Text style={styles.calculText}>povremeni poslovi</Text>
                      </View>
                  }
                  {
@@ -60,7 +60,7 @@ class SalaryResult extends Component {
                       <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
                       <Text style={styles.numberInput}>
                        {
-                         calculation.tempPermJobsgross.value && calculation.tempPermJobsgross.value
+                         calculation.tempPermJobsgross.net && calculation.tempPermJobsgross.net
                          .toLocaleString(localeString, { maximumFractionDigits: 2 })
                        }
                       </Text>
@@ -81,9 +81,9 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <Text style={styles.text}>Gross</Text> :
-                    <Text style={styles.text}>Bruto zarada (rsd)</Text>
+                    <Text style={styles.text}>Bruto zarada</Text>
                 }
-                <View style={styles.numberContainerBlue}>
+                <View style={styles.numberContainer}>
                   <Text style={styles.numberFirst}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                   </Text>
                 </View>
@@ -93,8 +93,8 @@ class SalaryResult extends Component {
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 <View style={{flexDirection: 'column'}}>
-                <Text style={styles.text}>Doprinosi na zarade</Text>
-                <Text style={styles.text}>na teret zaposlenog (rsd)</Text>
+                <Text style={styles.text}>Doprinosi na</Text>
+                <Text style={styles.text}>teret zaposlenog</Text>
               </View>
               <View style={styles.numberContainer}>
                 <Text
@@ -107,8 +107,8 @@ class SalaryResult extends Component {
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
                 <View style={{flexDirection: 'column'}}>
-                <Text style={styles.text}>Doprinosi na zarade</Text>
-                <Text style={styles.text}>na teret poslodavca (rsd)</Text>
+                <Text style={styles.text}>Doprinosi na </Text>
+                <Text style={styles.text}>teret poslodavca</Text>
               </View>
               <View style={styles.numberContainer}>
                 <Text
@@ -119,9 +119,9 @@ class SalaryResult extends Component {
             </View>
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
-                <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
+                <Text style={styles.text}>Ukupan izdatak</Text>
 
-            <View style={styles.numberContainer}>
+            <View style={styles.numberContainerBlue}>
               <Text
                 style={styles.number}>{calculation.tempPermJobsgross.secondData.employerTotal.toLocaleString(localeString, { maximumFractionDigits: 2 })}
               </Text>
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -195,11 +195,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'

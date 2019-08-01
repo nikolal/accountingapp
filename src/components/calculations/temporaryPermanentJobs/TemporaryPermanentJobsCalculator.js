@@ -27,8 +27,8 @@ class TemporaryPermanentJobsCalculator extends Component {
               <Text style={styles.calculText}>(RSD)</Text>
             </View> :
             <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>Privremeni i povremeni poslovi</Text>
-              <Text style={styles.calculText}>(RSD)</Text>
+              <Text style={styles.calculText}>Privremeni i</Text>
+              <Text style={styles.calculText}>povremeni poslovi</Text>
             </View>
         }
 
@@ -52,7 +52,7 @@ class TemporaryPermanentJobsCalculator extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Untesite neto iznos zarade (rsd)"
+                      placeholder="Unesite neto iznos naknade (rsd)"
                       placeholderTextColor="black"
                     />
                 }

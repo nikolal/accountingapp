@@ -14,7 +14,7 @@ class SalaryCalculator extends Component {
 
   render(){
     // console.log(this.props.calculated);
-    // console.log(this.props.calculation.input !== 0);
+    console.log(this.props.calculation);
     return (
 
       <ScrollView style={styles.container}>
@@ -29,18 +29,18 @@ class SalaryCalculator extends Component {
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.calculText}>????</Text> :
-                      <Text style={styles.calculText}>Obračun Bruto zarada</Text>
+                      <Text style={styles.calculText}>Obračun zarada</Text>
                   }
-                  <Text style={styles.calculText}>(RSD)</Text>
+                  <Text style={styles.calculText}>Bruto I - Neto</Text>
                 </View> :
               this.props.calculation.type === 'netToGross' ?
                 <View style={styles.calculTextContainer}>
                   {
                     this.props.language === 'en' ?
                       <Text style={styles.calculText}>??????</Text> :
-                      <Text style={styles.calculText}>Obračun Neto zarada</Text>
+                      <Text style={styles.calculText}>Obračun zarada</Text>
                   }
-                  <Text style={styles.calculText}>(RSD)</Text>
+                  <Text style={styles.calculText}>Neto - Bruto I</Text>
                 </View> : null
             }
             {
@@ -53,7 +53,7 @@ class SalaryCalculator extends Component {
                     {
                       this.props.language === 'en' ?
                       <Text style={styles.buttonGrossNetText}>Gross to Net</Text> :
-                      <Text style={styles.buttonGrossNetText}>Bruto u neto</Text>
+                      <Text style={styles.buttonGrossNetText}>Bruto I u Neto</Text>
                     }
                     {
                       this.props.calculation.type === 'grossToNet' ?
@@ -67,7 +67,7 @@ class SalaryCalculator extends Component {
                     {
                       this.props.language === 'en' ?
                         <Text style={styles.buttonGrossNetText}>Net to gross</Text> :
-                        <Text style={styles.buttonGrossNetText}>Neto u bruto</Text>
+                        <Text style={styles.buttonGrossNetText}>Neto u Bruto</Text>
                     }
                     {
                       this.props.calculation.type === 'netToGross' ?
@@ -99,7 +99,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite BRUTO izons plate na mesecnom nivou"
+                          placeholder="Unestite bruto iznos plate na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />
@@ -119,7 +119,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite NETO izons plate na mesecnom nivou"
+                          placeholder="Unestite neto izons plate na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />

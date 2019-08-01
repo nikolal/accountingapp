@@ -39,8 +39,8 @@ class SalaryResultNet extends Component {
                    this.props.language === 'en' ?
                      <Text style={styles.calculText}>????</Text> :
                      <View style={styles.backgroundImageTextContainer}>
-                      <Text style={styles.calculText}>Obračun neto zarada</Text>
-                      <Text style={styles.calculText}>Neto - Bruto</Text>
+                      <Text style={styles.calculText}>Obračun zarada</Text>
+                      <Text style={styles.calculText}>Neto - Bruto I</Text>
                      </View>
                  }
                  {
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: metrics.xxxHuge,
+    marginTop: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -217,11 +217,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'

@@ -88,18 +88,18 @@ const styles = StyleSheet.create({
   descriptionText: {
     color: colors.black,
     fontSize: fonts.size.huge,
-    fontFamily: 'openSansBold',
+    fontFamily: 'merriweatherBold',
     paddingHorizontal: metrics.large,
   },
   dateSocialIconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: metrics.large,
+    padding: metrics.medium,
     paddingRight: metrics.extraHuge,
     marginVertical: metrics.large,
     borderTopWidth: metrics.tinyBorder,
-    borderBottomWidth: metrics.tinyBorder,
+    borderBottomWidth: metrics.tinyToSmall,
     borderColor: '#bdbdbd'
   },
   sharingOpacity: {
@@ -111,13 +111,16 @@ const styles = StyleSheet.create({
   dateText: {
     color: '#3191cb',
     fontSize: fonts.size.small,
-    fontFamily: 'openSansRegular',
+    fontFamily: 'merriweatherRegular',
   },
   fbSocialIconsImage: {
     color: '#bdbdbd',
   },
   articleParagraphsContainer: {
-    padding: metrics.medium,
+    paddingHorizontal: metrics.medium,
+  },
+  articleParagraphs: {
+    fontFamily: 'IBMPlexSansRegular',
   },
   imageContainer: {
     margin: metrics.medium

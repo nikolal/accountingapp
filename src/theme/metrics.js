@@ -12,6 +12,7 @@ const metrics = {
   xxxHuge: 40,
   // Borders
   tinyBorder: 0.3,
+  tinyToSmall: 0.5,
   smallBorder: 0.7,
   mediumBorder: 1,
   largeBorder: 2,

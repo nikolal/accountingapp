@@ -17,7 +17,6 @@ const ContractTax = props => {
       <ImageBackground source={images.background} style={styles.image}>
         <View style={styles.calculTextContainer}>
           <Text style={styles.calculText}>Ugovor o delu</Text>
-          <Text style={styles.calculText}>(Porez - RSD)</Text>
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -29,7 +28,7 @@ const ContractTax = props => {
               props.language === 'en' ?
               <Text style={styles.buttonGrossNetText}>Tax</Text> :
               <View>
-                <Text style={styles.buttonGrossNetText}>Tax</Text>
+                <Text style={styles.buttonGrossNetText}>Porez</Text>
                 <Text style={styles.buttonGrossNetText} />
               </View>
             }
@@ -85,7 +84,7 @@ const ContractTax = props => {
                 style={styles.inputText}
                 onChangeText={props.saveInput}
                 keyboardType="numeric"
-                placeholder=" Unesite neto iznos koji se isplacuje (rsd)"
+                placeholder=" Unesite neto iznos naknade (rsd)"
                 placeholderTextColor="black"
               />
               <Text>{props.calculation.value}</Text>
@@ -185,7 +184,7 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    marginTop: 50
+    marginTop: 60
   },
   buttons: {
     flex: 1,

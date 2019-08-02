@@ -37,7 +37,10 @@ class SalaryResultNet extends Component {
                <View style={styles.calculTextContainer}>
                  {
                    this.props.language === 'en' ?
-                     <Text style={styles.calculText}>????</Text> :
+                    <View>
+                     <Text style={styles.calculText}>Calculation of salary</Text>
+                     <Text style={styles.calculText}>Net - Gross</Text>
+                    </View> :
                      <View style={styles.backgroundImageTextContainer}>
                       <Text style={styles.calculText}>Obračun zarada</Text>
                       <Text style={styles.calculText}>Neto - Bruto I</Text>
@@ -46,7 +49,7 @@ class SalaryResultNet extends Component {
                  {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
-                      <Text style={styles.calculTextSmallText}>???</Text>
+                      <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                        {
                          calculation.netSalary.value && calculation.netSalary.value
@@ -79,7 +82,7 @@ class SalaryResultNet extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                    <Text style={styles.text}>Total ?</Text> :
+                    <Text style={styles.text}>Total gross salary (gross I)</Text> :
                     <Text style={styles.text}>Ukupna bruto zarada</Text>
                   }
                   <View style={styles.numberContainerBlue}>
@@ -92,7 +95,7 @@ class SalaryResultNet extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.text}>??</Text> :
+                      <Text style={styles.text}>The value of tax</Text> :
                       <Text style={styles.text}>Porez na zarade</Text>
                   }
                   <View style={styles.numberContainer}>
@@ -105,8 +108,8 @@ class SalaryResultNet extends Component {
                   {
                     this.props.language === 'en' ?
                       <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.text}>?:</Text>
-                        <Text style={styles.text}>??</Text>
+                        <Text style={styles.text}>Contributions on behalf of:</Text>
+                        <Text style={styles.text}>employer</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
                         <Text style={styles.text}>Doprinosi na teret:</Text>
@@ -123,8 +126,8 @@ class SalaryResultNet extends Component {
                 {
                   this.props.language === 'en' ?
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>?:</Text>
-                      <Text style={styles.text}>??</Text>
+                      <Text style={styles.text}>Contributions on behalf:</Text>
+                      <Text style={styles.text}>employee</Text>
                     </View> :
                     <View style={{flexDirection: 'column'}}>
                       <Text style={styles.text}>Doprinosi na teret:</Text>
@@ -140,7 +143,10 @@ class SalaryResultNet extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.text}>??</Text> :
+                      <View>
+                      <Text style={styles.text}>Total cost for employer</Text>
+                      <Text style={styles.text}>(gross II)</Text>
+                      </View> :
                       <Text style={styles.text}>Ukupan trosak zarade</Text>
                   }
                   <View style={styles.numberContainer}>

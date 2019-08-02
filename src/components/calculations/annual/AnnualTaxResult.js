@@ -35,7 +35,7 @@ class AnnualTaxResult extends Component {
                <View style={styles.calculTextContainer}>
                  {
                    this.props.language === 'en' ?
-                     <Text style={styles.calculText}>????</Text> :
+                     <Text style={styles.calculText}>Annual personal income tax</Text> :
                      <View style={styles.backgroundImageTextContainer}>
                       <Text style={styles.calculText}>Godišnji porez</Text>
                       <Text style={styles.calculText}>na dohodak građana</Text>
@@ -44,7 +44,7 @@ class AnnualTaxResult extends Component {
                  {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
-                      <Text style={styles.calculTextSmallText}>???</Text>
+                      <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                         {
                           calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })
@@ -74,7 +74,7 @@ class AnnualTaxResult extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.text}>???</Text> :
+                      <Text style={styles.text}>Annual net salary</Text> :
                       <Text style={styles.text}>Godišnja neto zarada</Text>
                   }
                   <View style={styles.numberContainer}>
@@ -88,9 +88,9 @@ class AnnualTaxResult extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.text}>?:</Text>
-                        <Text style={styles.text}>??</Text>
+                      <View>
+                        <Text style={styles.text}>Number of</Text>
+                        <Text style={styles.text}>dependent familly members</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
                         <Text style={styles.text}>Broj izdržavanih</Text>
@@ -109,10 +109,7 @@ class AnnualTaxResult extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.text}>?:</Text>
-                        <Text style={styles.text}>??</Text>
-                      </View> :
+                      <Text style={styles.text}>Total tax costs</Text> :
                       <View style={{flexDirection: 'column'}}>
                         <Text style={styles.text}>Ukupan izdatak za porez</Text>
                       </View>

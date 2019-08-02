@@ -27,10 +27,12 @@ class AnnualTax extends Component {
           <View style={styles.calculTextContainer}>
             {
               this.props.language === 'en' ?
-                <Text style={styles.calculText}>????</Text> :
-                <Text style={styles.calculText}>Godišnji porez</Text>
+                <Text style={styles.calculText}>Annual personal income tax</Text> :
+                <View>
+                  <Text style={styles.calculText}>Godišnji porez</Text>
+                  <Text style={styles.calculText}>na dohodak građana</Text>
+                </View>
             }
-            <Text style={styles.calculText}>na dohodak građana</Text>
           </View>
         </ImageBackground>
           {
@@ -42,7 +44,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInput}
                         keyboardType="numeric"
-                        placeholder="Grosss ???"
+                        placeholder="Enter an average net monthly revenues from salary (rsd)"
                         placeholderTextColor="black"
                       /> :
                       <TextInput
@@ -59,7 +61,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInputFamily}
                         keyboardType="numeric"
-                        placeholder="BFamily"
+                        placeholder="Enter the number of dependent familly memebers"
                         placeholderTextColor="black"
                       /> :
                       <TextInput

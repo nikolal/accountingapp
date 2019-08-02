@@ -20,7 +20,7 @@ class Lease extends Component {
         <View style={styles.calculTextContainer}>
           {
             this.props.language === 'en' ?
-              <Text style={styles.calculText}>????</Text> :
+              <Text style={styles.calculText}>Lease from natural person</Text> :
               <Text style={styles.calculText}>Zakup fizičkom licu</Text>
           }
         </View>
@@ -36,7 +36,7 @@ class Lease extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="????"
+                      placeholder="Enter net value of payment to the natural person (rsd)"
                       placeholderTextColor="black"
                     /> :
                     <TextInput

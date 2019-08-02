@@ -16,7 +16,12 @@ const ContractTax = props => {
       >
       <ImageBackground source={images.background} style={styles.image}>
         <View style={styles.calculTextContainer}>
-          <Text style={styles.calculText}>Ugovor o delu</Text>
+          {
+            props.language === 'en' ?
+            <Text style={styles.calculText}>Service contract</Text> :
+            <Text style={styles.calculText}>Ugovor o delu</Text>
+
+          }
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -26,11 +31,14 @@ const ContractTax = props => {
           >
             {
               props.language === 'en' ?
-              <Text style={styles.buttonGrossNetText}>Tax</Text> :
-              <View>
-                <Text style={styles.buttonGrossNetText}>Porez</Text>
-                <Text style={styles.buttonGrossNetText} />
-              </View>
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Tax</Text>
+                  <Text style={styles.buttonGrossNetText} />
+                </View> :
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Porez</Text>
+                  <Text style={styles.buttonGrossNetText} />
+                </View>
             }
             {
               props.calculation.func === 'contractTax' ?
@@ -43,7 +51,10 @@ const ContractTax = props => {
           >
             {
               props.language === 'en' ?
-                <Text style={styles.buttonGrossNetText}>Tax Pio</Text> :
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Tax, </Text>
+                  <Text style={styles.buttonGrossNetText}>Pension</Text>
+                </View> :
                 <View>
                   <Text style={styles.buttonGrossNetText}>Porez i</Text>
                   <Text style={styles.buttonGrossNetText}>PIO</Text>
@@ -60,8 +71,14 @@ const ContractTax = props => {
           >
             {
               props.language === 'en' ?
-                <Text style={styles.buttonGrossNetText}>Tax Pio Health</Text> :
-                <Text style={styles.buttonGrossNetText}>Porez, PIO, zdravstveno</Text>
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Tax, Health</Text>
+                  <Text style={styles.buttonGrossNetText}>Pension</Text>
+                </View> :
+                <View>
+                  <Text style={styles.buttonGrossNetText}>Porez, PIO</Text>
+                  <Text style={styles.buttonGrossNetText}>Zdravstveno</Text>
+                </View>
             }
             {
               props.calculation.func === 'contractPioTaxHealth' ?
@@ -80,14 +97,30 @@ const ContractTax = props => {
               style={styles.inputsContainer}
               behavior="padding"
             > */}
-              <TextInput
-                style={styles.inputText}
-                onChangeText={props.saveInput}
-                keyboardType="numeric"
-                placeholder=" Unesite neto iznos naknade (rsd)"
-                placeholderTextColor="black"
-              />
-              <Text>{props.calculation.value}</Text>
+
+            {
+              props.language === 'en' ?
+                <View>
+                  <TextInput
+                    style={styles.inputText}
+                    onChangeText={props.saveInput}
+                    keyboardType="numeric"
+                    placeholder=" Enter the net value of salary (rsd)"
+                    placeholderTextColor="black"
+                  />
+                  <Text>{props.calculation.value}</Text>
+                </View> :
+                <View>
+                  <TextInput
+                    style={styles.inputText}
+                    onChangeText={props.saveInput}
+                    keyboardType="numeric"
+                    placeholder=" Unesite neto iznos naknade (rsd)"
+                    placeholderTextColor="black"
+                  />
+                  <Text>{props.calculation.value}</Text>
+                </View>
+            }
 
               <TouchableOpacity
                 style={styles.button}

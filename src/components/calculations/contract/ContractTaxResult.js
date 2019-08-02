@@ -35,7 +35,7 @@ class ContractTaxResult extends Component {
                <View style={styles.calculTextContainer}>
                  {
                    this.props.language === 'en' ?
-                     <Text style={styles.calculText}>????</Text> :
+                     <Text style={styles.calculText}>Service contract</Text> :
                      <View style={styles.backgroundImageTextContainer}>
                       <Text style={styles.calculText}>Ugovor o delu</Text>
                      </View>
@@ -43,7 +43,7 @@ class ContractTaxResult extends Component {
                  {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
-                      <Text style={styles.calculTextSmallText}>???</Text>
+                      <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                        {
                          calculation.contractTax.value && calculation.contractTax.value
@@ -72,9 +72,12 @@ class ContractTaxResult extends Component {
 
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
-                <View style={{flexDirection: 'column'}}>
-                <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
-              </View>
+                {
+                  this.props.language === 'en' ?
+                    <Text style={styles.text}>Total expense (rsd)</Text> :
+                    <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
+                }
+
               <View style={styles.numberContainerBlue}>
                 <Text
                   style={styles.number}>{calculation.contractTax.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}

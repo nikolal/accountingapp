@@ -36,16 +36,20 @@ class SalaryResult extends Component {
                <View style={styles.calculTextContainer}>
                  {
                    this.props.language === 'en' ?
-                     <Text style={styles.calculText}>????</Text> :
-                     <View style={styles.backgroundImageTextContainer}>
+                    <View>
+                      <Text style={styles.calculText}>Calculation of salary</Text>
+                      <Text style={styles.calculText}>Gross I - Net</Text>
+                    </View>
+                      :
+                    <View style={styles.backgroundImageTextContainer}>
                       <Text style={styles.calculText}>Obračun zarada</Text>
                       <Text style={styles.calculText}>Bruto I - Neto</Text>
-                     </View>
+                    </View>
                  }
                  {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
-                      <Text style={styles.calculTextSmallText}>???</Text>
+                      <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                        {
                          calculation.grossSalary.value && calculation.grossSalary.value
@@ -78,7 +82,7 @@ class SalaryResult extends Component {
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
-                    <Text style={styles.text}>???</Text> :
+                    <Text style={styles.text}>The value of tax</Text> :
                     <Text style={styles.text}>Porez na zarade</Text>
                 }
                 <View style={styles.numberContainerBlue}>
@@ -93,12 +97,12 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>?:</Text>
-                      <Text style={styles.text}>??</Text>
+                      <Text style={styles.text}>Contributions on behalf of:</Text>
+                      <Text style={styles.text}>employer</Text>
                     </View> :
                     <View style={{flexDirection: 'column'}}>
                       <Text style={styles.text}>Doprinosi na teret:</Text>
-                      <Text style={styles.text}> Poslodavca</Text>
+                      <Text style={styles.text}>Poslodavca</Text>
                     </View>
 
                 }
@@ -113,12 +117,12 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>?:</Text>
-                      <Text style={styles.text}>??</Text>
+                      <Text style={styles.text}>Contributions on behalf:</Text>
+                      <Text style={styles.text}>employee</Text>
                     </View> :
                     <View style={{flexDirection: 'column'}}>
                       <Text style={styles.text}>Doprinosi na teret:</Text>
-                      <Text style={styles.text}> Zaposlenog</Text>
+                      <Text style={styles.text}>Zaposlenog</Text>
                     </View>
                 }
                 <View style={styles.numberContainer}>
@@ -131,7 +135,7 @@ class SalaryResult extends Component {
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
-                  <Text style={styles.text}>??</Text> :
+                  <Text style={styles.text}>Total gross salary (gross I)</Text> :
                   <Text style={styles.text}>Ukupan trošak zarade</Text>
                 }
                 <View style={styles.numberContainer}>

@@ -34,15 +34,16 @@ class AllowanceResult extends Component {
              <View style={styles.calculTextContainer}>
                {
                  this.props.language === 'en' ?
-                   <Text style={styles.calculText}>????</Text> :
-                   <View style={styles.backgroundImageTextContainer}>
-                    <Text style={styles.calculText}>Dnevnice u zemlji</Text>
-                   </View>
+                  <View>
+                    <Text style={styles.calculText}>Daily allowances</Text>
+                    <Text style={styles.calculText}>in the  country</Text>
+                  </View> :
+                  <Text style={styles.calculText}>Dnevnice u zemlji</Text>
                }
                {
                  this.props.language === 'en' ?
                    <View style={styles.backgroundImageSmallTextContainer}>
-                    <Text style={styles.calculTextSmallText}>???</Text>
+                    <Text style={styles.calculTextSmallText}>Entered value</Text>
                     <Text style={styles.numberInput}>
                      {
                        calculation.allowancesHome.value && calculation.allowancesHome.value
@@ -74,7 +75,10 @@ class AllowanceResult extends Component {
             <View style={styles.innerContainer}>
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.text}>???</Text> :
+                  <View>
+                    <Text style={styles.text}>Value of daily allowance</Text>
+                    <Text style={styles.text}>in the country</Text>
+                  </View> :
                   <Text style={styles.text}>Isplaćena dnevnice u zemlji</Text>
               }
               <View style={styles.numberContainer}>
@@ -89,7 +93,7 @@ class AllowanceResult extends Component {
             <View style={styles.innerContainer}>
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.text}>???</Text> :
+                  <Text style={styles.text}>Tax base</Text> :
                   <Text style={styles.text}>Osnovica za oporezivanje</Text>
               }
               <View style={styles.numberContainer}>
@@ -103,7 +107,7 @@ class AllowanceResult extends Component {
             <View style={styles.innerContainer}>
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.text}>???</Text> :
+                  <Text style={styles.text}>Total value of tax cost</Text> :
                   <Text style={styles.text}>Ukupan izdatak za porez</Text>
               }
               <View style={styles.numberContainerBlue}>
@@ -182,11 +186,11 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: metrics.huge,
     marginHorizontal: metrics.hugeToExtrahuge,
   },
   text: {
-    alignSelf: 'center',
     fontFamily: 'openSansRegular',
     fontSize: fonts.size.medium,
     color: 'rgb(128,128,128)'

@@ -23,8 +23,8 @@ class TemporaryPermanentJobsCalculator extends Component {
         {
           this.props.language === 'en' ?
             <View style={styles.calculTextContainer}>
-              <Text style={styles.calculText}>?????</Text>
-              <Text style={styles.calculText}>(RSD)</Text>
+              <Text style={styles.calculText}>Temporary and</Text>
+              <Text style={styles.calculText}>occasional duties</Text>
             </View> :
             <View style={styles.calculTextContainer}>
               <Text style={styles.calculText}>Privremeni i</Text>
@@ -45,7 +45,7 @@ class TemporaryPermanentJobsCalculator extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="????????"
+                      placeholder="Enter the net value of reimbursement (rsd)"
                       placeholderTextColor="black"
                     /> :
                     <TextInput

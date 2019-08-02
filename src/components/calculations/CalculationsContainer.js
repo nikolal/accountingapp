@@ -131,12 +131,12 @@ const CALCULATE_LEASE_TAX_FINAL_ACTION = 'calculations/CALCULATE_LEASE_TAX_FINAL
 const initialState = {
   calculations: [{
     name: {
-      en:'????',
+      en:'Calculation of salary',
       rs: 'Obračun zarada'
     },
     calculation: 'OBRACUN ZARADA',
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage1.jpg'),
@@ -176,11 +176,11 @@ const initialState = {
       icon: 'calculator'
     },{
     name: {
-      en: '///',
+      en: 'Temporary and occasional duties',
       rs: 'Privremeni i povremeni poslovi'
     },
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage2.jpg'),
@@ -210,11 +210,11 @@ const initialState = {
     icon: 'briefcase'
     },{
     name: {
-      en: 'lll',
+      en: 'Annual personal income tax',
       rs: 'Godisnji porez na dohodak građana'
     },
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage3.jpg'),
@@ -262,11 +262,11 @@ const initialState = {
     icon: 'calendar'
     },{
     name: {
-      en: 'ppp',
+      en: 'Daily allowances',
       rs: 'Dnevnice'
     },
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage4.jpg'),
@@ -292,11 +292,11 @@ const initialState = {
     icon: 'wallet'
     },{
     name: {
-      en: 'kkkk',
+      en: 'Lease from natural person',
       rs: 'Zakup fizičkom licu'
     },
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage5.jpg'),
@@ -374,15 +374,15 @@ const initialState = {
     // icon: 'folder'
     // },{
     name: {
-      en: 'lkdhjag',
-      rs: 'Ugovor o delu '
+      en: 'Service contract',
+      rs: 'Ugovor o delu'
     },
     nameExpl: {
       en: '',
       rs: ''
     },
     description: {
-      en: 'aj',
+      en: "HLB T&M Consulting is not responsible for results of this calculation as the main purpose of calculation is just to present indicative values for the end users. This is a simplified version of calculation which doesn't include specific circumstances that can have an impact on the final results for the taxpayer. For more precise information you can contact representatives of HLB T&M Consulting.",
       rs: 'HLB T&M Consulting nije odgovoran za rezultate ove kalkulacije čija je osnovna namena da pruži pregled indikativnih podataka. Kalkulacija predstavlja uprošćenu verziju obračuna, ne uključuje specifične okolnosti koje mogu uticati na obračun i ne može se koristiti za svrhe plaćanja poreskih obaveza bilo kojih poreskih obveznika. Za više informacija možete kontaktirati kompaniju HLB T&M Consulting.'
     },
     image: require('../../../assets/images/calculationImage6.jpg'),

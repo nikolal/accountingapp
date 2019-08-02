@@ -33,7 +33,7 @@ class LeaseResult extends Component {
               <View style={styles.calculTextContainer}>
                {
                  this.props.language === 'en' ?
-                   <Text style={styles.calculText}>????</Text> :
+                   <Text style={styles.calculText}>Lease from natural person</Text> :
                    <View style={styles.backgroundImageTextContainer}>
                     <Text style={styles.calculText}>Zakup fizičkom licu</Text>
                    </View>
@@ -41,7 +41,7 @@ class LeaseResult extends Component {
                {
                  this.props.language === 'en' ?
                    <View style={styles.backgroundImageSmallTextContainer}>
-                    <Text style={styles.calculTextSmallText}>???</Text>
+                    <Text style={styles.calculTextSmallText}>Entered value</Text>
                     <Text style={styles.numberInput}>
                      {
                        calculation.lease.value && calculation.lease.value
@@ -72,7 +72,7 @@ class LeaseResult extends Component {
                 <View style={styles.innerContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.text}>???</Text> :
+                      <Text style={styles.text}>Total tax costs</Text> :
                       <Text style={styles.text}>Ukupan izdatak za porez</Text>
                   }
                   <View style={styles.numberContainerBlue}>

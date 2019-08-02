@@ -28,19 +28,28 @@ class SalaryCalculator extends Component {
                 <View style={styles.calculTextContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.calculText}>????</Text> :
+                      <Text style={styles.calculText}>Calculation of salary</Text> :
                       <Text style={styles.calculText}>Obračun zarada</Text>
                   }
-                  <Text style={styles.calculText}>Bruto I - Neto</Text>
+                  {
+                    this.props.language === 'en' ?
+                    <Text style={styles.calculText}>Gross I - Net</Text> :
+                    <Text style={styles.calculText}>Bruto I - Neto</Text>
+                  }
+
                 </View> :
               this.props.calculation.type === 'netToGross' ?
                 <View style={styles.calculTextContainer}>
                   {
                     this.props.language === 'en' ?
-                      <Text style={styles.calculText}>??????</Text> :
+                      <Text style={styles.calculText}>Calculation of salary</Text> :
                       <Text style={styles.calculText}>Obračun zarada</Text>
                   }
-                  <Text style={styles.calculText}>Neto - Bruto I</Text>
+                  {
+                    this.props.language === 'en' ?
+                    <Text style={styles.calculText}>Net - Gross</Text> :
+                    <Text style={styles.calculText}>Neto - Bruto</Text>
+                  }
                 </View> : null
             }
             {
@@ -92,7 +101,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="?????"
+                          placeholder="Enter the gross value of salary on a monthly level (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         /> :
@@ -112,7 +121,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Net"
+                          placeholder="Enter the net value of salary on a monthly level (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         /> :

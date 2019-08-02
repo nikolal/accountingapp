@@ -357,9 +357,9 @@ class CalculationDetail1 extends Component {
   annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
   annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val)); // ukupan obracun
 
-  contributionsEmployees = val => ((val * 12) - (15300 * 12)); // Godisnji neto, neoporezivo
+  contributionsEmployees = val => ((val * 12) - (15300 * 12)); // Godisnji neto, neoporezivo / ovo ne treba vise u kalkulaciji
 
-  dohodakZaOporezivanje = val => (this.contributionsEmployees(val) - 2470644) // dohodak na oporezivanje - (B5-F2)
+  dohodakZaOporezivanje = val => ((val * 12)  - 2470644) // dohodak na oporezivanje - (B5-F2) nekad bilo sad B4 - F2
 
   calculateFinalAnnulTax = val => (this.dohodakZaOporezivanje(val) < 0 ? 0 : this.calculateFinalAnnul(val)) // ? u minusu porez je 0 : POCETAK
 

@@ -11,6 +11,7 @@ import AllowanceResultAway from './AllowanceResultAway.js';
 class Allowance extends Component {
 
   render(){
+    console.log(this.props.calculation);
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView
@@ -21,15 +22,14 @@ class Allowance extends Component {
           {
             this.props.calculation.type === 'allowanceHome' ?
               <View style={styles.calculTextContainer}>
-              {
-                this.props.language === 'en' ?
-                  <View>
-                    <Text style={styles.calculText}>Daily allowances</Text>
-                    <Text style={styles.calculText}>in the  country</Text>
-                  </View> :
-                  <Text style={styles.calculText}>Dnevnice u zemlji</Text>
-              }
-
+                {
+                  this.props.language === 'en' ?
+                    <View>
+                      <Text style={styles.calculText}>Daily allowances</Text>
+                      <Text style={styles.calculText}>in the  country</Text>
+                    </View> :
+                    <Text style={styles.calculText}>Dnevnice u zemlji</Text>
+                }
               </View> :
             this.props.calculation.type === 'allowanceAway' ?
               <View style={styles.calculTextContainer}>
@@ -37,7 +37,7 @@ class Allowance extends Component {
                   this.props.language === 'en' ?
                     <View>
                       <Text style={styles.calculText}>Daily allowances</Text>
-                      <Text style={styles.calculText}>for abroad</Text>
+                      <Text style={styles.calculText}>on abroad</Text>
                     </View> :
                       <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
                 }
@@ -50,7 +50,7 @@ class Allowance extends Component {
             >
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.buttonText}>In the  country</Text> :
+                  <Text style={styles.buttonText}>In the country</Text> :
                   <Text style={styles.buttonText}>U zemlji</Text>
               }
               {
@@ -64,7 +64,7 @@ class Allowance extends Component {
             >
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.buttonText}>For abroad</Text> :
+                  <Text style={styles.buttonText}>On abroad</Text> :
                   <Text style={styles.buttonText}>U inostranstvu</Text>
               }
               {
@@ -76,8 +76,6 @@ class Allowance extends Component {
 
 
         </ImageBackground>
-
-
           {
             // !this.props.showResult &&
               <View style={styles.scrollViewContainer}>
@@ -107,7 +105,7 @@ class Allowance extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder=" Enter the net value of daily allowance for abroad (rsd)"
+                      placeholder=" Enter the net value of daily allowance on abroad (eur)"
                       placeholderTextColor="black"
                     /> :
                     this.props.calculation.type === 'allowanceAway' && this.props.language === 'rs' ?

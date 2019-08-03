@@ -89,8 +89,8 @@ class AnnualTaxResult extends Component {
                   {
                     this.props.language === 'en' ?
                       <View>
-                        <Text style={styles.text}>Number of</Text>
-                        <Text style={styles.text}>dependent familly members</Text>
+                        <Text style={styles.text}>Number of dependent</Text>
+                        <Text style={styles.text}>(enter) familly members</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
                         <Text style={styles.text}>Broj izdržavanih</Text>
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

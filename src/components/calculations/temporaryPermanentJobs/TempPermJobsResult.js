@@ -98,7 +98,7 @@ class SalaryResult extends Component {
               {
                 this.props.language === 'en' ?
                   <View>
-                    <Text style={styles.text}>Contributions on behalf:</Text>
+                    <Text style={styles.text}>Contributions on behalf</Text>
                     <Text style={styles.text}>employee</Text>
                   </View> :
                   <View>
@@ -119,7 +119,7 @@ class SalaryResult extends Component {
               {
                 this.props.language === 'en' ?
                   <View>
-                    <Text style={styles.text}>Contributions on behalf:</Text>
+                    <Text style={styles.text}>Contributions on behalf</Text>
                     <Text style={styles.text}>employer</Text>
                   </View> :
                   <View>
@@ -136,7 +136,11 @@ class SalaryResult extends Component {
             </View>
             <View style={styles.itemContainer}>
               <View style={styles.innerContainer}>
+              {
+                this.props.language === 'en' ?
+                <Text style={styles.text}>Total value of costs</Text> :
                 <Text style={styles.text}>Ukupan izdatak</Text>
+              }
 
             <View style={styles.numberContainerBlue}>
               <Text
@@ -194,7 +198,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

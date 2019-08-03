@@ -85,7 +85,7 @@ class SalaryResultNet extends Component {
                     <Text style={styles.text}>Total gross salary (gross I)</Text> :
                     <Text style={styles.text}>Ukupna bruto zarada</Text>
                   }
-                  <View style={styles.numberContainerBlue}>
+                  <View style={styles.numberContainer}>
                     <Text style={styles.numberFirst}>{calculation.netSalary.value && calculation.netSalary.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                     </Text>
                   </View>
@@ -149,7 +149,7 @@ class SalaryResultNet extends Component {
                       </View> :
                       <Text style={styles.text}>Ukupan trosak zarade</Text>
                   }
-                  <View style={styles.numberContainer}>
+                  <View style={styles.numberContainerBlue}>
                     <Text style={styles.number}>{calculation.totalNetSalaryCost && calculation.totalNetSalaryCost.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
                   </View>
                 </View>

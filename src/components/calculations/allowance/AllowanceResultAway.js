@@ -36,7 +36,7 @@ class AllowanceResult extends Component {
                  this.props.language === 'en' ?
                   <View>
                     <Text style={styles.calculText}>Daily allowances</Text>
-                    <Text style={styles.calculText}>for abroad</Text>
+                    <Text style={styles.calculText}>on abroad</Text>
                   </View> :
                   <Text style={styles.calculText}>Dnevnice u inostranstvu</Text>
                }
@@ -50,7 +50,7 @@ class AllowanceResult extends Component {
                        .toLocaleString(localeString, { maximumFractionDigits: 2 })
                      }
                     </Text>
-                    <Text style={styles.calculTextSmallText}> rsd</Text>
+                    <Text style={styles.calculTextSmallText}> eur</Text>
                    </View> :
                    <View style={styles.backgroundImageSmallTextContainer}>
                     <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>

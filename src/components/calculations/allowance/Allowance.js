@@ -11,7 +11,6 @@ import AllowanceResultAway from './AllowanceResultAway.js';
 class Allowance extends Component {
 
   render(){
-    console.log(this.props.calculation);
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView

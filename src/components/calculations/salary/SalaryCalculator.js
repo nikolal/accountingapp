@@ -15,7 +15,7 @@ class SalaryCalculator extends Component {
 
   render(){
     // console.log(this.props.calculated);
-    console.log(this.props.calculation);
+    // console.log(this.props.calculation);
     return (
 
       <ScrollView style={styles.container}>

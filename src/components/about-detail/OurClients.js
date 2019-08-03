@@ -75,42 +75,42 @@ const imageList = [
     style={{ width: 90, height: 90, resizeMode: 'stretch'}}
     source={require('../../../assets/images/abaxis.png')}
   />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/CimmaronSoftwareAR.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/cinestar.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/Rabalux.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/intelestream.png')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/etib.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/euronews.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/Naos.png')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/fanuc.jpg')}
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/sba.png')}
-  // />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/CimmaronSoftwareAR.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/cinestar.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/Rabalux.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/intelestream.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/etib.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/euronews.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/Naos.png')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/fanuc.jpg')}
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/sba.png')}
+  />,
 
 
 ];

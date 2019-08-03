@@ -13,7 +13,7 @@ export default class OurClientsItem extends Component {
     Animated.timing(this.state.scaleValue, {
       toValue: 1,
       duration : 600,
-      delay: this.props.index * 200
+      delay: this.props.index * 300
     }).start();
   }
 

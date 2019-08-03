@@ -53,7 +53,7 @@ class SalaryResult extends Component {
                       <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                        {
-                         calculation.tempPermJobsgross.value && calculation.tempPermJobsgross.value
+                         calculation.tempPermJobsgross.net && calculation.tempPermJobsgross.net
                          .toLocaleString(localeString, { maximumFractionDigits: 2 })
                        }
                       </Text>

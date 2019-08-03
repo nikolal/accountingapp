@@ -21,8 +21,6 @@ class AnnualTaxResult extends Component {
   }
 
   render() {
-    console.log(this.props.calculation);
-
     const { calculation, localeString } = this.props;
     return (
       <View style={styles.maincontainer}>
@@ -78,7 +76,7 @@ class AnnualTaxResult extends Component {
                       <Text style={styles.text}>Godišnja neto zarada</Text>
                   }
                   <View style={styles.numberContainer}>
-                    <Text style={styles.numberFirst}>{calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                    <Text style={styles.numberFirst}>{calculation.annualTax.annual && calculation.annualTax.annual.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                     </Text>
                   </View>
                 </View>

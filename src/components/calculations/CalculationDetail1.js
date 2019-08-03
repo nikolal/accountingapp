@@ -12,7 +12,7 @@ import {
   saveContractTaxAction, contractTaxGrossAction, contractTaxNontaxableAction, contractTaxBaseAction, contractTaxTaxAction,
   saveAllowanceHomeAction, allowanceHomeGrossAction, allowanceHomeTaxBaseAction, allowanceHomeTaxAction, saveAllowanceAwayAction, allowanceAwayTaxBaseAction, allowanceAwayGrossAction, allowanceAwayTaxAction,
   saveAnnualTaxAction, annualGrossAction, baseForTaxAction, taxOnEarningAction, baseForSocialContributionAction, annualPensionAction, annualHealthAction, annualInsuranceAction, annualEmployerPensionAction, annualEmployerHealthAction, annualEmployerInsuranceAction,
-  annualTotalValueAction, contributionsEmployeesAction, incomeTaxAction, baseAnnualTaxAction, annualCalculatedOption3Action, calculateFinalAnnulTaxAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin,
+  annualTotalValueAction, contributionsEmployeesAction, annualSalaryAction, incomeTaxAction, baseAnnualTaxAction, annualCalculatedOption3Action, calculateFinalAnnulTaxAction, annualTaxValueTotalAction, annualAllAction, annualTaxEmployeesAction, calculateFamilyNumberAction, personalDeductionsAction, finalAnnualTaxActioin,
   saveLeaseAction, calculateCourseEuroAction, rsdConvertedActioin, grossInputValueAction, euroInputValueAction, calculateGrossLeaseAction, calculateNonTaxableLeaseAction, calculateBaseLeaseAction, calculateLeaseTaxFinalAction
   } from './CalculationsContainer';
 import SalaryCalculator from './salary/SalaryCalculator';
@@ -337,6 +337,7 @@ class CalculationDetail1 extends Component {
     this.props.annualEmployerInsuranceAction(this.annualEmployerInsurance(val));
     this.props.annualTotalValueAction(this.annualTotalValue(val));
     this.props.contributionsEmployeesAction(this.contributionsEmployees(val));
+    this.props.annualSalaryAction(this.annualSalary(val));
 
 
     this.props.annualCalculatedOption3Action(this.izracunajProcenteOpcije3(val));
@@ -356,6 +357,8 @@ class CalculationDetail1 extends Component {
   annualEmployerHealth = val => (this.baseForSocialContribution(val) * 0.0515);
   annualEmployerInsurance = val => (this.baseForSocialContribution(val) * 0.0075);
   annualTotalValue = val => (this.annualGross(val) + this.annualEmployerPension(val) + this.annualEmployerHealth(val) + this.annualEmployerInsurance(val)); // ukupan obracun
+
+  annualSalary = val => (val * 12)
 
   contributionsEmployees = val => ((val * 12) - (15300 * 12)); // Godisnji neto, neoporezivo / ovo ne treba vise u kalkulaciji
 
@@ -632,6 +635,8 @@ const dispatchToProps = dispatch => ({
   annualEmployerInsuranceAction: bindActionCreators(annualEmployerInsuranceAction, dispatch),
   annualTotalValueAction: bindActionCreators(annualTotalValueAction, dispatch),
   contributionsEmployeesAction: bindActionCreators(contributionsEmployeesAction, dispatch),
+  annualSalaryAction: bindActionCreators(annualSalaryAction, dispatch),
+
 
   incomeTaxAction: bindActionCreators(incomeTaxAction, dispatch),
   baseAnnualTaxAction: bindActionCreators(baseAnnualTaxAction, dispatch),

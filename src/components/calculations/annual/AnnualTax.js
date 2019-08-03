@@ -17,7 +17,6 @@ class AnnualTax extends Component {
   }
 
   render() {
-    console.log(this.props.calculation);
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView

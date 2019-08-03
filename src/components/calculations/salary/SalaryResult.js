@@ -86,7 +86,7 @@ class SalaryResult extends Component {
                     <Text style={styles.text}>Ukupna neto zarada</Text>
                 }
                 <View style={styles.numberContainerBlue}>
-                  <Text style={styles.numberFirst}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  <Text style={styles.numberFirst}>{calculation.totalNet && calculation.totalNet.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                   </Text>
                 </View>
               </View>

@@ -1458,8 +1458,6 @@ const calculationsReducer = (state = initialState, action) =>
     }
   }) :
 
-//////////////////////
-
 
   // Lease
   action.type === SAVE_LEASE_ACTION ? ({

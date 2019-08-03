@@ -82,10 +82,24 @@ class SalaryResult extends Component {
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
+                    <Text style={styles.text}>Net value of salary</Text> :
+                    <Text style={styles.text}>Ukupna neto zarada</Text>
+                }
+                <View style={styles.numberContainerBlue}>
+                  <Text style={styles.numberFirst}>{calculation.totalNet && calculation.totalNet.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.itemContainer}>
+              <View style={styles.innerContainer}>
+                {
+                  this.props.language === 'en' ?
                     <Text style={styles.text}>The value of tax</Text> :
                     <Text style={styles.text}>Porez na zarade</Text>
                 }
-                <View style={styles.numberContainerBlue}>
+                <View style={styles.numberContainer}>
                   <Text style={styles.numberFirst}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                   </Text>
                 </View>
@@ -97,12 +111,12 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>Contributions on behalf of:</Text>
-                      <Text style={styles.text}>employer</Text>
+                      <Text style={styles.text}>Contributions on</Text>
+                      <Text style={styles.text}>behalf of employer</Text>
                     </View> :
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>Doprinosi na teret:</Text>
-                      <Text style={styles.text}>Poslodavca</Text>
+                      <Text style={styles.text}>Doprinosi na</Text>
+                      <Text style={styles.text}>teret poslodavca</Text>
                     </View>
 
                 }
@@ -117,12 +131,12 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>Contributions on behalf:</Text>
-                      <Text style={styles.text}>employee</Text>
+                      <Text style={styles.text}>Contributions on</Text>
+                      <Text style={styles.text}>behalf of employee</Text>
                     </View> :
                     <View style={{flexDirection: 'column'}}>
-                      <Text style={styles.text}>Doprinosi na teret:</Text>
-                      <Text style={styles.text}>Zaposlenog</Text>
+                      <Text style={styles.text}>Doprinosi na</Text>
+                      <Text style={styles.text}>teret zaposlenog</Text>
                     </View>
                 }
                 <View style={styles.numberContainer}>
@@ -135,10 +149,14 @@ class SalaryResult extends Component {
               <View style={styles.innerContainer}>
                 {
                   this.props.language === 'en' ?
-                  <Text style={styles.text}>Total gross salary (gross I)</Text> :
-                  <Text style={styles.text}>Ukupan trošak zarade</Text>
+                  <Text style={styles.text}>Total gross salary (gross II)</Text> :
+                  <View>
+                    <Text style={styles.text}>Ukupan trošak zarade</Text>
+                    <Text style={styles.text}>(bruto II)</Text>
+                  </View>
+
                 }
-                <View style={styles.numberContainer}>
+                <View style={styles.numberContainerBlue}>
                   <Text style={styles.number}>{calculation.totalSalary && calculation.totalSalary.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                   </Text>
                 </View>

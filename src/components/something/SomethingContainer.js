@@ -233,106 +233,228 @@ const initialState = {
     paragraphs: [{
       type: 'headline',
       value: {
+        en: 'Free zones in the Republic of Serbia',
+        rs: 'Slobodne zone u Republici Srbiji'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'Free zones are the parts of the Republic of Serbia which are physically enclosed and marked as the parts of the territory where certain fiscal, custom and tax reliefs are applied. They have good infrastructure and in there certain industrial and service activities can be done with proper stimulations.',
+        rs: 'Slobodne zone su deo teritorije Republike Srbije koje su fizički ograđene i označene kao deo teritorije na kojima važe određene fiskalne, carinske i poreske olakšice. One su potpuno infrastrukturno opremljene i u njima se mogu obavljati proizvodne i uslužne delatnosti, uz određene stimulativne pogodnosti.  '
+      }
+    },{
+      type: 'headline',
+      value: {
         en: 'Free zones in Serbia',
         rs: 'Slobodne zone u Srbiji'
       }
     },{
       type: 'text',
       value: {
-        en: "Free zones are a fenced and marked part of Serbia's territory where business activities are performed with a preferential customs treatment, tax relief and simplified administrative procedures.",
-        rs: 'Za sada je Srbiji postoje 14 aktivnih slobodnih zona i to su: SZ Pirot, SZ Subotica, SZ Zrenjanin, SZ Novi Sad, FAS SZ Kragujevac, SZ Šabac, SZ Užice, SZ Smederevo, SZ Kruševac, SZ Svilajnac, SZ Apatin,SZ Vranje, SZ Priboj, SZ Beograd.'
-      }
-    },{
-      type: 'text',
-      value: {
-        en: 'There are currently 14 free zones established in Serbia: Belgrade, Pirot, Subotica, Zrenjanin, FAS Kragujevac, Sabac, Novi Sad, Uzice, Smederevo, Svilajnac, Krusevac, Apatin, Priboj and Vranje.',
-        rs: 'U slobodnim zonama se mogu obavljati sve vrste poslovanja i industrijskih aktivnosti uključujući proizvodnju, skladištenje, pakovanje, trgovinu, bankarstvo i osiguranje. '
+        en: 'There are currently 14 free zones established in Serbia: Belgrade, Pirot, Subotica, Zrenjanin, FAS Kragujevac, Sabac, Novi Sad, Uzice, Smederevo, Svilajnac, Krusevac, Apatin, Priboj and Vranje. All kind of business and industrial activities can be done in free zones : production, storage, packing, trade, banking and insurance.',
+        rs: 'Za sada je Srbiji postoje 14 aktivnih slobodnih zona i to su: SZ Pirot, SZ Subotica, SZ Zrenjanin, SZ Novi Sad,FAS SZ Kragujevac, SZ Šabac, SZ Užice, SZ Smederevo, SZ Kruševac, SZ Svilajnac, SZ Apatin,SZ Vranje, SZ Priboj, SZ Beograd. U slobodnim zonama se mogu obavljati sve vrste poslovanja i industrijskih aktivnosti uključujući proizvodnju, skladištenje, pakovanje, trgovinu, bankarstvo i osiguranje.'
       }
     },{
       type: 'headline',
       value: {
-        en: 'Benefits of a free zone / 1',
+        en: 'The founders and users of  free zones',
         rs: 'Osnivači i korisnici slobodnih zona'
       }
     },{
       type: 'text',
       value: {
-        en: 'Entry of goods into the free zone, as well as transport and other services which are directly related to the entry of goods are zerorated for VAT purposes;',
-        rs: 'Osnivanje SZ je ekonomski opravdano ako: investiciono ulaganje prelazi 3.000.000€ (u prvoj godini prelazi 1.000.000€), ako plan predviđa zapošljavanje najmanje 100 radnika prve 2 godine, ako se nalazi na nedovoljno razvijenom području Srbije, ako planiran promet pokazuje pozitivan efekat na spoljnotrgovinski bilans Srbije, ako obavljanje delatnosti u SZ pozitivno utiče na poslovanje firmi van SZ.'
+        en: 'Domestic legal persons can be the founders of free zones – local authorities, a company, the entrepreneurs, as well as foreign legal persons if they get consent on the economical justification for determination of free zone territory from the government of the Republic of Serbia. The users can be domestic and foreign legal persons.',
+        rs: 'Osnivači slobodnih zona mogu biti domaća pravna lica – lokalna samouprava, privredno društvo, preduzetnici, kao i strana pravna lica, ako dobiju saglasnost o ekonomskoj opravdanosti za određivanje područja slobodne zone od Vlade Republike Srbije.'
       }
     },{
       type: 'text',
       value: {
-        en: 'Supply of goods and services within the free zone is zero-rated for VAT purposes;',
-        rs: 'One su značajne za poslovanje firmi u Srbiji, jer omogućavaju velike uštede u poslovanju. Stvaraju se mogućnosti za saradnju domaćih i stranih kompanija, otvaraju nova radna mesta i direktno privlače investicije. '
+        en: 'The foundation of  free zone is economically justified if: The investments are higher than 3 000 000€ ( Higher than 1 000 000 € in the first year), If the plan predicts employing more than 100 workers in the first 2 years, If it is founded in an undeveloped part of Serbia, If the planned traffic shows a positive effect on the foreign trade balance of Serbia, If the business in FZ has a positive effect on companies out of FZ.They are significant for companies in Serbia because they allow great savings in doing business. The possibilities for the cooperation of domestic and foreign companies are created, new working places are opened and the investments are directly attracted.',
+        rs: 'Korisnici mogu biti domaća i strana pravna lica. Osnivanje SZ je ekonomski opravdano ako: investiciono ulaganje prelazi 3.000.000€ (u prvoj godini prelazi 1.000.000€), ako plan predviđa zapošljavanje najmanje 100 radnika prve 2 godine, ako se nalazi na nedovoljno razvijenom području Srbije, ako planiran promet pokazuje pozitivan efekat na spoljnotrgovinski bilans Srbije, ako obavljanje delatnosti u SZ pozitivno utiče na poslovanje firmi van SZ. One su značajne za poslovanje firmi u Srbiji, jer omogućavaju velike uštede u poslovanju. Stvaraju se mogućnosti za saradnju domaćih i stranih kompanija, otvaraju nova radna mesta i direktno privlače investicije.'
       }
     },{
       type: 'headline',
       value: {
-        en: 'Benefits of a free zone / 2',
+        en: 'Conveniences in free zones',
         rs: 'Pogodnosti u slobodnim zonama'
       }
     },{
       type: 'text',
       value: {
-        en: 'The supply of electricity and/or piped gas to free zone users is zerorated for VAT purposes;',
+        en: 'The companies which do their business in free zones have numerous conveniences from the state.',
         rs: 'Kompanije koji svoju delatnost obavljaju u slobodnim zonama imaju brojne pogodnosti od strane države.'
       }
     },{
-      type: 'text',
+      type: 'headline',
       value: {
-        en: 'Exemption from payment of customs and other import duties for goods intended for carrying out activities and construction of facilities in the free zone (raw materials, equipment, construction materials);',
-        rs: 'Fiskalne pogodnosti: oslobađanje od plaćanja PDV-a na unos dobara u SZ, kao i pružanje prevoznih i drugih usluga u vezi sa unosom dobara, oslobađanje od plaćanja PDV-a na promet dobara i usluga u SZ, oslobađanje od plaćanja PDV-a na promet dobara između korisnika dve SZ, oslobađanje proizvodnih korisnika plaćanja PDV-a na potrošnju energenata,oslobađanje od pojedinih poreskih opterećenja za direktne strane investicije.'
+        en: 'Fiscal conveniences',
+        rs: 'Fiskalne pogodnosti'
       }
     },{
       type: 'text',
       value: {
-        en: 'Within free zones, exemption from certain local fees and taxes is also available (local municipality incentives).',
-        rs: 'Finansijske pogodnosti: slobodan protok kapitala, profita i dividendi, sredstva iz budžeta Republike Srbije za finansiranje investicionih projekata u proizvodnom sektoru i sektoru usluga.'
+        en: '• Relief from paying the VAT on the import of goods in FZ, so as giving transport and other services related to the import of goods,',
+        rs: '• Oslobađanje od plaćanja PDV-a na unos dobara u SZ, kao i pružanje prevoznih i drugih usluga u vezi sa unosom dobara.'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Carinske pogodnosti: Kompanije su oslobođene plaćanja carine i drugih uvoznih dažbina za materijal i sirovine namenjenih: obavljanju delatnosti (proizvodnja robe za izvoz), izgradnji objekata u SZ (repromaterijal, oprema, građevinski materijal).'
+        en: '• Relief from paying the VAT on the supply of goods and services in  FZ,',
+        rs: '• Oslobađanje od plaćanja PDV-a na promet dobara i usluga u SZ,'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Efikasna administracija u slobodnoj zoni (One-Stop-Shop) - One-stop-shop je jedinstveni šalter gde privrednici mogu dobiti sve potrebne informacije, mogu brzo da završe celokupan posao oko osnivanja, registrovanja, prijavljivanja nove firme, kao i dobijanja građevinskih dozvola.'
+        en: '• Relief from paying the VAT on the supply of goods between the users of two FZ,',
+        rs: '• Oslobađanje od plaćanja PDV-a na promet dobara između korisnika dve SZ,'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Jednostavna i brza carinska procedura: u svakoj SZ nalazi se carinski referat i procedura je pojednostavljena, ne plaćaju se carina ni dažbine za uvoz robe namenjene obavljanju delatnosti i izgradnji objekata.'
+        en: '• Relief  of productive users from paying the VAT on the consumption of energy-generating products,',
+        rs: '• Oslobađanje proizvodnih korisnika plaćanja PDV-a na potrošnju energenata,'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Pogodnosti lokalne samouprave - Lokalna samouprava može doneti odluke koje bi dodatne olakšice trebalo omogućiti. Tu se odnosi na oslobođenja od plaćanja lokalnih poreza, naknada i taksi koje su u nadležnosti lokalne samouprave.'
+        en: '• Relief from certain tax burden on direct foreign investments.',
+        rs: '• Oslobađanje od pojedinih poreskih opterećenja za direktne strane investicije.'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'Financial conveniencies ',
+        rs: 'Finansijske pogodnosti'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Pružanje usluga korisnicima po povlašćenim cenama - Logističke usluge se pružaju po povoljnijim cenama: transport, pretovar, utovar, špedicija, osiguranje i reosiguranje, ostalo.'
+        en: '• The free flow of capital, profit and dividends,',
+        rs: '• Slobodan protok kapitala, profita i dividendi,'
       }
     },{
       type: 'text',
       value: {
-        en: '',
-        rs: 'Poslovanje u SZ mora se obavljati po sledećim principima: spoljnotrgovinsko poslovanje je slobodno, izvoz robe i uvoz u zonu i iz zone je slobodan i neograničen (osim robe čiji je uvoz i izvoz zakonom zabranjen), roba koja se iz zone stavlja u promet u Srbiju podleže obavezi plaćanja carine i drugih uvoznih dažbina, mogu se ostvariti poreske olakšice za porez na dobit preduzeća, porez na imovinu i porez na dohodak građana.'
+        en: '• The resources from the budget of the Republic of Serbia for financing the investment projects in the industrial  and service sector.',
+        rs: '• Sredstva iz budžeta Republike Srbije za finansiranje investicionih projekata u proizvodnom sektoru i sektoru usluga.'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'Customs conveniencies',
+        rs: 'Carinske pogodnosti.'
       }
     },{
       type: 'text',
       value: {
-        en: '',
+        en: 'Companies are relieved from paying customs duty and other import taxes for substances and materials for:',
+        rs: 'Kompanije su oslobođene plaćanja carine i drugih uvoznih dažbina za materijal i sirovine namenjenih:'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• Doing business (production of goods for export),',
+        rs: '• Oavljanju delatnosti (proizvodnja robe za izvoz), '
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• Building objects in FZ (intermediate goods, equipment and building material).',
+        rs: '• Izgradnji objekata u SZ (repromaterijal, oprema, građevinski materijal).'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'Efficient administration in free zone (One stop shop)',
+        rs: 'Efikasna administracija u slobodnoj zoni (One-Stop-Shop)'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'One-stop-shop is a unique counter where the entrepreneurs can get all the necessary information, quickly finish everything about foundation, registration  and reporting of a new company and getting  a building permit',
+        rs: 'One-stop-shop je jedinstveni šalter gde privrednici mogu dobiti sve potrebne informacije, mogu brzo da završe celokupan posao oko osnivanja, registrovanja, prijavljivanja nove firme, kao i dobijanja građevinskih dozvola.'
+      }
+    },
+    {
+      type: 'headline',
+      value: {
+        en: 'Simple and quick border procedure',
+        rs: 'Jednostavna i brza carinska procedura'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• There is a custom referent in each FZ and the procedure is simplified',
+        rs: '• U svakoj SZ nalazi se carinski referat i procedura je pojednostavljena,'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• The customs and taxes on the import of goods for doing business and building objects are not paid',
+        rs: '• Ne plaćaju se carina ni dažbine za uvoz robe namenjene obavljanju delatnosti i izgradnji objekata.'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'Conveniences of the local authorities',
+        rs: 'Pogodnosti lokalne samouprave'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'The local authorities can make a decision which can allow additional reliefs. This is related to relief from local taxes, compensations and excises which are under the jurisdiction of the local authorities.',
+        rs: 'Lokalna samouprava može doneti odluke koje bi dodatne olakšice trebalo omogućiti. Tu se odnosi na oslobođenja od plaćanja lokalnih poreza, naknada i taksi koje su u nadležnosti lokalne samouprave.'
+      }
+    },{
+      type: 'headline',
+      value: {
+        en: 'Providing services to users according to preferential prices',
+        rs: 'Pružanje usluga korisnicima po povlašćenim cenama'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'The logistic services are provided according to preferential prices: transport, trans-shipment, shipment, freight transport, insurance and reinsurance,	other.',
+        rs: 'Logističke usluge se pružaju po povoljnijim cenama: transport, pretovar, utovar, špedicija, osiguranje i reosiguranje, ostalo.'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: 'Business in FZ must be done according to these rules:',
+        rs: 'Poslovanje u SZ mora se obavljati po sledećim principima:'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• Foreign trade is free,',
+        rs: '• Spoljnotrgovinsko poslovanje je slobodno,'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• Export and import of goods from zone to zone is free and unlimited (except goods which import and export is forbidden by  the law),',
+        rs: '• Izvoz robe i uvoz u zonu i iz zone je slobodan i neograničen (osim robe čiji je uvoz i izvoz zakonom zabranjen),'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: '• Goods which are from free zone placed on the market in Serbia are dutiable to paying customs and other import excises,',
+        rs: '• Roba koja se iz zone stavlja u promet u Srbiju podleže obavezi plaćanja carine i drugih uvoznih dažbina,'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: "• Certain tax reliefs on company's profit tax, property tax and income tax.",
+        rs: '• Mogu se ostvariti poreske olakšice za porez na dobit preduzeća, porez na imovinu i porez na dohodak građana.'
+      }
+    },{
+      type: 'text',
+      value: {
+        en: "Business done in FZ can't endanger life environment, health, material good and safety of people. Also, it must have a positive effect on the development of region where it is founded.",
         rs: 'Delatnost koja se obavlja u SZ ne sme da ugrožava životnu sredinu, zdravlje, materijalna dobra i bezbednost ljudi. Takođe, mora imati pozitivan efekat na razvoj regiona u kome se nalazi.'
       }
-    }]
+    },
+  ]
   },{
     title: {
       en: 'Free Trade Agreements',

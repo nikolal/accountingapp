@@ -21,8 +21,6 @@ class AnnualTaxResult extends Component {
   }
 
   render() {
-    console.log(this.props.calculation);
-
     const { calculation, localeString } = this.props;
     return (
       <View style={styles.maincontainer}>
@@ -78,7 +76,7 @@ class AnnualTaxResult extends Component {
                       <Text style={styles.text}>Godišnja neto zarada</Text>
                   }
                   <View style={styles.numberContainer}>
-                    <Text style={styles.numberFirst}>{calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                    <Text style={styles.numberFirst}>{calculation.annualTax.annual && calculation.annualTax.annual.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                     </Text>
                   </View>
                 </View>
@@ -89,8 +87,8 @@ class AnnualTaxResult extends Component {
                   {
                     this.props.language === 'en' ?
                       <View>
-                        <Text style={styles.text}>Number of</Text>
-                        <Text style={styles.text}>dependent familly members</Text>
+                        <Text style={styles.text}>Number of dependent</Text>
+                        <Text style={styles.text}>(enter) familly members</Text>
                       </View> :
                       <View style={{flexDirection: 'column'}}>
                         <Text style={styles.text}>Broj izdržavanih</Text>
@@ -172,7 +170,7 @@ const styles = StyleSheet.create({
   },
   backgroundImageSmallTextContainer: {
     backgroundColor: '#08000060',
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

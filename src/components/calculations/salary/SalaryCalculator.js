@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Text, View, Modal, TouchableOpacity, ImageBackground, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../../theme';
+// import { resetAllValuesAction } from '../CalculationsContainer';
 import SalaryResult from './SalaryResult.js';
 import SalaryResultNet from './SalaryResultNet';
 
@@ -14,7 +15,7 @@ class SalaryCalculator extends Component {
 
   render(){
     // console.log(this.props.calculated);
-    console.log(this.props.calculation);
+    // console.log(this.props.calculation);
     return (
 
       <ScrollView style={styles.container}>
@@ -108,7 +109,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite bruto iznos plate na mesečnom nivou (rsd)"
+                          placeholder="Unestite bruto iznos zarade na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />
@@ -128,7 +129,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite neto izons plate na mesečnom nivou (rsd)"
+                          placeholder="Unestite neto iznos zarade na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />
@@ -221,7 +222,7 @@ const stateToProps = state => ({
 });
 
 const dispatchToProps = dispatch => ({
-  // saveArticle: bindActionCreators(saveArticle, dispatch)
+  // resetAllValuesAction: bindActionCreators(resetAllValuesAction, dispatch),
 });
 
 export default connect(stateToProps, dispatchToProps)(SalaryCalculator);

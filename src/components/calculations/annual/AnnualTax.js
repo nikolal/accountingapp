@@ -61,7 +61,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInputFamily}
                         keyboardType="numeric"
-                        placeholder="Enter the number of dependent familly memebers"
+                        placeholder="Enter the number of dependent familly members"
                         placeholderTextColor="black"
                       /> :
                       <TextInput

@@ -102,8 +102,7 @@ const MONTHLY_NET12_VALUE_ACTION = 'calculations/MONTHLY_NET12_VALUE_ACTION';
 const CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION = 'calculations/CONTRIBUTIONS_EMPLOYEES_VALUE_ACTION';
 const ANNUAL_CALCULATED_OPTION_3_ACTION = 'calculations/ANNUAL_CALCULATED_OPTION_3_ACTION';
 const CALCULATE_FINAL_ANNUAL_TAX_ACTION = 'calculations/CALCULATE_FINAL_ANNUAL_TAX_ACTION';
-
-
+const ANNUAL_SALARY_ACTION = 'calculations/ANNUAL_SALARY_ACTION';
 
 const INCOME_TAX_ACTION = 'calculations/INCOME_TAX_ACTION';
 const BASE_ANNUAL_TAX_ACTION = 'calculations/BASE_ANNUAL_TAX_ACTION';
@@ -225,6 +224,7 @@ const initialState = {
     type: 'blabla',
     value: '',
     annualTax: {
+      annual: null,
       gross: null,
       base: null,
       tax10: null,
@@ -1447,9 +1447,16 @@ const calculationsReducer = (state = initialState, action) =>
       }
     }
   }) :
-
-
-
+  action.type === ANNUAL_SALARY_ACTION ? ({
+    ...state,
+    calculation: {
+      ...state.calculation,
+      annualTax:{
+        ...state.calculation.annualTax,
+        annual: action.value,
+      }
+    }
+  }) :
 
 
   // Lease
@@ -1657,7 +1664,7 @@ export const incomeTaxAction = value => ({ type: INCOME_TAX_ACTION, value });
 export const baseAnnualTaxAction = value => ({ type: BASE_ANNUAL_TAX_ACTION, value });
 export const annualCalculatedOption3Action = value => ({ type: ANNUAL_CALCULATED_OPTION_3_ACTION, value });
 export const calculateFinalAnnulTaxAction = value => ({ type: CALCULATE_FINAL_ANNUAL_TAX_ACTION, value });
-
+export const annualSalaryAction = value => ({ type: ANNUAL_SALARY_ACTION, value });
 
 
 

@@ -67,14 +67,14 @@ const imageList = [
     style={{ width: 90, height: 90, resizeMode: 'stretch' }}
     source={require('../../../assets/images/terran.png') }
   />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch' }}
-  //   source={require('../../../assets/images/abl.png') }
-  // />,
-  // <Image
-  //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
-  //   source={require('../../../assets/images/abaxis.png')}
-  // />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch' }}
+    source={require('../../../assets/images/abl.png') }
+  />,
+  <Image
+    style={{ width: 90, height: 90, resizeMode: 'stretch'}}
+    source={require('../../../assets/images/abaxis.png')}
+  />,
   // <Image
   //   style={{ width: 90, height: 90, resizeMode: 'stretch'}}
   //   source={require('../../../assets/images/CimmaronSoftwareAR.jpg')}

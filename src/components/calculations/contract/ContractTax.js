@@ -105,7 +105,7 @@ const ContractTax = props => {
                     style={styles.inputText}
                     onChangeText={props.saveInput}
                     keyboardType="numeric"
-                    placeholder=" Enter the net value of salary (rsd)"
+                    placeholder=" Enter the monthly net value of salary (rsd)"
                     placeholderTextColor="black"
                   />
                   <Text>{props.calculation.value}</Text>
@@ -115,7 +115,7 @@ const ContractTax = props => {
                     style={styles.inputText}
                     onChangeText={props.saveInput}
                     keyboardType="numeric"
-                    placeholder=" Unesite neto iznos naknade (rsd)"
+                    placeholder=" Unesite mesečni neto iznos naknade (rsd)"
                     placeholderTextColor="black"
                   />
                   <Text>{props.calculation.value}</Text>

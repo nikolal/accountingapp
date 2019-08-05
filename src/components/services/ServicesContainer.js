@@ -31,7 +31,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Bookkeeping services in line with local legistaltion',
+        en: 'Bookkeeping services in line with local legislation',
         rs: 'Knjigovodstvene usluge'
       }
     },{
@@ -97,7 +97,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Restructuring & exit stratiegis',
+        en: 'Restructuring & exit strategies',
         rs: 'Restuktuiranje i strategije izlaska '
       }
     },{
@@ -218,7 +218,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Identification and understanding of transactions with related parties',
-        rs: 'Identifikovanje transakcija sa povezanim stranama '
+        rs: 'Identifikovanje transakcija sa povezanim licima'
     }
     },{
       type: 'text',

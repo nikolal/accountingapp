@@ -86,8 +86,7 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansBold',
     fontSize: fonts.size.huge,
     marginVertical: metrics.huge,
-    alignSelf: 'flex-start',
-    marginLeft: metrics.largeToHuge
+    alignSelf: 'center'
   },
   descriptionText: {
     fontFamily: 'openSansRegular',

@@ -31,7 +31,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'These changes became effective on December 16, 2018, and its appliance started from the beginning of 2019., accurately since January 1. ',
+        en: 'These changes became effective on December 16, 2018, and its appliance started from the beginning of 2019, accurately since January 1.',
         rs: 'Ove izmene su stupile na snagu 16. decembra 2018. godine, a njihova primena počela je početkom 2019. godine, tačnije od 01. januara tekuće godine.'
       }
     },{
@@ -68,7 +68,7 @@ const initialState = {
       type: 'text',
       value: {
         en: '• All the entrepreneurs and the legal persons who register their company according to the new law for the tax benefit can use 37000 RSD  as a maximum  net amount.',
-        rs: '• preduzetnici i pravna lica koja registruju firmu po novom propisu za poresko oslobođenje mogu da koriste maksimalnan iznos zarade od 37.000 dinara u neto iznosu.'
+        rs: '• preduzetnici i pravna lica koja registruju firmu po novom propisu za poresko oslobođenje mogu da koriste maksimalan iznos zarade od 37.000 dinara u neto iznosu.'
       }
     },{
       type: 'headline',
@@ -115,7 +115,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: "• That the legal person – future employers or the DOO's founders have been registered at least 6 months simultaneously before the set up of their company at the National employment service as unemployed or that in the period of 12 months before the day of registration and set up of their company they finished high school, academy or college and  got educated according to the law",
+        en: '• That the legal person – future employers or the LLC’s founders have been registered at least 6 months simultaneously before the set up of their company at the National employment service as unemployed or that in the period of 12 months before the day of registration and set up of their company they finished high school, academy or college and  got educated according to the law',
         rs: '• da su fizička lica - odnosno budući preduzetnici ili osnivači DOO najmanje šest meseci bez prekida pre dana otvaranja svoje firme bili pijavljeni kod Nacionalne službe za zapošljavanje kao nezaposlena lica ili da su u periodu od 12 meseci pre dana registrovanja i otvaranja svoje firme završili srednju školu, višu ili fakultet, i da su stekli obrazovanje u skladu sa Zakonom;'
       }
     },{
@@ -275,7 +275,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Conveniences in free zones',
+        en: 'Benefits in free zones',
         rs: 'Pogodnosti u slobodnim zonama'
       }
     },{
@@ -287,7 +287,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Fiscal conveniences',
+        en: 'Fiscal benefits',
         rs: 'Fiskalne pogodnosti'
       }
     },{
@@ -323,7 +323,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Financial conveniencies ',
+        en: 'Financial benefits ',
         rs: 'Finansijske pogodnosti'
       }
     },{
@@ -341,7 +341,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Customs conveniencies',
+        en: 'Customs benefits',
         rs: 'Carinske pogodnosti.'
       }
     },{
@@ -354,7 +354,7 @@ const initialState = {
       type: 'text',
       value: {
         en: '• Doing business (production of goods for export),',
-        rs: '• Oavljanju delatnosti (proizvodnja robe za izvoz), '
+        rs: '• Obavljanju delatnosti (proizvodnja robe za izvoz), '
       }
     },{
       type: 'text',
@@ -396,7 +396,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Conveniences of the local authorities',
+        en: 'Benefits of the local authorities',
         rs: 'Pogodnosti lokalne samouprave'
       }
     },{
@@ -552,7 +552,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'Belarus -The Free Trade Agreement with Belarus envisages the mutual abolishment of customs and non-customs duties in trade between the two countries. There are only a few exceptions to the Agreement, including sugar, alcohol, and cigarettes, as well as used cars, buses, and tires.',
-        rs: 'Ulaganje od posebnog značaja jeste ulaganje koje bitno utiče na dalji razvoj privrede u Republici Srbiji, na unapređenje konkurentnosti privrede i na ravnomeran regionalni razvoj. Odnosi se na: ulaganje u OS veća od 5.000.000 EUR ili otvaranje više od 500 radnih mesta (I i II grupa), ulaganje u osnovna sredstva veća od 2.000.000 EUR ili otvaranje više od 100 radnih mesta (III i IV grupa, devastirano područje), ulaganje koje se realizuje na teritoriji jedne ili više opština i koje podstiče realizaciju zajedničkih prioriteta u cilju povećanja konkurentnosti, ulaganje na osnovu usvojenih bilateralnih sporazuma i sporazuma o prekograničnoj saradnji. Trade in agricultural products is regulated by separate agreements with each of EFTA members, providing for mutual concessions for specified products.'
+        rs: 'Ulaganje od posebnog značaja jeste ulaganje koje bitno utiče na dalji razvoj privrede u Republici Srbiji, na unapređenje konkurentnosti privrede i na ravnomeran regionalni razvoj. Odnosi se na: ulaganje u OS veća od 5.000.000 EUR ili otvaranje više od 500 radnih mesta (I i II grupa), ulaganje u osnovna sredstva veća od 2.000.000 EUR ili otvaranje više od 100 radnih mesta (III i IV grupa, devastirano područje), ulaganje koje se realizuje na teritoriji jedne ili više opština i koje podstiče realizaciju zajedničkih prioriteta u cilju povećanja konkurentnosti, ulaganje na osnovu usvojenih bilateralnih sporazuma i sporazuma o prekograničnoj saradnji.'
     }
     },{
       type: 'text',

@@ -45,14 +45,14 @@ class TemporaryPermanentJobsCalculator extends Component {
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Enter the net value of reimbursement (rsd)"
+                      placeholder="Enter the monthly net value of reimbursement (rsd)"
                       placeholderTextColor="black"
                     /> :
                     <TextInput
                       style={styles.inputText}
                       onChangeText={this.props.saveInput}
                       keyboardType="numeric"
-                      placeholder="Unesite neto iznos naknade (rsd)"
+                      placeholder="Unesite mesečni neto iznos naknade (rsd)"
                       placeholderTextColor="black"
                     />
                 }

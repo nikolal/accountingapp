@@ -12,16 +12,16 @@ const initialState = {
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'Average gross salary for January',
+        en: 'Average gross salary for January 2019',
         rs: 'Prosečna bruto zarada za januar 2019.'
       },
       percentage: {
-        en: '75.296 rsd rsd',
-        rs: '75.296 rsd rsd'
+        en: '75.296 rsd',
+        rs: '75.296 rsd'
       }
     },{
       text: {
-        en: 'Minimum salary',
+        en: 'Minimum gross salary for January 2019',
         rs: 'Minimalna bruto zarada za januar 2019.'
       },
       percentage: {
@@ -30,7 +30,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'The lowes salary base (1.01.2019. do 31.12.2019)',
+        en: 'The lowest salary base (1.01.2019. do 31.12.2019)',
         rs: 'Najniža osnovica za 1.01.2019. do 31.12.2019.'
       },
       percentage: {
@@ -76,7 +76,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Increase in salary for workinh over night',
+        en: 'Increase in salary for work over night',
         rs: 'Uvećanje zarade za rad noću'
       },
       percentage: {
@@ -86,7 +86,7 @@ const initialState = {
     },
     {
       text: {
-        en: 'Increase in salary for wokrking during public holidays',
+        en: 'Increase in salary for work during public holidays',
         rs: 'Uvećanje zarade za rad za vreme državnog praznika'
       },
       percentage: {
@@ -158,7 +158,7 @@ const initialState = {
     },{
       text: {
         en: 'Non-taxable amounts of reimbursement for the costs of funeral services in the case of death of an employee or a close family member',
-        rs: 'Neporezivi iznosi naknade za troškove pogrebnih usluga u slučaju smrti člana zaposlenog ili člana uže porodice'
+        rs: 'Neporezivi iznosi naknade za troškove pogrebnih usluga u slučaju smrti zaposlenog ili člana uže porodice'
       },
       percentage: {
         en: '67.145 rsd',
@@ -193,7 +193,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'non-taxable amounts of premiums for additional voluntary pension insurance and premiums for voluntary health insurance',
+        en: 'Non-taxable amounts of premiums for additional voluntary pension insurance and premiums for voluntary health insurance',
         rs: 'Neporezivi iznosi za premije za dodatno dobrovoljno penziono osiguranje i premije za dobrovoljno zdravstveno osiguranje'
       },
       percentage: {
@@ -291,7 +291,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Payment of whitholding taxs for the revenues which non-resident entities make in relation with resident entities',
+        en: 'Payment of whitholding tax for the revenues which non-resident entities make in relation with resident entities',
         rs: 'Plaćanje poreza po odbitku na prihode koji nerezidentna pravna lica ostvaruju od rezidentnih pravnih lica'
       },
       percentage: {
@@ -335,7 +335,7 @@ const initialState = {
     paragraphs: [{
       text: {
         en: 'Profit tax for legal entities',
-        rs: 'Porez na dobit pravna lica'
+        rs: 'Porez na dobit - pravna lica'
       },
       percentage: {
         en: '15%',
@@ -344,7 +344,7 @@ const initialState = {
     },{
       text: {
         en: 'Profit tax for enterpreneurs',
-        rs: 'Porez na dobit preduzetnici'
+        rs: 'Porez na dobit - preduzetnici'
       },
       percentage: {
         en: '10%',
@@ -353,7 +353,7 @@ const initialState = {
     },{
       text: {
         en: 'Tax deductible',
-        rs: 'Witholding tax on interest'
+        rs: 'Porez po odbitku kamate'
       },
       percentage: {
         en: '20%',
@@ -745,7 +745,7 @@ const initialState = {
     time: '05:52PM',
     paragraphs: [{
       text: {
-        en: 'Contributions for pension insurance.',
+        en: 'Contributions for pension insurance',
         rs: 'Doprinosi za PIO na teret zaposlenog'
       },
       percentage: {
@@ -772,7 +772,7 @@ const initialState = {
       }
     },{
       text: {
-        en: 'Contributions for pension insurance.',
+        en: 'Contributions for pension insurance',
         rs: 'Doprinosi za PIO na teret poslodavca'
       },
       percentage: {
@@ -788,20 +788,11 @@ const initialState = {
         en: '5.15',
         rs: '5.15'
       }
-    },{
-      text: {
-        en: 'Contributions for unemployment at the expense of the employer',
-        rs: 'Doprinosi za nezaposlenost na teret poslodavca'
-      },
-      percentage: {
-        en: '0.75%',
-        rs: '0.75%'
-      }
     }]
   },{
     title: {
       en: 'Property tax',
-      rs: 'Porezi na imovinu'
+      rs: 'Porez na imovinu'
     },
     date: '30.04.2018',
     time: '05:52PM',
@@ -843,8 +834,8 @@ const initialState = {
       }
     },{
       text: {
-        en: 'From 10.000.000 rsd to 25.000.000 rsd (u srpskoj veryziji dodaj ovo rsd)',
-        rs: 'Od 10.000.000 do 25.000.000'
+        en: 'From 10.000.000 rsd to 25.000.000 rsd',
+        rs: 'Od 10.000.000 do 25.000.000 rsd'
       },
       percentage: {
         en: '+0.6%',

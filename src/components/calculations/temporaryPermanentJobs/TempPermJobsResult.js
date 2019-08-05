@@ -84,7 +84,7 @@ class SalaryResult extends Component {
                 {
                   this.props.language === 'en' ?
                     <Text style={styles.text}>Gross salary</Text> :
-                    <Text style={styles.text}>Bruto zarada</Text>
+                    <Text style={styles.text}> Bruto I zarada</Text>
                 }
                 <View style={styles.numberContainer}>
                   <Text style={styles.numberFirst}>{calculation.tempPermJobsgross.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}

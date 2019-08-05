@@ -109,7 +109,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite bruto iznos zarade na mesečnom nivou (rsd)"
+                          placeholder="Unesite bruto iznos zarade na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />
@@ -129,7 +129,7 @@ class SalaryCalculator extends Component {
                         <TextInput
                           style={styles.inputText}
                           onChangeText={this.props.saveInput}
-                          placeholder="Unestite neto iznos zarade na mesečnom nivou (rsd)"
+                          placeholder="Unesite neto iznos zarade na mesečnom nivou (rsd)"
                           placeholderTextColor="black"
                           keyboardType="numeric"
                         />

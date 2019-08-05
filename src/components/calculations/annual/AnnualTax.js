@@ -51,7 +51,7 @@ class AnnualTax extends Component {
                         style={styles.inputText}
                         onChangeText={this.props.saveInput}
                         keyboardType="numeric"
-                        placeholder=" Unesite prosecan mesečni neto prihod od zarade (rsd)"
+                        placeholder=" Unesite prosečan mesečni neto prihod od zarade (rsd)"
                         placeholderTextColor="black"
                       />
                   }

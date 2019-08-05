@@ -59,7 +59,7 @@ const initialState = {
       type: 'text',
       value: {
         en: 'In a period from 2005 to 2008 Milka was Managing director of another Austrian company specialized for financial and tax services IB Interbilanz Consulting Ltd Serbia and was responsible for organization and development of the company in Serbia. The most of commitment was related to audit and tax consulting services.',
-        rs: 'Od 2005. godine do 2008. godine Milka je bila zaposlena u još jednoj austrijskoj kompaniji kza poresko savetovanje, reviziju i računovodstvo IB Interbilanz Consulting d.o.o. na mestu direktora kompanije i odgovorna za osnivanje, razvoj kompanije i svih njenih odeljenja, pronalaženje klijenata kao i rad sektora za reviziju i poresko savetovanje.'
+        rs: 'Od 2005. godine do 2008. godine Milka je bila zaposlena u još jednoj austrijskoj kompaniji za poresko savetovanje, reviziju i računovodstvo IB Interbilanz Consulting d.o.o. na mestu direktora kompanije i odgovorna za osnivanje, razvoj kompanije i svih njenih odeljenja, pronalaženje klijenata kao i rad sektora za reviziju i poresko savetovanje.'
       }
     },{
       type: 'headline',
@@ -76,8 +76,8 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'Some of the major clients that Milka have cooperated with were as follows: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks, etc. ',
-        rs: 'Neki od značajnijih klijenata sa kojima je sarađivala su: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks.'
+        en: 'Some of the major clients that Milka have cooperated with were as follows: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works, Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks, etc. ',
+        rs: 'Neki od značajnijih klijenata sa kojima je sarađivala su: Sony HD Win, Deutsche Bank, Carlsberg, Panasonic Electric Works, Vossloh-Schwabe Serbia, Porr, Porsche Leasing, Rauch, Doka Serb, Peek & Cloppenburg, Austrian Airlines, Vip Mobile, Muehlbauer, Schmitz Cargobull, Gebrüder Weiss, Knauf Insulation, Nokia Siemens Networks.'
       }
     }]
   },{

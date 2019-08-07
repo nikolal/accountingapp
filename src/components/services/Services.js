@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
 
   },
   textDescription: {
+    alignSelf: 'center',
     fontSize: fonts.size.huge,
     fontFamily: 'openSansBold',
     color: colors.grey,
     marginVertical: metrics.huge,
-    marginLeft: metrics.medium,
   },
   item: {
     flexDirection: 'row',

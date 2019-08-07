@@ -34,6 +34,10 @@ class NewsDetail extends Component {
       <Text key={index} style={styles.articleParagraphsContainer}>
         <Text style={styles.articleParagraphs}>{item.value[this.props.language]}</Text>
       </Text> :
+      item.type === 'subtitle' ?
+        <Text key={index} style={styles.articleParagraphsContainer}>
+          <Text style={styles.articleSubtitle}>{item.value[this.props.language]}</Text>
+        </Text> :
     item.type === 'image' ?
       <View key={index} style={styles.imageContainer}>
         <Image style={styles.articleImage} source={{uri: item.value}} />
@@ -62,6 +66,9 @@ class NewsDetail extends Component {
           </TouchableOpacity>
         </View>
         {article.paragraphs && article.paragraphs.map(this.renderArticle)}
+        <Text />
+        <Text />
+        <Text />
         <Text />
       </ScrollView>
     );
@@ -121,6 +128,10 @@ const styles = StyleSheet.create({
   },
   articleParagraphs: {
     fontFamily: 'IBMPlexSansRegular',
+  },
+  articleSubtitle: {
+    fontFamily: 'IBMPlexSansRegular',
+    fontSize: fonts.size.large,
   },
   imageContainer: {
     margin: metrics.medium

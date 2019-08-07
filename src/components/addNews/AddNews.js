@@ -111,6 +111,13 @@ class AddNews extends Component {
           {id: this.state.newsItem.paragraphs.length + 1, type: 'text', value: {en: '', rs: ''}}]
       }})
     :
+    type === 'subtitle' ?
+      this.setState({ newsItem: {
+        ...this.state.newsItem,
+        paragraphs: [...this.state.newsItem.paragraphs,
+          {id: this.state.newsItem.paragraphs.length + 1, type: 'subtitle', value: {en: '', rs: ''}}]
+      }})
+    :
     type === 'image' ?
       this.setState({ newsItem: {
         ...this.state.newsItem,
@@ -121,7 +128,7 @@ class AddNews extends Component {
   }
 
   updateParagraph = (text, item, index, lang, type) => {
-    if (lang && type === 'text') {
+    if ((lang && type === 'text') || (lang && type === 'subtitle')) {
         const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
         newParagraphs[index] = { // eslint-disable-line
           type: item.type,
@@ -135,7 +142,7 @@ class AddNews extends Component {
           paragraphs: newParagraphs
         }});
     } else {
-      console.log(text);
+      console.log(text, 'Milana');
         const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
         newParagraphs[index] = { // eslint-disable-line
           type: item.type,
@@ -161,11 +168,11 @@ class AddNews extends Component {
     const { news } = this.props;
     database.ref(`news/${news.length}`).set(this.state.newsItem)
       .then(res => {
-        console.log(res);
+        console.log(res, 'Lukic');
         alert('News added!');
       })
       .catch(err => {
-        console.log(err);
+        console.log(err, 'err');
         alert('Failed adding news');
       });
   }
@@ -179,7 +186,7 @@ class AddNews extends Component {
           style={styles.inputTextParagraph}
           onChangeText={(text) => this.updateParagraph(text, item, index, 'rs', 'text')}
           placeholder="Unesi tekst"
-          placeholderTextColor="black"
+          placeholderTextColor="red"
           autoCorrect={false}
         />
         <TextInput
@@ -188,21 +195,42 @@ class AddNews extends Component {
           style={styles.inputTextParagraph}
           onChangeText={(text) => this.updateParagraph(text, item, index, 'en', 'text')}
           placeholder="Add text"
-          placeholderTextColor="black"
+          placeholderTextColor="red"
           autoCorrect={false}
         />
       </React.Fragment>
     :
-    item.type === 'image' ?
-      <TextInput
-        key={index}
-        style={styles.inputText}
-        onChangeText={(text) => this.updateParagraph(text, item, index, null, 'image' )}
-        placeholder="Link slike"
-        placeholderTextColor="black"
-        autoCorrect={false}
-      />
-    : null
+    item.type === 'subtitle' ?
+      <React.Fragment key={index}>
+        <TextInput
+          multiline={true}
+          style={styles.inputTextParagraph}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'rs', 'subtitle')}
+          placeholder="Unesi podnaslov"
+          placeholderTextColor="red"
+          autoCorrect={false}
+        />
+        <TextInput
+          // key={`${index}en`}
+          multiline={true}
+          style={styles.inputTextParagraph}
+          onChangeText={(text) => this.updateParagraph(text, item, index, 'en', 'subtitle')}
+          placeholder="Add subtitle"
+          placeholderTextColor="red"
+          autoCorrect={false}
+        />
+      </React.Fragment>
+      :
+      item.type === 'image' ?
+        <TextInput
+          key={index}
+          style={styles.inputText}
+          onChangeText={(text) => this.updateParagraph(text, item, index, null, 'image' )}
+          placeholder="Link slike"
+          placeholderTextColor="red"
+          autoCorrect={false}
+        />
+      : null
 
   render() {
 
@@ -213,6 +241,7 @@ class AddNews extends Component {
           </TouchableOpacity>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('text')}><Text style={styles.buttonText}>Dodaj paragraf</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('subtitle')}><Text style={styles.buttonText}>Dodaj podnaslov</Text></TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={() => this.addParagraph('image')}><Text style={styles.buttonText}>Dodaj sliku</Text></TouchableOpacity>
           </View>
         <ScrollView style={styles.container}>

@@ -125,12 +125,13 @@ const styles = StyleSheet.create({
   },
   articleParagraphsContainer: {
     paddingHorizontal: metrics.medium,
+    margin: metrics.small
   },
   articleParagraphs: {
-    fontFamily: 'IBMPlexSansRegular',
+    fontFamily: 'merriweatherRegular',
   },
   articleSubtitle: {
-    fontFamily: 'IBMPlexSansRegular',
+    fontFamily: 'merriweatherBold',
     fontSize: fonts.size.large,
   },
   imageContainer: {

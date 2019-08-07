@@ -142,7 +142,7 @@ class AddNews extends Component {
           paragraphs: newParagraphs
         }});
     } else {
-      console.log(text, 'Milana');
+      console.log(text);
         const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
         newParagraphs[index] = { // eslint-disable-line
           type: item.type,
@@ -172,7 +172,7 @@ class AddNews extends Component {
         alert('News added!');
       })
       .catch(err => {
-        console.log(err, 'err');
+        console.log(err);
         alert('Failed adding news');
       });
   }
@@ -403,13 +403,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     // flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'space-around'
   },
   button: {
-    width: Dimensions.get('window').width / 2.8,
+    width: Dimensions.get('window').width / 3.5,
     backgroundColor: '#14B7C5',
     borderRadius: metrics. small,
-    margin: metrics.medium,
     padding: metrics.small
   },
   submitButton: {

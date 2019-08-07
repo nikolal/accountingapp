@@ -85,9 +85,9 @@ class News extends Component {
             >
               <View style={styles.innerBackgroundColorContainer}>
                 <View style={styles.textContainerFirstItem}>
-                  <Text style={styles.titleTextFirstItem} numberOfLines={2}>{item.title[this.props.language]}</Text>
-                  <View style={styles.innerContainerFirstItem}>
-                    <Text style={styles.authorFirstItem}>{item.author[this.props.language]}</Text>
+                  <Text style={styles.authorFirstItem}>{item.author[this.props.language]}</Text>
+                  <View>
+                    <Text style={styles.titleTextFirstItem} numberOfLines={3}>{item.title[this.props.language]}</Text>
                     <Text style={styles.dateTextFirstItem}>{item.date}</Text>
                   </View>
                 </View>
@@ -109,7 +109,7 @@ class News extends Component {
                 <Text style={styles.secondItem}>{item.author[this.props.language]}</Text>
                 <MaterialIcons style={styles.shareImage} size={20} name="navigate-next" />
               </View>
-              <Text style={styles.titleText} numberOfLines={2}>{item.title[this.props.language]}</Text>
+              <Text style={styles.titleText} numberOfLines={3}>{item.title[this.props.language]}</Text>
               <Text style={styles.dateText}>{item.date}</Text>
             </View>
           </View>
@@ -167,13 +167,16 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width
   },
   textContainerFirstItem: {
+    // backgroundColor: 'red',
+    flex: 1,
+    justifyContent: 'space-around',
     paddingHorizontal: metrics.hugeToExtrahuge,
   },
   titleTextFirstItem: {
     color: colors.white,
-    fontSize: fonts.size.hugeToExtra,
+    fontSize: fonts.size.large,
     fontFamily: 'merriweatherBold',
-    textAlign: 'center'
+    marginBottom: metrics.medium
   },
   innerContainerFirstItem: {
     marginTop: metrics.small,
@@ -184,14 +187,14 @@ const styles = StyleSheet.create({
   authorFirstItem: {
     color: 'white',
     fontFamily: 'merriweatherRegular',
-    fontSize: fonts.size.medium,
+    fontSize: fonts.size.small,
     letterSpacing: 2,
     marginRight: metrics.medium
   },
   dateTextFirstItem: {
     color: '#189FAB',
     fontFamily: 'merriweatherRegular',
-    fontSize: fonts.size.medium,
+    fontSize: fonts.size.small,
     letterSpacing: 2
   },
   item: {

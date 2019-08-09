@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     marginBottom: metrics.medium
   },
   shareImage: {
-    marginRight: metrics.medium,
+    marginRight: metrics.small,
     color: '#bdbdbd',
   },
 });

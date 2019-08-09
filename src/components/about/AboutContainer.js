@@ -14,8 +14,8 @@ const initialState = {
       rs: 'Više o našem timu'
     },
     description: {
-      en: 'Milka Janičić',
-      rs: 'Milka Janičić'
+      en: 'Milka Jančić',
+      rs: 'Milka Jančić'
     },
     icon: require('../../../assets/images/iconteam.png'),
     image: require('../../../assets/images/milkaSlika.png'),

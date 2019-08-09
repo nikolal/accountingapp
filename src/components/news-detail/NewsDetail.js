@@ -25,9 +25,9 @@ class NewsDetail extends Component {
     });
   }
 
-  static navigationOptions = ({ navigation }) => ({
-    headerTitle: <HeaderTitle />
-  })
+  // static navigationOptions = ({ navigation }) => ({
+  //   headerTitle: <HeaderTitle />
+  // })
 
   renderArticle = (item, index) =>
     item.type === 'text' ?
@@ -35,7 +35,7 @@ class NewsDetail extends Component {
         <Text style={styles.articleParagraphs}>{item.value[this.props.language]}</Text>
       </Text> :
       item.type === 'subtitle' ?
-        <Text key={index} style={styles.articleParagraphsContainer}>
+        <Text key={index} style={styles.articleSubtitleContainer}>
           <Text style={styles.articleSubtitle}>{item.value[this.props.language]}</Text>
         </Text> :
     item.type === 'image' ?
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: metrics.medium,
-    paddingRight: metrics.extraHuge,
+    paddingHorizontal: metrics.large,
+    paddingVertical: metrics.small,
     marginVertical: metrics.large,
     borderTopWidth: metrics.tinyBorder,
     borderBottomWidth: metrics.tinyToSmall,
@@ -126,6 +126,11 @@ const styles = StyleSheet.create({
   articleParagraphsContainer: {
     paddingHorizontal: metrics.medium,
     margin: metrics.small
+  },
+  articleSubtitleContainer: {
+    paddingHorizontal: metrics.large,
+    marginTop: metrics.huge,
+    marginBottom: metrics.large,
   },
   articleParagraphs: {
     fontFamily: 'merriweatherRegular',

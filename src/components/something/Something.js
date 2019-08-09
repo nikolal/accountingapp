@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SimpleLineIcons, Ionicons }  from '@expo/vector-icons';
+import { MaterialIcons }  from '@expo/vector-icons';
 import { metrics, colors, fonts, images } from '../../theme';
 import { saveArticle } from './SomethingContainer.js';
 import HeaderTitle from './HeaderTitle.js';
@@ -27,6 +27,7 @@ class Incentives extends Component {
         <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
         <Text style={styles.subTitleText}>{item.subTitle[this.props.language]}</Text>
       </View>
+      <MaterialIcons style={styles.shareImage} size={25} name="navigate-next" />
     </TouchableOpacity>
 
   render() {
@@ -124,5 +125,9 @@ const styles = StyleSheet.create({
     fontFamily: 'openSansRegular',
     marginTop: metrics.tiny,
     marginBottom: metrics.medium
-  }
+  },
+  shareImage: {
+    marginRight: metrics.medium,
+    color: '#bdbdbd',
+  },
 });

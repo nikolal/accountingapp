@@ -52,7 +52,7 @@ class SalaryResult extends Component {
                       <Text style={styles.calculTextSmallText}>Entered value</Text>
                       <Text style={styles.numberInput}>
                        {
-                         calculation.grossSalary.value && calculation.grossSalary.value
+                         calculation.input && calculation.input
                          .toLocaleString(localeString, { maximumFractionDigits: 2 })
                        }
                       </Text>
@@ -62,7 +62,7 @@ class SalaryResult extends Component {
                       <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
                       <Text style={styles.numberInput}>
                        {
-                         calculation.grossSalary.value && calculation.grossSalary.value
+                         calculation.input && calculation.input
                          .toLocaleString(localeString, { maximumFractionDigits: 2 })
                        }
                       </Text>

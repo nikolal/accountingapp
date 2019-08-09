@@ -3,6 +3,7 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, Dimensions
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { saveServices } from './ServicesContainer.js';
+import { MaterialIcons }  from '@expo/vector-icons';
 import HeaderTitle from './HeaderTitle.js';
 import { metrics, colors, fonts, images } from '../../theme';
 
@@ -27,6 +28,7 @@ class Services extends Component {
           <Text style={styles.titleText}>{item.title[this.props.language]}</Text>
           <Text style={styles.subTitleText}>{item.subTitle[this.props.language]}</Text>
         </View>
+        <MaterialIcons style={styles.shareImage} size={25} name="navigate-next" />
       </View>
     </TouchableOpacity>
 
@@ -131,5 +133,9 @@ const styles = StyleSheet.create({
   },
   subTitleText: {
     fontFamily: 'openSansLight',
-  }
+  },
+  shareImage: {
+    marginRight: metrics.medium,
+    color: '#bdbdbd',
+  },
 });

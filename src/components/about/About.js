@@ -68,14 +68,14 @@ export default connect(stateToProps, dispatchToProps)(AboutUs);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    marginBottom: metrics.large
   },
   imageTitleContainer: {
     alignItems: 'center',
     paddingTop: metrics.huge,
-    backgroundColor: colors.white,
     borderBottomColor: '#e6e6e6',
-    borderBottomWidth: metrics.tinyBorder
+    borderBottomWidth: metrics.tinyBorder,
   },
   image: {
     height: Dimensions.get('window').height / 3,

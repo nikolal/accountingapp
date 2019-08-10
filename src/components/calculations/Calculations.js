@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     color: colors.white
   },
   textItem: {
+    textAlign: 'center',
     margin: metrics.small,
     color: 'rgb(16,70,92)',
     fontFamily: 'openSansBold',

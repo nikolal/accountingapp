@@ -167,10 +167,9 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width
   },
   textContainerFirstItem: {
-    // backgroundColor: 'red',
     flex: 1,
     justifyContent: 'space-around',
-    paddingHorizontal: metrics.hugeToExtrahuge,
+    width: Dimensions.get('window').width / 1.2
   },
   titleTextFirstItem: {
     color: colors.white,

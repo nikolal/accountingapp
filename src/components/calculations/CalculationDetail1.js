@@ -223,17 +223,17 @@ class CalculationDetail1 extends Component {
 
   };
 
-    tempPermJobsGrossToNet = val => val < 23921 ? ((val + (23921 * 0.199)) / 0.9) : val > 341725 ? ((val + (341725 * 0.199)) / 0.9) : (val > 23921 && val < 341725 ) ? val / 0.701 : null
+  tempPermJobsGrossToNet = val => val < 23921 ? ((val + (23921 * 0.199)) / 0.9) : val > 341725 ? ((val + (341725 * 0.199)) / 0.9) : (val > 23921 && val < 341725 ) ? val / 0.701 : null
 
-    tempPermJobsTax = val => this.tempPermJobsGrossToNet(val) * 0.10
+  tempPermJobsTax = val => this.tempPermJobsGrossToNet(val) * 0.10
 
-    tempPermJobsPension14 = val => val < 23921 ? 23921 * 0.14 : val > 341725 ? 341725 * 0.14 : this.tempPermJobsGrossToNet(val) * 0.14
+  tempPermJobsPension14 = val => val < 23921 ? 23921 * 0.14 : val > 341725 ? 341725 * 0.14 : this.tempPermJobsGrossToNet(val) * 0.14
 
-    tempPermJobsHealth = val => val < 23921 ? 23921 * 0.0515 : val > 341725 ? 341725 * 0.0515 : this.tempPermJobsGrossToNet(val) * 0.0515
+  tempPermJobsHealth = val => val < 23921 ? 23921 * 0.0515 : val > 341725 ? 341725 * 0.0515 : this.tempPermJobsGrossToNet(val) * 0.0515
 
-    tempPermJobsNez = val => val < 23921 ? 23921 * 0.0075 : val > 341725 ? 341725 * 0.0075 : this.tempPermJobsGrossToNet(val) * 0.0075
+  tempPermJobsNez = val => val < 23921 ? 23921 * 0.0075 : val > 341725 ? 341725 * 0.0075 : this.tempPermJobsGrossToNet(val) * 0.0075
 
-    tempPermJobsPension12 = val => val < 23921 ? 23921 * 0.12 : val > 341725 ? 341725 * 0.12 : this.tempPermJobsGrossToNet(val) * 0.12
+  tempPermJobsPension12 = val => val < 23921 ? 23921 * 0.12 : val > 341725 ? 341725 * 0.12 : this.tempPermJobsGrossToNet(val) * 0.12
 
   // tempPermJobsGrossToNet = val => (val / 0.701)
   tempPermJobsNet = val => (val)

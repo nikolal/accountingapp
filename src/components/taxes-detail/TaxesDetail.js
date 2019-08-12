@@ -31,6 +31,9 @@ class TaxesDetail extends Component {
             article.paragraphs
               .map(this.renderTaxes)
           }
+          <Text />
+          <Text />
+          <Text />
         </View>
       </ScrollView>
     );

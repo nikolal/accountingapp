@@ -323,7 +323,7 @@ const initialState = {
     },{
       type: 'headline',
       value: {
-        en: 'Financial benefits ',
+        en: 'Financial benefits',
         rs: 'Finansijske pogodnosti'
       }
     },{
@@ -342,7 +342,7 @@ const initialState = {
       type: 'headline',
       value: {
         en: 'Customs benefits',
-        rs: 'Carinske pogodnosti.'
+        rs: 'Carinske pogodnosti'
       }
     },{
       type: 'text',
@@ -414,7 +414,7 @@ const initialState = {
     },{
       type: 'text',
       value: {
-        en: 'The logistic services are provided according to preferential prices: transport, trans-shipment, shipment, freight transport, insurance and reinsurance,	other.',
+        en: 'The logistic services are provided according to preferential prices: transport, trans-shipment, shipment, freight transport, insurance and reinsurance, other.',
         rs: 'Logističke usluge se pružaju po povoljnijim cenama: transport, pretovar, utovar, špedicija, osiguranje i reosiguranje, ostalo.'
       }
     },{

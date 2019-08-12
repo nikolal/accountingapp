@@ -86,7 +86,7 @@ class AllowanceResult extends Component {
 
               }
               <View style={styles.numberContainer}>
-                <Text style={styles.numberFirst}>{calculation.allowancesAway.value && calculation.allowancesAway.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
+                <Text style={styles.numberFirst}>{calculation.input && calculation.input.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
               </View>
             </View>
           </View>

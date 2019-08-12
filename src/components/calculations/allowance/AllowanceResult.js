@@ -83,7 +83,7 @@ class AllowanceResult extends Component {
               }
               <View style={styles.numberContainer}>
                 <Text
-                  style={styles.numberFirst}>{calculation.allowancesHome.value && calculation.allowancesHome.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
+                  style={styles.numberFirst}>{calculation.input && calculation.input.toLocaleString(localeString, { maximumFractionDigits: 2 })}
                 </Text>
               </View>
             </View>

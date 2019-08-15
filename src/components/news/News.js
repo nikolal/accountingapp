@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, AsyncStorage, Dimensions } from 'react-native';
+import { ScrollView, View, Text, ImageBackground, ActivityIndicator, TouchableOpacity, StyleSheet, Image, AsyncStorage, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import firebase from '../../firebase/firebase.js';
@@ -18,7 +18,8 @@ class News extends Component {
   });
 
   state = {
-    modalVisible: false
+    modalVisible: false,
+    isLoading: true
   }
 
   componentDidMount = () => {
@@ -65,11 +66,14 @@ class News extends Component {
 
   setNewsListener = () => {
     firebase.database().ref('news/').on('value', (snapshot) => {
-      snapshot.val() ?
-      this.props.saveNewsAction(snapshot.val())
-      :
-      this.props.saveNewsAction([]);
+      if (snapshot.val()){
+        this.setState({isLoading: false});
+        this.props.saveNewsAction(snapshot.val());
 
+      } else {
+        this.setState({isLoading: false});
+        this.props.saveNewsAction([]);
+      }
       // console.log(snapshot.val());
     });
   }
@@ -118,6 +122,7 @@ class News extends Component {
 
   render() {
     // console.log(this.props.news);
+    console.log(this.props.news.length === 0 && this.state.isLoading === false && this.props.language === 'en');
     return (
       <ScrollView style={styles.container}>
         <Modal
@@ -126,6 +131,22 @@ class News extends Component {
           setLanguage={this.setLanguage}
           languages={this.props.languages}
         />
+        {
+          this.state.isLoading ?
+            <ActivityIndicator
+              size="large"
+              animating
+              color={colors.lightBlue1}
+              style={{marginTop: metrics.medium}}
+            /> :
+            null
+        }
+        {
+          this.props.news.length === 0 && this.state.isLoading === false && this.props.language === 'en' ?
+            <Text style={styles.noNewsText}>We couldn't fined News...</Text> :
+          this.props.news.length === 0 && this.state.isLoading === false && this.props.language === 'rs' ?
+          <Text style={styles.noNewsText}>Nismo pronašli vesti...</Text> : null
+        }
         {
           this.props.news.slice().reverse().map(this.renderList) //eslint-disable-line
         }
@@ -235,5 +256,13 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.tiny,
     color: '#189FAB',
     fontFamily: 'merriweatherRegular',
+  },
+  noNewsText: {
+    marginTop: metrics.large,
+    textAlign: 'center',
+    color: colors.lightBlue1,
+    fontSize: fonts.size.large,
+    fontFamily: 'merriweatherRegular',
+
   }
 });

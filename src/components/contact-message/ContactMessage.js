@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, Dimensions, TextInput, TouchableOpacity,
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { metrics, colors, fonts, images } from '../../theme';
-import { MailComposer } from 'expo';
+import * as MailComposer from 'expo-mail-composer';
 import Toast from 'react-native-root-toast';
 
 
@@ -76,7 +76,7 @@ class ConcatMessage extends Component {
         this.props.navigation.navigate('News');
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         const toast = Toast.show('Error sending email', {
           duration: Toast.durations.LONG,
           position: Toast.positions.TOP,
@@ -121,7 +121,7 @@ class ConcatMessage extends Component {
     </View>
 
   render(){
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <ScrollView style={styles.container}>
       <KeyboardAvoidingView

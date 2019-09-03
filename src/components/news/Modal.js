@@ -10,13 +10,11 @@ import { saveLanguage, saveLocaleString, saveAdmin } from '../settings/SettingsC
 class MyModal extends Component {
 
   setLanguage = language => {
-    console.log(language);
     this.props.saveLanguage(language);
     AsyncStorage.setItem('@accountingApp:language', language);
   };
 
   setLocaleString = localeString => {
-    console.log(localeString);
     this.props.saveLocaleString(localeString);
     AsyncStorage.setItem('@accountingApp:localeString', localeString);
   };

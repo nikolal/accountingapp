@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "accountingapp",
+    "name": "HLB Tax",
     "description": "An app for accounting services",
-    "slug": "accountingapp",
+    "slug": "hlbconsultingapp",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
-    "version": "1.0.0",
+    "sdkVersion": "34.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/icons/appIcon.png",
@@ -27,7 +27,11 @@
       ]
     },
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "rs.co.tmconsulting.hlbconsultingapp"
+    },
+    "android": {
+      "package": "rs.co.tmconsulting.hlbconsultingapp"
     },
     "updates": {
       "enabled": true,

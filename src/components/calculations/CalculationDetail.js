@@ -99,7 +99,7 @@ const CalculationDetail = (props) => {
       null;
   };
 
-  console.log(calculation);
+  // console.log(calculation);
   return (
     <ScrollView style={styles.container}>
       <KeyboardAvoidingView

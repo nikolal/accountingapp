@@ -75,7 +75,6 @@ class Settings extends Component {
       </TouchableOpacity>
 
   render() {
-    // console.log(this.setLanguage);
     return (
       <ImageBackground source={images.drawerBackground} style={styles.container} resizeMode="cover">
         <View style={styles.logoImageContainer}>

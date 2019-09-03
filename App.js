@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   cacheSplasheResources = async () => {
-    const img = require('./assets/images/caseCalculations.png');
+    const img = require('./assets/images/drawerBackground.png');
     return Asset.fromModule(img).downloadAsync();
   }
 
@@ -42,7 +42,6 @@ class App extends Component {
       require('./assets/images/caseCalculations.png'),
       require('./assets/images/contractDefault.png'),
       require('./assets/images/contractSelected.png'),
-      require('./assets/images/drawerBackground.png'),
       require('./assets/images/drawerLogo.png'),
       require('./assets/images/logoSettings.png'),
       require('./assets/images/user1.png'),

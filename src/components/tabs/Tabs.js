@@ -36,11 +36,10 @@ const styles = {
     height: 60,
     padding: metrics.small,
   },
-  // tabStyle: {
-  //   flex: 1,
-  //   borderWidth: 1,
-  //   borderColor: 'red'
-  // }
+  tabStyle: {
+    flex: 1,
+    flexDirection: 'column'
+  }
 };
 
 const navigationConfig = {

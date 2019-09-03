@@ -4,7 +4,7 @@
     "description": "An app for accounting services",
     "slug": "hlbconsultingapp",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "34.0.3",
     "version": "1.0.1",
     "orientation": "portrait",
     "primaryColor": "#cccccc",

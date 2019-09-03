@@ -30,6 +30,7 @@ class AddNews extends Component {
       },
       date: '',
       image: 'https://best-wallpaper.net/wallpaper/1366x768/1201/Dream-clouds-on-the-mountain-and-the-planet_1366x768.jpg',
+      link: '',
       paragraphs: []
     },
     showDatePicker: false,
@@ -85,6 +86,14 @@ class AddNews extends Component {
       image: text
     }});
   }
+
+  updateUrlLink = (text) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      link: text
+    }});
+  }
+
 
   updateDescription = (text, lang) => {
     this.setState({ newsItem: {
@@ -142,7 +151,6 @@ class AddNews extends Component {
           paragraphs: newParagraphs
         }});
     } else {
-      console.log(text);
         const newParagraphs = this.state.newsItem.paragraphs.slice(); //copy the array
         newParagraphs[index] = { // eslint-disable-line
           type: item.type,
@@ -157,8 +165,6 @@ class AddNews extends Component {
 
   validateNews = () => {
     const { news } = this.props;
-    // console.log(this.state.newsItem);
-    // console.log(this.handleErr());
     !this.handleErr() ?
       this.submitNews() :
       alert(this.handleErr());
@@ -168,11 +174,9 @@ class AddNews extends Component {
     const { news } = this.props;
     database.ref(`news/${news.length}`).set(this.state.newsItem)
       .then(res => {
-        console.log(res, 'Lukic');
         alert('News added!');
       })
       .catch(err => {
-        console.log(err);
         alert('Failed adding news');
       });
   }
@@ -233,6 +237,7 @@ class AddNews extends Component {
       : null
 
   render() {
+    console.log(this.state.newsItem);
 
     return (
       <View style={styles.containerHead}>
@@ -249,6 +254,14 @@ class AddNews extends Component {
             behavior="padding"
           >
           <View>
+            <Text style={styles.directionText}>Dodaj link vesti sa sajta</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateUrlLink(text)}
+              placeholder="  Link vesti sa sajta"
+              placeholderTextColor={colors.tabGrey}
+              autoCorrect={false}
+            />
             <Text style={styles.directionText}>Autor teksta</Text>
             <TextInput
               style={styles.inputText}

@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Dimensions
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { metrics, colors, fonts, images } from '../../theme';
-import { FontAwesome }  from '@expo/vector-icons';
+import { Feather }  from '@expo/vector-icons';
 import HeaderTitle from './HeaderTitle.js';
 
 
@@ -12,12 +12,12 @@ class NewsDetail extends Component {
 
   share = () => {
     Share.share({
-      message: 'BAM: we\'re helping your business with awesome React Native apps',
-      url: 'http://bam.tech',
-      title: 'Wow, did you see that?'
+      message: 'HLB consulting',
+      url: this.props.article.link,
+      title: ''
     }, {
       // Android only:
-      dialogTitle: 'Share BAM goodness',
+      dialogTitle: 'HLB consulting',
       // iOS only:
       excludedActivityTypes: [
         'com.apple.UIKit.activity.PostToTwitter'
@@ -53,16 +53,7 @@ class NewsDetail extends Component {
         <View style={styles.dateSocialIconContainer}>
           <Text style={styles.dateText}>{article.date}</Text>
           <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <FontAwesome style={styles.fbSocialIconsImage} name="facebook-f" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="twitter" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="google-plus" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <FontAwesome style={styles.fbSocialIconsImage} onPress={this.share} name="share" />
+            <Feather style={styles.fbSocialIconsImage} onPress={this.share} name="share" size={20}/>
           </TouchableOpacity>
         </View>
         {article.paragraphs && article.paragraphs.map(this.renderArticle)}
@@ -117,6 +108,11 @@ const styles = StyleSheet.create({
   },
   dateText: {
     color: '#3191cb',
+    fontSize: fonts.size.small,
+    fontFamily: 'merriweatherRegular',
+  },
+  author: {
+    color: '#bdbdbd',
     fontSize: fonts.size.small,
     fontFamily: 'merriweatherRegular',
   },

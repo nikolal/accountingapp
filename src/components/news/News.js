@@ -122,7 +122,7 @@ class News extends Component {
 
   render() {
     // console.log(this.props.news);
-    console.log(this.props.news.length === 0 && this.state.isLoading === false && this.props.language === 'en');
+    // console.log(this.props.news.length === 0 && this.state.isLoading === false && this.props.language === 'en');
     return (
       <ScrollView style={styles.container}>
         <Modal

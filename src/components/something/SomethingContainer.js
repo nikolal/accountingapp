@@ -9,7 +9,7 @@ const initialState = {
   },
   incentives: [{
     title: {
-      en: 'Incentives for employement',
+      en: 'Incentives for employment',
       rs: 'Olakšice za zapošljavanja'
     },
     subTitle: {
@@ -17,7 +17,7 @@ const initialState = {
       rs: 'Više informacija o poreskim olakšicama'
     },
     description: {
-      en: 'Incentives for employement',
+      en: 'Incentives for employment',
       rs: 'Olakšice za nova zapošljavanja'
     },
     icon: require('../../../assets/images/iconteam.png'),
@@ -461,7 +461,7 @@ const initialState = {
       rs: 'Subvencije za investiranje'
     },
     subTitle: {
-      en: 'Learn more about free trade Aareements',
+      en: 'Learn more about free trade Agreements',
       rs: 'Saznajte više o podsticajima'
     },
     description: {

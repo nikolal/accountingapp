@@ -119,11 +119,14 @@ class AnnualTaxResult extends Component {
                   </View>
                 </View>
               </View>
-              <TouchableOpacity style={styles.shareButton} onPress={this.share}>
+              <TouchableOpacity style={styles.shareButton}
+                onPress={() => {
+                  this.props.closeModal();
+                }}>
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.shareText}>Share</Text> :
-                  <Text style={styles.shareText}>Podeli</Text>
+                  <Text style={styles.shareText}>Back</Text> :
+                  <Text style={styles.shareText}>Nazad</Text>
               }
               </TouchableOpacity>
               <View style={styles.descriptionContainer}>

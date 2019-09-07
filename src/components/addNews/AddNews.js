@@ -31,6 +31,7 @@ class AddNews extends Component {
       date: '',
       image: 'https://best-wallpaper.net/wallpaper/1366x768/1201/Dream-clouds-on-the-mountain-and-the-planet_1366x768.jpg',
       link: '',
+      linkRs: '',
       paragraphs: []
     },
     showDatePicker: false,
@@ -91,6 +92,20 @@ class AddNews extends Component {
     this.setState({ newsItem: {
       ...this.state.newsItem,
       link: text
+    }});
+  }
+
+  updateUrlLinkRs = (text) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      linkRs: text
+    }});
+  }
+
+  updateUrlLinkRs = (text) => {
+    this.setState({ newsItem: {
+      ...this.state.newsItem,
+      linkRs: text
     }});
   }
 
@@ -255,6 +270,14 @@ class AddNews extends Component {
           >
           <View>
             <Text style={styles.directionText}>Dodaj link vesti sa sajta</Text>
+            <TextInput
+              style={styles.inputText}
+              onChangeText={(text) => this.updateUrlLinkRs(text)}
+              placeholder="  Link vesti sa sajta"
+              placeholderTextColor={colors.tabGrey}
+              autoCorrect={false}
+            />
+            <Text style={styles.directionText}>Add link</Text>
             <TextInput
               style={styles.inputText}
               onChangeText={(text) => this.updateUrlLink(text)}

@@ -110,11 +110,12 @@ class AnnualTax extends Component {
               <View style={{backgroundColor: colors.navigator}}>
                 <TouchableOpacity
                   style={styles.closeModalIcon}
-                  onPress={() => {
-                    this.props.closeModal();
+                  // onPress={() => {
+                    // this.props.closeModal();
                     // this.setModalVisible(!this.state.modalVisible);
-                  }}>
-                  <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
+                  // }}
+                  >
+                  {/* <Ionicons name="ios-close" size={40} color={colors.drawerBlue} /> */}
                 </TouchableOpacity>
               </View>
 
@@ -124,6 +125,7 @@ class AnnualTax extends Component {
                 // this.props.calculation.type === 'grossToNet' ?
                   <AnnualTaxResult
                     calculation={this.props.calculation}
+                    closeModal={this.props.closeModal}
                   /> :
                   null
               }

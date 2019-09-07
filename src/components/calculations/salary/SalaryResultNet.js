@@ -6,21 +6,6 @@ import { metrics, colors, fonts, images } from '../../../theme';
 
 class SalaryResultNet extends Component {
 
-  share = () => {
-    Share.share({
-      message: 'BAM: we\'re helping your business with awesome React Native apps',
-      url: 'http://bam.tech',
-      title: 'Wow, did you see that?'
-    }, {
-      // Android only:
-      dialogTitle: 'Share BAM goodness',
-      // iOS only:
-      excludedActivityTypes: [
-        'com.apple.UIKit.activity.PostToTwitter'
-      ]
-    });
-  }
-
   render() {
 
     const { calculation, localeString } = this.props;
@@ -161,11 +146,14 @@ class SalaryResultNet extends Component {
                   </View>
                 </View>
               </View>
-              <TouchableOpacity style={styles.shareButton} onPress={this.share}>
+              <TouchableOpacity style={styles.shareButton}
+                 onPress={() => {
+                  this.props.closeModal();
+              }}>
               {
                 this.props.language === 'en' ?
-                  <Text style={styles.shareText}>Share</Text> :
-                  <Text style={styles.shareText}>Podeli</Text>
+                  <Text style={styles.shareText}>Back</Text> :
+                  <Text style={styles.shareText}>Nazad</Text>
               }
               </TouchableOpacity>
               <View style={styles.descriptionContainer}>

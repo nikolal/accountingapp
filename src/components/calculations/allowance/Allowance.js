@@ -162,11 +162,12 @@ class Allowance extends Component {
               <View style={{backgroundColor: colors.navigator}}>
                 <TouchableOpacity
                   style={styles.closeModalIcon}
-                  onPress={() => {
-                    this.props.closeModal();
+                  // onPress={() => {
+                    // this.props.closeModal();
                     // this.setModalVisible(!this.state.modalVisible);
-                  }}>
-                  <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
+                  // }}
+                  >
+                  {/* <Ionicons name="ios-close" size={40} color={colors.drawerBlue} /> */}
                 </TouchableOpacity>
               </View>
 
@@ -176,12 +177,14 @@ class Allowance extends Component {
                 this.props.calculation.type === 'allowanceHome' ?
                   <AllowanceResult
                     calculation={this.props.calculation}
+                    closeModal={this.props.closeModal}
                   /> :
                 this.props.showResult &&
                 this.props.calculation.input !== 0 &&
                 this.props.calculation.type === 'allowanceAway' ?
                   <AllowanceResultAway
                     calculation={this.props.calculation}
+                    closeModal={this.props.closeModal}
                   /> :
                   null
               }

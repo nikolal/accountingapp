@@ -160,12 +160,7 @@ const ContractTax = props => {
           <View style={{backgroundColor: colors.navigator}}>
             <TouchableOpacity
               style={styles.closeModalIcon}
-              onPress={() => {
-                props.closeModal();
-                // setModalVisible(!state.modalVisible);
-              }}>
-              <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
-            </TouchableOpacity>
+          />
           </View>
 
           {
@@ -173,6 +168,7 @@ const ContractTax = props => {
             props.showResult ?
             // props.calculation.type === 'grossToNet' ?
               <ContractTaxResult
+                closeModal={props.closeModal}
                 calculation={props.calculation}
               />  :
               null

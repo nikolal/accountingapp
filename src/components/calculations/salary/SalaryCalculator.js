@@ -184,12 +184,7 @@ class SalaryCalculator extends Component {
               <View style={{backgroundColor: colors.navigator}}>
                 <TouchableOpacity
                   style={styles.closeModalIcon}
-                  onPress={() => {
-                    this.props.closeModal();
-                    // this.setModalVisible(!this.state.modalVisible);
-                  }}>
-                  <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
-                </TouchableOpacity>
+                  />
                 </View>
               {
                 this.props.calculation.input !== 0 &&
@@ -197,12 +192,14 @@ class SalaryCalculator extends Component {
                 this.props.calculation.type === 'grossToNet' ?
                   <SalaryResult
                     calculation={this.props.calculation}
+                    closeModal={this.props.closeModal}
                   /> :
                 this.props.showResult &&
                 this.props.calculation.input !== 0 &&
                 this.props.calculation.type === 'netToGross' ?
                   <SalaryResultNet
                     calculation={this.props.calculation}
+                    closeModal={this.props.closeModal}
                   /> :
                   null
               }

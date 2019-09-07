@@ -9,7 +9,7 @@
   },
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "expo": "^34.0.3",
+    "expo": "^34.0.0",
     "expo-mail-composer": "~6.0.0",
     "firebase": "^6.4.2",
     "grpc": "^1.23.3",

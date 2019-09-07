@@ -34,8 +34,6 @@ class TemporaryPermanentJobsCalculator extends Component {
 
       </ImageBackground>
 
-
-
         {
             <View style={styles.scrollViewContainer}>
 
@@ -92,12 +90,7 @@ class TemporaryPermanentJobsCalculator extends Component {
             <View style={{backgroundColor: colors.navigator}}>
               <TouchableOpacity
                 style={styles.closeModalIcon}
-                onPress={() => {
-                  this.props.closeModal();
-                  // this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Ionicons name="ios-close" size={40} color={colors.drawerBlue} />
-              </TouchableOpacity>
+               />
             </View>
 
             {
@@ -106,6 +99,7 @@ class TemporaryPermanentJobsCalculator extends Component {
               // this.props.calculation.type === 'temporaryPermanentJobsCalculator' ?
                 <TempPermJobsResult
                   calculation={this.props.calculation}
+                  closeModal={this.props.closeModal}
                 /> :
                 null
             }

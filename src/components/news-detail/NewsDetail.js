@@ -12,12 +12,27 @@ class NewsDetail extends Component {
 
   share = () => {
     Share.share({
-      message: 'HLB consulting',
+      message: 'HLB T&M Consulting',
       url: this.props.article.link,
       title: ''
     }, {
       // Android only:
-      dialogTitle: 'HLB consulting',
+      dialogTitle: 'HLB T&M Consulting',
+      // iOS only:
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    });
+  }
+
+  shareRs = () => {
+    Share.share({
+      message: 'HLB T&M Consulting',
+      url: this.props.article.linkRs,
+      title: ''
+    }, {
+      // Android only:
+      dialogTitle: 'HLB T&M Consulting',
       // iOS only:
       excludedActivityTypes: [
         'com.apple.UIKit.activity.PostToTwitter'
@@ -52,9 +67,16 @@ class NewsDetail extends Component {
         <Text style={styles.descriptionText} ellipsizeMode="tail">{article.description[this.props.language]}</Text>
         <View style={styles.dateSocialIconContainer}>
           <Text style={styles.dateText}>{article.date}</Text>
-          <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
-            <Feather style={styles.fbSocialIconsImage} onPress={this.share} name="share" size={20}/>
+          {
+            this.props.language === 'en' ?
+              <TouchableOpacity onPress={this.share} style={styles.sharingOpacity}>
+              <Feather style={styles.fbSocialIconsImage} onPress={this.share} name="share" size={20}/>
+            </TouchableOpacity> :
+            <TouchableOpacity onPress={this.shareRs} style={styles.sharingOpacity}>
+            <Feather style={styles.fbSocialIconsImage} onPress={this.shareRs} name="share" size={20}/>
           </TouchableOpacity>
+          }
+
         </View>
         {article.paragraphs && article.paragraphs.map(this.renderArticle)}
         <Text />
@@ -94,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: metrics.large,
-    paddingVertical: metrics.small,
+    // paddingVertical: metrics.small,
     marginVertical: metrics.large,
     borderTopWidth: metrics.tinyBorder,
     borderBottomWidth: metrics.tinyToSmall,

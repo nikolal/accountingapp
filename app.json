@@ -31,7 +31,8 @@
       "bundleIdentifier": "rs.co.tmconsulting.hlbconsultingapp"
     },
     "android": {
-      "package": "rs.co.tmconsulting.hlbconsultingapp"
+      "package": "rs.co.tmconsulting.hlbconsultingapp",
+      "versionCode": 2
     },
     "updates": {
       "enabled": true,

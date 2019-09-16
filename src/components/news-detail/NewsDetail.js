@@ -12,12 +12,12 @@ class NewsDetail extends Component {
 
   share = () => {
     Share.share({
-      message: 'HLB T&M Consulting',
+      message: this.props.article.linkRs,
       url: this.props.article.link,
-      title: ''
+      title: 'HLB T&M Consulting'
     }, {
       // Android only:
-      dialogTitle: 'HLB T&M Consulting',
+      dialogTitle: this.props.article.title[this.props.language],
       // iOS only:
       excludedActivityTypes: [
         'com.apple.UIKit.activity.PostToTwitter'
@@ -27,12 +27,12 @@ class NewsDetail extends Component {
 
   shareRs = () => {
     Share.share({
-      message: 'HLB T&M Consulting',
+      message: this.props.article.linkRs,
       url: this.props.article.linkRs,
-      title: ''
+      title: 'HLB T&M Consulting'
     }, {
       // Android only:
-      dialogTitle: 'HLB T&M Consulting',
+      dialogTitle: this.props.article.title[this.props.language],
       // iOS only:
       excludedActivityTypes: [
         'com.apple.UIKit.activity.PostToTwitter'

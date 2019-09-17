@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, FlatList, Image } from 'react-native';
+import { View, StyleSheet, FlatList, Image, Dimensions } from 'react-native';
 import OurClientsItem from './OurClientsItem.js';
 
 const imageList = [
@@ -147,6 +147,7 @@ export default OurClients;
 
 const styles = StyleSheet.create({
   container: {
+    width: Dimensions.get('window').width,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'

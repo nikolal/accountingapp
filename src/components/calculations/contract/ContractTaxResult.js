@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Dimensions, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Share } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
+import NumberFormat from 'react-number-format';
 
 class ContractTaxResult extends Component {
 
@@ -29,22 +30,26 @@ class ContractTaxResult extends Component {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Entered value</Text>
-                      <Text style={styles.numberInput}>
-                       {
-                         calculation.contractTax.value && calculation.contractTax.value
-                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                       }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.contractTax.value && calculation.contractTax.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View> :
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
-                      <Text style={styles.numberInput}>
-                       {
-                         calculation.contractTax.value && calculation.contractTax.value
-                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                       }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.contractTax.value && calculation.contractTax.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View>
                  }
@@ -62,12 +67,29 @@ class ContractTaxResult extends Component {
                     <Text style={styles.text}>Total expense (rsd)</Text> :
                     <Text style={styles.text}>Ukupan izdatak (rsd)</Text>
                 }
-
-              <View style={styles.numberContainerBlue}>
-                <Text
-                  style={styles.number}>{calculation.contractTax.gross.toLocaleString(localeString, { maximumFractionDigits: 2 })}
-                  </Text>
-                </View>
+                {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={calculation.contractTax.gross && calculation.contractTax.gross}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={calculation.contractTax.gross && calculation.contractTax.gross}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View>
+                  }
                   </View>
                 </View>
                 <TouchableOpacity style={styles.shareButton}

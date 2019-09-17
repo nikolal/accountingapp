@@ -32,10 +32,9 @@
     },
     "android": {
       "package": "rs.co.tmconsulting.hlbconsultingapp",
-      "versionCode": 2,
+      "versionCode": 3,
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyDMQM3KaOBXEhSBtnasQlsiEgY518VPYMU"
         }
       }
     },

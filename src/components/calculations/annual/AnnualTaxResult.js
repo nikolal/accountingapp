@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, ImageBackground, Dimensions, ScrollView, Share } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
+import NumberFormat from 'react-number-format';
 
 class AnnualTaxResult extends Component {
 
@@ -43,21 +44,26 @@ class AnnualTaxResult extends Component {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Entered value</Text>
-                      <Text style={styles.numberInput}>
-                        {
-                          calculation.annualTax.value && calculation.annualTax.value.toLocaleString(localeString, { maximumFractionDigits: 2 })
-                        }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.annualTax.value && calculation.annualTax.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View> :
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
-                      <Text style={styles.numberInput}>
-                       {
-                         calculation.annualTax.value && calculation.annualTax.value
-                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                       }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.annualTax.value && calculation.annualTax.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View>
                  }
@@ -75,10 +81,29 @@ class AnnualTaxResult extends Component {
                       <Text style={styles.text}>Annual net salary</Text> :
                       <Text style={styles.text}>Godišnja neto zarada</Text>
                   }
-                  <View style={styles.numberContainer}>
-                    <Text style={styles.numberFirst}>{calculation.annualTax.annual && calculation.annualTax.annual.toLocaleString(localeString, { maximumFractionDigits: 2 })}
-                    </Text>
-                  </View>
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.annualTax.annual && calculation.annualTax.annual}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.annualTax.annual && calculation.annualTax.annual}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
 
@@ -113,10 +138,29 @@ class AnnualTaxResult extends Component {
                       </View>
 
                   }
-                  <View style={styles.numberContainerBlue}>
-                    <Text style={styles.number}>{calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax.toLocaleString(localeString, { maximumFractionDigits: 2 })}
-                    </Text>
-                  </View>
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.annualTax.finnalAnnualTax && calculation.annualTax.finnalAnnualTax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
               <TouchableOpacity style={styles.shareButton}

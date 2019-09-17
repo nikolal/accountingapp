@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity, Share, ImageBackground, ScrollView } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
+import NumberFormat from 'react-number-format';
+
 
 class SalaryResultNet extends Component {
 
@@ -35,22 +37,26 @@ class SalaryResultNet extends Component {
                    this.props.language === 'en' ?
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Entered value</Text>
-                      <Text style={styles.numberInput}>
-                       {
-                         calculation.input && calculation.input
-                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                       }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.input && calculation.input}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View> :
                      <View style={styles.backgroundImageSmallTextContainer}>
                       <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
-                      <Text style={styles.numberInput}>
-                       {
-                         calculation.input && calculation.input
-                         .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                       }
-                      </Text>
+                      <NumberFormat
+                          value={calculation.input && calculation.input}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                        />
                       <Text style={styles.calculTextSmallText}> rsd</Text>
                      </View>
                  }
@@ -74,10 +80,29 @@ class SalaryResultNet extends Component {
                     </View>
 
                   }
-                  <View style={styles.numberContainerBlue}>
-                    <Text style={styles.numberFirst}>{calculation.netSalary.value && calculation.netSalary.value.toLocaleString(localeString, { maximumFractionDigits: 2 })}
-                    </Text>
-                  </View>
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={calculation.netSalary.value && calculation.netSalary.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberFirst}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={calculation.netSalary.value && calculation.netSalary.value}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.numberFirst}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
               <View style={styles.itemContainer}>
@@ -87,9 +112,29 @@ class SalaryResultNet extends Component {
                       <Text style={styles.text}>The value of tax</Text> :
                       <Text style={styles.text}>Porez na zarade</Text>
                   }
-                  <View style={styles.numberContainer}>
-                    <Text style={styles.number}>{calculation.grossSalary.tax && calculation.grossSalary.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-                  </View>
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.grossSalary.tax && calculation.grossSalary.tax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.grossSalary.tax && calculation.grossSalary.tax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
               <View style={styles.itemContainer}>
@@ -105,9 +150,29 @@ class SalaryResultNet extends Component {
                         <Text style={styles.text}>teret poslodavca</Text>
                       </View>
                   }
-                  <View style={styles.numberContainer}>
-                    <Text style={styles.number}>{calculation.totalEmployeeContribution && calculation.totalEmployeeContribution.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-                  </View>
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.totalEmployeeContribution && calculation.totalEmployeeContribution}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainer}>
+                        <NumberFormat
+                          value={calculation.totalEmployeeContribution && calculation.totalEmployeeContribution}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.number}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
               <View style={styles.itemContainer}>
@@ -123,9 +188,29 @@ class SalaryResultNet extends Component {
                       <Text style={styles.text}>teret zaposlenog</Text>
                     </View>
                 }
-                  <View style={styles.numberContainer}>
-                    <Text style={styles.number}>{calculation.totalEmployerContribution && calculation.totalEmployerContribution.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-                  </View>
+                {
+                  this.props.language === 'en' ?
+                    <View style={styles.numberContainer}>
+                      <NumberFormat
+                        value={calculation.totalEmployerContribution && calculation.totalEmployerContribution}
+                        displayType={'text'}
+                        decimalScale={2}
+                        decimalSeparator={'.'}
+                        thousandSeparator={','}
+                        renderText={value => <Text style={styles.number}>{value}</Text>}
+                      />
+                    </View> :
+                    <View style={styles.numberContainer}>
+                      <NumberFormat
+                        value={calculation.totalEmployerContribution && calculation.totalEmployerContribution}
+                        displayType={'text'}
+                        decimalScale={2}
+                        decimalSeparator={','}
+                        thousandSeparator={'.'}
+                        renderText={value => <Text style={styles.number}>{value}</Text>}
+                      />
+                    </View>
+                  }
                 </View>
               </View>
               <View style={styles.itemContainer}>
@@ -141,9 +226,29 @@ class SalaryResultNet extends Component {
                         <Text style={styles.text}>(ukupni trošak zarade)</Text>
                       </View>
                   }
-                  <View style={styles.numberContainerBlue}>
-                    <Text style={styles.number}>{calculation.totalNetSalaryCost && calculation.totalNetSalaryCost.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-                  </View>
+                  {
+                  this.props.language === 'en' ?
+                    <View style={styles.numberContainerBlue}>
+                      <NumberFormat
+                        value={calculation.totalNetSalaryCost && calculation.totalNetSalaryCost}
+                        displayType={'text'}
+                        decimalScale={2}
+                        decimalSeparator={'.'}
+                        thousandSeparator={','}
+                        renderText={value => <Text style={styles.number}>{value}</Text>}
+                      />
+                    </View> :
+                    <View style={styles.numberContainerBlue}>
+                      <NumberFormat
+                        value={calculation.totalNetSalaryCost && calculation.totalNetSalaryCost}
+                        displayType={'text'}
+                        decimalScale={2}
+                        decimalSeparator={','}
+                        thousandSeparator={'.'}
+                        renderText={value => <Text style={styles.number}>{value}</Text>}
+                      />
+                    </View>
+                  }
                 </View>
               </View>
               <TouchableOpacity style={styles.shareButton}

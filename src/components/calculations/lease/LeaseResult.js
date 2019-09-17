@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet, ImageBackground, ScrollView, Dimensions, Share } from 'react-native';
 import { metrics, colors, fonts, images } from '../../../theme';
+import NumberFormat from 'react-number-format';
 
 class LeaseResult extends Component {
 
@@ -27,22 +28,26 @@ class LeaseResult extends Component {
                  this.props.language === 'en' ?
                    <View style={styles.backgroundImageSmallTextContainer}>
                     <Text style={styles.calculTextSmallText}>Entered value</Text>
-                    <Text style={styles.numberInput}>
-                     {
-                       calculation.lease.value && calculation.lease.value
-                       .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                     }
-                    </Text>
+                    <NumberFormat
+                      value={calculation.lease.value && calculation.lease.value}
+                      displayType={'text'}
+                      decimalScale={2}
+                      decimalSeparator={'.'}
+                      thousandSeparator={','}
+                      renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                    />
                     <Text style={styles.calculTextSmallText}> rsd</Text>
                    </View> :
                    <View style={styles.backgroundImageSmallTextContainer}>
                     <Text style={styles.calculTextSmallText}>Zadata vrednost:</Text>
-                    <Text style={styles.numberInput}>
-                     {
-                       calculation.lease.value && calculation.lease.value
-                       .toLocaleString(localeString, { maximumFractionDigits: 2 })
-                     }
-                    </Text>
+                    <NumberFormat
+                      value={calculation.lease.value && calculation.lease.value}
+                      displayType={'text'}
+                      decimalScale={2}
+                      decimalSeparator={','}
+                      thousandSeparator={'.'}
+                      renderText={value => <Text style={styles.numberInput}>{value}</Text>}
+                    />
                     <Text style={styles.calculTextSmallText}> rsd</Text>
                    </View>
                }
@@ -60,9 +65,30 @@ class LeaseResult extends Component {
                       <Text style={styles.text}>Total tax costs</Text> :
                       <Text style={styles.text}>Ukupan izdatak za porez</Text>
                   }
-                  <View style={styles.numberContainerBlue}>
-                    <Text style={styles.numberFirst}>{this.props.calculation.lease.tax && this.props.calculation.lease.tax.toLocaleString(localeString, { maximumFractionDigits: 2 })}</Text>
-                  </View>
+
+                  {
+                    this.props.language === 'en' ?
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={this.props.calculation.lease.tax && this.props.calculation.lease.tax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={'.'}
+                          thousandSeparator={','}
+                          renderText={value => <Text style={styles.numberFirst}>{value}</Text>}
+                        />
+                      </View> :
+                      <View style={styles.numberContainerBlue}>
+                        <NumberFormat
+                          value={this.props.calculation.lease.tax && this.props.calculation.lease.tax}
+                          displayType={'text'}
+                          decimalScale={2}
+                          decimalSeparator={','}
+                          thousandSeparator={'.'}
+                          renderText={value => <Text style={styles.numberFirst}>{value}</Text>}
+                        />
+                      </View>
+                  }
                 </View>
               </View>
               <TouchableOpacity style={styles.shareButton}

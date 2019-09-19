@@ -32,7 +32,7 @@
     },
     "android": {
       "package": "rs.co.tmconsulting.hlbconsultingapp",
-      "versionCode": 3,
+      "versionCode": 4,
       "config": {
         "googleMaps": {
         }

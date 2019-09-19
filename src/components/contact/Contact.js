@@ -22,6 +22,7 @@ class Contact extends Component {
   render(){
     return (
       <View style={styles.container}>
+        <View>
         <MapView
           style={styles.googleMapContainer}
           initialRegion={{
@@ -37,6 +38,8 @@ class Contact extends Component {
             // description={marker.descriptio}
           />
         </MapView>
+        </View>
+
         <View style={styles.body}>
           <Text style={styles.title}>HLB T&M Consulting doo</Text>
           {
